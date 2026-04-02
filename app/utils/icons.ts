@@ -25,5 +25,17 @@ export { FaLinkedin } from "react-icons/fa";
 
 export { FiMail } from "react-icons/fi";
 
-
-
+// Tabler Icons — used in service page redesigns
+export { TbBuildingSkyscraper } from "react-icons/tb";
+export { TbUsers } from "react-icons/tb";
+export { TbStar } from "react-icons/tb";
+export { TbCheck } from "react-icons/tb";
+export { TbUserCheck } from "react-icons/tb";
+export { TbClipboardList } from "react-icons/tb";
+export { TbRocket } from "react-icons/tb";
+export { TbTrendingUp } from "react-icons/tb";
+export { TbLogout } from "react-icons/tb";
+export { TbCloud } from "react-icons/tb";
+export { TbRobot } from "react-icons/tb";
+export { TbPlugConnected } from "react-icons/tb";
+export { TbShield } from "react-icons/tb";

@@ -4,8 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { corporateServicePageTranslations } from "@/app/utils/pageCorporateServiceUtils";
-import { learnMoreTranslations, statStripTranslations, ctaTranslations } from "@/app/utils/pageUtils";
+import { learnMoreTranslations } from "@/app/utils/pageUtils";
 import InsightCards from "@/app/components/InsightCards";
+import ServiceCTA from "@/app/components/ServiceCTA";
+import ServiceBadge from "@/app/components/ServiceBadge";
+import SectionReveal from "@/app/components/SectionReveal";
+import HeroAccentLine from "@/app/components/HeroAccentLine";
+import { ServiceAccentProvider } from "@/app/contexts/ServiceAccentContext";
 import * as Icons from "@/app/utils/icons";
 
 export default function CorporateServicePage() {
@@ -31,77 +36,75 @@ export default function CorporateServicePage() {
   const digitalisationDescription = language === "KOR" ? t.digitalisationDescription.ko : t.digitalisationDescription.en;
 
   return (
-    <div className="min-h-screen bg-white">
+    <ServiceAccentProvider serviceType="corporate">
+      <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 relative overflow-hidden min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[60vh]">
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-          <iframe src="https://player.vimeo.com/video/1177226238?autoplay=1&loop=1&muted=1&background=1" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full h-full min-w-full min-h-full" style={{ width: "max(100%, 177.78vh)", minWidth: "100%", height: "max(100%, 56.25vw)", minHeight: "100%" }} title="Corporate services background" allow="autoplay; fullscreen; picture-in-picture" />
+          <iframe src="https://player.vimeo.com/video/1160078682?autoplay=1&loop=1&muted=1&background=1" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full h-full min-w-full min-h-full" style={{ width: "max(100%, 177.78vh)", minWidth: "100%", height: "max(100%, 56.25vw)", minHeight: "100%" }} title="Corporate services background" allow="autoplay; fullscreen; picture-in-picture" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 z-[1]" />
+        <ServiceBadge />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 flex flex-col items-center justify-center text-center pb-0 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[60vh]">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[96px] font-light text-white mb-2 sm:mb-2.5 md:mb-3 leading-tight text-center w-full">
             {heroTitle}
           </h2>
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center">
+          <HeroAccentLine color="#627F38" />
+          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
       </section>
 
-      {/* Stat Strip */}
-      <section className="w-full bg-[#495F2B] py-3 sm:py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.yearsValue.ko : statStripTranslations.yearsValue.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.yearsLabel.ko : statStripTranslations.yearsLabel.en}</span>
-            </div>
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.clientsValue.ko : statStripTranslations.clientsValue.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.clientsLabel.ko : statStripTranslations.clientsLabel.en}</span>
-            </div>
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.hkValue.ko : statStripTranslations.hkValue.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.hkLabel.ko : statStripTranslations.hkLabel.en}</span>
-            </div>
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.big4Value.ko : statStripTranslations.big4Value.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.big4Label.ko : statStripTranslations.big4Label.en}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Intro */}
-      <section className="w-full pt-12 pb-4 sm:pt-14 sm:pb-5 md:pt-20 md:pb-6 lg:pt-24 lg:pb-6 xl:pt-30 xl:pb-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
-          <span className="text-base lg:text-lg text-[#111B12]">
-            {corporateServicesIntro}
-          </span>
-        </div>
-      </section>
+      <SectionReveal>
+        <section className="w-full pt-12 pb-4 sm:pt-14 sm:pb-5 md:pt-20 md:pb-6 lg:pt-24 lg:pb-6 xl:pt-30 xl:pb-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
+            <span className="text-base lg:text-lg text-[#111B12]">
+              {corporateServicesIntro}
+            </span>
+          </div>
+        </section>
+      </SectionReveal>
 
-      {/* Two-column: What Is + Key Responsibilities */}
-      <section className="w-full pt-4 pb-12 sm:pt-5 sm:pb-14 md:pt-6 md:pb-20 lg:pt-6 lg:pb-24 xl:pt-6 xl:pb-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
+      {/* Company Secretary Info - Cream background with two panels */}
+      <SectionReveal delay={100}>
+      <section className="w-full pt-12 pb-12 sm:pt-14 sm:pb-14 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 xl:pt-30 xl:pb-30 bg-[#F5F3E8] relative overflow-hidden">
+        {/* Decorative SVG Background - Top Right */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] lg:w-[600px] lg:h-[600px] pointer-events-none" style={{ opacity: 0.12 }}>
+          <Image
+            src="/services/cs1.svg"
+            alt=""
+            width={600}
+            height={600}
+            className="w-full h-full object-contain"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
+            {/* What Is Panel */}
             <div className="flex flex-col">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12] mb-4 md:mb-5 lg:mb-6">
-                {section1Title}
-              </h3>
-              <ul className="flex flex-col gap-3 md:gap-4">
+              <div className="flex items-center gap-2 mb-6 md:mb-8 lg:mb-10 border-l-4 border-[#627F38] pl-4">
+                <Icons.TbUserCheck className="w-6 h-6 text-[#627F38] flex-shrink-0" aria-hidden />
+                <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12]">
+                  {section1Title}
+                </h3>
+              </div>
+              <ul className="flex flex-col gap-4 md:gap-5">
                 {section1Items.map((item, i) => {
                   const colonIdx = item.indexOf(":");
                   const label = colonIdx >= 0 ? item.slice(0, colonIdx + 1) : "";
                   const rest = colonIdx >= 0 ? item.slice(colonIdx + 1).trimStart() : item;
                   return (
-                    <li key={i} className="flex gap-2 leading-relaxed">
-                      <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
+                    <li key={i} className="flex gap-3 leading-relaxed p-3 bg-white/40 rounded-lg hover:bg-white/70 transition-colors duration-300">
+                      <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
                       <span className="flex flex-col text-base text-[#111B12]">
                         {label ? (
                           <>
                             <strong className="font-bold">{label}</strong>
-                            <span className="font-normal">{rest}</span>
+                            <span className="font-normal text-sm">{rest}</span>
                           </>
                         ) : (
                           item
@@ -112,23 +115,27 @@ export default function CorporateServicePage() {
                 })}
               </ul>
             </div>
+            {/* Key Responsibilities Panel */}
             <div className="flex flex-col">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12] mb-4 md:mb-5 lg:mb-6">
-                {section2Title}
-              </h3>
-              <ul className="flex flex-col gap-3 md:gap-4">
+              <div className="flex items-center gap-2 mb-6 md:mb-8 lg:mb-10 border-l-4 border-[#627F38] pl-4">
+                <Icons.TbClipboardList className="w-6 h-6 text-[#627F38] flex-shrink-0" aria-hidden />
+                <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12]">
+                  {section2Title}
+                </h3>
+              </div>
+              <ul className="flex flex-col gap-4 md:gap-5">
                 {section2Items.map((item, i) => {
                   const colonIdx = item.indexOf(":");
                   const label = colonIdx >= 0 ? item.slice(0, colonIdx + 1) : "";
                   const rest = colonIdx >= 0 ? item.slice(colonIdx + 1).trimStart() : item;
                   return (
-                    <li key={i} className="flex gap-2 leading-relaxed">
-                      <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
+                    <li key={i} className="flex gap-3 leading-relaxed p-3 bg-white/40 rounded-lg hover:bg-white/70 transition-colors duration-300">
+                      <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
                       <span className="flex flex-col text-base text-[#111B12]">
                         {label ? (
                           <>
                             <strong className="font-bold">{label}</strong>
-                            <span className="font-normal">{rest}</span>
+                            <span className="font-normal text-sm">{rest}</span>
                           </>
                         ) : (
                           item
@@ -142,73 +149,173 @@ export default function CorporateServicePage() {
           </div>
         </div>
       </section>
+      </SectionReveal>
 
-      {/* Start-up / In Business / Exit — 3 col over SVG bg */}
-      <section className="w-full py-6 sm:py-8 md:py-10 lg:py-12 xl:py-[12rem] relative overflow-hidden">
-        <div className="absolute inset-0 w-full h-full z-0">
-          <Image src="/services/cs1.svg" alt="" fill className="object-cover" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-            <div className="flex flex-col">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12] mb-4 md:mb-5 lg:mb-6">
-                {startUpTitle}
-              </h3>
-              <span className="block text-base text-[#111B12] text-justify mb-4 md:mb-5 lg:mb-6">
-                {startUpDescription}
-              </span>
-              <ul className="flex flex-col gap-3 md:gap-4">
-                {startUpItems.map((item, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                    <span className="block text-base text-[#111B12]/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12] mb-4 md:mb-5 lg:mb-6">
-                {inBusinessTitle}
-              </h3>
-              <span className="block text-base text-[#111B12] text-justify mb-4 md:mb-5 lg:mb-6">
-                {inBusinessDescription}
-              </span>
-              <ul className="flex flex-col gap-3 md:gap-4">
-                {inBusinessItems.map((item, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                    <span className="block text-base text-[#111B12]/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12] mb-4 md:mb-5 lg:mb-6">
-                {exitTitle}
-              </h3>
-              <span className="block text-base text-[#111B12] text-justify mb-4 md:mb-5 lg:mb-6">
-                {exitDescription}
-              </span>
-              <ul className="flex flex-col gap-3 md:gap-4">
-                {exitItems.map((item, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                    <span className="block text-base text-[#111B12]/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
+      {/* Business Lifecycle Timeline - Vertical */}
+      <SectionReveal delay={200}>
+      <section className="w-full py-12 sm:py-14 md:py-20 lg:py-24 xl:py-30 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
+          {/* Timeline Container */}
+          <div className="relative">
+            {/* Vertical Timeline Line - Hidden on mobile, visible on md+ */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-[#627F38] transform -translate-x-1/2" />
+
+            {/* Timeline Stages */}
+            <div className="space-y-8 md:space-y-12 lg:space-y-16">
+              {/* Stage 1: Start Up */}
+              <div className="relative">
+                {/* Timeline Dot */}
+                <div className="hidden md:flex absolute left-1/2 top-8 w-14 h-14 -translate-x-1/2 items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-[#627F38] flex items-center justify-center hover:ring-4 hover:ring-[#9FD74F]/30 transition-all duration-300">
+                    <span className="text-base font-bold text-[#627F38]">01</span>
+                  </div>
+                </div>
+
+                {/* Mobile Timeline Indicator */}
+                <div className="md:hidden flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#627F38] flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-white">01</span>
+                  </div>
+                </div>
+
+                {/* Content Card */}
+                <div className="md:w-1/2 md:pr-12">
+                  <div className="bg-white border border-[#627F38]/30 rounded-lg p-6 md:p-8 hover:border-[#627F38] hover:shadow-lg transition-all duration-300" style={{ backgroundColor: 'rgba(159, 215, 79, 0.05)' }}>
+                    <div className="flex items-start gap-3 mb-3 md:mb-4">
+                      <Icons.TbRocket className="w-6 h-6 text-[#627F38] flex-shrink-0 mt-1" aria-hidden />
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-[#111B12]">
+                        {startUpTitle}
+                      </h3>
+                    </div>
+                    <p className="text-base text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
+                      {startUpDescription}
+                    </p>
+                    <ul className="flex flex-col gap-2 md:gap-3">
+                      {startUpItems.map((item, i) => (
+                        <li key={i} className="flex gap-2">
+                          <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
+                          <span className="block text-base text-[#111B12]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stage 2: In Business */}
+              <div className="relative">
+                {/* Timeline Dot */}
+                <div className="hidden md:flex absolute left-1/2 top-8 w-14 h-14 -translate-x-1/2 items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-[#627F38] flex items-center justify-center hover:ring-4 hover:ring-[#9FD74F]/30 transition-all duration-300">
+                    <span className="text-base font-bold text-[#627F38]">02</span>
+                  </div>
+                </div>
+
+                {/* Mobile Timeline Indicator */}
+                <div className="md:hidden flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#627F38] flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-white">02</span>
+                  </div>
+                </div>
+
+                {/* Content Card - Larger for middle stage */}
+                <div className="md:w-1/2 md:ml-auto md:pl-12">
+                  <div className="bg-white border border-[#627F38]/30 rounded-lg p-6 md:p-8 lg:p-10 hover:border-[#627F38] hover:shadow-lg transition-all duration-300" style={{ backgroundColor: '#F5F3E8' }}>
+                    <div className="flex items-start gap-3 mb-3 md:mb-4">
+                      <Icons.TbTrendingUp className="w-6 h-6 text-[#627F38] flex-shrink-0 mt-1" aria-hidden />
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-[#111B12]">
+                        {inBusinessTitle}
+                      </h3>
+                    </div>
+                    <p className="text-base text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
+                      {inBusinessDescription}
+                    </p>
+                    <ul className="flex flex-col gap-2 md:gap-3">
+                      {inBusinessItems.map((item, i) => (
+                        <li key={i} className="flex gap-2">
+                          <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#627F38] mt-0" aria-hidden />
+                          <span className="block text-base text-[#111B12]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stage 3: Exit */}
+              <div className="relative">
+                {/* Timeline Dot */}
+                <div className="hidden md:flex absolute left-1/2 top-8 w-14 h-14 -translate-x-1/2 items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-[#627F38] flex items-center justify-center hover:ring-4 hover:ring-[#9FD74F]/30 transition-all duration-300">
+                    <span className="text-base font-bold text-[#627F38]">03</span>
+                  </div>
+                </div>
+
+                {/* Mobile Timeline Indicator */}
+                <div className="md:hidden flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#627F38] flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-white">03</span>
+                  </div>
+                </div>
+
+                {/* Content Card */}
+                <div className="md:w-1/2 md:pr-12">
+                  <div className="bg-white border border-[#627F38]/30 rounded-lg p-6 md:p-8 hover:border-[#627F38] hover:shadow-lg transition-all duration-300" style={{ backgroundColor: 'rgba(240, 238, 226, 0.5)' }}>
+                    <div className="flex items-start gap-3 mb-3 md:mb-4">
+                      <Icons.TbLogout className="w-6 h-6 text-[#627F38] flex-shrink-0 mt-1" aria-hidden />
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-[#111B12]">
+                        {exitTitle}
+                      </h3>
+                    </div>
+                    <p className="text-base text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
+                      {exitDescription}
+                    </p>
+                    <ul className="flex flex-col gap-2 md:gap-3">
+                      {exitItems.map((item, i) => (
+                        <li key={i} className="flex gap-2">
+                          <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
+                          <span className="block text-base text-[#111B12]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      </SectionReveal>
 
       {/* Digitalisation */}
-      <section className="w-full pt-12 pb-4 sm:pt-14 sm:pb-5 md:pt-20 md:pb-6 lg:pt-24 lg:pb-6 xl:pt-30 xl:pb-6">
+      <SectionReveal delay={300}>
+      <section className="w-full pt-12 pb-12 sm:pt-14 sm:pb-14 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 xl:pt-30 xl:pb-30 bg-[#F5F3E8] border-t border-[#627F38]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[#111B12] mb-4 md:mb-5 lg:mb-6">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[#111B12] mb-6 md:mb-8 lg:mb-10">
             {digitalisationTitle}
           </h3>
-          <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
+
+          {/* Icon Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Icons.TbCloud className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
+              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Cloud</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Icons.TbRobot className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
+              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Automation</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Icons.TbPlugConnected className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
+              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Integration</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <Icons.TbShield className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
+              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Security</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-5 md:gap-6 lg:gap-7">
             {digitalisationDescription.split("<br><br>").map((paragraph, i) => (
               <span key={i} className="block text-base text-[#111B12] text-justify">
                 {paragraph}
@@ -217,16 +324,11 @@ export default function CorporateServicePage() {
           </div>
         </div>
       </section>
+      </SectionReveal>
 
       {/* CTA */}
       <div className="h-12 sm:h-16 md:h-20 lg:h-24 bg-white" />
-      <section className="w-full bg-[#495F2B] py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-4">{language === "KOR" ? ctaTranslations.heading.ko : ctaTranslations.heading.en}</h2>
-          <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto mb-8">{language === "KOR" ? ctaTranslations.description.ko : ctaTranslations.description.en}</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-white text-[#495F2B] font-semibold px-8 py-3 rounded-full hover:bg-[#F5F3E8] transition-colors duration-300">{language === "KOR" ? ctaTranslations.button.ko : ctaTranslations.button.en}</a>
-        </div>
-      </section>
+      <ServiceCTA serviceType="corporate" />
 
       {/* Insights */}
       <section className="w-full py-8 sm:py-10 md:py-12 lg:py-16 xl:py-[7.5rem] relative z-10 bg-white">
@@ -238,5 +340,6 @@ export default function CorporateServicePage() {
         </div>
       </section>
     </div>
+    </ServiceAccentProvider>
   );
 }

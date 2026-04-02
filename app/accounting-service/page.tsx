@@ -3,8 +3,13 @@
 import Link from "next/link";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { accountingServicePageTranslations } from "@/app/utils/pageAccountingServiceUtils";
-import { learnMoreTranslations, statStripTranslations, ctaTranslations } from "@/app/utils/pageUtils";
+import { learnMoreTranslations } from "@/app/utils/pageUtils";
 import InsightCards from "@/app/components/InsightCards";
+import ServiceCTA from "@/app/components/ServiceCTA";
+import ServiceBadge from "@/app/components/ServiceBadge";
+import SectionReveal from "@/app/components/SectionReveal";
+import HeroAccentLine from "@/app/components/HeroAccentLine";
+import { ServiceAccentProvider } from "@/app/contexts/ServiceAccentContext";
 import * as Icons from "@/app/utils/icons";
 
 export default function AccountingServicePage() {
@@ -24,136 +29,170 @@ export default function AccountingServicePage() {
   const privateaccountingItems = language === "KOR" ? t.privateaccountingItems.ko : t.privateaccountingItems.en;
 
   return (
-    <div className="min-h-screen bg-white">
+    <ServiceAccentProvider serviceType="accounting">
+      <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 relative overflow-hidden min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[60vh]">
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-          <iframe src="https://player.vimeo.com/video/1177226362?autoplay=1&loop=1&muted=1&background=1" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full h-full min-w-full min-h-full" style={{ width: "max(100%, 177.78vh)", minWidth: "100%", height: "max(100%, 56.25vw)", minHeight: "100%" }} title="Accounting services background" allow="autoplay; fullscreen; picture-in-picture" />
+          <iframe src="https://player.vimeo.com/video/1160084875?autoplay=1&loop=1&muted=1&background=1" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full h-full min-w-full min-h-full" style={{ width: "max(100%, 177.78vh)", minWidth: "100%", height: "max(100%, 56.25vw)", minHeight: "100%" }} title="Accounting services background" allow="autoplay; fullscreen; picture-in-picture" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 z-[1]" />
+        <ServiceBadge />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 flex flex-col items-center justify-center text-center pb-0 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[60vh]">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[96px] font-light text-[#FFFFFF] mb-2 sm:mb-2.5 md:mb-3 leading-tight text-center w-full">
             {heroTitle}
           </h2>
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center">
+          <HeroAccentLine color="#627F38" />
+          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
       </section>
 
-      {/* Stat Strip */}
-      <section className="w-full bg-[#495F2B] py-3 sm:py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.yearsValue.ko : statStripTranslations.yearsValue.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.yearsLabel.ko : statStripTranslations.yearsLabel.en}</span>
-            </div>
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.clientsValue.ko : statStripTranslations.clientsValue.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.clientsLabel.ko : statStripTranslations.clientsLabel.en}</span>
-            </div>
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.hkValue.ko : statStripTranslations.hkValue.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.hkLabel.ko : statStripTranslations.hkLabel.en}</span>
-            </div>
-            <div>
-              <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-white">{language === "KOR" ? statStripTranslations.big4Value.ko : statStripTranslations.big4Value.en}</span>
-              <span className="block text-sm md:text-base text-white/70 mt-1">{language === "KOR" ? statStripTranslations.big4Label.ko : statStripTranslations.big4Label.en}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Intro */}
-      <section className="w-full pt-12 pb-4 sm:pt-14 sm:pb-5 md:pt-20 md:pb-6 lg:pt-24 lg:pb-6 xl:pt-30 xl:pb-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
-          <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
-            {accountingServiceIntro.split("<br><br>").map((paragraph, i) => (
-              <span key={i} className="block text-base lg:text-lg text-[#111B12] text-justify">
-                {paragraph}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bookkeeping */}
-      <section className="w-full grid grid-cols-1 lg:grid-cols-2 items-center bg-white pt-6 sm:pt-8 lg:pt-16 xl:pt-30">
-        <div className="w-full min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-cover bg-center bg-no-repeat py-16 md:py-24 lg:py-0" style={{ backgroundImage: "url(/services/b1.svg)" }} role="img" aria-label="Bookkeeping" />
-        <div className="flex flex-col justify-center py-6 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-5 md:px-6 lg:px-8">
-          <div className="max-w-xl">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#000000] mb-4 md:mb-5 lg:mb-6">
-              {bookkeepingTitle}
-            </h3>
-            <span className="block text-base text-[#111B12] text-justify mb-4 md:mb-5 lg:mb-6">
-              {bookkeepingDescription}
-            </span>
-            <ul className="flex flex-col gap-3 md:gap-4">
-              {bookkeepingItems.map((item, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                  <span className="block text-base text-[#111B12]">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Accounting */}
-      <section className="w-full grid grid-cols-1 lg:grid-cols-2 items-center bg-white">
-        <div className="flex flex-col justify-center py-6 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-5 md:px-6 lg:px-8 order-1 lg:order-1">
-          <div className="max-w-xl lg:ml-auto">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#000000] mb-4 md:mb-5 lg:mb-6">
-              {accountingSectionTitle}
-            </h3>
-            <span className="block text-base text-[#111B12] text-justify mb-4 md:mb-5 lg:mb-6">
-              {accountingSectionDescription}
-            </span>
-            <ul className="flex flex-col gap-3 md:gap-4">
-              {accountingSectionItems.map((item, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                  <span className="block text-base text-[#111B12]">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="w-full min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-cover bg-center bg-no-repeat order-2 lg:order-2 py-16 md:py-24 lg:py-0" style={{ backgroundImage: "url(/services/a1.svg)" }} role="img" aria-label="Accounting" />
-      </section>
-
-      {/* Private Accounting */}
-      <section className="w-full bg-[#F5F3E8] py-12 sm:py-16 md:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-medium text-[#111B12] mb-4 md:mb-5 lg:mb-6">
-              {privateaccountingTitle}
-            </h3>
-            <span className="block text-base text-[#111B12] text-justify mb-6 md:mb-8">
-              {privateaccountingDescription}
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-              {privateaccountingItems.map((item, i) => (
-                <div key={i} className="flex gap-2">
-                  <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                  <span className="block text-base text-[#111B12]">{item}</span>
-                </div>
+      <SectionReveal>
+        <section className="w-full pt-12 pb-4 sm:pt-14 sm:pb-5 md:pt-20 md:pb-6 lg:pt-24 lg:pb-6 xl:pt-30 xl:pb-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
+            <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
+              {accountingServiceIntro.split("<br><br>").map((paragraph, i) => (
+                <span key={i} className="block text-base lg:text-lg text-[#111B12] text-justify">
+                  {paragraph}
+                </span>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </SectionReveal>
+
+      {/* Unified Service Cards Grid - All Three Services */}
+      <SectionReveal>
+        <section className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
+            {/* 3-Column Card Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+              {/* Bookkeeping Card */}
+              <SectionReveal delay={0}>
+                <div className="flex flex-col h-full bg-white border border-[#111B12]/10 rounded-lg overflow-hidden hover:border-[#627F38]/50 hover:shadow-lg transition-all duration-300">
+                  {/* Image Section */}
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
+                    <img src="/services/b1.svg" alt="" aria-hidden="true" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-[#495F2B]/0 hover:bg-[#495F2B]/40 transition-colors duration-300" />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="flex flex-col gap-3 md:gap-4 p-5 md:p-6 lg:p-7 flex-grow">
+                    <h3 className="text-xl md:text-2xl font-semibold text-[#111B12] transition-colors duration-300 group-hover:text-[#627F38]">
+                      {bookkeepingTitle}
+                    </h3>
+                    <p className="text-base text-[#111B12] leading-relaxed text-justify">
+                      {bookkeepingDescription}
+                    </p>
+
+                    {/* Icon Feature Grid */}
+                    <div className="pt-2 mt-auto">
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Bank Feeds</span>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Invoices</span>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Expenses</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SectionReveal>
+
+              {/* Accounting Card */}
+              <SectionReveal delay={100}>
+                <div className="flex flex-col h-full bg-white border border-[#111B12]/10 rounded-lg overflow-hidden hover:border-[#627F38]/50 hover:shadow-lg transition-all duration-300">
+                  {/* Image Section */}
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
+                    <img src="/services/a1.svg" alt="" aria-hidden="true" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-[#495F2B]/0 hover:bg-[#495F2B]/40 transition-colors duration-300" />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="flex flex-col gap-3 md:gap-4 p-5 md:p-6 lg:p-7 flex-grow">
+                    <h3 className="text-xl md:text-2xl font-semibold text-[#111B12] transition-colors duration-300">
+                      {accountingSectionTitle}
+                    </h3>
+                    <p className="text-base text-[#111B12] leading-relaxed text-justify">
+                      {accountingSectionDescription}
+                    </p>
+
+                    {/* Icon Feature Grid */}
+                    <div className="pt-2 mt-auto">
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Reports</span>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Tax Prep</span>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Analysis</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SectionReveal>
+
+              {/* Private Accounting Card */}
+              <SectionReveal delay={200}>
+                <div className="flex flex-col h-full bg-white border border-[#111B12]/10 rounded-lg overflow-hidden hover:border-[#627F38]/50 hover:shadow-lg transition-all duration-300">
+                  {/* Image Section */}
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="" aria-hidden="true" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-[#495F2B]/0 hover:bg-[#495F2B]/40 transition-colors duration-300" />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="flex flex-col gap-3 md:gap-4 p-5 md:p-6 lg:p-7 flex-grow">
+                    <h3 className="text-xl md:text-2xl font-semibold text-[#111B12] transition-colors duration-300">
+                      {privateaccountingTitle}
+                    </h3>
+                    <p className="text-base text-[#111B12] leading-relaxed text-justify">
+                      {privateaccountingDescription}
+                    </p>
+
+                    {/* Icon Feature Grid */}
+                    <div className="pt-2 mt-auto">
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Personal</span>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Strategy</span>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
+                          <span className="text-xs text-[#111B12]/70">Growth</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SectionReveal>
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
 
       {/* CTA */}
-      <section className="w-full bg-[#495F2B] py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-4">{language === "KOR" ? ctaTranslations.heading.ko : ctaTranslations.heading.en}</h2>
-          <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto mb-8">{language === "KOR" ? ctaTranslations.description.ko : ctaTranslations.description.en}</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-white text-[#495F2B] font-semibold px-8 py-3 rounded-full hover:bg-[#F5F3E8] transition-colors duration-300">{language === "KOR" ? ctaTranslations.button.ko : ctaTranslations.button.en}</a>
-        </div>
-      </section>
+      <ServiceCTA serviceType="accounting" />
 
       {/* Insights */}
       <section className="w-full py-8 sm:py-10 md:py-12 lg:py-16 xl:py-[7.5rem] relative z-10 bg-white">
@@ -165,5 +204,6 @@ export default function AccountingServicePage() {
         </div>
       </section>
     </div>
+    </ServiceAccentProvider>
   );
 }
