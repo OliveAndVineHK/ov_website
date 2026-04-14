@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { footerTranslations, questionsTranslations } from "@/app/utils/pageUtils";
 import * as Icons from "@/app/utils/icons";
+import { createBgStyle } from "@/app/utils/styleUtils";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -14,16 +16,18 @@ export default function Footer() {
   const isSubscribePage = pathname === "/subscribe";
   const showQuestionsSection = !isContactPage && !isSubscribePage;
 
-  const toggleLanguage = () => {
-    setLanguage(language === "KOR" ? "ENG" : "KOR");
+  const [formData, setFormData] = useState({ name: "", contactNumber: "", email: "", title: "", message: "" });
+  const updateField = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const handleFooterSubmit = () => {
+    if (!formData.name.trim() || !formData.email.trim()) return;
+    // TODO: API 연동 — POST /api/questions
+    console.info("[Footer] Form submitted:", formData);
   };
 
-  const questionsBackgroundStyle = {
-    backgroundImage: 'url(/home/questions-bg.svg)',
-    backgroundRepeat: 'no-repeat' as const,
-    backgroundSize: 'cover' as const,
-    backgroundPosition: 'center' as const,
-  };
+  const toggleLanguage = () => setLanguage(language === "KOR" ? "ENG" : "KOR");
+  const questionsBackgroundStyle = createBgStyle("/home/questions-bg.svg");
 
   return (
     <>
@@ -37,32 +41,32 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1">
                 <label htmlFor="name" className="block text-sm text-white/70 mb-1">{language === "KOR" ? questionsTranslations.form.name.ko : questionsTranslations.form.name.en}</label>
-                <input type="text" id="name" className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2"placeholder=""/>
+                <input type="text" id="name" value={formData.name} onChange={updateField("name")} className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2" />
               </div>
               <div className="flex-1">
                 <label htmlFor="contact-number" className="block text-sm text-white/70 mb-1">{language === "KOR" ? questionsTranslations.form.contactNumber.ko : questionsTranslations.form.contactNumber.en}</label>
-                <input type="tel" id="contact-number" className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2" placeholder=""/>
+                <input type="tel" id="contact-number" value={formData.contactNumber} onChange={updateField("contactNumber")} className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2" />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1">
                 <label htmlFor="email" className="block text-sm text-white/70 mb-1">{language === "KOR" ? questionsTranslations.form.email.ko : questionsTranslations.form.email.en}</label>
-                <input type="email" id="email" className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2"placeholder=""/>
+                <input type="email" id="email" value={formData.email} onChange={updateField("email")} className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2" />
               </div>
               <div className="flex-1">
                 <label htmlFor="title" className="block text-sm text-white/70 mb-1">{language === "KOR" ? questionsTranslations.form.title.ko : questionsTranslations.form.title.en}</label>
-                <input type="text" id="title" className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2" placeholder=""/>
+                <input type="text" id="title" value={formData.title} onChange={updateField("title")} className="w-full bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2" />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row">
               <div className="flex-1">
                 <label htmlFor="message" className="block text-sm text-white/70 mb-1">{language === "KOR" ? questionsTranslations.form.message.ko : questionsTranslations.form.message.en}</label>
-                <textarea id="message" className="w-full min-h-[100px] sm:min-h-[120px] bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2 resize-y" placeholder=""/>
+                <textarea id="message" value={formData.message} onChange={updateField("message")} className="w-full min-h-[100px] sm:min-h-[120px] bg-transparent border-b border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white pb-2 resize-y" />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-start mt-4">
               <div className="w-full sm:w-auto">
-                <button className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] text-[#111B12]/70 leading-relaxed bg-white px-5 py-1.5 hover:bg-[#495F2B] hover:border-[#627F38] hover:text-white transition-all duration-300 cursor-pointer shrink-0">
+                <button type="button" onClick={handleFooterSubmit} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] text-[#111B12]/70 leading-relaxed bg-white px-5 py-1.5 hover:bg-[#495F2B] hover:border-[#627F38] hover:text-white transition-all duration-300 cursor-pointer shrink-0">
                   {language === "KOR" ? questionsTranslations.button.ko : questionsTranslations.button.en}
                   <Icons.CgArrowTopRight className="size-4" aria-hidden />
                 </button>
@@ -72,7 +76,7 @@ export default function Footer() {
         </div>
       </section>
       )}
-      <section className="w-full pt-8 pb-6 sm:pt-12 sm:pb-6 md:pt-20 md:pb-6 lg:pt-28 lg:pb-6 bg-[#282A28]">
+      <section data-footer className="w-full pt-8 pb-6 sm:pt-12 sm:pb-6 md:pt-20 md:pb-6 lg:pt-28 lg:pb-6 bg-[#282A28]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12">
         <div className="w-full md:w-1/2 flex flex-col">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 lg:gap-12">

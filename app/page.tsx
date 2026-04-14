@@ -9,6 +9,8 @@ import AnimatedHeadline from "@/app/components/AnimatedHeadline";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { aboutUsTranslations, integrityTranslations, portfolioTranslations, learnMoreTranslations, complianceTranslations, heroWords, portfolioCardTranslations, servicesTranslations } from "@/app/utils/pageUtils";
 import * as Icons from "@/app/utils/icons";
+import { createBgStyle } from "@/app/utils/styleUtils";
+
 const TYPING_SPEED = 100;
 const DELETING_SPEED = 50;
 const PAUSE_DURATION = 2000;
@@ -59,25 +61,9 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [handleTyping, typingSpeed]);
 
-  const heroBackgroundStyle = {
-    backgroundImage: 'url(/home/home-bg.png)',
-    backgroundRepeat: 'no-repeat' as const,
-    backgroundPosition: 'center' as const,
-  };
-
-  const aboutBackgroundStyle = {
-    backgroundImage: 'url(/home/about-us.png)',
-    backgroundRepeat: 'no-repeat' as const,
-    backgroundSize: 'cover' as const,
-    backgroundPosition: 'center' as const,
-  };
-
-  const integrityBackgroundStyle = {
-    backgroundImage: 'url(/home/integrity.png)',
-    backgroundRepeat: 'no-repeat' as const,
-    backgroundSize: 'cover' as const,
-    backgroundPosition: 'center' as const,
-  };
+  const heroBackgroundStyle = createBgStyle("/home/home-bg.png", { size: "contain" });
+  const aboutBackgroundStyle = createBgStyle("/home/about-us.png");
+  const integrityBackgroundStyle = createBgStyle("/home/integrity.png");
 
   return (
     <div className="min-h-screen bg-white">
@@ -139,58 +125,32 @@ export default function Home() {
               </span>
             ))}
           </h2>
-          <div className="w-full grid grid-cols-1 md:grid-cols-[7fr_8fr] gap-6 mt-8">
-            <div className="w-full min-h-64 md:h-100 relative overflow-hidden flex flex-col justify-end p-4 sm:p-5 md:p-6 cursor-pointer group">
-              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110" style={{backgroundImage: 'url(/home/business-growth.svg)',}}></div>
-              <div className="relative z-10 min-h-0 flex items-end shrink-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-[36px] text-white leading-tight break-words">
-                  {language === "KOR" ? portfolioCardTranslations.startups.title.ko : portfolioCardTranslations.startups.title.en}
-                </h3>
-              </div>
-              <p className="relative z-10 text-sm sm:text-base md:text-lg lg:text-[16px] font-light text-white leading-relaxed mt-3 md:mt-4 text-justify break-words line-clamp-4 lg:line-clamp-none">
-                {language === "KOR" ? portfolioCardTranslations.startups.description.ko : portfolioCardTranslations.startups.description.en}
-              </p>
+          {[
+            { cols: "md:grid-cols-[7fr_8fr]", cards: [
+              { bg: "/home/business-growth.svg", ...portfolioCardTranslations.startups },
+              { bg: "/home/mission-driven.svg", ...portfolioCardTranslations.missionDriven },
+            ]},
+            { cols: "md:grid-cols-[12fr_8fr]", cards: [
+              { bg: "/home/regional-operations.svg", ...portfolioCardTranslations.regionalOperations },
+              { bg: "/home/new-ventures.svg", ...portfolioCardTranslations.newVentures },
+            ]},
+          ].map((row, ri) => (
+            <div key={ri} className={`w-full grid grid-cols-1 ${row.cols} gap-6 ${ri === 0 ? "mt-8" : "mt-6"}`}>
+              {row.cards.map((card, ci) => {
+                const title = language === "KOR" ? card.title.ko : card.title.en;
+                const desc = language === "KOR" ? card.description.ko : card.description.en;
+                return (
+                  <div key={ci} className="w-full min-h-64 md:h-100 relative overflow-hidden flex flex-col justify-end p-4 sm:p-5 md:p-6 cursor-pointer group">
+                    <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110" style={{ backgroundImage: `url(${card.bg})` }} />
+                    <h3 className="relative z-10 text-lg sm:text-2xl md:text-3xl lg:text-[36px] text-white leading-tight break-words">{title}</h3>
+                    {desc && (
+                      <p className="relative z-10 text-sm sm:text-base md:text-lg lg:text-[16px] font-light text-white leading-relaxed mt-3 md:mt-4 break-words line-clamp-4 lg:line-clamp-none">{desc}</p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-            <div className="w-full min-h-64 md:h-100 relative overflow-hidden flex flex-col justify-end p-4 sm:p-5 md:p-6 cursor-pointer group">
-              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110" style={{backgroundImage: 'url(/home/mission-driven.svg)',}}></div>
-              <div className="relative z-10 min-h-0 flex items-end shrink-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-[36px] text-white leading-tight break-words">
-                  {language === "KOR" ? portfolioCardTranslations.missionDriven.title.ko : portfolioCardTranslations.missionDriven.title.en}
-                </h3>
-              </div>
-              <p className="relative z-10 text-sm sm:text-base md:text-lg lg:text-[16px] font-light text-white leading-relaxed mt-3 md:mt-4 break-words line-clamp-4 lg:line-clamp-none">
-                {language === "KOR" ? portfolioCardTranslations.missionDriven.description.ko : portfolioCardTranslations.missionDriven.description.en}
-              </p>
-            </div>
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-[12fr_8fr] gap-6 mt-6">
-            <div className="w-full min-h-64 md:h-100 relative overflow-hidden flex flex-col justify-end p-4 sm:p-5 md:p-6 cursor-pointer group">
-              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110" style={{ backgroundImage: 'url(/home/regional-operations.svg)' }}></div>
-              <div className="relative z-10 min-h-0 flex items-end shrink-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-[36px] text-white leading-tight break-words">
-                  {language === "KOR" ? portfolioCardTranslations.regionalOperations.title.ko : portfolioCardTranslations.regionalOperations.title.en}
-                </h3>
-              </div>
-              {portfolioCardTranslations.regionalOperations.description.en && (
-                <p className="relative z-10 text-sm sm:text-base md:text-lg lg:text-[16px] font-light text-white leading-relaxed mt-3 md:mt-4 break-words line-clamp-4 lg:line-clamp-none">
-                  {language === "KOR" ? portfolioCardTranslations.regionalOperations.description.ko : portfolioCardTranslations.regionalOperations.description.en}
-                </p>
-              )}
-            </div>
-            <div className="w-full min-h-64 md:h-100 relative overflow-hidden flex flex-col justify-end p-4 sm:p-5 md:p-6 cursor-pointer group">
-              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110" style={{ backgroundImage: 'url(/home/new-ventures.svg)' }}></div>
-              <div className="relative z-10 min-h-0 flex items-end shrink-0">
-                <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-[36px] text-white leading-tight break-words">
-                  {language === "KOR" ? portfolioCardTranslations.newVentures.title.ko : portfolioCardTranslations.newVentures.title.en}
-                </h3>
-              </div>
-              {portfolioCardTranslations.newVentures.description.en && (
-                <p className="relative z-10 text-sm sm:text-base md:text-lg lg:text-[16px] font-light text-white leading-relaxed mt-3 md:mt-4 break-words line-clamp-4 lg:line-clamp-none">
-                  {language === "KOR" ? portfolioCardTranslations.newVentures.description.ko : portfolioCardTranslations.newVentures.description.en}
-                </p>
-              )}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
       <section className="w-full py-12 md:py-24" style={integrityBackgroundStyle}>
