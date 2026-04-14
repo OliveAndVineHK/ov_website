@@ -17,7 +17,6 @@ import MagneticButton from "@/app/components/MagneticButton";
 import CareerTimeline from "@/app/components/CareerTimeline";
 import * as Icons from "@/app/utils/icons";
 
-  headline: {
 /* ════════════════════════ PAGE ════════════════════════ */
 
 export default function AboutPage() {
