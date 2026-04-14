@@ -8,7 +8,7 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const footer = document.querySelector('section[class*="bg-\\[#282A28\\]"]');
+      const footer = document.querySelector("[data-footer]") ?? document.querySelector('section[class*="bg-\\[#282A28\\]"]');
       if (footer) {
         const footerTop = footer.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;

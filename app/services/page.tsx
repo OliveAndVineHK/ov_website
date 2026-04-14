@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/app/contexts/LanguageContext";
@@ -11,49 +11,22 @@ import * as Icons from "@/app/utils/icons";
 export default function Services() {
   const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const SERVICE_ROUTES: Record<string, string> = {
+    corporate: "/corporate-service",
+    accounting: "/accounting-service",
+    assurance: "/assurance-service",
+    tax: "/tax-service",
+    service5: "/consulting-service",
+    service6: "/hr-service",
+  };
 
   const services = [
-    {
-      key: "corporate",
-      image: "/home/os-corporate.svg",
-      imageWhite: "/home/os-corporate-w.svg",
-      imageSize: 156,
-    },
-    {
-      key: "accounting",
-      image: "/home/os-accounting.svg",
-      imageWhite: "/home/os-accounting-w.svg",
-      imageSize: 66,
-    },
-    {
-      key: "assurance",
-      image: "/home/os-assurance.svg",
-      imageWhite: "/home/os-assurance-w.svg",
-      imageSize: 80,
-    },
-    {
-      key: "tax",
-      image: "/home/os-tax.svg",
-      imageWhite: "/home/os-tax-w.svg",
-      imageSize: 66,
-    },
-    {
-      key: "service5",
-      image: "/home/os-consulting.svg",
-      imageWhite: "/home/os-consulting-w.svg",
-      imageSize: 80,
-    },
-    {
-      key: "service6",
-      image: "/home/os-hr.svg",
-      imageWhite: "/home/os-hr-w.svg",
-      imageSize: 80,
-    },
+    { key: "corporate", image: "/home/os-corporate.svg", imageWhite: "/home/os-corporate-w.svg", imageSize: 156 },
+    { key: "accounting", image: "/home/os-accounting.svg", imageWhite: "/home/os-accounting-w.svg", imageSize: 66 },
+    { key: "assurance", image: "/home/os-assurance.svg", imageWhite: "/home/os-assurance-w.svg", imageSize: 80 },
+    { key: "tax", image: "/home/os-tax.svg", imageWhite: "/home/os-tax-w.svg", imageSize: 66 },
+    { key: "service5", image: "/home/os-consulting.svg", imageWhite: "/home/os-consulting-w.svg", imageSize: 80 },
+    { key: "service6", image: "/home/os-hr.svg", imageWhite: "/home/os-hr-w.svg", imageSize: 80 },
   ];
 
   const toggleService = (index: number) => {
@@ -125,35 +98,15 @@ export default function Services() {
                         <div className="flex flex-col flex-1 min-w-0 w-full">
                           <p className="text-sm sm:text-base md:text-lg lg:text-[16px] text-[#111B12]/70 leading-relaxed mb-3 sm:mb-4 text-justify w-full" dangerouslySetInnerHTML={{__html: serviceDescription}} />
                           <div className="mt-3 sm:mt-4 flex justify-end w-full">
-                        {service.key === "corporate" ? (
-                          <Link href="/corporate-service" className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </Link>
-                        ) : service.key === "accounting" ? (
-                          <Link href="/accounting-service" className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </Link>
-                        ) : service.key === "assurance" ? (
-                          <Link href="/assurance-service" className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </Link>
-                        ) : service.key === "tax" ? (
-                          <Link href="/tax-service" className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </Link>
-                        ) : service.key === "service5" ? (
-                          <Link href="/consulting-service" className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </Link>
-                        ) : service.key === "service6" ? (
-                          <Link href="/hr-service" className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </Link>
-                        ) : (
-                          <button className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
-                            {language === "KOR" ? "더 알아보기" : "Learn more"}
-                          </button>
-                        )}
+                            {SERVICE_ROUTES[service.key] ? (
+                              <Link href={SERVICE_ROUTES[service.key]} className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                                {language === "KOR" ? "더 알아보기" : "Learn more"}
+                              </Link>
+                            ) : (
+                              <button className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                                {language === "KOR" ? "더 알아보기" : "Learn more"}
+                              </button>
+                            )}
                           </div>
                         </div>
                       </div>

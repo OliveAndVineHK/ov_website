@@ -110,8 +110,9 @@ export default function InsightCards({
 }: InsightCardsProps) {
   const tag = tagOverride ?? { en: "Accounting", ko: "회계" };
 
-  const incorporationCard: InsightCardData = { ...INCORPORATION_CARD, isPlaceholder: false };
-  const amendmentCard: InsightCardData = { ...AMENDMENT_CARD, isPlaceholder: false };
+  /** Convert a card definition to InsightCardData — single helper replaces 19 repeated lines */
+  const toCard = (def: InsightCardDefinition): InsightCardData => ({ ...def, isPlaceholder: false });
+
   const placeholderCard: InsightCardData = {
     image: PLACEHOLDER_CARD.image,
     alt: "Insight 1",
@@ -121,43 +122,26 @@ export default function InsightCards({
     description: placeholderContent?.description ?? { en: "", ko: "" },
     isPlaceholder: true,
   };
-  const fiveStepsCard: InsightCardData = { ...FIVE_STEPS_CARD, isPlaceholder: false };
-  const introductionXeroCard: InsightCardData = { ...INTRODUCTION_XERO_CARD, isPlaceholder: false };
-  const accountingKnowledgeCard: InsightCardData = { ...ACCOUNTING_KNOWLEDGE_CARD, isPlaceholder: false };
-  const genericCard2: InsightCardData = {
-    image: "/home/sa-2.png",
-    alt: "Insight 2",
+  const genericCard = (n: number): InsightCardData => ({
+    image: `/home/sa-${n}.png`,
+    alt: `Insight ${n}`,
     href: "#",
     tag: tagOverride ?? translations.title,
     title: translations.description,
     description: translations.description,
     isPlaceholder: false,
-  };
-  const genericCard3: InsightCardData = {
-    image: "/home/sa-3.png",
-    alt: "Insight 3",
-    href: "#",
-    tag: tagOverride ?? translations.title,
-    title: translations.description,
-    description: translations.description,
-    isPlaceholder: false,
-  };
+  });
 
-  const corporateSecretaryCard: InsightCardData = { ...CORPORATE_SECRETARY_CARD, isPlaceholder: false };
-  const dividendLegalConsiderationsCard: InsightCardData = { ...DIVIDEND_LEGAL_CONSIDERATIONS_CARD, isPlaceholder: false };
-  const vatCard: InsightCardData = { ...VAT_CARD, isPlaceholder: false };
-  const corporateTaxCard: InsightCardData = { ...CORPORATE_TAX_CARD, isPlaceholder: false };
-  const digitalTransformationEfficiencyCard: InsightCardData = { ...DIGITAL_TRANSFORMATION_EFFICIENCY_CARD, isPlaceholder: false };
-  const digitalTransformationUXCard: InsightCardData = { ...DIGITAL_TRANSFORMATION_UX_CARD, isPlaceholder: false };
-  const bigDataDrivenCard: InsightCardData = { ...BIG_DATA_DRIVEN_CARD, isPlaceholder: false };
-  const digitalTransformationTVPCard: InsightCardData = { ...DIGITAL_TRANSFORMATION_TVP_CARD, isPlaceholder: false };
-  const legalConsiderationsMACard: InsightCardData = { ...LEGAL_CONSIDERATIONS_MA_CARD, isPlaceholder: false };
-  const terminationRegulationCard: InsightCardData = { ...TERMINATION_REGULATION_CARD, isPlaceholder: false };
-  const hybridWorkPerformanceCard: InsightCardData = { ...HYBRID_WORK_PERFORMANCE_CARD, isPlaceholder: false };
-  const leavePolicyExplanationCard: InsightCardData = { ...LEAVE_POLICY_EXPLANATION_CARD, isPlaceholder: false };
-  const mandatoryProvidentFundCard: InsightCardData = { ...MANDATORY_PROVIDENT_FUND_CARD, isPlaceholder: false };
-  const ir56Card: InsightCardData = { ...IR56_CARD, isPlaceholder: false };
-  const allServiceCards: InsightCardData[] = [fiveStepsCard, introductionXeroCard, accountingKnowledgeCard, amendmentCard, incorporationCard, corporateSecretaryCard, dividendLegalConsiderationsCard, vatCard, corporateTaxCard, digitalTransformationEfficiencyCard, digitalTransformationUXCard, bigDataDrivenCard, digitalTransformationTVPCard, legalConsiderationsMACard, terminationRegulationCard, hybridWorkPerformanceCard, leavePolicyExplanationCard, mandatoryProvidentFundCard, ir56Card];
+  /** All service insight cards — used for tag-based filtering */
+  const ALL_CARD_DEFS = [
+    FIVE_STEPS_CARD, INTRODUCTION_XERO_CARD, ACCOUNTING_KNOWLEDGE_CARD, AMENDMENT_CARD,
+    INCORPORATION_CARD, CORPORATE_SECRETARY_CARD, DIVIDEND_LEGAL_CONSIDERATIONS_CARD,
+    VAT_CARD, CORPORATE_TAX_CARD, DIGITAL_TRANSFORMATION_EFFICIENCY_CARD,
+    DIGITAL_TRANSFORMATION_UX_CARD, BIG_DATA_DRIVEN_CARD, DIGITAL_TRANSFORMATION_TVP_CARD,
+    LEGAL_CONSIDERATIONS_MA_CARD, TERMINATION_REGULATION_CARD, HYBRID_WORK_PERFORMANCE_CARD,
+    LEAVE_POLICY_EXPLANATION_CARD, MANDATORY_PROVIDENT_FUND_CARD, IR56_CARD,
+  ] as const;
+  const allServiceCards: InsightCardData[] = ALL_CARD_DEFS.map(toCard);
   const servicePlaceholder = (): InsightCardData => ({
     ...PLACEHOLDER_CARD,
     tag: tagOverride ?? tag,
@@ -177,14 +161,14 @@ export default function InsightCards({
 
   const cards = firstCardAmendment
     ? [
-        amendmentCard,
-        secondCardIncorporation ? incorporationCard : firstCardPlaceholder ? placeholderCard : genericCard2,
-        thirdCardCorporateSecretary ? corporateSecretaryCard : genericCard3,
+        toCard(AMENDMENT_CARD),
+        secondCardIncorporation ? toCard(INCORPORATION_CARD) : firstCardPlaceholder ? placeholderCard : genericCard(2),
+        thirdCardCorporateSecretary ? toCard(CORPORATE_SECRETARY_CARD) : genericCard(3),
       ]
     : cardsFilteredByTag ??
       [
         firstCardIntroductionXero
-          ? introductionXeroCard
+          ? toCard(INTRODUCTION_XERO_CARD)
           : {
               image: firstCardPlaceholder ? "/home/sa-1.png" : "/insights/ai-automation.jpg",
               alt: "Insight 1",
@@ -209,7 +193,7 @@ export default function InsightCards({
           isPlaceholder: false,
           subTags: secondCardAmendment ? AMENDMENT_CARD.subTags : undefined,
         },
-        thirdCardConsulting ? fiveStepsCard : genericCard3,
+        thirdCardConsulting ? toCard(FIVE_STEPS_CARD) : genericCard(3),
       ];
 
   const placeholderPageCard = (img: string, alt: string) => ({
@@ -221,30 +205,24 @@ export default function InsightCards({
     description: { en: "", ko: "" },
     isPlaceholder: true,
   });
+  const ph2 = placeholderPageCard("/home/sa-2.png", "Coming soon 2");
+  const ph3 = placeholderPageCard("/home/sa-3.png", "Coming soon 3");
   const page1Cards =
     secondPageFirstCardDividendLegal
-      ? [
-          dividendLegalConsiderationsCard,
-          placeholderPageCard("/home/sa-2.png", "Coming soon 2"),
-          placeholderPageCard("/home/sa-3.png", "Coming soon 3"),
-        ]
+      ? [toCard(DIVIDEND_LEGAL_CONSIDERATIONS_CARD), ph2, ph3]
       : secondPageFirstCardBigDataDriven
         ? [
-            bigDataDrivenCard,
-            secondPageSecondCardDigitalTransformationTVP ? digitalTransformationTVPCard : placeholderPageCard("/home/sa-2.png", "Coming soon 2"),
-            secondPageThirdCardLegalConsiderationsMA ? legalConsiderationsMACard : placeholderPageCard("/home/sa-3.png", "Coming soon 3"),
+            toCard(BIG_DATA_DRIVEN_CARD),
+            secondPageSecondCardDigitalTransformationTVP ? toCard(DIGITAL_TRANSFORMATION_TVP_CARD) : ph2,
+            secondPageThirdCardLegalConsiderationsMA ? toCard(LEGAL_CONSIDERATIONS_MA_CARD) : ph3,
           ]
         : secondPageFirstCardMandatoryProvidentFund
           ? [
-              mandatoryProvidentFundCard,
-              secondPageSecondCardIr56 ? ir56Card : placeholderPageCard("/home/sa-2.png", "Coming soon 2"),
-              placeholderPageCard("/home/sa-3.png", "Coming soon 3"),
+              toCard(MANDATORY_PROVIDENT_FUND_CARD),
+              secondPageSecondCardIr56 ? toCard(IR56_CARD) : ph2,
+              ph3,
             ]
-          : [
-              placeholderPageCard("/home/sa-1.png", "Coming soon 1"),
-              placeholderPageCard("/home/sa-2.png", "Coming soon 2"),
-              placeholderPageCard("/home/sa-3.png", "Coming soon 3"),
-            ];
+          : [placeholderPageCard("/home/sa-1.png", "Coming soon 1"), ph2, ph3];
   const page2Cards = [
     placeholderPageCard("/home/sa-1.png", "Coming soon 4"),
     placeholderPageCard("/home/sa-2.png", "Coming soon 5"),

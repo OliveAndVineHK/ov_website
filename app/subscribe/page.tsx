@@ -21,8 +21,10 @@ export default function SubscribePage() {
   const handleSubmit = () => {
     const hasEmpty = !firstName.trim() || !surname.trim() || !titleValue.trim() || !email.trim();
     setShowValidationErrors(hasEmpty);
-    if (!hasEmpty) {
-    }
+    if (hasEmpty) return;
+    // TODO: API 연동 — POST /api/subscribe { firstName, surname, title: titleValue, email }
+    // 성공 시 성공 메시지 표시, 실패 시 에러 핸들링
+    console.info("[Subscribe] Form submitted:", { firstName, surname, title: titleValue, email });
   };
 
   const t = subscribePageTranslations;
