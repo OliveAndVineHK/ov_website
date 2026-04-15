@@ -115,10 +115,10 @@ export default function ServiceCTA({ serviceType }: ServiceCTAProps) {
   return (
     <section className="w-full py-16 sm:py-20 lg:py-24" style={{ backgroundColor: colors.primary }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-light text-white mb-4">
           {heading}
         </h2>
-        <p className="text-base lg:text-lg text-white/70 max-w-2xl mx-auto mb-8">
+        <p className="text-base sm:text-lg md:text-xl lg:text-[20px] text-white/70 max-w-2xl mx-auto mb-8">
           {description}
         </p>
         <Link

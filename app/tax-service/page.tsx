@@ -69,19 +69,19 @@ function TimelineItemComponent({ item, index, language, categoryColor }: { item:
 
       {/* Month Badge */}
       <div
-        className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-white uppercase tracking-wide mb-2 transition-all duration-300"
+        className="inline-block px-3 py-1 rounded-full text-sm font-semibold text-white uppercase tracking-wide mb-2 transition-all duration-300"
         style={{ backgroundColor: categoryColor }}
       >
         {month}
       </div>
 
       {/* Event Title */}
-      <h4 className="text-base md:text-lg font-bold text-[#111B12] mb-1.5">
+      <h4 className="text-lg md:text-xl font-bold text-[#111B12] mb-1.5">
         {event}
       </h4>
 
       {/* Description */}
-      <p className="text-sm md:text-base text-[#111B12]/70 leading-relaxed">
+      <p className="text-base md:text-lg text-[#111B12]/70 leading-relaxed">
         {description}
       </p>
     </div>
@@ -127,7 +127,7 @@ export default function TaxServicePage() {
             {heroTitle}
           </h2>
           <HeroAccentLine color="#627F38" />
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center max-w-2xl sm:max-w-none mx-auto px-1 sm:px-0 leading-relaxed mt-4 sm:mt-5 md:mt-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] text-[#FFFFFF]/70 w-full text-center max-w-2xl sm:max-w-none mx-auto px-1 sm:px-0 leading-relaxed mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function TaxServicePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
             <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
               {taxServiceIntro.split("<br><br>").map((paragraph, i) => (
-                <span key={i} className="block text-base lg:text-lg text-[#111B12] text-justify">
+                <span key={i} className="block text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12] text-justify">
                   {paragraph}
                 </span>
               ))}
@@ -165,14 +165,14 @@ export default function TaxServicePage() {
                 <h3 className="text-lg md:text-xl font-bold text-[#111B12] mb-4">
                   {profitsTaxTitle}
                 </h3>
-                <p className="text-base text-[#111B12] mb-6 leading-relaxed text-justify">
+                <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] mb-6 leading-relaxed text-justify">
                   {language === "KOR" ? t.profitsTaxDescription.ko : t.profitsTaxDescription.en}
                 </p>
                 <ul className="flex flex-col gap-3 md:gap-4 list-none pl-0">
                   {profitsTaxItems.map((item, i) => (
                     <li key={i} className="flex gap-2 leading-relaxed">
                       <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                      <span className="block text-base text-[#111B12]">{item}</span>
+                      <span className="block text-base sm:text-lg md:text-[18px] text-[#111B12]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -185,14 +185,14 @@ export default function TaxServicePage() {
                 <h3 className="text-lg md:text-xl font-bold text-[#111B12] mb-4">
                   {salariesTaxTitle}
                 </h3>
-                <p className="text-base text-[#111B12] mb-6 leading-relaxed text-justify">
+                <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] mb-6 leading-relaxed text-justify">
                   {language === "KOR" ? t.salariesTaxDescription.ko : t.salariesTaxDescription.en}
                 </p>
                 <ul className="flex flex-col gap-3 md:gap-4 list-none pl-0">
                   {salariesTaxItems.map((item, i) => (
                     <li key={i} className="flex gap-2 leading-relaxed">
                       <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                      <span className="block text-base text-[#111B12]">{item}</span>
+                      <span className="block text-base sm:text-lg md:text-[18px] text-[#111B12]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -205,14 +205,14 @@ export default function TaxServicePage() {
                 <h3 className="text-lg md:text-xl font-bold text-[#111B12] mb-4">
                   {taxAdvisoryTitle}
                 </h3>
-                <p className="text-base text-[#111B12] mb-6 leading-relaxed text-justify">
+                <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] mb-6 leading-relaxed text-justify">
                   {language === "KOR" ? t.taxAdvisoryDescription.ko : t.taxAdvisoryDescription.en}
                 </p>
                 <ul className="flex flex-col gap-3 md:gap-4 list-none pl-0">
                   {taxAdvisoryItems.map((item, i) => (
                     <li key={i} className="flex gap-2 leading-relaxed">
                       <span className="inline-block flex-shrink-0 w-2 h-2 rounded-full bg-[#627F38] mt-2"></span>
-                      <span className="block text-base text-[#111B12]">{item}</span>
+                      <span className="block text-base sm:text-lg md:text-[18px] text-[#111B12]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -239,7 +239,7 @@ export default function TaxServicePage() {
                   <button
                     key={cat.key}
                     onClick={() => setActiveCategory(cat.key)}
-                    className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border cursor-pointer"
+                    className="px-4 py-2 rounded-full text-base md:text-lg font-medium transition-all duration-300 border cursor-pointer"
                     style={{
                       backgroundColor: isActive ? cat.color : "transparent",
                       color: isActive ? "#FFFFFF" : cat.color,

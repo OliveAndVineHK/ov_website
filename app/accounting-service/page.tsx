@@ -43,7 +43,7 @@ export default function AccountingServicePage() {
             {heroTitle}
           </h2>
           <HeroAccentLine color="#627F38" />
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function AccountingServicePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
             <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
               {accountingServiceIntro.split("<br><br>").map((paragraph, i) => (
-                <span key={i} className="block text-base lg:text-lg text-[#111B12] text-justify">
+                <span key={i} className="block text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12] text-justify">
                   {paragraph}
                 </span>
               ))}
@@ -81,10 +81,10 @@ export default function AccountingServicePage() {
 
                   {/* Content Section */}
                   <div className="flex flex-col gap-3 md:gap-4 p-5 md:p-6 lg:p-7 flex-grow">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#111B12] transition-colors duration-300 group-hover:text-[#627F38]">
+                    <h3 className="text-2xl md:text-[26px] lg:text-[28px] font-semibold text-[#111B12] transition-colors duration-300 group-hover:text-[#627F38]">
                       {bookkeepingTitle}
                     </h3>
-                    <p className="text-base text-[#111B12] leading-relaxed text-justify">
+                    <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] leading-relaxed text-justify">
                       {bookkeepingDescription}
                     </p>
 
@@ -93,15 +93,15 @@ export default function AccountingServicePage() {
                       <div className="grid grid-cols-3 gap-3">
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Bank Feeds</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Bank Feeds</span>
                         </div>
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Invoices</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Invoices</span>
                         </div>
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Expenses</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Expenses</span>
                         </div>
                       </div>
                     </div>
@@ -120,10 +120,10 @@ export default function AccountingServicePage() {
 
                   {/* Content Section */}
                   <div className="flex flex-col gap-3 md:gap-4 p-5 md:p-6 lg:p-7 flex-grow">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#111B12] transition-colors duration-300">
+                    <h3 className="text-2xl md:text-[26px] lg:text-[28px] font-semibold text-[#111B12] transition-colors duration-300">
                       {accountingSectionTitle}
                     </h3>
-                    <p className="text-base text-[#111B12] leading-relaxed text-justify">
+                    <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] leading-relaxed text-justify">
                       {accountingSectionDescription}
                     </p>
 
@@ -132,15 +132,15 @@ export default function AccountingServicePage() {
                       <div className="grid grid-cols-3 gap-3">
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Reports</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Reports</span>
                         </div>
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Tax Prep</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Tax Prep</span>
                         </div>
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Analysis</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Analysis</span>
                         </div>
                       </div>
                     </div>
@@ -159,10 +159,10 @@ export default function AccountingServicePage() {
 
                   {/* Content Section */}
                   <div className="flex flex-col gap-3 md:gap-4 p-5 md:p-6 lg:p-7 flex-grow">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#111B12] transition-colors duration-300">
+                    <h3 className="text-2xl md:text-[26px] lg:text-[28px] font-semibold text-[#111B12] transition-colors duration-300">
                       {privateaccountingTitle}
                     </h3>
-                    <p className="text-base text-[#111B12] leading-relaxed text-justify">
+                    <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] leading-relaxed text-justify">
                       {privateaccountingDescription}
                     </p>
 
@@ -171,15 +171,15 @@ export default function AccountingServicePage() {
                       <div className="grid grid-cols-3 gap-3">
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Personal</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Personal</span>
                         </div>
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Strategy</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Strategy</span>
                         </div>
                         <div className="flex flex-col items-center text-center">
                           <div className="w-6 h-6 rounded-full bg-[#627F38] mb-1" />
-                          <span className="text-xs text-[#111B12]/70">Growth</span>
+                          <span className="text-base sm:text-lg text-[#111B12]/70">Growth</span>
                         </div>
                       </div>
                     </div>

@@ -107,7 +107,7 @@ export default function AssuranceServicePage() {
             {heroTitle}
           </h2>
           <HeroAccentLine color="#627F38" />
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function AssuranceServicePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
             <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
               {assuranceServiceIntro.split("<br><br>").map((paragraph, i) => (
-                <span key={i} className="block text-base lg:text-lg text-[#111B12] text-justify">
+                <span key={i} className="block text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12] text-justify">
                   {paragraph}
                 </span>
               ))}
@@ -232,7 +232,7 @@ export default function AssuranceServicePage() {
 
               {/* Philosophy Text */}
               <div className="w-full flex flex-col justify-center order-1 lg:order-2">
-                <div className="flex flex-col gap-4 md:gap-5 lg:gap-6 text-base text-[#111B12] leading-relaxed">
+                <div className="flex flex-col gap-4 md:gap-5 lg:gap-6 text-lg sm:text-xl md:text-[20px] text-[#111B12] leading-relaxed">
                   {auditPhilosophyDescription.split("<br><br>").map((paragraph, i) => (
                     <p key={i} className="m-0 text-base text-[#111B12] text-justify">
                       {paragraph}

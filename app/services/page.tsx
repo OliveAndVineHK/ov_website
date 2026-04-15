@@ -64,7 +64,7 @@ export default function Services() {
               </span>
             ))}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-[16px] text-[#111B12] leading-relaxed w-full text-justify mt-6 md:mt-8">
+          <p className="text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12] leading-relaxed w-full text-justify mt-6 md:mt-8">
             {language === "KOR" ? servicesPageTranslations.description.ko : servicesPageTranslations.description.en}
           </p>
           <div className="w-full flex flex-col gap-4 mt-12 md:mt-16">
@@ -81,7 +81,7 @@ export default function Services() {
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 relative">
                         <Image src={service.image} alt={serviceTitle} fill className="object-contain" sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, 56px" />
                       </div>
-                      <span className="text-xl sm:text-xl md:text-2xl lg:text-[24px] text-[#111B12]/80 transition-all duration-300 truncate">{serviceTitle}</span>
+                      <span className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] text-[#111B12]/80 transition-all duration-300 truncate">{serviceTitle}</span>
                     </div>
                     <div className="flex items-center justify-center shrink-0">
                       {isOpen ? (
@@ -96,14 +96,14 @@ export default function Services() {
                       <div className="flex gap-3 sm:gap-4">
                         <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0" aria-hidden />
                         <div className="flex flex-col flex-1 min-w-0 w-full">
-                          <p className="text-sm sm:text-base md:text-lg lg:text-[16px] text-[#111B12]/70 leading-relaxed mb-3 sm:mb-4 text-justify w-full" dangerouslySetInnerHTML={{__html: serviceDescription}} />
+                          <p className="text-base sm:text-lg md:text-xl lg:text-[18px] text-[#111B12]/70 leading-relaxed mb-3 sm:mb-4 text-justify w-full" dangerouslySetInnerHTML={{__html: serviceDescription}} />
                           <div className="mt-3 sm:mt-4 flex justify-end w-full">
                             {SERVICE_ROUTES[service.key] ? (
-                              <Link href={SERVICE_ROUTES[service.key]} className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                              <Link href={SERVICE_ROUTES[service.key]} className="text-base sm:text-lg md:text-[18px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
                                 {language === "KOR" ? "더 알아보기" : "Learn more"}
                               </Link>
                             ) : (
-                              <button className="text-sm sm:text-base md:text-[16px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                              <button className="text-base sm:text-lg md:text-[18px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
                                 {language === "KOR" ? "더 알아보기" : "Learn more"}
                               </button>
                             )}

@@ -46,7 +46,7 @@ export default function ConsultingServicePage() {
             {heroTitle}
           </h2>
           <HeroAccentLine color="#627F38" />
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function ConsultingServicePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
             <div className="flex flex-col gap-4 md:gap-5 lg:gap-6">
               {consultingServiceIntro.split("<br><br>").map((paragraph, i) => (
-                <span key={i} className="block text-base lg:text-lg text-[#111B12] text-justify">
+                <span key={i} className="block text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12] text-justify">
                   {paragraph}
                 </span>
               ))}
@@ -157,7 +157,7 @@ export default function ConsultingServicePage() {
             </h3>
             <div className="flex flex-col gap-4 md:gap-5 lg:gap-6 mb-8 md:mb-10 lg:mb-12">
               {methodologyDescription.split("<br><br>").map((paragraph, i) => (
-                <span key={i} className="block text-base text-[#111B12] text-justify">
+                <span key={i} className="block text-base sm:text-lg md:text-[18px] text-[#111B12] text-justify">
                   {paragraph}
                 </span>
               ))}
@@ -182,7 +182,7 @@ export default function ConsultingServicePage() {
                     </div>
                   </div>
 
-                  <p className="text-sm md:text-base text-[#111B12] leading-relaxed text-justify pl-0 md:pl-4">
+                  <p className="text-sm md:text-lg sm:text-xl md:text-[20px] text-[#111B12] leading-relaxed text-justify pl-0 md:pl-4">
                     {item.description}
                   </p>
                 </div>
