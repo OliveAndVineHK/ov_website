@@ -234,6 +234,16 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
       ko: ["인사이트", "인사", "연간 고용주 신고서 (BIR56A)"],
     },
   },
+  "insights/corporate-service/annual-return-companies-registry": {
+    documentTitle: {
+      en: "Annual Return Filing with the Hong Kong Companies Registry (NAR1)",
+      ko: "홍콩 회사등기소에 제출하는 연간 보고서(NAR1)",
+    },
+    pathSegments: {
+      en: ["Insights", "Corporate Service", "Annual Return Filing (NAR1)"],
+      ko: ["인사이트", "기업 서비스", "연간 보고서 제출(NAR1)"],
+    },
+  },
 };
 
 export function getDynamicPageKey(pathname: string): string {
