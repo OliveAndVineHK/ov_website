@@ -21,6 +21,7 @@ import { hrTaxClearanceDepartingEmployeesTranslations } from "./insights/hr-tax-
 import { hrWithholdingObligationsDepartingEmployeesTranslations } from "./insights/hr-withholding-obligations-departing-employees";
 import { taxTwoTieredSalariesTaxTranslations } from "./insights/tax-two-tiered-salaries-tax";
 import { hrEmployersReturnBir56aTranslations } from "./insights/hr-employers-return-bir56a";
+import { corporateServiceAnnualReturnCompaniesRegistryTranslations } from "./insights/corporate-service-annual-return-companies-registry";
 /**
  * Template for insight/news detail pages. Any (tag, slug) with a registered translation
  * module gets the full layout (hero, share buttons, Back to insights, content sections, FAQ, contact).
@@ -51,6 +52,7 @@ const INSIGHT_KEY_HR_TAX_CLEARANCE_DEPARTING = "hr/tax-clearance-departing-emplo
 const INSIGHT_KEY_HR_WITHHOLDING_OBLIGATIONS_DEPARTING = "hr/withholding-obligations-departing-employees";
 const INSIGHT_KEY_TAX_TWO_TIERED_SALARIES_TAX = "tax/two-tiered-salaries-tax";
 const INSIGHT_KEY_HR_EMPLOYERS_RETURN_BIR56A = "hr/employers-return-bir56a";
+const INSIGHT_KEY_CORPORATE_SERVICE_ANNUAL_RETURN = "corporate-service/annual-return-companies-registry";
 
 export function getInsightTranslations(tag: string, slug: string) {
   const key = `${tag.toLowerCase()}/${slug}`;
@@ -123,6 +125,9 @@ export function getInsightTranslations(tag: string, slug: string) {
   if (key === INSIGHT_KEY_HR_EMPLOYERS_RETURN_BIR56A) {
     return hrEmployersReturnBir56aTranslations;
   }
+  if (key === INSIGHT_KEY_CORPORATE_SERVICE_ANNUAL_RETURN) {
+    return corporateServiceAnnualReturnCompaniesRegistryTranslations;
+  }
   return null;
 }
 
@@ -149,3 +154,4 @@ export { hrTaxClearanceDepartingEmployeesTranslations } from "./insights/hr-tax-
 export { hrWithholdingObligationsDepartingEmployeesTranslations } from "./insights/hr-withholding-obligations-departing-employees";
 export { taxTwoTieredSalariesTaxTranslations } from "./insights/tax-two-tiered-salaries-tax";
 export { hrEmployersReturnBir56aTranslations } from "./insights/hr-employers-return-bir56a";
+export { corporateServiceAnnualReturnCompaniesRegistryTranslations } from "./insights/corporate-service-annual-return-companies-registry";

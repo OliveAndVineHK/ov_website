@@ -116,6 +116,11 @@ export const subTagsByInsight = {
     { en: "IR56 Forms", ko: "IR56 양식" },
     { en: "Employer Compliance", ko: "고용주 규정 준수" },
   ] as InsightSubTag[],
+  annualReturnCompaniesRegistry: [
+    { en: "Companies Registry", ko: "회사등기소" },
+    { en: "NAR1", ko: "NAR1" },
+    { en: "Compliance", ko: "규정 준수" },
+  ] as InsightSubTag[],
 };
 
 export const FIVE_STEPS_CARD: InsightCardDefinition = {
@@ -358,6 +363,16 @@ export const EMPLOYERS_RETURN_BIR56A_CARD: InsightCardDefinition = {
   subTags: subTagsByInsight.employersReturnBir56a,
 };
 
+export const ANNUAL_RETURN_COMPANIES_REGISTRY_CARD: InsightCardDefinition = {
+  image: "/insights/annual-return-companies-registry.jpg",
+  alt: "Annual Return Filing with the Hong Kong Companies Registry (NAR1)",
+  href: "/insights/corporate-service/annual-return-companies-registry",
+  tag: { en: "Corporate Service", ko: "기업 서비스" },
+  title: { en: "Annual Return Filing with the Hong Kong Companies Registry (NAR1)", ko: "홍콩 회사등기소에 제출하는 연간 보고서(NAR1)" },
+  description: { en: "", ko: "" },
+  subTags: subTagsByInsight.annualReturnCompaniesRegistry,
+};
+
 export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
@@ -382,4 +397,5 @@ export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   WITHHOLDING_OBLIGATIONS_DEPARTING_EMPLOYEES_CARD,
   TWO_TIERED_SALARIES_TAX_CARD,
   EMPLOYERS_RETURN_BIR56A_CARD,
+  ANNUAL_RETURN_COMPANIES_REGISTRY_CARD,
 ];
