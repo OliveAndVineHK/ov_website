@@ -43,7 +43,7 @@ export function InsightCardSubTags({ tags, language }: { tags: InsightSubTag[]; 
   return (
     <div className="flex flex-wrap gap-2 mt-auto pt-4">
       {list.map((t, i) => (
-        <span key={i} className="px-3 py-1 rounded-full text-[12px] font-medium text-[#111B12]/70 bg-[#F1F1DD]">
+        <span key={i} className="px-3 py-1 rounded-full text-[13px] font-medium text-[#111B12]/70 bg-[#F1F1DD]">
           {isKo ? t.ko : t.en}
         </span>
       ))}
@@ -254,11 +254,11 @@ export default function InsightCards({
                       <Image src={card.image} alt={card.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                       <div className="absolute inset-0 bg-[#E5E5BD]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     </div>
-                    <span className="text-base sm:text-lg md:text-xl lg:text-[16px] text-[#111B12]">
+                    <span className="text-base sm:text-lg md:text-xl lg:text-[18px] text-[#111B12]">
                       {isKo ? card.tag.ko : card.tag.en}
                     </span>
                     <p
-                      className="text-base text-[24px] text-[#495F2B] leading-tight mt-2 group-hover:underline transition-all duration-300"
+                      className="text-lg sm:text-xl md:text-2xl lg:text-[26px] text-[#495F2B] leading-tight mt-2 group-hover:underline transition-all duration-300"
                       dangerouslySetInnerHTML={{
                         __html:
                           (index === 0 && !card.isPlaceholder) || card.isPlaceholder

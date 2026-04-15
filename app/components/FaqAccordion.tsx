@@ -65,10 +65,10 @@ export default function FaqAccordion({ items, language, title }: FaqAccordionPro
                   border: "1px solid transparent",
                 }}
               >
-                <span className="text-sm sm:text-base md:text-lg font-bold text-[#111B12]">{question}</span>
+                <span className="text-base sm:text-lg md:text-xl font-bold text-[#111B12]">{question}</span>
               </AccordionSummary>
               <AccordionDetails sx={{ pt: 2, px: { xs: 2, sm: 2.5 }, pb: 2, borderTop: "1px solid rgba(17, 27, 18, 0.1)" }}>
-                <p className="text-xs sm:text-sm md:text-base text-[#111B12] leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: answer }} />
+                <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify" dangerouslySetInnerHTML={{ __html: answer }} />
               </AccordionDetails>
             </Accordion>
           );

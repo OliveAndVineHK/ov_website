@@ -50,7 +50,7 @@ export default function CorporateServicePage() {
             {heroTitle}
           </h2>
           <HeroAccentLine color="#627F38" />
-          <p className="text-xs sm:text-sm md:text-base lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] text-[#FFFFFF]/70 w-full text-center mt-4 sm:mt-5 md:mt-6">
             {heroSubtitle}
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function CorporateServicePage() {
       <SectionReveal>
         <section className="w-full pt-12 pb-4 sm:pt-14 sm:pb-5 md:pt-20 md:pb-6 lg:pt-24 lg:pb-6 xl:pt-30 xl:pb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-justify">
-            <span className="text-base lg:text-lg text-[#111B12]">
+            <span className="text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12]">
               {corporateServicesIntro}
             </span>
           </div>
@@ -100,11 +100,11 @@ export default function CorporateServicePage() {
                   return (
                     <li key={i} className="flex gap-3 leading-relaxed p-3 bg-white/40 rounded-lg hover:bg-white/70 transition-colors duration-300">
                       <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
-                      <span className="flex flex-col text-base text-[#111B12]">
+                      <span className="flex flex-col text-lg md:text-[18px] text-[#111B12]">
                         {label ? (
                           <>
                             <strong className="font-bold">{label}</strong>
-                            <span className="font-normal text-sm">{rest}</span>
+                            <span className="font-normal text-base">{rest}</span>
                           </>
                         ) : (
                           item
@@ -131,11 +131,11 @@ export default function CorporateServicePage() {
                   return (
                     <li key={i} className="flex gap-3 leading-relaxed p-3 bg-white/40 rounded-lg hover:bg-white/70 transition-colors duration-300">
                       <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
-                      <span className="flex flex-col text-base text-[#111B12]">
+                      <span className="flex flex-col text-lg md:text-[18px] text-[#111B12]">
                         {label ? (
                           <>
                             <strong className="font-bold">{label}</strong>
-                            <span className="font-normal text-sm">{rest}</span>
+                            <span className="font-normal text-base">{rest}</span>
                           </>
                         ) : (
                           item
@@ -187,14 +187,14 @@ export default function CorporateServicePage() {
                         {startUpTitle}
                       </h3>
                     </div>
-                    <p className="text-base text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
+                    <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
                       {startUpDescription}
                     </p>
                     <ul className="flex flex-col gap-2 md:gap-3">
                       {startUpItems.map((item, i) => (
                         <li key={i} className="flex gap-2">
                           <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
-                          <span className="block text-base text-[#111B12]">{item}</span>
+                          <span className="block text-base sm:text-lg md:text-[18px] text-[#111B12]">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -227,14 +227,14 @@ export default function CorporateServicePage() {
                         {inBusinessTitle}
                       </h3>
                     </div>
-                    <p className="text-base text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
+                    <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
                       {inBusinessDescription}
                     </p>
                     <ul className="flex flex-col gap-2 md:gap-3">
                       {inBusinessItems.map((item, i) => (
                         <li key={i} className="flex gap-2">
                           <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#627F38] mt-0" aria-hidden />
-                          <span className="block text-base text-[#111B12]">{item}</span>
+                          <span className="block text-base sm:text-lg md:text-[18px] text-[#111B12]">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -267,14 +267,14 @@ export default function CorporateServicePage() {
                         {exitTitle}
                       </h3>
                     </div>
-                    <p className="text-base text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
+                    <p className="text-lg sm:text-xl md:text-[20px] text-[#111B12] text-justify mb-5 md:mb-6 lg:mb-7">
                       {exitDescription}
                     </p>
                     <ul className="flex flex-col gap-2 md:gap-3">
                       {exitItems.map((item, i) => (
                         <li key={i} className="flex gap-2">
                           <Icons.TbCheck className="inline-block flex-shrink-0 w-5 h-5 text-[#9FD74F] mt-0" aria-hidden />
-                          <span className="block text-base text-[#111B12]">{item}</span>
+                          <span className="block text-base sm:text-lg md:text-[18px] text-[#111B12]">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -299,25 +299,25 @@ export default function CorporateServicePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
             <div className="flex flex-col items-center gap-2 text-center">
               <Icons.TbCloud className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
-              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Cloud</span>
+              <span className="text-sm md:text-base font-semibold text-[#111B12]">Cloud</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">
               <Icons.TbRobot className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
-              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Automation</span>
+              <span className="text-sm md:text-base font-semibold text-[#111B12]">Automation</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">
               <Icons.TbPlugConnected className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
-              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Integration</span>
+              <span className="text-sm md:text-base font-semibold text-[#111B12]">Integration</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-center">
               <Icons.TbShield className="w-8 h-8 md:w-10 md:h-10 text-[#627F38]" aria-hidden />
-              <span className="text-xs md:text-sm font-semibold text-[#111B12]">Security</span>
+              <span className="text-sm md:text-base font-semibold text-[#111B12]">Security</span>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 md:gap-6 lg:gap-7">
             {digitalisationDescription.split("<br><br>").map((paragraph, i) => (
-              <span key={i} className="block text-base text-[#111B12] text-justify">
+              <span key={i} className="block text-base sm:text-lg md:text-[18px] text-[#111B12] text-justify">
                 {paragraph}
               </span>
             ))}

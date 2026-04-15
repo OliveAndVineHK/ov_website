@@ -205,15 +205,15 @@ function ValueSection({
               <GrowingLine color={lineColor} className="max-w-[60px] my-4 md:my-5" />
             </SectionReveal>
             <SectionReveal delay={250}>
-              <h3 className={`text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold ${titleColor} leading-[1.05]`}>
+              <h3 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-semibold ${titleColor} leading-[1.1]`}>
                 {l(value.title)}
               </h3>
             </SectionReveal>
           </div>
 
-          <div className="flex-1 lg:pt-6">
+          <div className="flex-1 lg:pt-4">
             <SectionReveal delay={300}>
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] font-semibold text-[#627F38] leading-snug">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-[24px] font-semibold text-[#627F38] leading-snug">
                 &ldquo;{l(value.statement)}&rdquo;
               </p>
             </SectionReveal>
