@@ -1,300 +1,344 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+/* ──────────────────────────────────────────────────────────────
+   About page — rebuilt 2026-05-29
+   Cluster: about · the integrator (Decision 0529)
+   Composition: 01 hero (photo + typewriter) → 03 our-story
+                → A(teaser) founders → B(teaser, 3) values
+                → 06 principle → cluster cross-link → 08
+   Owns: story.  Teases: founders (→/leadership), values (→/our-values).
+   ────────────────────────────────────────────────────────────── */
+
 import Link from "next/link";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { aboutPageTranslations } from "@/app/utils/pageAboutUtils";
 import SectionReveal from "@/app/components/SectionReveal";
-import HeroAccentLine from "@/app/components/HeroAccentLine";
-import HeroTextReveal from "@/app/components/HeroTextReveal";
-import TypewriterText from "@/app/components/TypewriterText";
-import VimeoBackground from "@/app/components/VimeoBackground";
-import GrowingLine from "@/app/components/GrowingLine";
-import AnimatedCounter from "@/app/components/AnimatedCounter";
-import ParallaxImage from "@/app/components/ParallaxImage";
-import MagneticButton from "@/app/components/MagneticButton";
-import CareerTimeline from "@/app/components/CareerTimeline";
+import ScrollLinkedStagger from "@/app/components/ScrollLinkedStagger";
 import * as Icons from "@/app/utils/icons";
 
-/* ════════════════════════ PAGE ════════════════════════ */
+const CROSS_LINKS = [
+  { href: "/leadership", labelEn: "Our leadership", labelKo: "우리의 리더십" },
+  { href: "/our-values", labelEn: "Our values", labelKo: "우리의 가치" },
+];
 
 export default function AboutPage() {
   const { language } = useLanguage();
   const t = aboutPageTranslations;
-  const l = (obj: { en: string; ko: string }) => (language === "KOR" ? obj.ko : obj.en);
+  const isKo = language === "KOR";
 
-  const founders = [t.founders.rebecca, t.founders.miyoung];
+  /* The merged "values+pillars" section uses the pillar content
+     (Trust / Excellence / Growth) rendered with the values numbering
+     design, then links out to /our-values for the full canonical set. */
+  const pillars = [
+    { number: "1", title: isKo ? t.pillar1Title.ko : t.pillar1Title.en, body: isKo ? t.pillar1Body.ko : t.pillar1Body.en },
+    { number: "2", title: isKo ? t.pillar2Title.ko : t.pillar2Title.en, body: isKo ? t.pillar2Body.ko : t.pillar2Body.en },
+    { number: "3", title: isKo ? t.pillar3Title.ko : t.pillar3Title.en, body: isKo ? t.pillar3Body.ko : t.pillar3Body.en },
+  ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <main
+      className="min-h-screen bg-white"
+      style={{ fontFamily: '"Nexon Lv1 Gothic", "Noto Sans KR", "Roboto", sans-serif' }}
+    >
 
-      {/* ═══════ HERO — Vimeo cinematic background + text reveal ═══════ */}
-      <section className="w-full relative overflow-hidden" style={{ minHeight: "90vh" }}>
-
-        <VimeoBackground videoId="1182577957" overlayOpacity={0.45} />
-        {/* Content */}
-        <div
-          className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 flex flex-col justify-center"
-          style={{ minHeight: "90vh" }}
+      {/* ─── Pattern 01 (about · v3) — cream-card + lower-left lighting ───
+           /about: lightest cream tone (--ov-cream-card) + diagonal
+           radial wash entering from the lower-left for a cinematic
+           "narrative arrives from elsewhere" feel. Lines emphasize
+           parallel diagonals → story motion. */}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{
+          backgroundColor: "#F9F8F4",
+          backgroundImage:
+            "radial-gradient(ellipse 85% 100% at 0% 100%, rgba(229,229,189,0.50) 0%, rgba(229,229,189,0.12) 40%, transparent 70%)",
+        }}
+      >
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute inset-0 w-full h-full hidden md:block"
+          viewBox="0 0 1280 640"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
         >
-          <SectionReveal>
-            <span className="text-base md:text-lg lg:text-[20px] font-semibold text-[#627F38] mb-4 md:mb-6 block">
-              {l(t.pageTitle)}
-            </span>
-          </SectionReveal>
-
-          <HeroTextReveal
-            text={l(t.heroTitle)}
-            className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] font-bold text-white leading-[1.1] tracking-tight whitespace-pre-line"
-            startDelay={400}
+          {/* Multi-element variation per founder reference:
+              concentric pair upper-right + long mid sweep + large
+              partial circle anchoring the lower-left. */}
+          {/* Concentric pair upper-right */}
+          <circle cx="1100" cy="130" r="180" stroke="#627F38" strokeOpacity="0.26" strokeWidth="0.8" />
+          <circle cx="1100" cy="130" r="105" stroke="#627F38" strokeOpacity="0.22" strokeWidth="0.7" />
+          {/* Long calligraphic sweep crossing the middle band */}
+          <path
+            d="M -60 260 C 320 380, 760 420, 1340 320"
+            stroke="#627F38"
+            strokeOpacity="0.32"
+            strokeWidth="0.9"
+            strokeLinecap="round"
           />
+          {/* Large partial circle anchoring the lower-left */}
+          <circle cx="80" cy="640" r="380" stroke="#627F38" strokeOpacity="0.20" strokeWidth="0.7" />
+        </svg>
 
-          <HeroAccentLine color="#627F38" />
-
-          <p className="text-sm sm:text-base md:text-lg lg:text-[20px] text-white/70 max-w-2xl mt-5 md:mt-6">
-            <TypewriterText
-              text={l(t.heroSubtitle)}
-              speed={20}
-              startDelay={1800}
-            />
-          </p>
-        </div>
-
-        <ScrollIndicator />
-      </section>
-
-      {/* ═══════ OUR STORY — full-bleed split with parallax image ═══════ */}
-      <section className="w-full bg-[#F9F8F4]">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <ParallaxImage
-            src="/about/bg-about.png"
-            alt="Olive & Vine advisory partnership"
-            className="relative min-h-[350px] sm:min-h-[400px] lg:min-h-[600px]"
-          />
-          <div className="flex flex-col justify-center px-6 sm:px-8 md:px-10 lg:px-14 xl:px-20 py-14 md:py-20 lg:py-28">
-            <SectionReveal>
-              <span className="text-base md:text-lg lg:text-[20px] font-semibold text-[#627F38]">
-                {l(t.storyLabel)}
-              </span>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-[#111B12] mt-5 md:mt-6 leading-tight whitespace-pre-line">
-                {l(t.storyTitle)}
-              </h2>
-            </SectionReveal>
-            <SectionReveal delay={300}>
-              <GrowingLine className="max-w-[80px] mt-6 mb-6" />
-            </SectionReveal>
-            <SectionReveal delay={400}>
-              <p className="text-base sm:text-lg md:text-xl text-[#111B12]/70 leading-relaxed max-w-xl text-justify">
-                {l(t.storyBody)}
-              </p>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ FOUNDERS — portrait showcase with tilt hover ═══════ */}
-      <section className="w-full py-16 sm:py-20 md:py-28 lg:py-36">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <SectionReveal>
-            <span className="text-base md:text-lg lg:text-[20px] font-semibold text-[#627F38]">
-              {l(t.leadershipLabel)}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-6 py-16 md:py-20 lg:py-24 min-h-[460px] md:min-h-[560px] lg:min-h-[640px] flex flex-col justify-center">
+          <div className="flex flex-col max-w-3xl">
+            <span className="text-[11px] md:text-[12px] 2xl:text-[14px] tracking-[0.22em] uppercase font-medium text-[#627F38]/85 mb-6">
+              {isKo ? "회사 소개" : "About us"}
             </span>
-          </SectionReveal>
-          <SectionReveal delay={100}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-[#111B12] mt-5 md:mt-6 leading-tight whitespace-pre-line">
-              {l(t.leadershipTitle)}
-            </h2>
-          </SectionReveal>
-          <SectionReveal delay={200}>
-            <p className="text-base sm:text-lg md:text-xl text-[#111B12]/70 leading-relaxed max-w-3xl mt-4 md:mt-5">
-              {l(t.leadershipCulture)}
+            <h1 className="text-[36px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-normal text-[#495F2B] leading-[1.1] mb-5 tracking-[-0.01em]">
+              {isKo ? t.heroTitle.ko : t.heroTitle.en}
+            </h1>
+            <p className="max-w-xl text-[15px] md:text-[17px] text-[#111B12]/70 leading-[1.6]">
+              {isKo ? t.heroSubtitle.ko : t.heroSubtitle.en}
             </p>
-          </SectionReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-12 md:mt-16">
-            {founders.map((founder, i) => (
-              <FounderCard key={i} founder={founder} language={language} viewProfileLabel={l(t.viewProfile)} />
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══════ PILLARS — dark section with bold type ═══════ */}
-      <section className="w-full py-16 sm:py-20 md:py-28 lg:py-36 bg-[#111B12]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          {[
-            { title: t.pillar1Title, body: t.pillar1Body, accent: false },
-            { title: t.pillar2Title, body: t.pillar2Body, accent: false },
-            { title: t.pillar3Title, body: t.pillar3Body, accent: true },
-          ].map((pillar, i) => (
-            <div key={i} className={`py-10 md:py-14 ${i < 2 ? "border-b border-white/10" : ""}`}>
-              <SectionReveal delay={i * 120}>
-                <div className="flex flex-col lg:flex-row lg:items-start gap-4 md:gap-8 lg:gap-16">
-                  <div className="shrink-0 lg:w-[40%]">
-                    <GrowingLine color={pillar.accent ? "#627F38" : "rgba(255,255,255,0.2)"} className="max-w-[60px] mb-4" />
-                    <h3 className={`text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold leading-[1.05] ${pillar.accent ? "text-[#627F38]" : "text-white"}`}>
-                      {l(pillar.title)}
-                    </h3>
-                  </div>
-                  <p className="text-base sm:text-lg md:text-xl lg:text-[22px] text-white/50 leading-relaxed lg:pt-8">
-                    {l(pillar.body)}
-                  </p>
-                </div>
-              </SectionReveal>
+      {/* ─── Pattern 03 — Our story (text-led, no image; /about owns the story)
+           Surface matches the hero tone (cream-card). A top-left
+           leaf-pale wash mirrors the hero's lower-left wash so the
+           gradient appears to continue across the section boundary —
+           no white-line cut. */}
+      <section
+        className="relative w-full py-16 md:py-24 lg:py-28 overflow-hidden"
+        style={{
+          backgroundColor: "#F9F8F4",
+          backgroundImage:
+            "radial-gradient(ellipse 70% 100% at 0% 0%, rgba(229,229,189,0.45) 0%, rgba(229,229,189,0.12) 38%, transparent 68%)",
+        }}
+      >
+        {/* Decorative au1.png — right-bleed olive tile pattern.
+            Lives OUTSIDE the SectionReveal so the bg motif is always
+            painted; only the reading content below animates in. */}
+        <div
+          aria-hidden
+          className="hidden md:block pointer-events-none absolute top-0 right-0 w-[300px] lg:w-[380px] 2xl:w-[460px] h-full"
+          style={{
+            backgroundImage: "url(/services/au1.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.18,
+            WebkitMaskImage:
+              "radial-gradient(ellipse 85% 95% at 100% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 85%)",
+            maskImage:
+              "radial-gradient(ellipse 85% 95% at 100% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 85%)",
+          }}
+        />
+        <SectionReveal>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+              <div className="md:col-span-5">
+                <span className="block text-[14px] md:text-[15px] 2xl:text-[17px] font-semibold text-[#627F38] tracking-wide mb-4">
+                  {isKo ? t.storyLabel.ko : t.storyLabel.en}
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2]">
+                  {(isKo ? t.storyTitle.ko : t.storyTitle.en)
+                    .split("\n")
+                    .map((line, i, arr) => (
+                      <span key={i}>
+                        {line}
+                        {i < arr.length - 1 && <br />}
+                      </span>
+                    ))}
+                </h2>
+              </div>
+              <div className="md:col-span-7 flex items-start">
+                <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7]">
+                  {isKo ? t.storyBody.ko : t.storyBody.en}
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════ STATS — animated counters ═══════ */}
-      <section className="w-full py-16 sm:py-20 md:py-28 lg:py-32 bg-[#495F2B]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-            {t.stats.map((stat, i) => (
-              <SectionReveal key={i} delay={i * 100}>
-                <div className="flex flex-col">
-                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold text-white leading-none">
-                    <AnimatedCounter target={stat.value} suffix={stat.suffix} delay={i * 150} />
-                  </p>
-                  <p className="text-sm sm:text-base md:text-lg text-white/50 mt-3">
-                    {l(stat.label)}
-                  </p>
-                </div>
-              </SectionReveal>
-            ))}
           </div>
-        </div>
+        </SectionReveal>
       </section>
 
-      {/* ═══════ CTA ═══════ */}
-      <section className="w-full py-16 sm:py-20 md:py-28 lg:py-36">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center text-center">
-          <SectionReveal>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#111B12] leading-tight">
-              {l(t.ctaTitle)}
-            </h2>
-          </SectionReveal>
-          <SectionReveal delay={200}>
-            <MagneticButton className="mt-8 md:mt-10 inline-block">
+      {/* ─── Pattern A (teaser · text-only) — founders link out, no photos ───
+           Per founder direction: photos start from /leadership; /about
+           teases by text alone. Two-up text rows, each a clickable
+           card-like row that navigates to that founder's full profile. */}
+      <section className="relative w-full py-12 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: "#F9F8F3" }}>
+        {/* Decorative au1.png — outside the SectionReveal so the bg
+            motif is always painted (no white flash during fade). */}
+        <div
+          aria-hidden
+          className="hidden md:block pointer-events-none absolute top-0 right-0 w-[300px] lg:w-[380px] 2xl:w-[460px] h-full"
+          style={{
+            backgroundImage: "url(/services/au1.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.16,
+            WebkitMaskImage:
+              "radial-gradient(ellipse 85% 95% at 100% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 85%)",
+            maskImage:
+              "radial-gradient(ellipse 85% 95% at 100% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 85%)",
+          }}
+        />
+        <SectionReveal>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-14 gap-4">
+              <div>
+                <span className="block text-[14px] md:text-[15px] 2xl:text-[17px] font-semibold text-[#627F38] tracking-wide mb-3">
+                  {isKo ? t.leadershipLabel.ko : t.leadershipLabel.en}
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2]">
+                  {(isKo ? t.leadershipTitle.ko : t.leadershipTitle.en)
+                    .split("\n")
+                    .map((line, i, arr) => (
+                      <span key={i}>
+                        {line}
+                        {i < arr.length - 1 && <br />}
+                      </span>
+                    ))}
+                </h2>
+              </div>
               <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] text-white leading-relaxed border border-[#495F2B] bg-[#495F2B] px-5 sm:px-6 py-2 hover:bg-[#627F38] hover:border-[#627F38] transition-all duration-300 cursor-pointer"
+                href="/leadership"
+                className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300 shrink-0"
               >
-                {l(t.ctaButton)}
+                {isKo ? "전체 리더십 보기" : "Meet the team"}
                 <Icons.CgArrowTopRight className="size-4" aria-hidden />
               </Link>
-            </MagneticButton>
-          </SectionReveal>
-        </div>
+            </div>
+
+            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl mb-10">
+              {isKo ? t.leadershipCulture.ko : t.leadershipCulture.en}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {(["rebecca", "miyoung"] as const).map((key) => {
+                const f = t.founders[key];
+                const name = isKo ? f.name.ko : f.name.en;
+                const role = isKo ? f.role.ko : f.role.en;
+                const creds = isKo ? f.credentials.ko : f.credentials.en;
+                return (
+                  <Link
+                    key={key}
+                    href={`/leadership/${f.slug}`}
+                    className="group flex items-center justify-between gap-4 p-6 bg-white border border-[#627F38]/40 hover:border-[#495F2B] transition-colors duration-300"
+                  >
+                    <div className="flex flex-col flex-1 min-w-0">
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#627F38] mb-2">
+                        {role}
+                      </span>
+                      <h3 className="text-[18px] md:text-[20px] 2xl:text-[22px] font-medium text-[#111B12] leading-[1.25] group-hover:text-[#495F2B] transition-colors duration-300">
+                        {name}
+                      </h3>
+                      <p className="text-[12px] md:text-[13px] text-[#111B12]/55 mt-1">
+                        {creds}
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#111B12]/40 group-hover:border-[#495F2B] group-hover:bg-[#495F2B] flex items-center justify-center transition-colors shrink-0">
+                      <Icons.CgArrowTopRight className="size-5 text-[#111B12]/70 group-hover:text-white transition-colors" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </SectionReveal>
       </section>
-    </div>
-  );
-}
 
-/* ════════════════ Scroll Indicator ════════════════ */
+      {/* ─── Pattern B (merged · 3) — pillars content + values numbering design ───
+           Replaces the duplicate "What we believe (teaser)" + "Three pillars".
+           Uses the three pillars (Trust / Excellence / Growth) rendered
+           with Pattern B's watermark-numeral + italic-pull-quote design,
+           then links out to /our-values for the full canonical 5. */}
+      <section className="w-full py-16 md:py-20 lg:py-24" style={{ backgroundColor: "#F0EEE2" }}>
+        <SectionReveal>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-14 gap-4">
+              <div>
+                <span className="block text-[14px] md:text-[15px] 2xl:text-[17px] font-semibold text-[#627F38] tracking-wide mb-3">
+                  {isKo ? "우리의 가치" : "What we believe"}
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2]">
+                  {isKo
+                    ? "선언이 아닌, 매일 실천하는 방식입니다."
+                    : "Not statements on a wall — how we work."}
+                </h2>
+              </div>
+              <Link
+                href="/our-values"
+                className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300 shrink-0"
+              >
+                {isKo ? "전체 가치 보기" : "All values"}
+                <Icons.CgArrowTopRight className="size-4" aria-hidden />
+              </Link>
+            </div>
 
-function ScrollIndicator() {
-  return (
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
-      <div className="w-[1px] h-10 bg-white/30 relative overflow-hidden">
-        <div className="w-full h-1/2 bg-[#627F38] absolute scroll-pulse-anim" />
-      </div>
-      <style jsx>{`
-        @keyframes scrollPulseKf { 0%, 100% { top: -50%; opacity: 0; } 50% { top: 100%; opacity: 1; } }
-        .scroll-pulse-anim { animation: scrollPulseKf 2s ease-in-out infinite; }
-      `}</style>
-    </div>
-  );
-}
+            {/* Scroll-driven sequential reveal — the three pillars drop
+                into place from above as the user scrolls through the
+                section, in DOM order (1 → 2 → 3). Range [0.05, 0.4]
+                matches the service-page card-grid pattern so the
+                cluster feels consistent. */}
+            <ScrollLinkedStagger
+              itemSelector=".stagger-item"
+              range={[0.05, 0.4]}
+              distance={32}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12"
+            >
+              {pillars.map((p) => (
+                <div key={p.number} className="stagger-item flex flex-col">
+                  <span
+                    aria-hidden
+                    className="font-normal leading-none mb-4 select-none"
+                    style={{
+                      fontSize: "clamp(72px, 9vw, 110px)",
+                      color: "#627F38",
+                      opacity: 0.20,
+                      letterSpacing: "-0.04em",
+                    }}
+                  >
+                    {p.number}
+                  </span>
+                  {/* Pillar title rendered as the italic pull-quote — the
+                      same brand exception Pattern B authorizes for the
+                      values section. */}
+                  <p
+                    className="text-[18px] md:text-[20px] 2xl:text-[22px] lg:text-[22px] text-[#495F2B] leading-[1.35] mb-4"
+                    style={{ fontStyle: "italic" }}
+                  >
+                    &ldquo;{p.title}&rdquo;
+                  </p>
+                  <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/75 leading-[1.7]">
+                    {p.body}
+                  </p>
+                </div>
+              ))}
+            </ScrollLinkedStagger>
+          </div>
+        </SectionReveal>
+      </section>
 
-/* ════════════════ Founder Card ════════════════ */
+      {/* ─── Cluster cross-link — bg matches the pillars section above
+           so the page flows continuously rather than snapping back to
+           white before the Footer takes over. */}
+      <section className="w-full py-12 md:py-16 lg:py-20" style={{ backgroundColor: "#F0EEE2" }}>
+        <SectionReveal>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 pt-8 md:pt-10 border-t border-[#111B12]/15">
+              <span className="text-[12px] tracking-[0.15em] uppercase font-medium text-[#111B12]/50">
+                {isKo ? "다른 페이지" : "Continue with"}
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 sm:gap-x-10">
+                {CROSS_LINKS.map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="inline-flex items-center gap-1.5 text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12] hover:text-[#495F2B] transition-colors duration-300"
+                  >
+                    {isKo ? l.labelKo : l.labelEn}
+                    <Icons.CgArrowTopRight className="size-4" aria-hidden />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </SectionReveal>
+      </section>
 
-function FounderCard({
-  founder,
-  language,
-  viewProfileLabel,
-}: {
-  founder: {
-    name: { en: string; ko: string };
-    role: { en: string; ko: string };
-    credentials: { en: string; ko: string };
-    image: string;
-    imageHover: string;
-    slug: string;
-    bio: { en: string; ko: string };
-    highlight: { en: string; ko: string };
-    career: { company: { en: string; ko: string }; role: { en: string; ko: string }; location: { en: string; ko: string }; current: boolean }[];
-  };
-  language: string;
-  viewProfileLabel: string;
-}) {
-  const [isHovered, setIsHovered] = useState(false);
-  const l = (obj: { en: string; ko: string }) => (language === "KOR" ? obj.ko : obj.en);
-
-  return (
-    <div>
-      {/* ── Portrait Card ── */}
-      <div
-        className="relative w-full aspect-square mb-8 rounded-lg overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <Image
-          src={isHovered ? founder.imageHover : founder.image}
-          alt={l(founder.name)}
-          fill
-          className="object-cover"
-          style={{ objectPosition: "center 15%" }}
-          sizes="(max-width: 768px) 100vw, 50vw"
-          quality={90}
-        />
-      </div>
-
-      {/* ── Founder info ── */}
-      <SectionReveal>
-        <p className="text-xs sm:text-sm font-semibold text-[#627F38] tracking-wider uppercase">
-          {l(founder.role)}
-        </p>
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#111B12] leading-tight mt-1">
-          {l(founder.name)}
-        </h3>
-        <p className="text-xs sm:text-sm text-[#111B12]/50 mt-1">
-          {l(founder.credentials)}
-        </p>
-      </SectionReveal>
-
-      <SectionReveal delay={100}>
-        <p className="text-base md:text-lg text-[#111B12]/70 leading-relaxed mt-4">
-          {l(founder.bio)}
-        </p>
-      </SectionReveal>
-
-      <SectionReveal delay={150}>
-        <div className="mt-5 p-4 bg-[#F9F8F4] rounded-lg">
-          <p className="text-sm md:text-base font-semibold text-[#495F2B]">
-            {l(founder.highlight)}
-          </p>
-        </div>
-      </SectionReveal>
-
-      <SectionReveal delay={250}>
-        <CareerTimeline steps={founder.career} language={language} />
-      </SectionReveal>
-
-      <SectionReveal delay={300}>
-        <div className="mt-6">
-          <Link
-            href={`/leadership/${founder.slug}`}
-            className="inline-flex items-center gap-2 text-sm md:text-base font-semibold text-[#627F38] hover:text-[#495F2B] transition-colors duration-300"
-          >
-            {viewProfileLabel}
-            <Icons.CgArrowRight className="size-4" aria-hidden />
-          </Link>
-        </div>
-      </SectionReveal>
-    </div>
+    </main>
   );
 }

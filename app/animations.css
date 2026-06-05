@@ -72,3 +72,6 @@
 .carousel-fade {
   animation: carouselFadeIn 0.3s ease-out forwards;
 }
+
+/* (Hero curtain animation removed 2026-06-04 — the white frame is
+   now static, created by a padded wrapper around the hero section.) */

@@ -3,23 +3,27 @@ export const rebeccaProfileTranslations = {
   imagePathHover: "/leadership/r2.jpg",
   imageObjectPosition: "center 40%",
   imageObjectPositionHover: "center 18%",
-  heroTag: { en: "Our Leadership", ko: "리더십" },
+  heroTag: { en: "Our Leadership", ko: "주요 리더십" },
   heroTitle: { en: "Rebecca, PARK Ji Hyun", ko: "Rebecca, PARK Ji Hyun" },
   heroSubtitle: { en: "HKICPA (Practising), CIA", ko: "HKICPA (실무), CIA" },
   inBrief: { en: "In brief", ko: "요약" },
   inBriefDescription: {
     en: "Rebecca is co-founder of Olive and Vine and is mainly responsible for the assurance service. She has numerous experience auditing small to medium sized companies based in Hong Kong, and also listed companies in Korea and Hong Kong. Her experience covers various industries including but not limited to retail, construction, trading, investment holding, cryptocurrencies, and more. Rebecca is highly self-driven, independent, and forward looking professional with diverse background. She has lived in Hong Kong for 10 years and previously lived in Singapore, China, Australia, and Korea. She understands different culture with the first hand experience she had interacting with people from different backgrounds.\n\nShe has devoted her study and career to audit and accounting. She has majored in accounting and finance and started her career at one of the top accounting firm, PwC. With the extensive exposure to the best resources and experience, she has moved on to develop her career as an engagement leader in past 4 years.\n\nRebecca is a true believer in principles. She believes that the impactful outcomes can only be achieved by the exercise of principles. She is strengthened by strong compassion, providing pragmatic solutions and devoted services to her clients.",
-    ko: "Rebecca는 Olive and Vine의 공동창업자이며 주로 보증 서비스를 담당합니다. 홍콩 소재 중소기업 및 한국·홍콩 상장기업 감사 경험이 풍부하며, 소매, 건설, 무역, 투자지주, 암호화폐 등 다양한 산업분야의 경험을 보유하고 있습니다. 자기주도적이고 독립적이며 선견지명이 있는 전문가로 10년이상 홍콩에 거주하였으며, 싱가포르, 중국, 호주, 한국에서 학업 및 직업생활을 했습니다. 다양한 배경의 사람들과 교류한 경험을 바탕으로 여러 문화권 사람과 쉽게 어울리며 업무를 진행할 수 있습니다.\n\n학업과 경력을 감사와 회계에 집중하여 쌓아왔습니다. 회계 및 금융을 전공하였고 국제최고의 회계법인 PwC에서 감사업무를 시작하였으며, 그 후 홍콩의 일신회계법인에서 지난 4년간 감사담당회계사로 홍콩의 한국기업들과 직접적이고 현실적인 경험을 쌓았습니다.\n\n원칙을 중요시하며 깊은 공감을 통해 의미있는 결과물을 창출하여 고객이 만족하는 서비스를 제공합니다.",
+    ko: "Rebecca는 Olive & Vine의 공동창업자이며 주로 Assurance 서비스를 담당합니다. 홍콩 소재 중소기업과 한국·홍콩 상장기업 감사 경험이 풍부하며, 소매, 건설, 무역, 투자 지주, 암호화폐 등 다양한 산업 분야의 경험을 보유하고 있습니다. 자기주도적이고 독립적이며 선견지명을 갖춘 전문가로, 10년 이상 홍콩에 거주했으며 싱가포르, 중국, 호주, 한국에서 학업과 직장 생활을 했습니다. 다양한 배경의 사람들과 교류한 경험을 바탕으로 여러 문화권 사람들과 쉽게 어울리며 업무를 이끌어 갑니다.\n\n학업과 경력을 감사와 회계에 집중해 쌓아 왔습니다. 회계와 금융을 전공했고 세계적인 회계법인 PwC에서 감사 업무를 시작했으며, 이후 홍콩의 일신회계법인에서 4년간 감사 담당 회계사로 홍콩의 한국 기업들과 함께 생생한 실무 경험을 쌓았습니다.\n\n원칙을 중요하게 여기며, 깊은 공감을 바탕으로 의미 있는 결과를 만들어 고객이 만족하는 서비스를 제공합니다.",
   },
   educationTitle: { en: "Education", ko: "학력" },
   educationDescription: {
     en: "University of Hong Kong, Bachelor of Business Administration in Accounting and Finance",
     ko: "홍콩대학교, 회계 및 금융 경영학사",
   },
+  educationItems: {
+    en: ["University of Hong Kong, Bachelor of Business Administration in Accounting and Finance"],
+    ko: ["홍콩대학교, 회계 및 금융 경영학사"],
+  },
   professionalCareersTitle: { en: "Professional careers", ko: "경력" },
   professionalCareersItems: {
     en: ["PwC HK, Assurance", "PwC Australia Sydney, Assurance", "IL Shin CPA Limited, Engagement leader"],
-    ko: ["PwC 홍콩, 보증", "PwC 호주 시드니, 보증", "IL Shin CPA Limited, 엔게이지먼트 리더"],
+    ko: ["PwC 홍콩, Assurance", "PwC 호주 시드니, Assurance", "일신회계법인(IL Shin CPA Limited), 프로젝트 총괄"],
   },
   languageTitle: { en: "Language", ko: "언어" },
   languageItems: {

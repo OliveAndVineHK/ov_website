@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tax Service",
+  title: "Tax",
   description:
     "Expert tax services by Olive & Vine — corporate tax filing, VAT advisory, dividend planning, and tax compliance for Hong Kong businesses.",
   alternates: { canonical: "/tax-service" },

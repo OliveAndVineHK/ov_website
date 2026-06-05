@@ -5,8 +5,8 @@ export const corporateServicePageTranslations = {
     ko: "기업 서비스",
   },
   heroSubtitle: {
-    en: "Under the Hong Kong Companies Ordinance, every HK-incorporated company must appoint a company secretary from incorporation and timely report information/changes about the company, officers and shareholders to the Registrar; all officers are personally responsible for compliance.",
-    ko: "홍콩 상법상 홍콩 소재의 모든 법인은 설립 시점부터 회사 비서를 선임하여 회사의 주소지, 주주 등의 기본 정보를 기업등록국에 규정에 맞춰 신고하고 변경 시 적시에 고지하여야 합니다. 이사와 회사 비서를 포함한 중요 담당자는 회사가 Companies Ordinance를 준수하도록 관리할 책임이 있습니다.",
+    en: "Hong Kong's Companies Ordinance asks continuous obligations of every company, from incorporation through trading to winding down. We handle the procedural work so you can focus on the business.",
+    ko: "홍콩 회사법은 회사 설립부터 운영, 정리까지 지속적인 의무를 요구합니다. 복잡한 절차는 저희가 맡아, 기업이 본업에 집중하실 수 있도록 지원해 드립니다.",
   },
   title: {
     en: "Corporate Service",
@@ -38,14 +38,14 @@ export const corporateServicePageTranslations = {
     ],
     ko: [
       "법정 등부: 법적으로 요구되는 등부의 정확한 기록 유지",
-      "규제 신고: 연간 반환서를 포함한 회사 세부사항 변경 시 서류 적시 제출",
+      "규제 신고: 연간 보고서를 포함해 회사 정보 변경 시 서류 적시 제출",
       "회의 관리: 회의 개최 및 결의서 문서화",
     ],
   },
   startUp: { en: "Start Up", ko: "스타트업" },
   startUpDescription: {
     en: "We streamline the process of incorporation, business registration, and bank account setup through digitised onboarding channels. Standardised templates, electronic forms, and automated documentation flows help new businesses establish a compliant structure from day one.",
-    ko: "회사 설립, 사업자 등록, 은행 계좌 개설 과정을 전자 온보딩 채널을 통해 단순화해 드립니다. 표준화된 템플릿, 전자 양식, 자동화된 문서 흐름으로 새로운 기업이 첫날부터 규정 준수 구조를 설립할 수 있도록 지원해 드립니다.",
+    ko: "회사 설립, 사업자 등록, 은행 계좌 개설 과정을 전자 온보딩 채널을 통해 단순화해 드립니다. 표준화된 템플릿, 전자 양식, 자동화된 문서 흐름으로 새로운 기업이 첫날부터 규정에 맞는 구조를 갖출 수 있도록 지원해 드립니다.",
   },
   startUpItems: {
     en: ["Incorporation", "Business Registration", "Opening a bank account"],
@@ -54,7 +54,7 @@ export const corporateServicePageTranslations = {
   inBusiness: { en: "In Business", ko: "사업 운영" },
   inBusinessDescription: {
     en: "We manage statutory filings, annual and board meetings, share transfers, policy documentation, and administrative workflows with precision and accountability. System‑generated documents and structured process, while digital record‑keeping ensures a clear and organised corporate history.",
-    ko: "법정 제출, 연간 총회 및 이사회, 주식 이전, 정책 문서화, 행정 프로세스를 정확하고 책임감 있게 관리해 드립니다. 시스템 생성 문서와 구조화된 프로세스, 디지털 기록 유지로 명확하고 조직된 기업 역사를 보장해 드립니다.",
+    ko: "저희는 법정 서류 제출, 정기 주주총회 및 이사회 운영, 주식 양도, 사내 규정 명문화, 행정 업무 절차 전반을 철저한 책임감으로 오차 없이 수행합니다. 시스템이 생성한 문서와 구조화된 업무 절차, 디지털 기록 관리로 명확하고 체계적으로 정리된 법인 이력을 보장해 드립니다.",
   },
   inBusinessItems: {
     en: [
@@ -69,19 +69,19 @@ export const corporateServicePageTranslations = {
       "법정 서류 관리",
       "정기 총회 및 이사회",
       "등록 사무소 제공",
-      "내부 정책 및 절차 검토 및 자문",
+      "내부 정책·절차 검토 및 자문",
       "인사 서비스",
       "행정 및 회계",
     ],
   },
-  exit: { en: "Exit", ko: "퇴출" },
+  exit: { en: "Exit", ko: "사업 정리" },
   exitDescription: {
     en: "For deregistration, liquidation, and capital reduction, we apply a methodical, step‑by‑step digital workflow that enhances transparency across all stakeholders and ensures adherence to regulatory requirements.",
-    ko: "말소, 청산, 자본 감소의 경우 모든 이해관계자에 대한 투명성을 강화하고 규제 요구사항을 준수하는 단계별 디지털 프로세스를 적용해 드립니다.",
+    ko: "법인 해산, 청산, 감자 절차를 진행할 때는 체계적인 단계별 디지털 업무 절차를 적용하여, 모든 이해관계자에게 투명하게 정보를 제공하고 관련 법규 요건을 철저히 준수합니다.",
   },
   exitItems: {
     en: ["Deregistration or liquidation", "Reduction in share capital"],
-    ko: ["말소 또는 청산", "자본 감소"],
+    ko: ["법인 해산 또는 청산", "자본 감소"],
   },
   digitalisationTitle: {
     en: "Digitalisation in Corporate Services",
@@ -89,11 +89,11 @@ export const corporateServicePageTranslations = {
   },
   digitalisationDescription: {
     en: "We leverage a fully digital corporate secretarial workflow, using secure cloud environments and automated reminders to manage annual returns, directorship changes, and statutory updates. Digital signing tools reduce delays and eliminate paper dependency, ensuring all filings and documentation remain traceable, organised, and accessible.<br><br>Our structured, system‑based framework ensures full traceability of your corporate records and real‑time compliance monitoring, transforming corporate governance from a burden into a seamless, reliable process.",
-    ko: "Olive & Vine는 완전히 디지털화된 회사 비서 프로세스를 활용하여, 안전한 클라우드 환경과 자동화된 알림으로 연간 반환서, 이사회 변경, 법정 업데이트를 관리해 드립니다. 디지털 서명 도구를 통해 지연을 줄이고 종이 의존성을 제거하여, 모든 제출 및 문서가 추적 가능하고 체계적으로 관리되도록 합니다.<br><br>구조화된 시스템 기반 프레임워크로 기업 기록의 전체 추적 가능성을 보장하고 실시간 규정 준수 모니터링을 제공해 드리며, 기업 거버넌스를 부담에서 매끄럽고 신뢰할 수 있는 프로세스로 전환해 드립니다.",
+    ko: "Olive & Vine은 안전한 클라우드 환경과 자동 알림 시스템을 기반으로 전면 디지털화된 회사 비서(Corporate Secretarial) 서비스를 제공합니다. 이를 통해 연간 보고서, 임원 변경, 법정 신고 갱신 등을 철저히 관리합니다. 전자서명 솔루션을 도입해 업무 지연을 최소화하고 종이 없는 업무 환경을 실현했으며, 모든 신고 서류와 문서를 체계적으로 정리하여 언제든 추적·열람할 수 있도록 지원합니다.<br><br>구조화된 시스템 기반 프레임워크로 기업 기록의 완벽한 이력 추적과 실시간 컴플라이언스 모니터링을 보장합니다. 이를 통해 다소 번거로울 수 있는 기업 지배구조 업무를 매끄럽고 신뢰할 수 있는 최적의 과정으로 혁신해 드립니다.",
   },
   corporateServicesIntro: {
     en: "Our Corporate Services support businesses throughout their entire lifecycle with disciplined governance, transparent record‑keeping, and structured compliance management. We ensure that statutory obligations are fulfilled accurately and on time, while providing a governance foundation that enables companies to operate confidently and sustainably.",
-    ko: "Olive & Vine 기업 서비스는 엄격한 거버넌스, 투명한 기록 유지, 체계적인 규정 준수 관리로 사업 전 주기에 걸쳐 기업을 지원해 드립니다. 법정 의무를 정확하고 적시에 이행하며, 기업이 자신 있게 지속 가능하게 운영할 수 있는 거버넌스 기반을 제공해 드립니다.",
+    ko: "Olive & Vine은 체계적인 지배구조, 투명한 이력 관리, 짜임새 있는 컴플라이언스 시스템을 기반으로 비즈니스의 전 생애주기에 걸쳐 기업의 성장을 뒷받침합니다. 법정 신고와 규제 요건을 정확하고 신속하게 이행해 리스크를 최소화하며, 기업이 확신을 가지고 지속 가능한 경영을 이어갈 수 있도록 탄탄한 지배구조 기틀을 제공합니다.",
   },
   insightTag: { en: "Corporate Service", ko: "기업 서비스" },
   insightPlaceholder: {

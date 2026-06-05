@@ -35,7 +35,7 @@ export default function Footer() {
         <section className="w-full py-12 md:py-28" style={questionsBackgroundStyle}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row gap-8 md:gap-12">
           <div className="w-full md:w-1/2 flex flex-col">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-white" dangerouslySetInnerHTML={{ __html: language === "KOR" ? questionsTranslations.title.ko : questionsTranslations.title.en }} />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] 2xl:text-[56px] text-white" dangerouslySetInnerHTML={{ __html: language === "KOR" ? questionsTranslations.title.ko : questionsTranslations.title.en }} />
           </div>
           <div className="w-full md:w-1/2 flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row gap-4">
@@ -66,7 +66,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row justify-start mt-4">
               <div className="w-full sm:w-auto">
-                <button type="button" onClick={handleFooterSubmit} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] text-[#111B12]/70 leading-relaxed bg-white px-5 py-1.5 hover:bg-[#495F2B] hover:border-[#627F38] hover:text-white transition-all duration-300 cursor-pointer shrink-0">
+                <button type="button" onClick={handleFooterSubmit} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed bg-white px-5 py-1.5 hover:bg-[#495F2B] hover:border-[#627F38] hover:text-white transition-all duration-300 cursor-pointer shrink-0">
                   {language === "KOR" ? questionsTranslations.button.ko : questionsTranslations.button.en}
                   <Icons.CgArrowTopRight className="size-4" aria-hidden />
                 </button>
@@ -80,11 +80,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12">
         <div className="w-full md:w-1/2 flex flex-col">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 lg:gap-12">
-            <Link href="/" className="text-xs sm:text-sm md:text-[14px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.home.ko : footerTranslations.navigation.home.en}</Link>
-            <Link href="/about" className="text-xs sm:text-sm md:text-[14px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.about.ko : footerTranslations.navigation.about.en}</Link>
-            <Link href="/services" className="text-xs sm:text-sm md:text-[14px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.services.ko : footerTranslations.navigation.services.en}</Link>
-            <Link href="/insights" className="text-xs sm:text-sm md:text-[14px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.insights.ko : footerTranslations.navigation.insights.en}</Link>
-            <Link href="/contact" className="text-xs sm:text-sm md:text-[14px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.contact.ko : footerTranslations.navigation.contact.en}</Link>
+            <Link href="/" className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.home.ko : footerTranslations.navigation.home.en}</Link>
+            <Link href="/about" className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.about.ko : footerTranslations.navigation.about.en}</Link>
+            <Link href="/services" className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.services.ko : footerTranslations.navigation.services.en}</Link>
+            <Link href="/insights" className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.insights.ko : footerTranslations.navigation.insights.en}</Link>
+            <Link href="/contact" className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white hover:text-[#627F38] transition-colors cursor-pointer">{language === "KOR" ? footerTranslations.navigation.contact.ko : footerTranslations.navigation.contact.en}</Link>
           </div>
         </div>
         <div className="w-full md:w-1/2 flex flex-col gap-3 sm:gap-4 mt-6 md:mt-0">
@@ -93,12 +93,12 @@ export default function Footer() {
               <Image src="/logo-w.png" alt="Olive & Vine Logo" width={60} height={60} className="object-contain cursor-pointer w-12 h-12 sm:w-14 sm:h-14 md:w-[60px] md:h-[60px]" unoptimized />
             </Link>
             <Link href="/">
-              <span className="font-lang-toggle text-lg sm:text-xl md:text-2xl lg:text-[50px] font-bold text-white cursor-pointer">Olive & Vine</span>
+              <span className="font-lang-toggle text-lg sm:text-xl md:text-2xl lg:text-[50px] 2xl:text-[58px] font-bold text-white cursor-pointer">Olive & Vine</span>
             </Link>
           </div>
           <div className="w-full flex flex-col sm:flex-row md:items-end md:justify-end gap-4 sm:gap-6 md:gap-26">
             <div className="flex flex-col">
-              <p className="font-lang-toggle text-xs sm:text-sm md:text-[14px] text-white/80 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: "contact@oliveandvinehk.com<br />+852 6042 3884<br />Room 580, Level 5, K11 Atelier<br />728 King's Road, Quarry Bay<br />Hong Kong" }} />
+              <p className="font-lang-toggle text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white/80 leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: "contact@oliveandvinehk.com<br />+852 6042 3884<br />Room 580, Level 5, K11 Atelier<br />728 King's Road, Quarry Bay<br />Hong Kong" }} />
             </div>
             <div className="flex items-start sm:items-end">
               <button onClick={toggleLanguage} className="font-lang-toggle text-xs sm:text-sm md:text-base font-medium text-white hover:text-white/80 transition-all duration-300 cursor-pointer hover:scale-110" aria-label={`Switch language to ${language === "KOR" ? "English" : "Korean"}`}>
@@ -113,10 +113,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 pt-6 sm:pt-8 md:pt-10">
         <div className="border-t border-white/20 w-full"></div>
         <div className="flex flex-row justify-between items-center gap-2 sm:gap-4 pt-4 sm:pt-6">
-          <p className="font-lang-toggle text-xs sm:text-sm md:text-[14px] text-white/30 whitespace-nowrap">{language === "KOR" ? footerTranslations.copyright.ko : footerTranslations.copyright.en}</p>
+          <p className="font-lang-toggle text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white/30 whitespace-nowrap">{language === "KOR" ? footerTranslations.copyright.ko : footerTranslations.copyright.en}</p>
           <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-            <button className="text-xs sm:text-sm md:text-[14px] text-white/30 hover:text-white transition-colors cursor-pointer whitespace-nowrap">{language === "KOR" ? footerTranslations.privacy.ko : footerTranslations.privacy.en}</button>
-            <button className="text-xs sm:text-sm md:text-[14px] text-white/30 hover:text-white transition-colors cursor-pointer whitespace-nowrap">{language === "KOR" ? footerTranslations.terms.ko : footerTranslations.terms.en}</button>
+            <button className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white/30 hover:text-white transition-colors cursor-pointer whitespace-nowrap">{language === "KOR" ? footerTranslations.privacy.ko : footerTranslations.privacy.en}</button>
+            <button className="text-xs sm:text-sm md:text-[14px] 2xl:text-[16px] text-white/30 hover:text-white transition-colors cursor-pointer whitespace-nowrap">{language === "KOR" ? footerTranslations.terms.ko : footerTranslations.terms.en}</button>
           </div>
         </div>
       </div>

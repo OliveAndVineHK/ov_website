@@ -188,7 +188,7 @@ export default function InsightCards({
           alt: "Insight 2",
           href: secondCardAmendment ? "/insights/corporate-service/amendment" : "#",
           tag: secondCardAmendment ? { en: "Corporate Service", ko: "기업 서비스" } : (tagOverride ?? translations.title),
-          title: secondCardAmendment ? { en: "Amendment", ko: "수정" } : translations.description,
+          title: secondCardAmendment ? { en: "Amendment", ko: "정관 변경" } : translations.description,
           description: secondCardAmendment ? { en: "", ko: "" } : translations.description,
           isPlaceholder: false,
           subTags: secondCardAmendment ? AMENDMENT_CARD.subTags : undefined,

@@ -5,7 +5,7 @@ export const leadershipPageTranslations = {
   },
   culture: {
     en: "Our culture is built on integrity and only motivated by a collective commitment with strong compassion. We truly enjoy providing clients.",
-    ko: "올리브앤바인은 진실함을 바탕으로 고객을 깊이 이해하고 공감하며 함께 발전하는 것에 가치를 둡니다. 공정하고 진실된 고객의 가치 증진을 위해 최선을 다할 것입니다.",
+    ko: "Olive & Vine은 진실함을 바탕으로 고객을 깊이 이해하고, 공감하며, 함께 성장하는 것에 가치를 둡니다. 공정하고 정직한 마음으로 고객의 성공을 위해 최선을 다합니다.",
   },
   profiles: {
     rebecca: {

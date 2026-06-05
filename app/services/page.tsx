@@ -56,7 +56,7 @@ export default function Services() {
     <div className="min-h-screen bg-white">
       <section className="w-full py-12 md:py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-start">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-semibold text-[#495F2B]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] 2xl:text-[56px] font-semibold text-[#495F2B]">
             {(language === "KOR" ? servicesTranslations.heading.ko : servicesTranslations.heading.en).split('\n').map((line, index, array) => (
               <span key={index}>
                 {line}
@@ -64,7 +64,7 @@ export default function Services() {
               </span>
             ))}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-[20px] text-[#111B12] leading-relaxed w-full text-justify mt-6 md:mt-8">
+          <p className="text-base sm:text-lg md:text-xl lg:text-[20px] 2xl:text-[22px] text-[#111B12] leading-relaxed w-full text-justify mt-6 md:mt-8">
             {language === "KOR" ? servicesPageTranslations.description.ko : servicesPageTranslations.description.en}
           </p>
           <div className="w-full flex flex-col gap-4 mt-12 md:mt-16">
@@ -81,7 +81,7 @@ export default function Services() {
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 relative">
                         <Image src={service.image} alt={serviceTitle} fill className="object-contain" sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, 56px" />
                       </div>
-                      <span className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] text-[#111B12]/80 transition-all duration-300 truncate">{serviceTitle}</span>
+                      <span className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] 2xl:text-[32px] text-[#111B12]/80 transition-all duration-300 truncate">{serviceTitle}</span>
                     </div>
                     <div className="flex items-center justify-center shrink-0">
                       {isOpen ? (
@@ -92,18 +92,32 @@ export default function Services() {
                     </div>
                   </button>
                   <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}>
-                    <div className="p-4 sm:p-6 pt-0 sm:pt-0">
+                    {/* Padding matches the button row (p-3 sm:p-4 md:p-6) so
+                        the body's left edge aligns with the title's left edge
+                        once the icon-column spacer is accounted for, and the
+                        right edge keeps the same distance from the box edge
+                        (the rounded-tr-[30px] corner doesn't crowd the text). */}
+                    <div className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-6">
                       <div className="flex gap-3 sm:gap-4">
                         <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0" aria-hidden />
-                        <div className="flex flex-col flex-1 min-w-0 w-full">
-                          <p className="text-base sm:text-lg md:text-xl lg:text-[18px] text-[#111B12]/70 leading-relaxed mb-3 sm:mb-4 text-justify w-full" dangerouslySetInnerHTML={{__html: serviceDescription}} />
+                        <div className="flex flex-col flex-1 min-w-0">
+                          {/* max-w-[88%] keeps the same proportional width
+                              across all viewport sizes (the founder chose
+                              this ratio at desktop; using a fixed px cap
+                              like max-w-5xl would let smaller windows fill
+                              100% and break the consistency). Left-aligned —
+                              text-justify created awkward Korean spacing. */}
+                          <p
+                            className="text-base sm:text-lg md:text-[18px] 2xl:text-[20px] text-[#111B12]/70 leading-relaxed mb-3 sm:mb-4 max-w-[88%]"
+                            dangerouslySetInnerHTML={{ __html: serviceDescription }}
+                          />
                           <div className="mt-3 sm:mt-4 flex justify-end w-full">
                             {SERVICE_ROUTES[service.key] ? (
-                              <Link href={SERVICE_ROUTES[service.key]} className="text-base sm:text-lg md:text-[18px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                              <Link href={SERVICE_ROUTES[service.key]} className="text-base sm:text-lg md:text-[18px] 2xl:text-[20px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
                                 {language === "KOR" ? "더 알아보기" : "Learn more"}
                               </Link>
                             ) : (
-                              <button className="text-base sm:text-lg md:text-[18px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                              <button className="text-base sm:text-lg md:text-[18px] 2xl:text-[20px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
                                 {language === "KOR" ? "더 알아보기" : "Learn more"}
                               </button>
                             )}

@@ -5,7 +5,7 @@ export const hrServicePageTranslations = {
   },
   heroSubtitle: {
     en: "Hong Kong businesses must comply with employment regulations, payroll requirements, and statutory benefits. We provide HR support to help you manage payroll, MPF, recruitment, and visa processes in accordance with local laws.",
-    ko: "홍콩 기업은 고용 규정, 급여 요구사항, 법정 혜택을 준수하여야 합니다. 현지 법률에 따라 급여, MPF, 채용, 비자 프로세스를 관리할 수 있도록 인사 지원을 제공해 드립니다.",
+    ko: "홍콩 기업은 고용 관련 법규와 급여 의무, 법정 복리후생을 준수해야 합니다. 현지 법규에 맞춰 급여, MPF, 채용, 비자 업무를 관리하도록 인사 지원을 제공해 드립니다.",
   },
   cards: {
     payroll: {

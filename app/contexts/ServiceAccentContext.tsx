@@ -7,46 +7,61 @@ type ServiceType = "accounting" | "tax" | "corporate" | "consulting" | "hr" | "a
 type ServiceAccentColors = {
   primary: string;
   secondary: string;
+  /** Hero base color — set as `background-color` on the hero section,
+      with the leaf-pale radial vignette layered on top. Per-service
+      tint is the Decision G differentiation knob. */
+  heroBase: string;
   serviceName: string;
   serviceBadgeText: string;
 };
 
+/* Per-service hero base — all within the olive hue family.
+   Decision G (2026-05-28) is the rationale; the existing 4 olive
+   tokens are reused for 4 services and 3 new tokens (`-rooted`,
+   `-hearth`, `-steady`) fill in for Corporate / HR / Assurance.
+   Order is by lightness, lightest to darkest, for visual grouping. */
 const serviceColorMap: Record<ServiceType, ServiceAccentColors> = {
-  accounting: {
-    primary: "#495F2B",
-    secondary: "#627F38",
-    serviceName: "Accounting",
-    serviceBadgeText: "ACCOUNTING",
-  },
-  tax: {
-    primary: "#495F2B",
-    secondary: "#627F38",
-    serviceName: "Tax",
-    serviceBadgeText: "TAX EXPERTISE",
-  },
-  corporate: {
-    primary: "#495F2B",
-    secondary: "#627F38",
-    serviceName: "Corporate",
-    serviceBadgeText: "CORPORATE STRATEGY",
-  },
   consulting: {
     primary: "#495F2B",
     secondary: "#627F38",
+    heroBase: "#648E3E",     // --ov-olive-active — bright, forward
     serviceName: "Consulting",
     serviceBadgeText: "STRATEGIC CONSULTING",
   },
   hr: {
     primary: "#495F2B",
     secondary: "#627F38",
+    heroBase: "#6E7A33",     // --ov-olive-hearth — warm earthy
     serviceName: "HR",
     serviceBadgeText: "PEOPLE MANAGEMENT",
+  },
+  accounting: {
+    primary: "#495F2B",
+    secondary: "#627F38",
+    heroBase: "#627F38",     // --ov-olive — clean mid
+    serviceName: "Accounting",
+    serviceBadgeText: "ACCOUNTING",
+  },
+  tax: {
+    primary: "#495F2B",
+    secondary: "#627F38",
+    heroBase: "#495F2B",     // --ov-olive-deep — warm earthy (current)
+    serviceName: "Tax",
+    serviceBadgeText: "TAX EXPERTISE",
   },
   assurance: {
     primary: "#495F2B",
     secondary: "#627F38",
+    heroBase: "#3F4E22",     // --ov-olive-steady — cool deep
     serviceName: "Assurance",
     serviceBadgeText: "ASSURANCE & AUDIT",
+  },
+  corporate: {
+    primary: "#495F2B",
+    secondary: "#627F38",
+    heroBase: "#2E3F18",     // --ov-olive-rooted — structural deep
+    serviceName: "Corporate",
+    serviceBadgeText: "CORPORATE STRATEGY",
   },
 };
 

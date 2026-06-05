@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,6 +14,29 @@ export default function Header() {
   const { language, setLanguage } = useLanguage();
   const pageName = getTranslatedPageName(pathname, language);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  /* Close the expanded menu when the user clicks outside the header,
+     and on Escape. The X button still works (it lives inside the
+     header). Effect only listens while the menu is open. */
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handlePointer = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handlePointer);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handlePointer);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [isMenuOpen]);
 
   const toggleLanguage = () => {
     setLanguage(language === "KOR" ? "ENG" : "KOR");
@@ -45,7 +68,7 @@ export default function Header() {
 
 
   return (
-    <header className={`w-full bg-white sticky top-0 z-40 transition-all duration-300 relative ${isMenuOpen ? 'xl:bg-[#F9F8F3]' : ''}`}>
+    <header ref={headerRef} className={`w-full bg-white sticky top-0 z-40 transition-all duration-300 relative ${isMenuOpen ? 'xl:bg-[#F9F8F3]' : ''}`}>
       {isMenuOpen && <div className="hidden xl:block absolute inset-0 bg-[#F9F8F3] z-0"></div>}
       <nav className={`relative z-10 flex flex-col max-w-7xl xl:max-w-none mx-auto p-2 xl:py-4 xl:px-0 transition-all duration-300 ${isMenuOpen ? 'bg-[#F9F8F3]' : 'bg-white'}`}>
         <div className="flex items-center justify-between xl:max-w-7xl xl:mx-auto xl:w-full xl:px-4">

@@ -27,7 +27,7 @@ const statsMap: Record<ServiceType, Stat[]> = {
   corporate: [
     { value: "300+", label: "Companies Incorporated", labelKo: "법인 설립" },
     { value: "100%", label: "Deadlines Met", labelKo: "기한 준수" },
-    { value: "200+", label: "Governance Audits", labelKo: "거버넌스 감사" },
+    { value: "200+", label: "Governance Audits", labelKo: "지배구조 감사" },
     { value: "98%", label: "Satisfaction", labelKo: "만족도" },
   ],
   consulting: [
@@ -45,7 +45,7 @@ const statsMap: Record<ServiceType, Stat[]> = {
   assurance: [
     { value: "500+", label: "Audits Completed", labelKo: "감사 완료" },
     { value: "Zero", label: "Restatements", labelKo: "재작성 없음" },
-    { value: "99%", label: "Assurance Score", labelKo: "보증 점수" },
+    { value: "99%", label: "Assurance Score", labelKo: "Assurance 점수" },
     { value: "97%", label: "Client Confidence", labelKo: "고객 신뢰도" },
   ],
 };

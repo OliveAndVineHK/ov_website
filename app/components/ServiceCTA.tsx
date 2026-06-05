@@ -20,7 +20,7 @@ const ctaMap: Record<ServiceType, ServiceCTAConfig> = {
     },
     description: {
       en: "Let our experienced accounting team review your financial position and identify opportunities for growth and improvement.",
-      ko: "저희 경험 많은 회계 팀이 귀사의 재무 상태를 검토하고 성장 및 개선 기회를 찾아드리겠습니다.",
+      ko: "경험 많은 회계 전문가가 재무 현황을 면밀히 살피고, 성장과 개선의 기회를 함께 찾아 드립니다.",
     },
     button: {
       en: "Schedule Review",
@@ -30,11 +30,11 @@ const ctaMap: Record<ServiceType, ServiceCTAConfig> = {
   tax: {
     heading: {
       en: "Optimize Your Tax Strategy",
-      ko: "세금 전략 최적화",
+      ko: "세무 전략 최적화",
     },
     description: {
       en: "Discover how our tax experts can help you minimize liabilities and maximize savings through strategic planning.",
-      ko: "저희 세무 전문가가 전략적 계획을 통해 세금 부담을 최소화하고 절세 효과를 극대화하는 방법을 알아보세요.",
+      ko: "세무 전문가가 전략적 설계를 통해 세금 부담은 줄이고 절세 효과는 극대화하도록 돕습니다.",
     },
     button: {
       en: "Explore Strategy",
@@ -48,7 +48,7 @@ const ctaMap: Record<ServiceType, ServiceCTAConfig> = {
     },
     description: {
       en: "Our corporate specialists will guide you through entity formation, governance, and compliance requirements.",
-      ko: "저희 기업 전문가가 법인 설립, 거버넌스 및 준수 요구 사항을 안내해 드리겠습니다.",
+      ko: "기업 전문가가 법인 설립부터 지배구조, 준법 의무까지 차근차근 안내해 드립니다.",
     },
     button: {
       en: "Get Structured",
@@ -62,7 +62,7 @@ const ctaMap: Record<ServiceType, ServiceCTAConfig> = {
     },
     description: {
       en: "Unlock your business's full potential with strategic consulting tailored to your unique challenges.",
-      ko: "귀사의 독특한 과제에 맞춘 전략적 컨설팅으로 비즈니스의 모든 잠재력을 발휘하세요.",
+      ko: "고객마다 다른 과제에 꼭 맞춘 전략 컨설팅으로 비즈니스의 잠재력을 온전히 끌어냅니다.",
     },
     button: {
       en: "Start Transformation",
@@ -76,11 +76,11 @@ const ctaMap: Record<ServiceType, ServiceCTAConfig> = {
     },
     description: {
       en: "From payroll to recruitment to compliance, we help you build a thriving workforce.",
-      ko: "급여에서 채용, 준수까지 저희가 활기찬 워크포스를 구축하도록 도와드리겠습니다.",
+      ko: "급여부터 채용, 준법까지 — 활기차게 성장하는 조직을 함께 만들어 갑니다.",
     },
     button: {
       en: "Empower Now",
-      ko: "지금 강화",
+      ko: "강화 시작",
     },
   },
   assurance: {
@@ -90,7 +90,7 @@ const ctaMap: Record<ServiceType, ServiceCTAConfig> = {
     },
     description: {
       en: "Ensure your financial statements are accurate and compliant with our comprehensive assurance services.",
-      ko: "저희의 포괄적인 보증 서비스를 통해 재무제표의 정확성과 준수를 보장하세요.",
+      ko: "폭넓은 Assurance 서비스로 재무제표의 정확성과 준법성을 함께 보장합니다.",
     },
     button: {
       en: "Schedule Audit",
@@ -115,10 +115,10 @@ export default function ServiceCTA({ serviceType }: ServiceCTAProps) {
   return (
     <section className="w-full py-16 sm:py-20 lg:py-24" style={{ backgroundColor: colors.primary }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-light text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] 2xl:text-[56px] font-light text-white mb-4">
           {heading}
         </h2>
-        <p className="text-base sm:text-lg md:text-xl lg:text-[20px] text-white/70 max-w-2xl mx-auto mb-8">
+        <p className="text-base sm:text-lg md:text-xl lg:text-[20px] 2xl:text-[22px] text-white/70 max-w-2xl mx-auto mb-8">
           {description}
         </p>
         <Link

@@ -1,6 +1,18 @@
 @import "tailwindcss";
 @import "./animations.css";
 
+/* Nexon Lv1 Gothic — scoped to /about only via inline fontFamily on
+   that page's <main>. Loaded from the projectnoonnu CDN mirror that
+   hosts many freely-licensed Korean fonts. Fallback chain keeps the
+   page legible if the CDN fails. */
+@font-face {
+  font-family: 'Nexon Lv1 Gothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/NexonLv1Gothic.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

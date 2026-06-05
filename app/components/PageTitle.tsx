@@ -11,7 +11,7 @@ export default function PageTitle() {
 
   useEffect(() => {
     const pageName = getDocumentPageName(pathname, language);
-    const title = `Olive & Vine - ${pageName}`;
+    const title = `${pageName} | Olive & Vine`;
 
     const setTitle = () => {
       if (document.title !== title) {

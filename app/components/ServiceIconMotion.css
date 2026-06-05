@@ -1,0 +1,278 @@
+/* ──────────────────────────────────────────────────────────────
+   Service icon motions
+   Source: design-system audits/assets/ov-service-icons/project/
+           Service Icons in Motion.html
+   ──────────────────────────────────────────────────────────────
+
+   The SVG markup lives in ServiceIconMotion.tsx; this file only
+   carries the keyframes + bindings. Class names are prefixed
+   `ov-svc-` so they cannot collide with anything else.
+
+   The six per-service cycle durations are deliberately offset so
+   that when multiple icons appear together (e.g. a 6-up grid) they
+   never sync up. Tax is 5.6s. */
+
+:root {
+  --ov-svc-d-corporate:  5.2s;
+  --ov-svc-d-accounting: 4.4s;
+  --ov-svc-d-assurance:  4.8s;
+  --ov-svc-d-tax:        5.6s;
+  --ov-svc-d-consulting: 4.2s;
+  --ov-svc-d-hr:         5.0s;
+  --ov-svc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* SVG element itself is transparent — fill="none" on the root, no
+   background rect. Renders cleanly over any surface (cream, white,
+   dark olive). */
+.ov-svc-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Per-source convention — these elements use view-box transform origin
+   so animations rotate around fixed external points (not their own bbox).
+   Matches `Service Icons in Motion.html` lines 200-207. */
+.ov-svc-icon [class^="anim-"],
+.ov-svc-icon [class*=" anim-"] {
+  transform-box: view-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   TAX — "Tilt"
+   Two grey rims arrive as closed ellipses; each rim's hidden half
+   erases away while the olive blade rotates 360° into its rest tilt.
+   ────────────────────────────────────────────────────────────── */
+
+.ov-svc-tax .anim-rim-top {
+  animation: ov-svc-tax-rim-top var(--ov-svc-d-tax) var(--ov-svc-ease) infinite;
+}
+.ov-svc-tax .anim-rim-bot {
+  animation: ov-svc-tax-rim-bot var(--ov-svc-d-tax) var(--ov-svc-ease) infinite;
+}
+.ov-svc-tax .anim-closer-rim-top,
+.ov-svc-tax .anim-closer-rim-bot {
+  stroke-dasharray: 1 1.02;
+  animation-duration: var(--ov-svc-d-tax);
+  animation-timing-function: var(--ov-svc-ease);
+  animation-iteration-count: infinite;
+}
+.ov-svc-tax .anim-closer-rim-top { animation-name: ov-svc-tax-close-rim-top; }
+.ov-svc-tax .anim-closer-rim-bot { animation-name: ov-svc-tax-close-rim-bot; }
+.ov-svc-tax .anim-blade {
+  transform-origin: 40px 39.5px;
+  animation: ov-svc-tax-blade var(--ov-svc-d-tax) var(--ov-svc-ease) infinite;
+}
+
+@keyframes ov-svc-tax-rim-top {
+  0%   { transform: translateY(8px);  opacity: 0; }
+  25%  { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+@keyframes ov-svc-tax-rim-bot {
+  0%   { transform: translateY(-8px); opacity: 0; }
+  25%  { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+@keyframes ov-svc-tax-close-rim-top {
+  0%, 25% { stroke-dashoffset: 0; }
+  50%     { stroke-dashoffset: 1; }
+  100%    { stroke-dashoffset: 1; }
+}
+@keyframes ov-svc-tax-close-rim-bot {
+  0%, 28% { stroke-dashoffset: 0; }
+  53%     { stroke-dashoffset: 1; }
+  100%    { stroke-dashoffset: 1; }
+}
+@keyframes ov-svc-tax-blade {
+  0%   { transform: rotate(-330deg) scale(0.7); opacity: 0; }
+  20%  { opacity: 1; }
+  65%  { transform: rotate(0deg)    scale(1);   opacity: 1; }
+  100% { transform: rotate(0deg)    scale(1);   opacity: 1; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   CORPORATE — "Embrace"
+   Two grey arcs arrive as CLOSED circles, then their closing segment
+   erases to reveal the final arc. Meanwhile the pair gently rotates
+   into its home embrace around the olive anchor.
+   ────────────────────────────────────────────────────────────── */
+.ov-svc-corp .anim-arc-group-1 {
+  transform-origin: 52.07px 52.32px;
+  animation: ov-svc-corp-group-1 var(--ov-svc-d-corporate) var(--ov-svc-ease) infinite;
+}
+.ov-svc-corp .anim-arc-group-2 {
+  transform-origin: 52.07px 52.32px;
+  animation: ov-svc-corp-group-2 var(--ov-svc-d-corporate) var(--ov-svc-ease) infinite;
+}
+.ov-svc-corp .anim-arc-appear-1,
+.ov-svc-corp .anim-arc-appear-2 {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: var(--ov-svc-d-corporate);
+  animation-timing-function: var(--ov-svc-ease);
+  animation-iteration-count: infinite;
+}
+.ov-svc-corp .anim-arc-appear-1 { animation-name: ov-svc-corp-appear-1; }
+.ov-svc-corp .anim-arc-appear-2 { animation-name: ov-svc-corp-appear-2; }
+.ov-svc-corp .anim-closer-1,
+.ov-svc-corp .anim-closer-2 {
+  stroke-dasharray: 1 1.02;
+  animation-duration: var(--ov-svc-d-corporate);
+  animation-timing-function: var(--ov-svc-ease);
+  animation-iteration-count: infinite;
+}
+.ov-svc-corp .anim-closer-1 { animation-name: ov-svc-corp-closer-1; }
+.ov-svc-corp .anim-closer-2 { animation-name: ov-svc-corp-closer-2; }
+.ov-svc-corp .anim-anchor {
+  transform-origin: 52.07px 52.32px;
+  animation: ov-svc-corp-anchor var(--ov-svc-d-corporate) var(--ov-svc-ease) infinite;
+}
+@keyframes ov-svc-corp-group-1  { 0%, 30% { transform: rotate(-200deg); } 80% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+@keyframes ov-svc-corp-group-2  { 0%, 30% { transform: rotate(160deg); } 80% { transform: rotate(0deg); } 100% { transform: rotate(0deg); } }
+@keyframes ov-svc-corp-appear-1 { 0% { transform: scale(0); opacity: 0; } 8% { opacity: 1; } 22% { transform: scale(1.05); } 30% { transform: scale(1); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes ov-svc-corp-appear-2 { 0%, 6% { transform: scale(0); opacity: 0; } 14% { opacity: 1; } 28% { transform: scale(1.05); } 36% { transform: scale(1); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes ov-svc-corp-closer-1 { 0%, 30% { stroke-dashoffset: 0; } 70% { stroke-dashoffset: 1; } 100% { stroke-dashoffset: 1; } }
+@keyframes ov-svc-corp-closer-2 { 0%, 35% { stroke-dashoffset: 0; } 75% { stroke-dashoffset: 1; } 100% { stroke-dashoffset: 1; } }
+@keyframes ov-svc-corp-anchor   { 0% { transform: scale(0.6); opacity: 0; } 25% { transform: scale(1.05); opacity: 1; } 35% { transform: scale(1); } 100% { transform: scale(1); opacity: 1; } }
+
+/* ──────────────────────────────────────────────────────────────
+   ACCOUNTING — "Stack"
+   Plates fall in from above, bottom-up. Each grey plate arrives as
+   a closed ellipse; its top half then erases to reveal the final arc.
+   ────────────────────────────────────────────────────────────── */
+.ov-svc-acc .anim-plate-bottom { animation: ov-svc-acc-drop-bottom var(--ov-svc-d-accounting) var(--ov-svc-ease) infinite; }
+.ov-svc-acc .anim-plate-mid    { animation: ov-svc-acc-drop-mid    var(--ov-svc-d-accounting) var(--ov-svc-ease) infinite; }
+.ov-svc-acc .anim-plate-top    { animation: ov-svc-acc-drop-top    var(--ov-svc-d-accounting) var(--ov-svc-ease) infinite; }
+.ov-svc-acc .anim-closer-bottom,
+.ov-svc-acc .anim-closer-mid {
+  stroke-dasharray: 1 1.02;
+  animation-duration: var(--ov-svc-d-accounting);
+  animation-timing-function: var(--ov-svc-ease);
+  animation-iteration-count: infinite;
+}
+.ov-svc-acc .anim-closer-bottom { animation-name: ov-svc-acc-close-bottom; }
+.ov-svc-acc .anim-closer-mid    { animation-name: ov-svc-acc-close-mid; }
+@keyframes ov-svc-acc-close-bottom { 0%, 28% { stroke-dashoffset: 0; } 48% { stroke-dashoffset: 1; } 100% { stroke-dashoffset: 1; } }
+@keyframes ov-svc-acc-close-mid    { 0%, 42% { stroke-dashoffset: 0; } 62% { stroke-dashoffset: 1; } 100% { stroke-dashoffset: 1; } }
+@keyframes ov-svc-acc-drop-bottom  { 0%, 5%  { transform: translateY(-120px); opacity: 0; } 25% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes ov-svc-acc-drop-mid     { 0%, 20% { transform: translateY(-130px); opacity: 0; } 40% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes ov-svc-acc-drop-top     { 0%, 35% { transform: translateY(-140px); opacity: 0; } 55% { transform: translateY(4px); opacity: 1; } 62% { transform: translateY(0); } 100% { transform: translateY(0); opacity: 1; } }
+
+/* ──────────────────────────────────────────────────────────────
+   ASSURANCE — "Eclipse"
+   Two inner circles emerge from center, slide to their poles, then
+   counter-orbit a full revolution around the rim before resting.
+   ────────────────────────────────────────────────────────────── */
+.ov-svc-ass .anim-ring {
+  transform-origin: 41px 41px;
+  animation: ov-svc-ass-ring var(--ov-svc-d-assurance) var(--ov-svc-ease) infinite;
+}
+.ov-svc-ass .anim-pole-l-orbit,
+.ov-svc-ass .anim-pole-r-orbit {
+  animation-duration: var(--ov-svc-d-assurance);
+  animation-timing-function: var(--ov-svc-ease);
+  animation-iteration-count: infinite;
+}
+.ov-svc-ass .anim-pole-l-orbit { animation-name: ov-svc-ass-orbit-l; }
+.ov-svc-ass .anim-pole-r-orbit { animation-name: ov-svc-ass-orbit-r; }
+.ov-svc-ass .anim-pole-l-slide,
+.ov-svc-ass .anim-pole-r-slide {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: var(--ov-svc-d-assurance);
+  animation-timing-function: var(--ov-svc-ease);
+  animation-iteration-count: infinite;
+}
+.ov-svc-ass .anim-pole-l-slide { animation-name: ov-svc-ass-slide-l; }
+.ov-svc-ass .anim-pole-r-slide { animation-name: ov-svc-ass-slide-r; }
+@keyframes ov-svc-ass-ring    { 0% { transform: scale(0.5); opacity: 0; } 20% { transform: scale(1.04); opacity: 1; } 30% { transform: scale(1); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes ov-svc-ass-slide-l { 0%, 18% { transform: translateX(16.5px) scale(0.4); opacity: 0; } 35% { transform: translateX(0) scale(1); opacity: 1; } 100% { transform: translateX(0) scale(1); opacity: 1; } }
+@keyframes ov-svc-ass-orbit-l { 0%, 35% { transform: rotate(0deg); } 85% { transform: rotate(-360deg); } 100% { transform: rotate(-360deg); } }
+@keyframes ov-svc-ass-slide-r { 0%, 22% { transform: translateX(-24.5px) scale(0.4); opacity: 0; } 40% { transform: translateX(0) scale(1); opacity: 1; } 100% { transform: translateX(0) scale(1); opacity: 1; } }
+@keyframes ov-svc-ass-orbit-r { 0%, 40% { transform: rotate(0deg); } 90% { transform: rotate(360deg); } 100% { transform: rotate(360deg); } }
+
+/* ──────────────────────────────────────────────────────────────
+   CONSULTING — "Ripple"
+   Three nested rings all share the same bottom-tangent point. Each
+   ring expands outward from that source like a wave.
+
+   The source design animates stroke color through the cycle (dark
+   at source → natural at rest). For light tone (dark hero), the
+   stroke animation is overridden to a fixed white/translucent — the
+   ripple geometry still reads, the color subtlety is sacrificed for
+   contrast against the dark background.
+   ────────────────────────────────────────────────────────────── */
+.ov-svc-cons .anim-ring-big   { transform-origin: 40px 79px; animation: ov-svc-cons-big   var(--ov-svc-d-consulting) cubic-bezier(0, 0, 0.32, 1) infinite; }
+.ov-svc-cons .anim-ring-mid   { transform-origin: 40px 79px; animation: ov-svc-cons-mid   var(--ov-svc-d-consulting) cubic-bezier(0, 0, 0.32, 1) infinite; }
+.ov-svc-cons .anim-ring-small { transform-origin: 40px 79px; animation: ov-svc-cons-small var(--ov-svc-d-consulting) cubic-bezier(0, 0, 0.32, 1) infinite; }
+
+@keyframes ov-svc-cons-small {
+  0%   { transform: scale(0); opacity: 0; stroke: #2a3719; }
+  10%  { opacity: 1; }
+  32%  { transform: scale(1); stroke: #436A1F; }
+  100% { transform: scale(1); opacity: 1; stroke: #436A1F; }
+}
+@keyframes ov-svc-cons-mid {
+  0%, 12% { transform: scale(0); opacity: 0; stroke: #2d302d; }
+  22%     { opacity: 1; }
+  48%     { transform: scale(1); stroke: #878C88; }
+  100%    { transform: scale(1); opacity: 1; stroke: #878C88; }
+}
+@keyframes ov-svc-cons-big {
+  0%, 28% { transform: scale(0); opacity: 0; stroke: #45494a; }
+  40%     { opacity: 1; }
+  66%     { transform: scale(1); stroke: #878C88; }
+  100%    { transform: scale(1); opacity: 1; stroke: #878C88; }
+}
+
+/* Light-tone override — keep the scale/opacity animation but lock stroke
+   to white-family. `!important` beats keyframe stroke. */
+.ov-svc-cons.ov-svc-tone-light .anim-ring-small { stroke: #FFFFFF !important; }
+.ov-svc-cons.ov-svc-tone-light .anim-ring-mid,
+.ov-svc-cons.ov-svc-tone-light .anim-ring-big   { stroke: rgba(255, 255, 255, 0.70) !important; }
+
+/* ──────────────────────────────────────────────────────────────
+   HR — "Orbit"
+   The big body arrives as a closed circle; its upper-right segment
+   erases just as the olive orbiter docks into that gap.
+   ────────────────────────────────────────────────────────────── */
+.ov-svc-hr .anim-arc {
+  transform-origin: 37.62px 42.38px;
+  animation: ov-svc-hr-arc var(--ov-svc-d-hr) var(--ov-svc-ease) infinite;
+}
+.ov-svc-hr .anim-closer-arc {
+  stroke-dasharray: 1 1.02;
+  animation: ov-svc-hr-close-arc var(--ov-svc-d-hr) var(--ov-svc-ease) infinite;
+}
+.ov-svc-hr .anim-orbiter-rotate {
+  transform-origin: 37.62px 42.38px;
+  animation: ov-svc-hr-orbit var(--ov-svc-d-hr) var(--ov-svc-ease) infinite;
+}
+.ov-svc-hr .anim-orbiter-appear {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ov-svc-hr-orbit-appear var(--ov-svc-d-hr) var(--ov-svc-ease) infinite;
+}
+@keyframes ov-svc-hr-arc           { 0% { transform: scale(0.85); opacity: 0; } 25% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes ov-svc-hr-close-arc     { 0%, 30% { stroke-dashoffset: 0; } 62% { stroke-dashoffset: 1; } 100% { stroke-dashoffset: 1; } }
+@keyframes ov-svc-hr-orbit-appear  { 0% { transform: scale(0); opacity: 0; } 8% { opacity: 1; } 18% { transform: scale(1.12); } 25% { transform: scale(1); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes ov-svc-hr-orbit         { 0%, 28% { transform: rotate(0deg); } 82% { transform: rotate(-360deg); } 100% { transform: rotate(-360deg); } }
+
+/* ──────────────────────────────────────────────────────────────
+   Accessibility — reduced-motion users see the rest state only.
+   Forced via animation: none on every element under the icon.
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ov-svc-icon,
+  .ov-svc-icon * {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
