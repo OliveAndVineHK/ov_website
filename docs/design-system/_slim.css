@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url("fonts/Roboto-VariableFont_wdth_wght.ttf") format("truetype-variations"),
+       url("fonts/Roboto-VariableFont_wdth_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url("fonts/Roboto-Italic.ttf") format("truetype");
+}
+
+:root {
+  --ov-olive-deep:    #495F2B;
+  --ov-olive:         #627F38;
+  --ov-olive-hover:   #436A1F;
+  --ov-olive-active:  #648E3E;
+  --ov-ink:           #111B12;
+  --ov-ink-70:        rgba(17, 27, 18, 0.70);
+  --ov-ink-50:        rgba(17, 27, 18, 0.50);
+  --ov-ink-30:        rgba(17, 27, 18, 0.30);
+  --ov-charcoal:      #282A28;
+  --ov-grey-icon:     #888D88;
+  --ov-grey-bg:       #EFEFEF;
+  --ov-paper:         #FFFFFF;
+  --ov-cream:         #F9F8F3;
+  --ov-cream-card:    #F9F8F4;
+  --ov-cream-deep:    #F0EEE2;
+  --ov-leaf-pale:     #E5E5BD;
+  --ov-tag-bg:        #F1F1DD;
+
+  --font-sans:        "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:        ui-monospace, "JetBrains Mono", Menlo, monospace;
+
+  --ease-default:     cubic-bezier(0.4, 0, 0.2, 1);
+}

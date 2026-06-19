@@ -26,7 +26,7 @@ export default function ScrollRevealText({ text, className = "" }: ScrollRevealT
         return (
           <span
             key={i}
-            className="inline-block mr-[0.3em] transition-all duration-300"
+            className="inline-block mr-[0.3em] transition-all duration-[540ms]"
             style={{
               opacity: revealed ? 1 : 0.1,
               filter: revealed ? "blur(0)" : "blur(3px)",

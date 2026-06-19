@@ -68,7 +68,18 @@ export default function Header() {
 
 
   return (
-    <header ref={headerRef} className={`w-full bg-white sticky top-0 z-40 transition-all duration-300 relative ${isMenuOpen ? 'xl:bg-[#F9F8F3]' : ''}`}>
+    <header
+      ref={headerRef}
+      onMouseLeave={() => {
+        // Once opened by click, the menu auto-collapses when the cursor
+        // leaves the header/banner area (including the expanded panel,
+        // which is a DOM descendant so hovering it keeps the menu open).
+        // mouseleave never fires on touch, so tap users still use the X /
+        // outside-tap / Escape paths below.
+        if (isMenuOpen) setIsMenuOpen(false);
+      }}
+      className={`w-full bg-white sticky top-0 z-40 transition-all duration-300 relative ${isMenuOpen ? 'xl:bg-[#F9F8F3]' : ''}`}
+    >
       {isMenuOpen && <div className="hidden xl:block absolute inset-0 bg-[#F9F8F3] z-0"></div>}
       <nav className={`relative z-10 flex flex-col max-w-7xl xl:max-w-none mx-auto p-2 xl:py-4 xl:px-0 transition-all duration-300 ${isMenuOpen ? 'bg-[#F9F8F3]' : 'bg-white'}`}>
         <div className="flex items-center justify-between xl:max-w-7xl xl:mx-auto xl:w-full xl:px-4">

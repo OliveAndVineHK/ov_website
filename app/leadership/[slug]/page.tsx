@@ -59,7 +59,7 @@ function ProfileClient({ slug }: { slug: string }) {
             className="inline-flex items-center gap-1.5 text-[15px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300"
           >
             <Icons.CgArrowLeft className="size-4" aria-hidden />
-            {isKo ? "리더십으로 돌아가기" : "Back to Our Leadership"}
+            {isKo ? "이전 페이지" : "Back to Our Leadership"}
           </Link>
         </section>
       </main>
@@ -88,7 +88,7 @@ function ProfileClient({ slug }: { slug: string }) {
             <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-[#111B12]/30 group-hover:border-[#495F2B]">
               <Icons.CgArrowLeft className="size-3.5" aria-hidden />
             </span>
-            {isKo ? "리더십으로 돌아가기" : "Back to Our Leadership"}
+            {isKo ? "이전 페이지" : "Back to Our Leadership"}
           </Link>
         </div>
       </section>
@@ -127,7 +127,7 @@ function ProfileClient({ slug }: { slug: string }) {
               </p>
               <div className="flex flex-col gap-5">
                 {bioParagraphs.map((p, i) => (
-                  <p key={i} className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/80 leading-[1.75]">
+                  <p key={i} className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/80 leading-[1.75] text-justify">
                     {p}
                   </p>
                 ))}
@@ -229,7 +229,7 @@ function ProfileClient({ slug }: { slug: string }) {
             className="inline-flex items-center gap-2 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300"
           >
             <Icons.CgArrowLeft className="size-4" aria-hidden />
-            {isKo ? "리더십으로 돌아가기" : "Back to Our Leadership"}
+            {isKo ? "이전 페이지" : "Back to Our Leadership"}
           </Link>
         </div>
       </section>

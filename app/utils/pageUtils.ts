@@ -127,69 +127,49 @@ export const aboutUsTranslations = {
     ko: "회사소개",
   },
   promise: {
-    en: "Partnership beyond numbers.",
-    ko: "숫자 너머의 동행.",
+    en: "Partnership beyond numbers",
+    ko: "숫자를 넘어선 파트너십",
   },
   description: {
     en: "We listen first, then advise — and stay with you across every chapter of your business in Hong Kong.",
-    ko: "먼저 듣고 조언합니다. 홍콩에서 사업이 어느 단계에 있든, 우리는 같은 자리에서 함께합니다.",
+    ko: "고객의 상황을 깊이 이해하는 것에서 시작하여, 홍콩에서의 사업 전반에 걸쳐 지속적인 자문을 제공합니다.",
   },
   readMore: {
     en: "Read our story",
-    ko: "우리 이야기 보기",
+    ko: "더 알아보기",
   },
 };
 
 export const integrityTranslations = {
   title: {
     en: "Integrity",
-    ko: "정직성",
+    ko: "정직성 Integrity",
   },
   words: {
     en: ["Clarity", "Integrity", "Partnership"],
-    ko: ["Clarity", "Integrity", "Partnership"],
+    ko: ["명확성 Clarity", "정직성 Integrity", "파트너십 Partnership"],
   },
   description: {
-    en: "Trust is built through consistent professionalism and open partnership. At Olive & Vine, integrity guides every step—clear<br />communication, transparent processes, and a steadfast commitment to the client's success.",
-    ko: "신뢰는 일관된 전문성과 개방적인 파트너십을 통해 구축됩니다. Olive & Vine에서는 정직성이 모든 단계를 이끌어 주며, 명확한 소통, 투명한 과정 및 고객의 성공을 위한 확고한 약속을 지켜 드립니다.",
+    en: "Trust is built through consistent professionalism and open partnership. At Olive & Vine, integrity guides every step—clear communication, transparent processes, and a steadfast commitment to the client's success.",
+    ko: "신뢰는 일관된 전문성과 진정성 있는 파트너십을 통해 형성됩니다. Olive & Vine은 모든 과정에서 정직함을 기준으로 삼으며, 명확한 소통과 투명한 프로세스를 바탕으로 고객의 성공을 지원합니다.",
   },
 };
 
 export const portfolioTranslations = {
   title: {
     en: "Who we serve",
-    ko: "함께하는 고객",
+    ko: "Who we serve",
   },
   heading: {
     en: "Our\nClients",
-    ko: "우리의\n고객",
+    ko: "주요 고객군",
   },
-};
-
-export const statStripTranslations = {
-  yearsValue: { en: "25+", ko: "25+" },
-  yearsLabel: { en: "Years of Experience", ko: "경력 연수" },
-  clientsValue: { en: "500+", ko: "500+" },
-  clientsLabel: { en: "Clients Served", ko: "함께한 고객" },
-  hkValue: { en: "HK", ko: "HK" },
-  hkLabel: { en: "Focused Practice", ko: "홍콩 전문 서비스" },
-  big4Value: { en: "Big 4", ko: "Big 4" },
-  big4Label: { en: "Trained Alumni", ko: "전문가" },
-};
-
-export const ctaTranslations = {
-  heading: { en: "Ready to Get Started?", ko: "시작할 준비가 되셨나요?" },
-  description: {
-    en: "Let our experienced team help you navigate your business needs with confidence.",
-    ko: "저희 전문 팀이 고객의 비즈니스 과제를 자신 있게 풀어 가도록 함께하겠습니다.",
-  },
-  button: { en: "Book a Consultation", ko: "상담 예약" },
 };
 
 export const learnMoreTranslations = {
   title: {
     en: "Learn More",
-    ko: "더 알아보기",
+    ko: "Learn More",
   },
   heading: {
     en: "Featured news\n& Insights",
@@ -197,7 +177,7 @@ export const learnMoreTranslations = {
   },
   button: {
     en: "All insights",
-    ko: "모든 인사이트",
+    ko: "더 보기",
   },
   card: {
     title: {
@@ -205,8 +185,8 @@ export const learnMoreTranslations = {
       ko: "컨설팅",
     },
     description: {
-      en: "2025 Outlook<br />Looking to the Future",
-      ko: "2025 전망<br />미래를 바라보며",
+      en: "",
+      ko: "",
     },
     date: {
       en: "January 2025",
@@ -217,8 +197,8 @@ export const learnMoreTranslations = {
 
 export const questionsTranslations = {
   title: {
-    en: "We're here<br />to answer<br />any questions",
-    ko: "궁금하신 점이 있으시면<br />언제든<br />문의해 주세요",
+    en: "We're here to answer<br />any questions",
+    ko: "언제든 편하게 문의해 주시기 바랍니다",
   },
   form: {
     name: {
@@ -251,11 +231,11 @@ export const questionsTranslations = {
 export const complianceTranslations = {
   title: {
     en: "Compliance & Ethics Notice:",
-    ko: "준법 및 윤리 안내:",
+    ko: "컴플라이언스 및 윤리 고지",
   },
   description: {
     en: "Olive & Vine is committed to the highest standards of integrity, confidentiality, and regulatory compliance. All services are delivered in accordance with Hong Kong law and professional codes of conduct. The information provided on this website is for general guidance only and does not constitute legal or professional advice. For tailored advice, please contact our team directly.",
-    ko: "Olive & Vine은 정직성, 기밀 유지, 규정 준수에서 최고 기준을 지향합니다. 모든 서비스는 홍콩 법률과 전문 행동 강령에 따라 제공됩니다. 본 웹사이트의 정보는 일반적인 참고용이며, 법률 또는 전문 자문을 대체하지 않습니다. 맞춤형 자문이 필요하시면 저희에게 직접 문의해 주시기 바랍니다.",
+    ko: "Olive & Vine은 정직성, 기밀성 및 관련 법규 준수에 있어 최고 수준의 기준을 유지하고 있습니다. 당사의 모든 서비스는 홍콩 법령 및 관련 전문 직업윤리 기준에 따라 제공됩니다. 본 웹사이트에 제공된 정보는 일반적인 안내를 위한 것이며, 법률 또는 전문 자문으로 간주될 수 없습니다. 개별 상황에 대한 자문이 필요하신 경우, 당사에 직접 문의해 주시기 바랍니다.",
   },
 };
 
@@ -271,11 +251,11 @@ export const servicesTranslations = {
   },
   heading: {
     en: "Our\nServices",
-    ko: "우리의\n서비스",
+    ko: "Our Services",
   },
   button: {
     en: "All services",
-    ko: "모든 서비스",
+    ko: "더 알아보기",
   },
   corporate: {
     title: {
@@ -284,17 +264,17 @@ export const servicesTranslations = {
     },
     description: {
       en: "Company secretarial and statutory compliance for smooth business operations from incorporation to ongoing governance.",
-      ko: "회사 비서 업무와 법정 규정 준수로 설립부터 지속적인 지배구조 관리까지 원활한 비즈니스 운영을 지원해 드립니다.",
+      ko: "회사 설립부터 이후의 지배구조 관리에 이르기까지, 원활한 사업 운영을 위한 회사 비서 업무 및 법정 준수 서비스를 제공합니다.",
     },
   },
   accounting: {
     title: {
       en: "Accounting",
-      ko: "회계",
+      ko: "회계 서비스",
     },
     description: {
       en: "Precise bookkeeping and financial management, providing timely insights for informed decisions and regulatory compliance.",
-      ko: "정확한 부기 및 재무 관리로 정보에 입각한 결정과 규정 준수를 위한 시기적절한 통찰을 제공해 드립니다.",
+      ko: "정확한 기장과 체계적인 재무 관리를 통해, 기업의 의사결정을 지원하는 적시성 있는 인사이트를 제공하며 규제 준수를 뒷받침합니다.",
     },
   },
   assurance: {
@@ -304,7 +284,7 @@ export const servicesTranslations = {
     },
     description: {
       en: "Reliable audits that provide transparency, actionable insights, and strengthen trust in your organisation.",
-      ko: "투명성과 실행 가능한 통찰을 더해, 조직을 향한 신뢰를 한층 단단히 다지는 감사 서비스를 제공합니다.",
+      ko: "투명성과 신뢰를 강화하고, 실행 가능한 인사이트를 제공하는 신뢰도 높은 감사 서비스를 제공합니다.",
     },
   },
   tax: {
@@ -314,7 +294,7 @@ export const servicesTranslations = {
     },
     description: {
       en: "Comprehensive tax compliance and advisory, ensuring accurate filings and optimized tax positions for businesses and individuals.",
-      ko: "비즈니스와 개인을 위해 정확한 신고와 최적의 세무 포지션을 보장하는 종합 세무 준수·자문 서비스를 제공합니다.",
+      ko: "종합적인 세무 준수 및 자문 서비스를 통해 정확한 신고를 지원하고, 기업과 개인의 세무 리스크를 합리적으로 관리할 수 있도록 돕습니다. ",
     },
   },
   service5: {
@@ -324,7 +304,7 @@ export const servicesTranslations = {
     },
     description: {
       en: "Strategic advice tailored to the objectives, enhancing efficiency and supporting sustainable growth.",
-      ko: "목표에 맞는 전략적 자문으로 효율성 향상 및 지속 가능한 성장을 지원해 드립니다.",
+      ko: "고객의 목표에 부합하는 전략적 자문을 통해, 운영 효율성을 높이고 지속 가능한 성장을 지원합니다.",
     },
   },
   service6: {
@@ -334,7 +314,7 @@ export const servicesTranslations = {
     },
     description: {
       en: "Practical HR support for payroll, MPF, recruitment, and visa needs ensuring compliance and operational efficiency.",
-      ko: "급여, MPF, 채용, 비자 등 실용적인 인사 지원으로 규정 준수 및 운영 효율을 보장해 드립니다.",
+      ko: "급여, MPF, 채용, 비자 지원을 포함한 실무 중심의 인사 지원을 통해, 규제 준수와 효율적인 운영을 뒷받침합니다.",
     },
   },
 };
@@ -347,37 +327,37 @@ export const portfolioCardTranslations = {
     },
     description: {
       en: "Startups need more than incorporation – they need a partner who understands scaling, system setup, and adaptable process design. We guide founders from the first day with digital-first accounting, HR setup, compliance roadmaps, and pragmatic advice. As the business grows, our team continuously refines financial systems to support sustainable expansion.",
-      ko: "스타트업은 설립만으로는 부족합니다. 규모 확장, 시스템 구축, 유연한 프로세스 설계를 이해하는 파트너가 필요합니다. 창업 첫날부터 디지털 회계, 인사 설정, 규정 준수 로드맵, 실용적인 조언으로 안내해 드립니다. 비즈니스가 성장함에 따라 재무 시스템을 지속적으로 개선하여 지속 가능한 확장을 지원해 드립니다.",
+      ko: "스타트업은 단순한 법인 설립을 넘어, 성장 단계에 맞는 파트너와의 협력이 필요합니다.\nOlive & Vine은 초기 단계부터 디지털 기반 회계, 인사 체계 구축, 컴플라이언스 로드맵 수립 및 실무 중심의 자문을 통해 창업자의 안정적인 출발을 지원합니다.\n사업이 성장함에 따라, 변화하는 요구에 맞춰 재무 및 운영 체계를 지속적으로 고도화하여 지속 가능한 확장을 뒷받침합니다.",
     },
   },
   missionDriven: {
     title: {
       en: "SMEs (Small and Medium Enterprises)",
-      ko: "중소기업",
+      ko: "SMEs (Small and Medium Enterprises)",
     },
     description: {
       en: "SMEs often face rapid growth, evolving compliance needs, and limited internal resources. We support them by providing end‑to‑end corporate, accounting, tax, and HR services that bring structure and clarity. Our approach ensures business owners gain visibility and confidence while staying compliant and financially healthy.",
-      ko: "중소기업은 빠른 성장과 끊임없이 바뀌는 규정, 한정된 내부 자원을 동시에 마주합니다. 저희는 구조와 명확성을 더하는 기업·회계·세무·인사 서비스로 이를 뒷받침합니다. 사업주가 현황을 또렷이 파악하고 확신을 가지며, 규정을 지키면서 재무적으로 건전하게 운영하도록 돕습니다.",
+      ko: "SME는 빠르게 변화하는 성장 환경과 규제 요구, 제한된 내부 자원이라는 과제를 직면하고 있습니다. Olive & Vine은 기업 운영 전반에 걸친 Corporate, Accounting, Tax 및 HR 서비스를 통합적으로 제공하여 구조와 명확성을 확보할 수 있도록 지원합니다. 이를 통해 경영자는 비즈니스 전반에 대한 가시성과 신뢰를 확보하고, 규제 준수와 재무 건전성을 안정적으로 유지할 수 있습니다.",
     },
   },
   regionalOperations: {
     title: {
       en: "Growing Regional Businesses (APAC Multi‑entity / Cross‑border)",
-      ko: "아시아 태평양 지역 다중 법인 및 국경 간 성장 중인 기업",
+      ko: "APAC 지역에서 다수 법인 및 크로스보더 구조를 운영하는 Growing Regional Businesses",
     },
-    description: { 
-      en: "Companies expanding internationally face complex reporting, tax coordination, and multi‑entity workflows. We bring Big 4 and corporate experience to harmonize processes, strengthen controls, and streamline cross‑border accounting. Our support helps management make informed decisions while maintaining compliance across jurisdictions.", 
-      ko: "국제적으로 확장하는 기업은 복잡한 보고와 세무 조율, 여러 법인에 걸친 업무를 마주합니다. 빅4와 기업 경험을 바탕으로 프로세스를 조율하고 내부 통제를 강화하며 국경 간 회계를 간소화해 드립니다. 여러 관할에서 규정을 지키면서 충분한 정보로 의사결정을 내릴 수 있도록 지원합니다.",
+    description: {
+      en: "Companies expanding internationally face complex reporting, tax coordination, and multi‑entity workflows. We bring Big 4 and corporate experience to harmonize processes, strengthen controls, and streamline cross‑border accounting. Our support helps management make informed decisions while maintaining compliance across jurisdictions.",
+      ko: "해외 확장을 추진하는 기업은 복잡한 보고 체계, 세무 조정, 다수 법인 운영 등 다양한 과제에 직면하게 됩니다.\nOlive & Vine은 Big 4 및 기업 실무 경험을 바탕으로 프로세스를 표준화하고 내부 통제를 강화하며, 크로스보더 회계 운영을 효율화합니다.\n이를 통해 경영진은 다양한 관할권에 걸친 규제 준수를 유지하면서, 보다 명확한 정보에 기반한 의사결정을 수행할 수 있습니다.",
     },
   },
   newVentures: {
     title: {
       en: "Corporates & Mature Organisations",
-      ko: "대기업 & 안정화된 조직",
+      ko: "기업법인",
     },
-    description: { 
-      en: "Corporates require discipline, documentation, governance, and transparent reporting. We deliver assurance, advisory, internal control assessment, HR compliance, and digital transformation guidance grounded in proven methodologies. Our experience with global insurers, financial institutions, and large corporates ensures robust, principle‑driven support.", 
-      ko: "기업은 규율과 문서화, 지배구조, 투명한 보고를 필요로 합니다. Assurance와 자문, 내부 통제 평가, 인사 규정 준수, 디지털 전환 자문을 검증된 방법론에 기반해 제공해 드립니다. 글로벌 보험사와 금융 기관, 대기업과 함께한 경험을 바탕으로 원칙 중심의 견고한 지원을 제공합니다.",
+    description: {
+      en: "Corporates require discipline, documentation, governance, and transparent reporting. We deliver assurance, advisory, internal control assessment, HR compliance, and digital transformation guidance grounded in proven methodologies. Our experience with global insurers, financial institutions, and large corporates ensures robust, principle‑driven support.",
+      ko: "기업은 높은 수준의 규율, 체계적인 문서화, 견고한 거버넌스, 그리고 투명한 보고 체계를 요구합니다.\nOlive & Vine은 검증된 방법론을 기반으로 감사, 자문, 내부통제 평가, HR 컴플라이언스 및 디지털 전환 지원을 제공합니다.\n글로벌 보험사, 금융기관 및 대기업을 대상으로 한 실무 경험을 바탕으로, 원칙 중심의 견고한 지원을 제공합니다.",
     },
   },
 };

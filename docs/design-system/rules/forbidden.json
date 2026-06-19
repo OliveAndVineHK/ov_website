@@ -1,0 +1,300 @@
+{
+  "$schema": "./schema.json",
+  "_about": "Machine-readable encoding of every 'no X' rule from the Olive & Vine design system. A future lint hook (CI step, pre-commit, or audit script) can consume this file: walk each rule's `patterns` against the matching `targets` glob, ignore anything in `exceptions`, and report by `severity`. Keep the rationale on every rule — drift starts when 'why' gets lost.",
+  "version": "1.0.0",
+  "updated": "2026-05-28",
+  "scope": {
+    "primary_codebase": "olive-and-vine-clone-2.0",
+    "applies_to_pages": [
+      "/", "/about", "/our-values", "/leadership",
+      "/services", "/corporate-service", "/accounting-service",
+      "/tax-service", "/consulting-service", "/hr-service",
+      "/assurance-service", "/insights", "/contact", "/subscribe"
+    ]
+  },
+  "rules": [
+
+    {
+      "id": "no-shadow",
+      "name": "No box-shadow or text-shadow anywhere",
+      "severity": "blocker",
+      "decision_ref": "decisions/2026-05-28-b-direction.md#what-b-means-concretely-1",
+      "system_ref": "README.md#3-visual-foundations -> Shadows",
+      "rationale": "Hover state and depth are communicated through color swap and the NE corner gesture, never through shadow. README §3: 'unusually disciplined for a contemporary site — there are no box-shadows on cards.' Adding a shadow is the most common drift path back into generic SaaS visual language.",
+      "patterns": [
+        { "type": "regex", "value": "\\bbox-shadow\\s*:" },
+        { "type": "regex", "value": "\\btext-shadow\\s*:" },
+        { "type": "regex", "value": "\\bboxShadow\\s*:" },
+        { "type": "regex", "value": "\\btextShadow\\s*:" },
+        { "type": "regex", "value": "\\bshadow-(sm|md|lg|xl|2xl|inner|none)\\b" },
+        { "type": "regex", "value": "drop-shadow-" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"],
+      "exceptions": {
+        "files": [],
+        "allowlist_substrings": []
+      }
+    },
+
+    {
+      "id": "no-backdrop-filter",
+      "name": "No backdrop-filter / blur",
+      "severity": "blocker",
+      "decision_ref": "decisions/2026-05-28-b-direction.md#what-b-means-concretely-1",
+      "system_ref": "README.md#3-visual-foundations -> Transparency & blur",
+      "rationale": "No frosted-glass surfaces. The brand uses opacity layering at documented tiers (30/50/70/80), never a blur filter on a backdrop.",
+      "patterns": [
+        { "type": "regex", "value": "\\bbackdrop-filter\\s*:" },
+        { "type": "regex", "value": "\\bbackdropFilter\\s*:" },
+        { "type": "regex", "value": "\\bbackdrop-blur(-[a-z0-9]+)?\\b" },
+        { "type": "regex", "value": "\\bblur-(sm|md|lg|xl|2xl|3xl)\\b" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"]
+    },
+
+    {
+      "id": "no-blend-mode",
+      "name": "No mix-blend-mode (scrim faking)",
+      "severity": "blocker",
+      "decision_ref": "decisions/2026-05-28-b-direction.md#what-b-means-concretely-1",
+      "system_ref": "README.md#3-visual-foundations -> Hover & press states",
+      "rationale": "Hover state is color-swap, not blend-mode darkening. The site.html legacy used mix-blend-mode: multiply as a scrim on a video hero — exactly the failure mode Direction B prohibits.",
+      "patterns": [
+        { "type": "regex", "value": "\\bmix-blend-mode\\s*:" },
+        { "type": "regex", "value": "\\bmixBlendMode\\s*:" },
+        { "type": "regex", "value": "\\bmix-blend-[a-z]+\\b" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"]
+    },
+
+    {
+      "id": "no-multi-hue-gradient",
+      "name": "No multi-hue gradient as a brand surface",
+      "severity": "blocker",
+      "decision_ref": "decisions/2026-05-28-c-hero-tonal-light.md",
+      "system_ref": "playbooks/section-01-hero.md -> Tonal lighting fallback",
+      "rationale": "The only permitted gradient is the single-hue radial vignette documented in Decision C (deep-olive base + leaf-pale wash at low opacity). Any other gradient — multi-hue, scrim-darkening, or texture — falls back to the F08 abstract-gradient hero mistake the rebuild was meant to fix.",
+      "patterns": [
+        { "type": "regex", "value": "\\blinear-gradient\\s*\\(" },
+        { "type": "regex", "value": "\\bconic-gradient\\s*\\(" },
+        { "type": "regex", "value": "\\bbg-gradient-to-[a-z]+\\b" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"],
+      "exceptions": {
+        "_note": "radial-gradient is allowed when it uses ONLY the single-hue stops from useHeroLight or playbook-documented vignettes. A second-stage lint should validate the stops; this rule only forbids linear/conic.",
+        "files": []
+      }
+    },
+
+    {
+      "id": "no-non-token-hex",
+      "name": "No hex color outside the documented olive + ink + cream token set",
+      "severity": "drift",
+      "decision_ref": "decisions/2026-05-28-b-direction.md#what-b-means-concretely-4",
+      "system_ref": "colors_and_type.css",
+      "rationale": "The brand is a single olive hue plus ink/cream/charcoal/paper. The historical purple (#B08FCA) and yellow (#B5A332) in the tax timeline categories was the F04 violation Decision B cleaned up; this rule prevents reintroduction.",
+      "patterns": [
+        { "type": "hex_not_in_allowlist" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"],
+      "exceptions": {
+        "files": [
+          "app/globals.css",
+          "app/animations.css",
+          "app/components/ServiceIconMotion.css"
+        ],
+        "values_allowlist": [
+          "#495F2B", "#627F38", "#436A1F", "#648E3E",
+          "#2E3F18", "#6E7A33", "#3F4E22",
+          "#111B12", "#282A28", "#888D88", "#D9D9D9", "#EFEFEF",
+          "#FFFFFF", "#000000",
+          "#F9F8F3", "#F9F8F4", "#F0EEE2", "#E5E5BD", "#F1F1DD",
+          "_note": "Top row = Direction-B brand olives. Second row = Decision-G per-service hero-base tints (--ov-olive-rooted/-hearth/-steady). Anything outside this list in app/ source is a finding."
+        ]
+      }
+    },
+
+    {
+      "id": "no-unicode-glyph-icons",
+      "name": "No unicode glyph as an icon (arrows, bullets, checks, stars)",
+      "severity": "drift",
+      "decision_ref": "decisions/2026-05-28-b-direction.md (preserved from README §2/§4)",
+      "system_ref": "README.md#4-iconography",
+      "rationale": "The icon vocabulary is react-icons SVG components only. Substituting → / ✓ / • / ★ as text characters reverts to generic typography and breaks the stroke-weight discipline.",
+      "patterns": [
+        { "type": "regex", "value": "[→←↑↓↔↕↖↗↘↙]" },
+        { "type": "regex", "value": "[✓✔✗✘]" },
+        { "type": "regex", "value": "[★☆⭐]" },
+        { "type": "regex", "value": "[•●○◆◇■□▪▫]" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js}"],
+      "exceptions": {
+        "_note": "Source-code comments are excluded — only flag occurrences inside JSX text or string literals destined for rendering. A path-aware lint should walk the AST and skip Comment nodes.",
+        "files": []
+      }
+    },
+
+    {
+      "id": "no-emoji",
+      "name": "No emoji anywhere in user-facing copy",
+      "severity": "drift",
+      "system_ref": "README.md#2-content-fundamentals -> No emoji",
+      "rationale": "The site uses zero emoji in product copy or UI. This is part of the partnership voice — emoji read as casual / consumer, not as a professional advisory firm.",
+      "patterns": [
+        { "type": "regex", "value": "[\\u{1F300}-\\u{1FAFF}]", "flags": "u" },
+        { "type": "regex", "value": "[\\u{2600}-\\u{27BF}]", "flags": "u" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css,md}"]
+    },
+
+    {
+      "id": "no-placeholder-text",
+      "name": "No lorem ipsum / TODO / placeholder strings shipped",
+      "severity": "blocker",
+      "system_ref": "audits/2026-05-28-service-pages-baseline.html#F01",
+      "rationale": "F01 was lorem ipsum Korean under the Tax timeline. Shipping placeholder text again is the one unacceptable outcome the brief calls out by name.",
+      "patterns": [
+        { "type": "regex", "value": "\\blorem ipsum\\b", "flags": "i" },
+        { "type": "regex", "value": "\\bTODO\\b" },
+        { "type": "regex", "value": "\\bFIXME\\b" },
+        { "type": "regex", "value": "\\bplaceholder( text)?\\b", "flags": "i" },
+        { "type": "regex", "value": "(\\b회계 결산\\s*){3,}" }
+      ],
+      "targets": ["app/utils/page*.ts", "app/**/page.tsx"],
+      "exceptions": {
+        "_note": "TODO/FIXME inside source comments is fine; lint should walk AST and skip Comment nodes when checking these two.",
+        "files": []
+      }
+    },
+
+    {
+      "id": "no-italic-as-pattern",
+      "name": "No italic used as a recurring brand emphasis pattern",
+      "severity": "drift",
+      "decision_ref": "decisions/2026-05-28-b-direction.md#what-b-means-concretely-2",
+      "rationale": "Italic is allowed only where Roboto's italic naturally appears in editorial body copy (e.g. a book title). It is not a recurring headline device.",
+      "patterns": [
+        { "type": "regex", "value": "\\bfont-style\\s*:\\s*italic\\b" },
+        { "type": "regex", "value": "\\bfontStyle\\s*:\\s*['\"]italic['\"]" },
+        { "type": "regex", "value": "\\bitalic\\b(?!\\s+only\\b)" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"],
+      "_severity_note": "This rule produces many false positives (the word 'italic' in comments, prop names, etc). Treat hits as candidates for human review, not auto-fail."
+    },
+
+    {
+      "id": "no-shape-radius-outside-vocabulary",
+      "name": "No corner radii outside the documented vocabulary",
+      "severity": "drift",
+      "system_ref": "README.md#3-visual-foundations -> Corner radii — the signature gesture",
+      "rationale": "Radii are: 0 (default), 30px (card NE-on-hover), 300px (insight card NE-on-hover), pill (9999px buttons/dots only). Random arbitrary radii (e.g. rounded-lg, rounded-xl) dilute the signature gesture.",
+      "patterns": [
+        { "type": "regex", "value": "\\brounded-(lg|xl|2xl|3xl|md|sm)\\b" },
+        { "type": "regex", "value": "\\bborder-radius\\s*:\\s*(?!0|9999px|30px|300px|var\\(--r-)" }
+      ],
+      "targets": ["app/**/*.{tsx,ts,jsx,js,css}"]
+    },
+
+    {
+      "id": "no-per-page-hero-light-reimplementation",
+      "name": "Hero cursor-follow light must use the shared useHeroLight hook",
+      "severity": "drift",
+      "decision_ref": "decisions/2026-05-28-d-hero-cursor-follow.md",
+      "rationale": "Forking the easing loop per page guarantees drift across the six service heroes. The hook owns the gradient string, the lerp factor, and the accessibility fallbacks — page code should only pass its resting `defaultX/Y`.",
+      "patterns": [
+        { "type": "regex", "value": "radial-gradient\\([^)]*at\\s+\\d+(\\.\\d+)?%\\s+\\d+(\\.\\d+)?%\\s*," }
+      ],
+      "targets": ["app/**/*-service/page.tsx"],
+      "exceptions": {
+        "_note": "The SSR initial-state inline style is permitted (it mirrors what useHeroLight will paint once mounted). A second-stage lint should validate the inline matches the hook's canonical string.",
+        "files": [
+          "app/hooks/useHeroLight.ts"
+        ]
+      }
+    },
+
+    {
+      "id": "no-per-page-motion-icon-svg",
+      "name": "Service motion icons must use the ServiceIconMotion component",
+      "severity": "drift",
+      "decision_ref": "decisions/2026-05-28-e-hero-motion-icon.md",
+      "rationale": "Inline-authoring the SVG markup per page guarantees the six icons drift apart on stroke widths, durations, and color treatments. The single component owns all six.",
+      "patterns": [
+        { "type": "regex", "value": "<svg[^>]*viewBox=\"0 0 80 80\"" }
+      ],
+      "targets": ["app/**/*-service/page.tsx"],
+      "exceptions": {
+        "files": [
+          "app/components/ServiceIconMotion.tsx"
+        ]
+      }
+    },
+
+    {
+      "id": "no-mp4-or-png-sequence-hero",
+      "name": "No mp4 video or PNG-sequence sprite for the hero motion",
+      "severity": "blocker",
+      "decision_ref": "decisions/2026-05-28-e-hero-motion-icon.md",
+      "rationale": "The mp4 + PNG-sequence exports in audits/assets/ov-service-icons/ are RGB without alpha — they would show a visible white box on the dark hero. Using mix-blend-mode to fake transparency violates Decision B. Only the inline SVG path is approved.",
+      "patterns": [
+        { "type": "regex", "value": "/(os-(corporate|accounting|tax|consulting|hr|assurance))\\.mp4" },
+        { "type": "regex", "value": "/(_frames)/" },
+        { "type": "regex", "value": "<video[^>]*>" }
+      ],
+      "targets": ["app/**/*-service/page.tsx", "app/**/*.tsx"]
+    },
+
+    {
+      "id": "no-invented-content",
+      "name": "No invented client names, ticker copy, or [00] mono labels as a pattern",
+      "severity": "voice",
+      "decision_ref": "decisions/2026-05-28-b-direction.md#what-b-means-concretely-4",
+      "rationale": "The site.html legacy invented client names ('Cathay Provisions Group', 'Hansol Capital Partners') and used `[ 00 ]` mono-font section numbers as an editorial-agency device. Both are voice violations.",
+      "patterns": [
+        { "type": "regex", "value": "\\[\\s*\\d{2}\\s*\\]" },
+        { "type": "regex", "value": "SINCE\\s+\\d{4}\\s*·" }
+      ],
+      "targets": ["app/**/*.tsx", "app/**/page.tsx"]
+    },
+
+    {
+      "id": "no-calendar-grid-on-mobile",
+      "name": "The Pattern-05 4×3 month grid must be hidden below md",
+      "severity": "drift",
+      "decision_ref": "decisions/2026-05-28-f-calendar-grid-redesign.md",
+      "rationale": "A 12-cell grid below 768px collapses into either a 1×12 column (worse than the cards) or a 2×6 grid (loses the calendar metaphor). The cards already carry the same data better on phone.",
+      "patterns": [
+        { "type": "presence_check", "must_have_class_near": "grid-cols-4 grid-rows-3", "required_sibling_class": "hidden md:block" }
+      ],
+      "targets": ["app/**/*-service/page.tsx"],
+      "_severity_note": "Implementation-defined check; requires AST awareness, not regex."
+    },
+
+    {
+      "id": "no-multi-hue-calendar-categories",
+      "name": "Calendar category colors must all be within the olive token family",
+      "severity": "blocker",
+      "decision_ref": "decisions/2026-05-28-f-calendar-grid-redesign.md",
+      "system_ref": "audits/2026-05-28-service-pages-baseline.html#F04 (lesson)",
+      "rationale": "The historical purple (#B08FCA) and yellow (#B5A332) category colors were the F04 violation. Categories must use olive tints only — the no-non-token-hex rule covers this, but it's worth a dedicated rule because category-color is a deliberate decision point.",
+      "patterns": [
+        { "type": "hex_in_field", "field": "categories[].color", "must_be_in": ["#495F2B", "#627F38", "#648E3E", "#436A1F", "#E5E5BD"] }
+      ],
+      "targets": ["app/utils/page*ServiceUtils.ts"]
+    },
+
+    {
+      "id": "must-pair-bilingual-strings",
+      "name": "Every user-facing string must have both `en` and `ko` halves",
+      "severity": "drift",
+      "system_ref": "README.md#2-content-fundamentals -> Bilingual strings",
+      "rationale": "The site is bilingual; the codebase uses `{ en, ko }` objects for every rendered string. Drift starts when someone ships an English-only string.",
+      "patterns": [
+        { "type": "ast_check", "rule": "object_with_key_en_must_also_have_key_ko" }
+      ],
+      "targets": ["app/utils/page*.ts"],
+      "_severity_note": "AST check; not regex-implementable. Listed for completeness."
+    }
+
+  ]
+}

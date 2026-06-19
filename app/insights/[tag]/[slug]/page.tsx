@@ -102,9 +102,9 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                     <button type="button" onClick={handleCopyLink} className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-[#111B12]/50 hover:border-[#627F38] hover:bg-[#627F38] transition-all duration-300 cursor-pointer group" aria-label={language === "KOR" ? "링크 복사" : "Copy link"}>
                       {linkCopied ? <Icons.FaCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#111B12] group-hover:text-white transition-colors" /> : <Icons.FaLink className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#111B12] group-hover:text-white transition-colors" />}
                     </button>
-                    <Link href="/subscribe" className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-[#111B12]/50 hover:border-[#627F38] hover:bg-[#627F38] transition-all duration-300 cursor-pointer group" aria-label={language === "KOR" ? "구독하기" : "Subscribe"}>
-                      <Icons.FiMail className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#111B12] group-hover:text-white transition-colors" />
-                    </Link>
+                    {/* Subscribe envelope button removed 2026-06-04 — /subscribe
+                        is no longer linked from anywhere. The /subscribe page
+                        file is retained for future re-enable. */}
                   </div>
                   <Link href="/insights" className="flex items-center gap-2 sm:gap-3 md:gap-4 group/link mt-auto min-h-[44px] sm:min-h-0">
                     <span className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] group-hover/link:text-[#627F38] transition-colors">{language === "KOR" ? "인사이트로 돌아가기" : "Back to insights"}</span>
@@ -431,7 +431,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                             {stepNum === 2 && t[warnTitleKey as string] && (
                               <div className="mt-3 ml-8 sm:ml-10 md:ml-12 p-3 sm:p-4 border-l-4 border-[#627F38] bg-[#f5f7f2]">
                                 <p className="text-sm sm:text-base md:text-lg font-semibold text-[#627F38] mb-1">{language === "KOR" ? t[warnTitleKey as string].ko : t[warnTitleKey as string].en}</p>
-                                {t[warnDescKey as string] && <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? t[warnDescKey as string].ko : t[warnDescKey as string].en}</p>}
+                                {t[warnDescKey as string] && <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? t[warnDescKey as string].ko : t[warnDescKey as string].en}</p>}
                               </div>
                             )}
                           </div>
@@ -488,7 +488,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                       {"section2Title" in translations && <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { section2Title: { en: string; ko: string } }).section2Title.ko : (translations as { section2Title: { en: string; ko: string } }).section2Title.en}</h3>}
                       {"section2Description" in translations && <p className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed text-justify mb-3">{language === "KOR" ? (translations as { section2Description: { en: string; ko: string } }).section2Description.ko : (translations as { section2Description: { en: string; ko: string } }).section2Description.en}</p>}
                       {"section2ReceiptDateTitle" in translations && <h4 className="text-sm sm:text-base md:text-lg lg:text-[18px] xl:text-[16px] font-semibold text-[#333333] pl-4 sm:pl-5 md:pl-6 mb-2">{language === "KOR" ? (translations as { section2ReceiptDateTitle: { en: string; ko: string } }).section2ReceiptDateTitle.ko : (translations as { section2ReceiptDateTitle: { en: string; ko: string } }).section2ReceiptDateTitle.en}</h4>}
-                      {"section2ReceiptDateDescription" in translations && <p className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed pl-8 sm:pl-10 md:pl-12 mb-2">{language === "KOR" ? (translations as { section2ReceiptDateDescription: { en: string; ko: string } }).section2ReceiptDateDescription.ko : (translations as { section2ReceiptDateDescription: { en: string; ko: string } }).section2ReceiptDateDescription.en}</p>}
+                      {"section2ReceiptDateDescription" in translations && <p className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed pl-8 sm:pl-10 md:pl-12 mb-2 text-justify">{language === "KOR" ? (translations as { section2ReceiptDateDescription: { en: string; ko: string } }).section2ReceiptDateDescription.ko : (translations as { section2ReceiptDateDescription: { en: string; ko: string } }).section2ReceiptDateDescription.en}</p>}
                       {"section2ReceiptMethods" in translations && Array.isArray((translations as { section2ReceiptMethods?: { en: string; ko: string }[] }).section2ReceiptMethods) && (
                         <div className="pl-8 sm:pl-10 md:pl-12 space-y-2 mb-2">
                           {((translations as { section2ReceiptMethods: { en: string; ko: string }[] }).section2ReceiptMethods).map((m, i) => (
@@ -502,7 +502,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                       {"section2ExposureTitle" in translations && (
                         <div className="mb-5 sm:mb-6 p-3 sm:p-4 border-l-4 border-[#627F38] bg-[#f5f7f2]">
                           <p className="text-sm sm:text-base md:text-lg font-semibold text-[#627F38] mb-1">{language === "KOR" ? (translations as { section2ExposureTitle: { en: string; ko: string } }).section2ExposureTitle.ko : (translations as { section2ExposureTitle: { en: string; ko: string } }).section2ExposureTitle.en}</p>
-                          {"section2ExposureDescription" in translations && <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? (translations as { section2ExposureDescription: { en: string; ko: string } }).section2ExposureDescription.ko : (translations as { section2ExposureDescription: { en: string; ko: string } }).section2ExposureDescription.en}</p>}
+                          {"section2ExposureDescription" in translations && <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? (translations as { section2ExposureDescription: { en: string; ko: string } }).section2ExposureDescription.ko : (translations as { section2ExposureDescription: { en: string; ko: string } }).section2ExposureDescription.en}</p>}
                         </div>
                       )}
                       {/* Section 3 */}
@@ -600,7 +600,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                       {"section4ExposureTitle" in translations && (
                         <div className="border-l-4 border-[#627F38] pl-4 py-2 mb-5 sm:mb-6">
                           <p className="text-sm sm:text-base md:text-lg font-semibold text-[#627F38] mb-1">{language === "KOR" ? (translations as { section4ExposureTitle: { en: string; ko: string } }).section4ExposureTitle.ko : (translations as { section4ExposureTitle: { en: string; ko: string } }).section4ExposureTitle.en}</p>
-                          {"section4ExposureDescription" in translations && <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? (translations as { section4ExposureDescription: { en: string; ko: string } }).section4ExposureDescription.ko : (translations as { section4ExposureDescription: { en: string; ko: string } }).section4ExposureDescription.en}</p>}
+                          {"section4ExposureDescription" in translations && <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? (translations as { section4ExposureDescription: { en: string; ko: string } }).section4ExposureDescription.ko : (translations as { section4ExposureDescription: { en: string; ko: string } }).section4ExposureDescription.en}</p>}
                         </div>
                       )}
                     </>
@@ -636,7 +636,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                           {((translations as { section3FormItems: { form: { en: string; ko: string }; purpose: { en: string; ko: string }; deadline: { en: string; ko: string } }[] }).section3FormItems).map((item, i) => (
                             <div key={i} className="pl-4 border-l-2 border-[#627F38]">
                               <p className="text-sm sm:text-base md:text-lg font-semibold text-[#333333]">{language === "KOR" ? item.form.ko : item.form.en}</p>
-                              <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? item.purpose.ko : item.purpose.en}</p>
+                              <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? item.purpose.ko : item.purpose.en}</p>
                               <p className="text-sm sm:text-base md:text-lg text-[#998C3D]">{language === "KOR" ? item.deadline.ko : item.deadline.en}</p>
                             </div>
                           ))}
@@ -695,7 +695,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                       )}
                       {"section6NilReminder" in translations && (
                         <div className="border-l-4 border-[#627F38] pl-4 py-2 mb-5 sm:mb-6">
-                          <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? (translations as { section6NilReminder: { en: string; ko: string } }).section6NilReminder.ko : (translations as { section6NilReminder: { en: string; ko: string } }).section6NilReminder.en}</p>
+                          <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? (translations as { section6NilReminder: { en: string; ko: string } }).section6NilReminder.ko : (translations as { section6NilReminder: { en: string; ko: string } }).section6NilReminder.en}</p>
                         </div>
                       )}
                     </>
@@ -775,7 +775,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                       {"section5GoodStandingDescription" in translations && <p className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed text-justify pl-8 sm:pl-10 md:pl-12 mb-4 sm:mb-5 md:mb-6">{language === "KOR" ? (translations as { section5GoodStandingDescription: { en: string; ko: string } }).section5GoodStandingDescription.ko : (translations as { section5GoodStandingDescription: { en: string; ko: string } }).section5GoodStandingDescription.en}</p>}
                       {"section5RestorationNote" in translations && (
                         <div className="border-l-4 border-[#627F38] pl-4 py-2 mb-5 sm:mb-6">
-                          <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? (translations as { section5RestorationNote: { en: string; ko: string } }).section5RestorationNote.ko : (translations as { section5RestorationNote: { en: string; ko: string } }).section5RestorationNote.en}</p>
+                          <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? (translations as { section5RestorationNote: { en: string; ko: string } }).section5RestorationNote.ko : (translations as { section5RestorationNote: { en: string; ko: string } }).section5RestorationNote.en}</p>
                         </div>
                       )}
                     </>

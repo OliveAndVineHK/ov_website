@@ -71,18 +71,21 @@ export default function CorporateServicePage() {
       description: isKo ? t.startUpDescription.ko : t.startUpDescription.en,
       items: isKo ? t.startUpItems.ko : t.startUpItems.en,
       band: "#E5E5BD",  // leaf-pale — beginning, lightest
+      fg: "#495F2B",    // dark number on the pale node
     },
     {
       label: isKo ? t.inBusiness.ko : t.inBusiness.en,
       description: isKo ? t.inBusinessDescription.ko : t.inBusinessDescription.en,
       items: isKo ? t.inBusinessItems.ko : t.inBusinessItems.en,
       band: "#627F38",  // olive — the long middle
+      fg: "#FFFFFF",
     },
     {
       label: isKo ? t.exit.ko : t.exit.en,
       description: isKo ? t.exitDescription.ko : t.exitDescription.en,
       items: isKo ? t.exitItems.ko : t.exitItems.en,
       band: "#495F2B",  // olive-deep — closing
+      fg: "#FFFFFF",
     },
   ];
 
@@ -116,7 +119,7 @@ export default function CorporateServicePage() {
                     aria-hidden
                   />
                   <span className="text-[14px] sm:text-[15px] text-white/85 font-medium">
-                    {isKo ? "서비스 · 01 / 기업 서비스" : "Service · 01 / Corporate"}
+                    {isKo ? "서비스 · 01 / 기업 서비스" : "Service · 01 / Corporate Service"}
                   </span>
                 </div>
 
@@ -133,7 +136,7 @@ export default function CorporateServicePage() {
                     href="/contact"
                     className="inline-flex items-center gap-2 text-[15px] text-white border border-white/50 rounded-full px-5 py-2 hover:bg-white hover:text-[#495F2B] hover:border-white transition-colors duration-300"
                   >
-                    {isKo ? "대화 시작하기" : "Start a conversation"}
+                    {isKo ? "문의하기" : "Start a conversation"}
                     <Icons.CgArrowTopRight className="size-4" aria-hidden />
                   </Link>
                 </div>
@@ -176,66 +179,79 @@ export default function CorporateServicePage() {
                     </span>
                     <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[32px] 2xl:text-[36px] font-normal text-[#111B12] leading-[1.25]">
                       {isKo
-                        ? "설립부터 운영, 정리까지 한 곳에서 관리해 드립니다."
-                        : "Incorporation, trading, winding down — handled end to end."}
+                        ? "설립부터 운영, 종료까지 — 전 과정의 안정적인 지원"
+                        : "Incorporation, Trading, and Winding‑down — End‑to‑end Support"}
                     </h2>
                   </div>
                   <div className="md:col-span-7 flex items-start">
-                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65]">
+                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65] text-justify">
                       {isKo
-                        ? "대부분의 사무소는 회사 생애 주기의 한 시점에만 관여합니다. 저희는 설립, 운영, 정리 — 세 단계를 모두 함께하며, 단계가 바뀔 때마다 새로운 파트너를 찾을 필요가 없도록 합니다."
-                        : "Most firms only show up at one moment of the corporate lifecycle. We stay with you across all three — incorporating the company, keeping it compliant while it trades, and winding it down cleanly when the time comes."}
+                        ? "기업은 생애주기 전반에 걸쳐 서로 다른 성격의 의사결정과 규제 요구를 마주하게 됩니다.\n당사는 회사 설립 단계에서의 구조 설정부터, 운영 과정 중의 지속적인 규제 준수 관리, 그리고 필요 시 체계적이고 정리된 종료까지 이어지는 전 과정을 함께합니다.\n각 단계가 단절되지 않고 유기적으로 연결될 수 있도록 지원함으로써,\n기업 운영 전반이 보다 안정적이고 예측 가능한 흐름 속에서 관리될 수 있도록 돕습니다."
+                        : "While many firms operate at a single stage of the corporate lifecycle,\nwe work with you throughout — establishing the company, maintaining compliance during operations, and managing a structured exit when required."}
                     </p>
                   </div>
                 </div>
               </SectionReveal>
 
-              {/* Lifecycle band — three columns. Each column has a thin
-                  horizontal olive bar at the top whose tint progresses
-                  through the lifecycle (light → mid → deep).
-                  Scroll-driven stagger: Start Up → In Business → Exit
-                  drop in one by one as the user scrolls through the
-                  section, the speed tied to their scroll. */}
-              <ScrollLinkedStagger
-                className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12"
-                range={[0.05, 0.35]}
-                distance={36}
-              >
-                {lifecycle.map((stage, idx) => (
-                  <div key={stage.label} data-scroll-item className="flex flex-col">
-                    {/* Lifecycle band */}
-                    <div
-                      aria-hidden
-                      className="h-[3px] w-full mb-6"
-                      style={{ backgroundColor: stage.band }}
-                    />
-                    {/* Number + label */}
-                    <div className="flex items-baseline gap-3 mb-3">
-                      <span className="text-[12px] tracking-wide font-medium text-[#111B12]/50 uppercase">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="text-[20px] md:text-[22px] font-semibold text-[#111B12] leading-[1.25]">
-                        {stage.label}
-                      </h3>
-                    </div>
-                    <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.6] mb-5">
-                      {stage.description}
-                    </p>
-                    <ul className="flex flex-col gap-2 list-none pl-0">
-                      {stage.items.map((item, i) => (
-                        <li key={i} className="flex gap-2.5 items-start text-[13px] md:text-[14px] 2xl:text-[16px] text-[#111B12]/80 leading-[1.5]">
+              {/* Lifecycle — vertical numbered timeline (01 Start →
+                  02 In Business → 03 Exit). Aligned to the right reading
+                  column so the stages line up with the intro paragraph.
+                  Each numbered node carries the lifecycle tint, which
+                  progresses light → mid → deep down the journey. A
+                  hairline connects the nodes. Scroll-driven stagger drops
+                  the stages in one by one as the user scrolls. */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+                <div className="hidden md:block md:col-span-5" aria-hidden />
+                <div className="md:col-span-7 relative">
+                  <div
+                    aria-hidden
+                    className="absolute left-[18px] md:left-[22px] top-5 bottom-5 w-px"
+                    style={{ backgroundColor: "rgba(98,127,56,0.30)" }}
+                  />
+                  <ScrollLinkedStagger
+                    range={[0.05, 0.4]}
+                    distance={34}
+                  >
+                    <ol className="relative flex flex-col gap-12 md:gap-14 list-none pl-0">
+                      {lifecycle.map((stage, idx) => (
+                        <li
+                          key={stage.label}
+                          data-scroll-item
+                          className="grid grid-cols-[auto_1fr] gap-5 md:gap-7 items-start"
+                        >
                           <span
                             aria-hidden
-                            className="inline-block shrink-0 w-1.5 h-1.5 rounded-full mt-1.5"
-                            style={{ backgroundColor: "#627F38" }}
-                          />
-                          <span>{item}</span>
+                            className="inline-flex items-center justify-center w-[38px] h-[38px] md:w-[44px] md:h-[44px] rounded-full text-[13px] md:text-[14px] font-semibold relative z-10"
+                            style={{ backgroundColor: stage.band, color: stage.fg }}
+                          >
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <div className="flex flex-col">
+                            <h3 className="text-[20px] md:text-[22px] 2xl:text-[24px] font-semibold text-[#111B12] leading-[1.25] mb-2 md:mb-3">
+                              {stage.label}
+                            </h3>
+                            <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.6] mb-5 text-justify">
+                              {stage.description}
+                            </p>
+                            <ul className="flex flex-col gap-2 list-none pl-0">
+                              {stage.items.map((item, i) => (
+                                <li key={i} className="flex gap-2.5 items-start text-[13px] md:text-[14px] 2xl:text-[16px] text-[#111B12]/80 leading-[1.5]">
+                                  <span
+                                    aria-hidden
+                                    className="inline-block shrink-0 w-1.5 h-1.5 rounded-full mt-1.5"
+                                    style={{ backgroundColor: "#627F38" }}
+                                  />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </li>
                       ))}
-                    </ul>
-                  </div>
-                ))}
-              </ScrollLinkedStagger>
+                    </ol>
+                  </ScrollLinkedStagger>
+                </div>
+              </div>
             </div>
           </section>
         </SectionReveal>
@@ -266,7 +282,7 @@ export default function CorporateServicePage() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
                 <div className="md:col-span-5">
                   <span className="block text-[16px] md:text-[18px] 2xl:text-[20px] font-semibold text-[#627F38] mb-4">
-                    {isKo ? "철학" : "Philosophy"}
+                    {isKo ? "철학 Philosophy" : "Philosophy"}
                   </span>
                   <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[32px] 2xl:text-[36px] font-normal text-[#111B12] leading-[1.25]">
                     {digitalisationTitle}
@@ -274,7 +290,7 @@ export default function CorporateServicePage() {
                 </div>
                 <div className="md:col-span-7">
                   <p
-                    className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7]"
+                    className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] text-justify"
                     dangerouslySetInnerHTML={{ __html: digitalisationDescription }}
                   />
                 </div>
@@ -291,7 +307,7 @@ export default function CorporateServicePage() {
                 {isKo ? "관련 서비스" : "Related services"}
               </span>
               <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.15] mb-10 md:mb-12">
-                {isKo ? "함께 살펴보기" : "Explore alongside Corporate"}
+                {isKo ? "연계된 다른 서비스" : "Explore alongside Corporate Service"}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -321,6 +337,16 @@ export default function CorporateServicePage() {
                     </Link>
                   );
                 })}
+              </div>
+
+              <div className="flex justify-end mt-10 md:mt-12">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed rounded-full border border-[#111B12]/50 px-5 py-1.5 hover:bg-[#436A1F] hover:border-[#436A1F] hover:text-white active:bg-[#648E3E] active:border-[#648E3E] transition-all duration-300 cursor-pointer shrink-0"
+                >
+                  {isKo ? servicesTranslations.button.ko : servicesTranslations.button.en}
+                  <Icons.CgArrowTopRight className="size-4" aria-hidden />
+                </Link>
               </div>
             </div>
           </section>

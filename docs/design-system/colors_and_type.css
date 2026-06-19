@@ -1,0 +1,207 @@
+/* ──────────────────────────────────────────────────────────────
+   OLIVE & VINE — Design Tokens
+   Sourced from olive-and-vine-clone-2.0 (Next.js + Tailwind v4)
+   Olive & Vine: Hong Kong accounting & advisory firm
+   ────────────────────────────────────────────────────────────── */
+
+/* Roboto + Noto Sans KR families — all local TTFs in fonts/.
+   No Google Fonts dependency. Roboto uses the variable axis font;
+   Noto Sans KR ships nine static weights. */
+@import url("fonts/_faces.css");
+
+:root {
+  /* ── Brand olives ──────────────────────────────────────────── */
+  --ov-olive-deep:    #495F2B;  /* logo + primary brand */
+  --ov-olive:         #627F38;  /* accent / eyebrow text */
+  --ov-olive-hover:   #436A1F;  /* hover state for buttons */
+  --ov-olive-active:  #648E3E;  /* active / pressed state */
+
+  /* ── Per-service hero-base tints (Decision G · 2026-05-28) ──
+     All within the olive hue family. Each service hero uses one as
+     `background-color` under the leaf-pale radial vignette. The
+     2026-05-28-g decision file holds the rationale; the per-service
+     mapping is in app/contexts/ServiceAccentContext.tsx. */
+  --ov-olive-rooted:  #2E3F18;  /* Corporate — deepest, structural  */
+  --ov-olive-hearth:  #6E7A33;  /* HR        — warm earthy          */
+  --ov-olive-steady:  #3F4E22;  /* Assurance — cool deep, steady    */
+
+  /* ── Greys & ink ───────────────────────────────────────────── */
+  --ov-ink:           #111B12;  /* near-black, headings & body */
+  --ov-ink-70:        rgba(17, 27, 18, 0.70);
+  --ov-ink-50:        rgba(17, 27, 18, 0.50);
+  --ov-ink-30:        rgba(17, 27, 18, 0.30);
+
+  --ov-charcoal:      #282A28;  /* footer & dark sections */
+  --ov-grey-icon:     #888D88;  /* secondary icon grey */
+  --ov-grey-dot:      #D9D9D9;  /* inactive carousel dot */
+  --ov-grey-bg:       #EFEFEF;  /* compliance strip */
+
+  /* ── Creams & paper ────────────────────────────────────────── */
+  --ov-paper:         #FFFFFF;  /* card surface */
+  --ov-cream:         #F9F8F3;  /* menu overlay (#F9F8F4 used on cards) */
+  --ov-cream-card:    #F9F8F4;
+  --ov-cream-deep:    #F0EEE2;  /* assurance/consulting section bg */
+  --ov-leaf-pale:     #E5E5BD;  /* hover wash, leafy highlight */
+  --ov-tag-bg:        #F1F1DD;  /* topic tag pill */
+  --ov-accordion-bg:  rgba(233, 230, 213, 0.7);  /* open accordion */
+
+  /* ── White overlays (on dark) ──────────────────────────────── */
+  --ov-on-dark:       #FFFFFF;
+  --ov-on-dark-80:    rgba(255, 255, 255, 0.80);
+  --ov-on-dark-70:    rgba(255, 255, 255, 0.70);
+  --ov-on-dark-50:    rgba(255, 255, 255, 0.50);
+  --ov-on-dark-30:    rgba(255, 255, 255, 0.30);
+  --ov-on-dark-20:    rgba(255, 255, 255, 0.20);
+
+  /* ── Semantic foreground / background ──────────────────────── */
+  --fg-1:        var(--ov-ink);
+  --fg-2:        var(--ov-ink-70);
+  --fg-3:        var(--ov-ink-50);
+  --fg-accent:   var(--ov-olive);     /* eyebrow / section-label */
+  --fg-brand:    var(--ov-olive-deep);/* logo wordmark, headings on services */
+  --bg-1:        var(--ov-paper);
+  --bg-2:        var(--ov-cream);
+  --bg-3:        var(--ov-cream-deep);
+  --bg-dark:     var(--ov-charcoal);
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-sans:        "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-condensed:   "Roboto Condensed", "Roboto", system-ui, sans-serif;
+  --font-semicond:    "Roboto SemiCondensed", "Roboto", system-ui, sans-serif;
+  --font-ko:          "Noto Sans KR", "Roboto", sans-serif;
+  --font-mono:        "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* Font weights actually used in source */
+  --fw-thin:     100;
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* Type scale — sizes pulled from Tailwind lg:text-[N] overrides */
+  --t-display-xl: 96px; /* lg:text-8xl — hero typewriter */
+  --t-display-l:  72px; /* lg:text-7xl */
+  --t-display-m:  60px; /* lg:text-6xl */
+  --t-h1:         48px; /* lg:text-[48px] — section H2s */
+  --t-h2:         36px; /* lg:text-[36px] — portfolio card title */
+  --t-h3:         32px; /* lg:text-[32px] — service card title */
+  --t-h4:         28px; /* lg:text-[28px] — accordion service name */
+  --t-h5:         26px; /* lg:text-[26px] — insight card title */
+  --t-lead:       24px; /* about-us body */
+  --t-eyebrow:    20px; /* section label, olive, semibold */
+  --t-body-l:     18px; /* insight tag, accordion body */
+  --t-body:       16px; /* default */
+  --t-button:     15px; /* pill button */
+  --t-small:      14px; /* footer nav, compliance copy */
+  --t-tag:        13px; /* sub-tag pills */
+
+  /* ── Radii ─────────────────────────────────────────────────── */
+  --r-none:      0;
+  --r-pill:      9999px;          /* buttons + dots */
+  --r-corner-s:  30px;            /* card hover top-right */
+  --r-corner-l:  300px;           /* insight card hover top-right */
+
+  /* ── Spacing (Tailwind 4px scale, surfaced) ────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;     /* card padding */
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;     /* section-py md */
+  --space-28: 112px;
+
+  /* Section rhythm */
+  --section-py-mobile:  32px;   /* 2rem */
+  --section-py-desktop: 64px;   /* 4rem */
+  --section-py-large:   96px;   /* 6rem (py-24) */
+
+  /* Layout */
+  --container-max:  80rem;      /* max-w-7xl = 1280px */
+  --container-px:   24px;       /* md:px-6 */
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --border-hairline: 1px solid var(--ov-ink-50);
+  --border-olive:    1px solid var(--ov-olive);
+  --border-dark:     1px solid var(--ov-on-dark-30);
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast:       150ms;
+  --t-base:       300ms;   /* the default; nearly all transitions use this */
+  --t-slow:       600ms;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Semantic typography classes
+   ────────────────────────────────────────────────────────────── */
+
+body, .ov-body {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+}
+
+[lang="ko"], .ov-ko {
+  font-family: var(--font-ko);
+}
+
+.ov-display     { font-size: var(--t-display-xl); font-weight: var(--fw-regular); line-height: 1.05; letter-spacing: -0.01em; }
+.ov-h1, h1.ov   { font-size: var(--t-h1);  font-weight: var(--fw-regular); line-height: 1.1;  color: var(--fg-1); letter-spacing: -0.005em; }
+.ov-h2, h2.ov   { font-size: var(--t-h2);  font-weight: var(--fw-regular); line-height: 1.15; color: var(--fg-1); }
+.ov-h3, h3.ov   { font-size: var(--t-h3);  font-weight: var(--fw-regular); line-height: 1.2;  color: var(--fg-1); }
+.ov-h4, h4.ov   { font-size: var(--t-h4);  font-weight: var(--fw-regular); line-height: 1.25; color: var(--fg-1); }
+
+.ov-eyebrow {
+  font-size: var(--t-eyebrow);
+  font-weight: var(--fw-semibold);
+  color: var(--fg-accent);
+  letter-spacing: 0;
+  text-transform: none;       /* never all-caps — sentence case */
+}
+
+.ov-lead {
+  font-size: var(--t-lead);
+  font-weight: var(--fw-regular);
+  line-height: 1.55;
+  color: var(--fg-1);
+}
+
+p.ov, .ov-p {
+  font-size: var(--t-body);
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+.ov-tag {
+  font-size: var(--t-tag);
+  font-weight: var(--fw-medium);
+  color: var(--fg-2);
+  background: var(--ov-tag-bg);
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  display: inline-block;
+}
+
+.ov-eyelash-tag {
+  /* the larger 18px tag above insight titles */
+  font-size: var(--t-body-l);
+  color: var(--fg-1);
+}
+
+/* Hong Kong wordmark — always 'Olive & Vine' with ampersand and capital O,V */
+.ov-wordmark {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  color: var(--fg-brand);
+  letter-spacing: 0;
+}

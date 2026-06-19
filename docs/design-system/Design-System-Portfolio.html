@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olive &amp; Vine — Design System Portfolio</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  /* ──────────────────────────────────────────────
+     Portfolio chrome — built on the brand tokens.
+     Square corners by default · no shadows · single
+     olive hue · Roboto. The NE-corner gesture and the
+     olive colour-swap are the only hover languages.
+     ────────────────────────────────────────────── */
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ov-cream);
+    color: var(--ov-ink);
+    font-family: var(--font-sans);
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* eyebrow */
+  .eyebrow {
+    font-size: 14px; font-weight: 600; color: var(--ov-olive);
+    letter-spacing: 0.04em; margin: 0 0 16px;
+  }
+
+  section { padding: 96px 0; border-top: 1px solid var(--ov-ink-30); }
+  section:first-of-type { border-top: none; }
+  .section-title {
+    font-size: 40px; font-weight: 400; line-height: 1.1;
+    margin: 0 0 20px; letter-spacing: -0.01em; color: var(--ov-ink);
+  }
+  .section-lead {
+    font-size: 19px; line-height: 1.6; color: var(--ov-ink-70);
+    max-width: 640px; margin: 0 0 48px;
+  }
+
+  /* ── Cover ───────────────────────────────────── */
+  .cover {
+    background: var(--ov-olive-deep);
+    color: #fff;
+    padding: 120px 0 110px;
+    border-top: none;
+  }
+  .cover .wrap { position: relative; }
+  .cover-logo { height: 56px; width: auto; margin-bottom: 64px; }
+  .cover-kicker {
+    font-size: 14px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ov-leaf-pale); margin: 0 0 24px;
+  }
+  .cover h1 {
+    font-size: clamp(48px, 8vw, 104px); font-weight: 300; line-height: 1.0;
+    letter-spacing: -0.02em; margin: 0 0 32px;
+  }
+  .cover h1 b { font-weight: 500; }
+  .cover-sub {
+    font-size: 20px; line-height: 1.6; color: var(--ov-on-dark-80);
+    max-width: 560px; margin: 0 0 56px; font-weight: 300;
+  }
+  .cover-meta {
+    display: flex; flex-wrap: wrap; gap: 40px;
+    border-top: 1px solid var(--ov-on-dark-30); padding-top: 28px;
+  }
+  .cover-meta div { min-width: 120px; }
+  .cover-meta dt {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ov-leaf-pale); margin-bottom: 8px;
+  }
+  .cover-meta dd { margin: 0; font-size: 16px; color: #fff; }
+
+  /* ── Intro statement ─────────────────────────── */
+  .statement { background: var(--ov-paper); }
+  .statement p {
+    font-size: clamp(24px, 3vw, 34px); line-height: 1.45; font-weight: 300;
+    color: var(--ov-ink); max-width: 880px; margin: 0;
+  }
+  .statement p em {
+    font-style: normal; color: var(--ov-olive-deep); font-weight: 400;
+  }
+
+  /* ── At a glance strip ───────────────────────── */
+  .glance { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--ov-ink-30); border: 1px solid var(--ov-ink-30); }
+  .glance div { background: var(--ov-cream); padding: 32px 24px; }
+  .glance .num {
+    font-size: 44px; font-weight: 400; line-height: 1; color: var(--ov-olive-deep);
+    margin-bottom: 12px; letter-spacing: -0.02em;
+  }
+  .glance .lbl { font-size: 14px; color: var(--ov-ink-70); line-height: 1.4; }
+
+  /* ── Logo blocks ─────────────────────────────── */
+  .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .logo-cell {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px; padding: 40px; border: 1px solid var(--ov-ink-30);
+  }
+  .logo-cell.light { background: var(--ov-paper); }
+  .logo-cell.dark { background: var(--ov-charcoal); }
+  .logo-cell img { height: 52px; width: auto; }
+  .caption { font-size: 13px; color: var(--ov-ink-50); margin-top: 12px; }
+
+  /* ── Colour swatches ─────────────────────────── */
+  .swatch-group { margin-bottom: 44px; }
+  .swatch-group h3 {
+    font-size: 15px; font-weight: 600; color: var(--ov-ink); margin: 0 0 4px;
+  }
+  .swatch-group .grp-note { font-size: 14px; color: var(--ov-ink-50); margin: 0 0 20px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+  .swatch { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); }
+  .swatch .chip { height: 96px; }
+  .swatch .meta { padding: 12px 14px; }
+  .swatch .name { font-size: 13px; font-weight: 500; color: var(--ov-ink); }
+  .swatch .hex { font-size: 12px; color: var(--ov-ink-50); font-family: var(--font-mono); letter-spacing: 0.02em; }
+  .swatch .role { font-size: 12px; color: var(--ov-ink-50); margin-top: 4px; line-height: 1.4; }
+
+  /* ── Type ────────────────────────────────────── */
+  .type-ramp > div {
+    display: flex; align-items: baseline; gap: 24px;
+    padding: 14px 0; border-bottom: 1px solid var(--ov-ink-30);
+  }
+  .type-ramp .tag { width: 110px; flex: none; font-size: 12px; color: var(--ov-ink-50); font-family: var(--font-mono); }
+  .type-ramp .spec { width: 90px; flex: none; font-size: 12px; color: var(--ov-ink-50); }
+  .type-ramp .demo { color: var(--ov-ink); font-weight: 400; line-height: 1.1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+  .type-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .type-card { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); padding: 28px; }
+  .type-card .lab { font-size: 13px; color: var(--ov-olive); font-weight: 600; margin-bottom: 16px; }
+  .type-card .latin { font-size: 30px; font-weight: 400; }
+  .type-card .ko { font-size: 30px; font-weight: 400; font-family: var(--font-ko); margin-top: 8px; }
+  .weights span { display: inline-block; font-size: 26px; margin-right: 22px; color: var(--ov-ink); }
+
+  /* ── Signature gesture ───────────────────────── */
+  .gesture-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .gesture-demo {
+    background: var(--ov-cream-card); border: 1px solid var(--ov-olive);
+    min-height: 260px; padding: 32px; border-radius: 0;
+    transition: border-top-right-radius var(--t-base) var(--ease-default),
+                background var(--t-base) var(--ease-default);
+    display: flex; flex-direction: column; justify-content: flex-end; cursor: default;
+  }
+  .gesture-demo:hover { border-top-right-radius: 30px; }
+  .gesture-demo .k { font-size: 13px; color: var(--ov-olive); font-weight: 600; margin-bottom: 10px; }
+  .gesture-demo .t { font-size: 22px; color: var(--ov-ink); }
+  .gesture-demo .h { font-size: 13px; color: var(--ov-ink-50); margin-top: 14px; }
+
+  .gesture-img {
+    position: relative; overflow: hidden; min-height: 260px;
+    background: var(--ov-olive); border-radius: 0;
+    transition: border-top-right-radius var(--t-base) var(--ease-default);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
+  }
+  .gesture-img:hover { border-top-right-radius: 160px; }
+  .gesture-img .wash {
+    position: absolute; inset: 0; background: var(--ov-leaf-pale);
+    opacity: 0; transition: opacity var(--t-base) var(--ease-default);
+  }
+  .gesture-img:hover .wash { opacity: 0.5; }
+  .gesture-img .lbl { position: relative; color: #fff; font-size: 22px; }
+  .gesture-img:hover .lbl { color: var(--ov-olive-deep); }
+  .gesture-img .k { position: relative; color: var(--ov-on-dark-80); font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .gesture-img:hover .k { color: var(--ov-olive-deep); }
+
+  /* ── Components ──────────────────────────────── */
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .comp-cell {
+    border: 1px solid var(--ov-ink-30); background: var(--ov-paper);
+    padding: 28px; display: flex; flex-direction: column;
+  }
+  .comp-cell .ctitle { font-size: 14px; font-weight: 600; color: var(--ov-ink); margin: 0 0 4px; }
+  .comp-cell .cnote { font-size: 13px; color: var(--ov-ink-50); margin: 0 0 24px; line-height: 1.5; }
+  .comp-stage { flex: 1; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; align-content: center; }
+
+  /* pill button */
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 9999px; padding: 9px 22px; font-size: 15px; cursor: pointer;
+    border: 1px solid var(--ov-ink-50); background: #fff; color: var(--ov-ink-70);
+    transition: all var(--t-base) var(--ease-default);
+  }
+  .pill .arr { width: 15px; height: 15px; }
+  .pill .arr svg { width: 100%; height: 100%; display: block; }
+  .pill.idle:hover { background: var(--ov-olive-hover); border-color: var(--ov-olive-hover); color: #fff; }
+  .pill.is-hover { background: var(--ov-olive-hover); border-color: var(--ov-olive-hover); color: #fff; }
+  .pill.is-active { background: var(--ov-olive-active); border-color: var(--ov-olive-active); color: #fff; }
+  .pstate { font-size: 11px; color: var(--ov-ink-50); width: 100%; }
+
+  /* service card */
+  .svc-card {
+    width: 220px; background: var(--ov-cream-card); border: 1px solid var(--ov-olive);
+    padding: 24px; min-height: 200px; display: flex; flex-direction: column; cursor: default;
+    transition: background var(--t-base) var(--ease-default),
+                border-color var(--t-base) var(--ease-default),
+                border-top-right-radius var(--t-base) var(--ease-default);
+  }
+  .svc-card .ic { position: relative; width: 44px; height: 44px; margin-bottom: auto; }
+  .svc-card .ic img { position: absolute; inset: 0; width: 44px; height: 44px; transition: opacity var(--t-base) var(--ease-default); }
+  .svc-card .ic .w { opacity: 0; }
+  .svc-card .nm { font-size: 20px; color: var(--ov-ink); margin-top: 20px; transition: color var(--t-base); }
+  .svc-card .ds { font-size: 13px; color: var(--ov-ink-50); margin-top: 6px; transition: color var(--t-base); line-height: 1.5; }
+  .svc-card:hover { background: var(--ov-olive); border-color: var(--ov-olive); border-top-right-radius: 30px; }
+  .svc-card:hover .ic .d { opacity: 0; }
+  .svc-card:hover .ic .w { opacity: 1; }
+  .svc-card:hover .nm, .svc-card:hover .ds { color: #fff; }
+
+  /* topic tags */
+  .topic-tag {
+    display: inline-block; font-size: 13px; font-weight: 500; color: var(--ov-ink-70);
+    background: var(--ov-tag-bg); padding: 5px 14px; border-radius: 9999px;
+  }
+
+  /* form input */
+  .ov-field { width: 100%; }
+  .ov-field label { display: block; font-size: 13px; color: var(--ov-ink-50); margin-bottom: 8px; }
+  .ov-field input {
+    width: 100%; border: none; border-bottom: 1px solid var(--ov-ink-30);
+    background: transparent; padding: 8px 0; font-size: 16px; color: var(--ov-ink);
+    font-family: var(--font-sans); outline: none;
+    transition: border-color var(--t-base) var(--ease-default);
+  }
+  .ov-field input:focus { border-bottom-color: var(--ov-olive); }
+  .ov-field input::placeholder { color: var(--ov-ink-30); }
+
+  /* round CTA */
+  .round-cta {
+    width: 56px; height: 56px; border-radius: 9999px; border: 1px solid var(--ov-ink-50);
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+    color: var(--ov-ink); transition: all var(--t-base) var(--ease-default); background: transparent;
+  }
+  .round-cta svg { width: 26px; height: 26px; }
+  .round-cta:hover { background: var(--ov-olive); border-color: var(--ov-olive); color: #fff; }
+
+  /* ── Icon set ────────────────────────────────── */
+  .icon-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .icon-cell {
+    border: 1px solid var(--ov-ink-30); background: var(--ov-paper);
+    aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+    transition: background var(--t-base) var(--ease-default);
+  }
+  .icon-cell .ic { position: relative; width: 48px; height: 48px; }
+  .icon-cell .ic img { position: absolute; inset: 0; width: 48px; height: 48px; transition: opacity var(--t-base); }
+  .icon-cell .ic .w { opacity: 0; }
+  .icon-cell .nm { font-size: 12px; color: var(--ov-ink-50); transition: color var(--t-base); }
+  .icon-cell:hover { background: var(--ov-olive); }
+  .icon-cell:hover .ic .d { opacity: 0; }
+  .icon-cell:hover .ic .w { opacity: 1; }
+  .icon-cell:hover .nm { color: #fff; }
+
+  /* ── Voice ───────────────────────────────────── */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+  .pillar { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); padding: 32px; }
+  .pillar .p-num { font-size: 13px; color: var(--ov-olive); font-weight: 600; }
+  .pillar .p-name { font-size: 24px; color: var(--ov-ink); margin: 12px 0 10px; }
+  .pillar .p-body { font-size: 14px; color: var(--ov-ink-70); line-height: 1.6; }
+  .voice-quotes { display: grid; gap: 16px; }
+  .voice-quotes blockquote {
+    margin: 0; padding: 22px 28px; background: var(--ov-paper);
+    border-left: 2px solid var(--ov-olive); font-size: 19px; font-weight: 300;
+    line-height: 1.55; color: var(--ov-ink);
+  }
+
+  /* ── Principles ──────────────────────────────── */
+  .principles { background: var(--ov-paper); }
+  .prin-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--ov-ink-30); border: 1px solid var(--ov-ink-30); }
+  .prin { background: var(--ov-paper); padding: 32px; }
+  .prin h4 { font-size: 18px; font-weight: 500; margin: 0 0 8px; color: var(--ov-ink); }
+  .prin p { font-size: 14px; line-height: 1.6; color: var(--ov-ink-70); margin: 0; }
+
+  /* ── Closing ─────────────────────────────────── */
+  .closing { background: var(--ov-charcoal); color: #fff; }
+  .closing .section-title { color: #fff; }
+  .closing p { font-size: 20px; line-height: 1.6; color: var(--ov-on-dark-80); font-weight: 300; max-width: 640px; }
+  .closing .contact { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 48px; border-top: 1px solid var(--ov-on-dark-30); padding-top: 32px; }
+  .closing .contact dt { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ov-leaf-pale); margin-bottom: 8px; }
+  .closing .contact dd { margin: 0; font-size: 15px; color: #fff; line-height: 1.6; }
+  .closing .next {
+    margin-top: 40px; padding: 20px 24px; border: 1px solid var(--ov-on-dark-30);
+    font-size: 14px; color: var(--ov-on-dark-70); line-height: 1.6;
+  }
+  .closing .next b { color: #fff; font-weight: 500; }
+
+  footer.foot { background: var(--ov-charcoal); color: var(--ov-on-dark-50); padding: 0 0 48px; font-size: 13px; }
+  footer.foot .wrap { border-top: 1px solid var(--ov-on-dark-20); padding-top: 28px; }
+
+  /* ── Type families & widths ──────────────────── */
+  .fam-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
+  .fam { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); padding: 26px; }
+  .fam .fam-lab { font-size: 12px; color: var(--ov-olive); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 14px; }
+  .fam .fam-spec { font-size: 12px; color: var(--ov-ink-50); margin-top: 14px; }
+  .fam .sample { font-size: 30px; color: var(--ov-ink); line-height: 1.1; }
+  .fam .sample.cond { font-family: var(--font-condensed); }
+  .fam .sample.semi { font-family: var(--font-semicond); }
+  .fam .sample.ko { font-family: var(--font-ko); }
+  .tracking-note { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+
+  /* ── Imagery gallery ─────────────────────────── */
+  .gal-hero { width: 100%; height: 320px; background-size: cover; background-position: center; border: 1px solid var(--ov-ink-30); position: relative; overflow: hidden; margin-bottom: 8px; }
+  .gal-hero .ov-tagline { position: absolute; left: 28px; bottom: 24px; color: #fff; font-size: 30px; font-weight: 300; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+  .gal-item { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); }
+  .gal-item .thumb { width: 100%; aspect-ratio: 16/10; background-size: cover; background-position: center; }
+  .gal-item .gc { padding: 12px 14px; }
+  .gal-item .gc .gt { font-size: 13px; font-weight: 500; color: var(--ov-ink); }
+  .gal-item .gc .gn { font-size: 12px; color: var(--ov-ink-50); margin-top: 2px; line-height: 1.4; }
+  .vibe { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .vibe span { font-size: 13px; padding: 6px 14px; border: 1px solid var(--ov-olive); color: var(--ov-olive-deep); background: var(--ov-cream-card); }
+  .portrait-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+  .portrait { border: 1px solid var(--ov-ink-30); }
+  .portrait .pimg { width: 100%; aspect-ratio: 3/4; background-size: cover; background-position: center top; }
+  .portrait .pc { padding: 10px 14px; }
+  .portrait .pc .pn { font-size: 13px; font-weight: 500; color: var(--ov-ink); }
+  .portrait .pc .pr { font-size: 12px; color: var(--ov-ink-50); }
+
+  /* ── Spacing scale ───────────────────────────── */
+  .scale-row { display: flex; align-items: center; gap: 18px; padding: 9px 0; border-bottom: 1px solid var(--ov-ink-30); }
+  .scale-row .sname { width: 90px; flex: none; font-family: var(--font-mono); font-size: 12px; color: var(--ov-ink-50); }
+  .scale-row .sval { width: 60px; flex: none; font-size: 13px; color: var(--ov-ink-70); }
+  .scale-row .sbar { height: 18px; background: var(--ov-olive); }
+  .layout-note { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .lnote { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); padding: 22px; }
+  .lnote .lk { font-size: 12px; color: var(--ov-olive); font-weight: 600; margin-bottom: 8px; }
+  .lnote .lv { font-size: 22px; color: var(--ov-ink); font-family: var(--font-mono); }
+  .lnote .ld { font-size: 13px; color: var(--ov-ink-50); margin-top: 6px; line-height: 1.5; }
+
+  /* ── Radii & borders ─────────────────────────── */
+  .radii-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .radius-demo { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .radius-demo .box { width: 100%; height: 110px; background: var(--ov-cream-card); border: 1px solid var(--ov-olive); }
+  .radius-demo .box.r30 { border-top-right-radius: 30px; }
+  .radius-demo .box.r300 { border-top-right-radius: 110px; }
+  .radius-demo .box.pill { border-radius: 9999px; height: 56px; width: 130px; }
+  .radius-demo .rlab { font-size: 13px; color: var(--ov-ink); font-weight: 500; }
+  .radius-demo .rval { font-family: var(--font-mono); font-size: 12px; color: var(--ov-ink-50); }
+  .border-samples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .bsample { padding: 22px; background: var(--ov-paper); }
+  .bsample.b1 { border: 1px solid var(--ov-olive); }
+  .bsample.b2 { border: 1px solid var(--ov-ink-50); }
+  .bsample.b3 { background: var(--ov-charcoal); border: 1px solid var(--ov-on-dark-30); }
+  .bsample .bt { font-size: 14px; font-weight: 500; color: var(--ov-ink); }
+  .bsample.b3 .bt { color: #fff; }
+  .bsample .bv { font-family: var(--font-mono); font-size: 11.5px; color: var(--ov-ink-50); margin-top: 6px; }
+  .bsample.b3 .bv { color: var(--ov-on-dark-70); }
+
+  /* ── Insight card (component) ────────────────── */
+  .insight-card { width: 300px; background: #fff; border: 1px solid var(--ov-ink-30); padding: 16px; cursor: default;
+    transition: background var(--t-base) var(--ease-default), border-top-right-radius var(--t-base) var(--ease-default); }
+  .insight-card .ic-img { width: 100%; aspect-ratio: 16/10; background-size: cover; background-position: center; position: relative; overflow: hidden;
+    transition: border-top-right-radius var(--t-base) var(--ease-default); }
+  .insight-card .ic-img .wash { position: absolute; inset: 0; background: var(--ov-leaf-pale); opacity: 0; transition: opacity var(--t-base); }
+  .insight-card .ic-tag { font-size: 13px; color: var(--ov-ink-50); margin-top: 14px; }
+  .insight-card .ic-title { font-size: 20px; color: var(--ov-ink); margin-top: 6px; line-height: 1.25; }
+  .insight-card:hover { background: var(--ov-leaf-pale); opacity: 1; border-top-right-radius: 30px; }
+  .insight-card:hover .ic-img { border-top-right-radius: 120px; }
+  .insight-card:hover .ic-img .wash { opacity: 0.5; }
+  .insight-card:hover .ic-title { text-decoration: underline; }
+
+  /* ── Accordion (component) ───────────────────── */
+  .acc-row { border: 1px solid var(--ov-ink-50); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; cursor: default;
+    transition: background var(--t-base) var(--ease-default), border-top-right-radius var(--t-base) var(--ease-default), border-color var(--t-base); }
+  .acc-row + .acc-row { margin-top: 10px; }
+  .acc-row .an { font-size: 18px; color: var(--ov-ink); }
+  .acc-row .ai { width: 22px; height: 22px; color: var(--ov-olive); }
+  .acc-row.open { background: var(--ov-accordion-bg); border-color: transparent; border-top-right-radius: 30px; }
+
+  /* ── Motion ──────────────────────────────────── */
+  .motion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .mcard { border: 1px solid var(--ov-ink-30); background: var(--ov-paper); padding: 24px; }
+  .mcard .mt { font-size: 15px; font-weight: 600; color: var(--ov-ink); }
+  .mcard .mv { font-family: var(--font-mono); font-size: 11.5px; color: var(--ov-olive); margin: 4px 0 14px; }
+  .mcard .md { font-size: 13px; color: var(--ov-ink-70); line-height: 1.55; }
+  .mcard .stage { height: 56px; display: flex; align-items: center; margin-bottom: 14px; }
+  .caret { display: inline-block; width: 3px; height: 30px; background: var(--ov-ink); animation: ovblink 1s steps(1) infinite; }
+  .type-demo { font-size: 24px; color: var(--ov-ink); }
+  @keyframes ovblink { 50% { opacity: 0; } }
+  .scaler { width: 70px; height: 46px; background: var(--ov-olive); animation: ovscale 2.4s var(--ease-default) infinite alternate; }
+  @keyframes ovscale { from { transform: scale(1); } to { transform: scale(1.12); } }
+  .washer { width: 70px; height: 46px; background: var(--ov-olive); position: relative; overflow: hidden; }
+  .washer::after { content:""; position:absolute; inset:0; background: var(--ov-leaf-pale); opacity:0; animation: ovwash 2.4s var(--ease-default) infinite alternate; }
+  @keyframes ovwash { from { opacity: 0; } to { opacity: 0.5; } }
+
+  @media (max-width: 760px) {
+    section { padding: 64px 0; }
+    .glance, .logo-grid, .gesture-grid, .comp-grid, .type-foot, .pillars, .prin-grid,
+    .fam-grid, .gallery, .portrait-row, .radii-grid, .border-samples, .layout-note, .motion-grid, .tracking-note { grid-template-columns: 1fr; }
+    .icon-grid { grid-template-columns: repeat(3, 1fr); }
+    .type-ramp .tag, .type-ramp .spec { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── COVER ─────────────────────────────────── -->
+<header class="cover">
+  <div class="wrap">
+    <img class="cover-logo" src="audits/assets/logo-w.png" alt="Olive & Vine">
+    <p class="cover-kicker">Design system · Progress report</p>
+    <h1>The <b>Olive&nbsp;&amp;&nbsp;Vine</b><br>brand system.</h1>
+    <p class="cover-sub">A single, disciplined visual language — built so every page, document and touchpoint reads as unmistakably the same firm.</p>
+    <dl class="cover-meta">
+      <div><dt>Prepared for</dt><dd>Olive &amp; Vine</dd></div>
+      <div><dt>Scope</dt><dd>Brand foundations</dd></div>
+      <div><dt>Stage</dt><dd>Foundations complete</dd></div>
+      <div><dt>Date</dt><dd>June 2026</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ── STATEMENT ─────────────────────────────── -->
+<section class="statement">
+  <div class="wrap">
+    <p class="eyebrow">What we built</p>
+    <p>We established a complete design system for Olive&nbsp;&amp;&nbsp;Vine — one olive hue, one typeface family, one signature gesture — so the brand <em>never fragments</em> across services, languages, or surfaces.</p>
+  </div>
+</section>
+
+<!-- ── AT A GLANCE ───────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">At a glance</p>
+    <h2 class="section-title">The system in numbers</h2>
+    <p class="section-lead">A deliberately small set of decisions, applied consistently. Restraint is the brand.</p>
+    <div class="glance">
+      <div><div class="num">1</div><div class="lbl">Brand hue — a single olive green, never fragmented by service</div></div>
+      <div><div class="num">2</div><div class="lbl">Typefaces — Roboto for English, Noto Sans KR for Korean</div></div>
+      <div><div class="num">EN&nbsp;/&nbsp;KO</div><div class="lbl">Bilingual by design — every line written in both languages</div></div>
+      <div><div class="num">0</div><div class="lbl">Shadows — depth is communicated through colour, not elevation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOGO ──────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Identity</p>
+    <h2 class="section-title">The mark</h2>
+    <p class="section-lead">The wordmark always reads <strong>Olive&nbsp;&amp;&nbsp;Vine</strong> — capitalised, with the ampersand. It works in deep olive on light surfaces and in white on dark ones.</p>
+    <div class="logo-grid">
+      <div>
+        <div class="logo-cell light"><img src="audits/assets/logo.png" alt="Olive & Vine logo, colour"></div>
+        <p class="caption">Primary — on light &amp; cream surfaces</p>
+      </div>
+      <div>
+        <div class="logo-cell dark"><img src="audits/assets/logo-w.png" alt="Olive & Vine logo, white"></div>
+        <p class="caption">Reversed — on charcoal &amp; photography</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COLOUR ────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Colour</p>
+    <h2 class="section-title">One hue, held with discipline</h2>
+    <p class="section-lead">The entire brand is a single olive green. There are no secondary brand colours — every service line maps back to the same primary, so the identity stays whole. Lightness, not new hues, creates hierarchy.</p>
+
+    <div class="swatch-group">
+      <h3>Brand olives</h3>
+      <p class="grp-note">The core — logo, headings, fills, and every interactive state.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:#495F2B"></div><div class="meta"><div class="name">Olive deep</div><div class="hex">#495F2B</div><div class="role">Logo, primary brand, service heroes</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#627F38"></div><div class="meta"><div class="name">Olive</div><div class="hex">#627F38</div><div class="role">Eyebrows, accents, borders</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#436A1F"></div><div class="meta"><div class="name">Olive hover</div><div class="hex">#436A1F</div><div class="role">Button hover</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#648E3E"></div><div class="meta"><div class="name">Olive active</div><div class="hex">#648E3E</div><div class="role">Button pressed</div></div></div>
+      </div>
+    </div>
+
+    <div class="swatch-group">
+      <h3>Per-service tints</h3>
+      <p class="grp-note">Each service page leans on one tint — all still within the olive family, so the brand never splinters into a rainbow.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:#2E3F18"></div><div class="meta"><div class="name">Olive rooted</div><div class="hex">#2E3F18</div><div class="role">Corporate — deepest, structural</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#6E7A33"></div><div class="meta"><div class="name">Olive hearth</div><div class="hex">#6E7A33</div><div class="role">HR — warm, earthy</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#3F4E22"></div><div class="meta"><div class="name">Olive steady</div><div class="hex">#3F4E22</div><div class="role">Assurance — cool, steady</div></div></div>
+      </div>
+    </div>
+
+    <div class="swatch-group">
+      <h3>Ink &amp; surfaces</h3>
+      <p class="grp-note">A green-tinted near-black for type, and a family of warm creams for surfaces — never pure black or stark white.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:#111B12"></div><div class="meta"><div class="name">Ink</div><div class="hex">#111B12</div><div class="role">Headings &amp; body</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#282A28"></div><div class="meta"><div class="name">Charcoal</div><div class="hex">#282A28</div><div class="role">Footer &amp; dark sections</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid #ddd"></div><div class="meta"><div class="name">Paper</div><div class="hex">#FFFFFF</div><div class="role">Card surface</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F9F8F3"></div><div class="meta"><div class="name">Cream</div><div class="hex">#F9F8F3</div><div class="role">Menu &amp; section base</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F0EEE2"></div><div class="meta"><div class="name">Cream deep</div><div class="hex">#F0EEE2</div><div class="role">Alternating sections</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#E5E5BD"></div><div class="meta"><div class="name">Leaf pale</div><div class="hex">#E5E5BD</div><div class="role">The signature hover wash</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F1F1DD"></div><div class="meta"><div class="name">Tag</div><div class="hex">#F1F1DD</div><div class="role">Topic-tag pills</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TYPE ──────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Typography</p>
+    <h2 class="section-title">Roboto carries everything</h2>
+    <p class="section-lead">One typeface holds the entire identity — no display serif, no script. Large headings sit at <em>regular</em> weight; bold is reserved for the wordmark. Korean is set in Noto Sans KR, swapped in with a single language toggle.</p>
+
+    <div class="type-ramp">
+      <div><span class="tag">Display</span><span class="spec">96px · 400</span><span class="demo" style="font-size:64px">Partnership</span></div>
+      <div><span class="tag">Section H1</span><span class="spec">48px · 400</span><span class="demo" style="font-size:44px">Our services</span></div>
+      <div><span class="tag">Service card</span><span class="spec">32px · 400</span><span class="demo" style="font-size:32px">Tax &amp; advisory</span></div>
+      <div><span class="tag">Lead</span><span class="spec">24px · 400</span><span class="demo" style="font-size:24px">We listen first, then advise.</span></div>
+      <div><span class="tag">Eyebrow</span><span class="spec">20px · 600</span><span class="demo" style="font-size:20px;color:var(--ov-olive);font-weight:600">About us</span></div>
+      <div><span class="tag">Body</span><span class="spec">16px · 400</span><span class="demo" style="font-size:16px;color:var(--ov-ink-70)">Clarity, compliance, and actionable insight for your business.</span></div>
+      <div><span class="tag">Small</span><span class="spec">14px · 400</span><span class="demo" style="font-size:14px;color:var(--ov-ink-50)">Footer &amp; compliance copy</span></div>
+    </div>
+
+    <div class="type-foot">
+      <div class="type-card">
+        <div class="lab">Bilingual — one voice, two scripts</div>
+        <div class="latin">Partnership beyond numbers</div>
+        <div class="ko">숫자를 넘어서는 파트너십</div>
+      </div>
+      <div class="type-card">
+        <div class="lab">Weights in use</div>
+        <div class="weights">
+          <span style="font-weight:300">Light</span>
+          <span style="font-weight:400">Regular</span>
+          <span style="font-weight:500">Medium</span>
+          <span style="font-weight:600">SemiBold</span>
+        </div>
+        <p style="font-size:13px;color:var(--ov-ink-50);margin:16px 0 0;line-height:1.5">Bold is reserved for the wordmark — never for body emphasis.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:500;margin:56px 0 6px;color:var(--ov-ink)">The family — one face, three widths, plus Korean</h3>
+    <p class="section-lead" style="margin-bottom:24px">Roboto ships as a variable font spanning the full 100–900 weight and 75–100 width range. The regular width carries the marketing site; the narrower widths are available for tight layouts and display moments. Noto Sans KR loads for Korean.</p>
+    <div class="fam-grid">
+      <div class="fam">
+        <div class="fam-lab">Roboto — default width</div>
+        <div class="sample">Partnership beyond numbers</div>
+        <div class="fam-spec">100% width · weights 100–900 · the body face for everything</div>
+      </div>
+      <div class="fam">
+        <div class="fam-lab">Roboto SemiCondensed</div>
+        <div class="sample semi">Partnership beyond numbers</div>
+        <div class="fam-spec">≈ 87.5% width · for tighter display moments</div>
+      </div>
+      <div class="fam">
+        <div class="fam-lab">Roboto Condensed</div>
+        <div class="sample cond">Partnership beyond numbers</div>
+        <div class="fam-spec">≈ 75% width · for the narrowest layouts</div>
+      </div>
+      <div class="fam">
+        <div class="fam-lab">Noto Sans KR</div>
+        <div class="sample ko">숫자를 넘어서는 파트너십</div>
+        <div class="fam-spec">Nine static weights · loaded on <span class="hex" style="font-family:var(--font-mono)">data-lang="KOR"</span></div>
+      </div>
+    </div>
+    <div class="tracking-note">
+      <div class="fam">
+        <div class="fam-lab">Letterspacing</div>
+        <p style="font-size:14px;color:var(--ov-ink-70);line-height:1.6;margin:0">Left at Roboto's default. The only deliberate tracking is the inherited tightness on the large hero display — no all-caps tracking, no expanded labels.</p>
+      </div>
+      <div class="fam">
+        <div class="fam-lab">No italic as a pattern</div>
+        <p style="font-size:14px;color:var(--ov-ink-70);line-height:1.6;margin:0">Italic is never a recurring emphasis device. There is no display serif and no script — Roboto carries the entire visual identity on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMAGERY ───────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Imagery</p>
+    <h2 class="section-title">Warm, golden, never stock</h2>
+    <p class="section-lead">Photography is a brand surface in its own right. Heroes are single full-bleed images dark enough to carry white text without a scrim. The vibe is consistent: warm, golden, slightly desaturated — olive groves, hands writing in notebooks, organic texture. Not slick corporate stock.</p>
+
+    <div class="gal-hero" style="background-image:url('audits/assets/home/home-bg.png')">
+      <div class="ov-tagline">Partnership beyond numbers</div>
+    </div>
+    <p class="caption" style="font-size:13px;color:var(--ov-ink-50);margin-top:10px">Home hero — white text reads on the image itself, no darkening overlay or gradient scrim.</p>
+
+    <div class="vibe">
+      <span>Warm &amp; golden</span><span>Slightly desaturated</span><span>Organic texture</span><span>Hands at work</span><span>No slick stock</span><span>No gradient scrims</span>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:500;margin:48px 0 4px;color:var(--ov-ink)">Section &amp; story imagery</h3>
+    <p class="section-lead" style="margin-bottom:0">Illustrative photography backs key sections — always treated the same way, never overlaid with filters.</p>
+    <div class="gallery">
+      <div class="gal-item"><div class="thumb" style="background-image:url('audits/assets/about/bg-about.png')"></div><div class="gc"><div class="gt">About hero</div><div class="gn">The firm &amp; its story</div></div></div>
+      <div class="gal-item"><div class="thumb" style="background-image:url('audits/assets/home/about-us.png')"></div><div class="gc"><div class="gt">About section</div><div class="gn">Homepage “about us” band</div></div></div>
+      <div class="gal-item"><div class="thumb" style="background-image:url('audits/assets/home/integrity.png')"></div><div class="gc"><div class="gt">Integrity</div><div class="gn">Photo-backed, white headline</div></div></div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:500;margin:48px 0 4px;color:var(--ov-ink)">Insight thumbnails</h3>
+    <p class="section-lead" style="margin-bottom:0">Article imagery — the same warm register, cropped dramatically by the rounded corner on hover.</p>
+    <div class="gallery">
+      <div class="gal-item"><div class="thumb" style="background-image:url('audits/assets/insights/big-data.jpg')"></div><div class="gc"><div class="gt">Big data</div><div class="gn">Insights · technology</div></div></div>
+      <div class="gal-item"><div class="thumb" style="background-image:url('audits/assets/insights/corporate-tax.jpg')"></div><div class="gc"><div class="gt">Corporate tax</div><div class="gn">Insights · tax</div></div></div>
+      <div class="gal-item"><div class="thumb" style="background-image:url('audits/assets/insights/digital-transformation.jpg')"></div><div class="gc"><div class="gt">Digital transformation</div><div class="gn">Insights · advisory</div></div></div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:500;margin:48px 0 4px;color:var(--ov-ink)">Leadership portraits</h3>
+    <p class="section-lead" style="margin-bottom:0">The two founders, each with a hover image-swap on the leadership page.</p>
+    <div class="portrait-row">
+      <div class="portrait"><div class="pimg" style="background-image:url('audits/assets/leadership/r1.jpg')"></div><div class="pc"><div class="pn">Rebecca Park Ji Hyun</div><div class="pr">Founder</div></div></div>
+      <div class="portrait"><div class="pimg" style="background-image:url('audits/assets/leadership/r2.jpg')"></div><div class="pc"><div class="pn">Rebecca — hover frame</div><div class="pr">Image swap</div></div></div>
+      <div class="portrait"><div class="pimg" style="background-image:url('audits/assets/leadership/m1.jpg')"></div><div class="pc"><div class="pn">Kim Mi Young</div><div class="pr">Founder</div></div></div>
+      <div class="portrait"><div class="pimg" style="background-image:url('audits/assets/leadership/m2.jpg')"></div><div class="pc"><div class="pn">Mi Young — hover frame</div><div class="pr">Image swap</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SIGNATURE GESTURE ─────────────────────── -->
+<section style="background:var(--ov-cream-deep)">
+  <div class="wrap">
+    <p class="eyebrow">The signature gesture</p>
+    <h2 class="section-title">One corner, rounded</h2>
+    <p class="section-lead">The brand's most identifiable trait: corners are square by default, and on hover a single corner — the top-right — sweeps open. It's a small, recognisable movement that belongs to no one else. <strong>Hover the cards below.</strong></p>
+    <div class="gesture-grid">
+      <div class="gesture-demo">
+        <div class="k">Cards · accordions</div>
+        <div class="t">Top-right rounds to 30px</div>
+        <div class="h">Hover me</div>
+      </div>
+      <div class="gesture-img">
+        <div class="wash"></div>
+        <div class="k">Insight imagery</div>
+        <div class="lbl">A dramatic 300px bevel crops the photo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPONENTS ────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Components</p>
+    <h2 class="section-title">Built once, reused everywhere</h2>
+    <p class="section-lead">Every interactive element speaks the same language: a hairline border that fills with olive, white text on hover, and the rounded corner. No shadows, ever — depth is colour, not elevation.</p>
+
+    <div class="comp-grid">
+      <!-- service card -->
+      <div class="comp-cell">
+        <p class="ctitle">Service card</p>
+        <p class="cnote">Idle in cream with an olive hairline. On hover it fills olive, the text inverts to white, the icon swaps to its white pair, and the top-right corner rounds. Hover it.</p>
+        <div class="comp-stage">
+          <div class="svc-card">
+            <div class="ic">
+              <img class="d" src="audits/assets/home/os-tax.svg" alt="">
+              <img class="w" src="audits/assets/home/os-tax-w.svg" alt="">
+            </div>
+            <div class="nm">Tax</div>
+            <div class="ds">Profits tax, salaries tax &amp; advisory — handled alongside you.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- pill buttons -->
+      <div class="comp-cell">
+        <p class="ctitle">Pill button</p>
+        <p class="cnote">Always paired with a top-right arrow. Idle, hover, and active are shown together so the colour sequence is clear.</p>
+        <div class="comp-stage">
+          <span style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <span class="pill idle"><span>Start a conversation</span><span class="arr" data-arrow></span></span>
+            <span class="pstate">Idle — hover me</span>
+          </span>
+          <span style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <span class="pill is-hover"><span>Start a conversation</span><span class="arr" data-arrow></span></span>
+            <span class="pstate">Hover</span>
+          </span>
+          <span style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <span class="pill is-active"><span>Start a conversation</span><span class="arr" data-arrow></span></span>
+            <span class="pstate">Active</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- tags -->
+      <div class="comp-cell">
+        <p class="ctitle">Topic tags</p>
+        <p class="cnote">The one place rounded pills carry text content — used to tag insights and articles.</p>
+        <div class="comp-stage">
+          <span class="topic-tag">Tax</span>
+          <span class="topic-tag">Compliance</span>
+          <span class="topic-tag">Hong Kong</span>
+          <span class="topic-tag">Advisory</span>
+          <span class="topic-tag">Growth</span>
+        </div>
+      </div>
+
+      <!-- form input + round cta -->
+      <div class="comp-cell">
+        <p class="ctitle">Form field &amp; round CTA</p>
+        <p class="cnote">Inputs are a single underline — no boxes, no fills. The round arrow button is the universal “go”.</p>
+        <div class="comp-stage" style="gap:28px">
+          <div class="ov-field" style="flex:1;min-width:180px">
+            <label>Your email</label>
+            <input type="text" placeholder="you@company.com">
+          </div>
+          <button class="round-cta" data-arrow-lg aria-label="Submit"></button>
+        </div>
+      </div>
+
+      <!-- insight card -->
+      <div class="comp-cell">
+        <p class="ctitle">Insight card</p>
+        <p class="cnote">The most dramatic instance of the gesture: on hover the card and its image both round their top-right corner, a leaf-pale wash fades over the photo, and the title underlines. Hover it.</p>
+        <div class="comp-stage">
+          <div class="insight-card">
+            <div class="ic-img" style="background-image:url('audits/assets/insights/corporate-tax.jpg')"><div class="wash"></div></div>
+            <div class="ic-tag">Tax · Hong Kong</div>
+            <div class="ic-title">Navigating corporate tax in Hong Kong</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- accordion -->
+      <div class="comp-cell">
+        <p class="ctitle">Accordion</p>
+        <p class="cnote">Used for the services overview. Closed rows carry an ink hairline; the open row fills with a soft leaf background and rounds its top-right corner.</p>
+        <div class="comp-stage" style="display:block">
+          <div class="acc-row open">
+            <span class="an">Tax</span>
+            <span class="ai" data-minus></span>
+          </div>
+          <div class="acc-row">
+            <span class="an">Accounting</span>
+            <span class="ai" data-plus></span>
+          </div>
+          <div class="acc-row">
+            <span class="an">Assurance</span>
+            <span class="ai" data-plus></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPACING & LAYOUT ──────────────────────── -->
+<section style="background:var(--ov-cream-deep)">
+  <div class="wrap">
+    <p class="eyebrow">Spacing &amp; layout</p>
+    <h2 class="section-title">A 4-pixel rhythm</h2>
+    <p class="section-lead">Spacing steps on a 4px scale. Sections breathe on a generous vertical rhythm, and content holds to a single canonical width — the discipline that makes every page feel like one site.</p>
+    <div style="max-width:560px">
+      <div class="scale-row"><span class="sname">space-1</span><span class="sval">4px</span><span class="sbar" style="width:4px"></span></div>
+      <div class="scale-row"><span class="sname">space-2</span><span class="sval">8px</span><span class="sbar" style="width:8px"></span></div>
+      <div class="scale-row"><span class="sname">space-4</span><span class="sval">16px</span><span class="sbar" style="width:16px"></span></div>
+      <div class="scale-row"><span class="sname">space-6</span><span class="sval">24px</span><span class="sbar" style="width:24px"></span></div>
+      <div class="scale-row"><span class="sname">space-8</span><span class="sval">32px</span><span class="sbar" style="width:32px"></span></div>
+      <div class="scale-row"><span class="sname">space-12</span><span class="sval">48px</span><span class="sbar" style="width:48px"></span></div>
+      <div class="scale-row"><span class="sname">space-16</span><span class="sval">64px</span><span class="sbar" style="width:64px"></span></div>
+      <div class="scale-row"><span class="sname">space-24</span><span class="sval">96px</span><span class="sbar" style="width:96px"></span></div>
+    </div>
+    <div class="layout-note">
+      <div class="lnote"><div class="lk">Container width</div><div class="lv">1280px</div><div class="ld">The canonical max width, centred — <span style="font-family:var(--font-mono)">max-w-7xl</span>.</div></div>
+      <div class="lnote"><div class="lk">Section rhythm</div><div class="lv">48 / 96px</div><div class="ld">Vertical padding — tighter on mobile, generous on desktop.</div></div>
+      <div class="lnote"><div class="lk">Card minimums</div><div class="lv">330–500px</div><div class="ld">Cards are tall by design — the long minimum is part of the look.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RADII & BORDERS ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Radii &amp; borders</p>
+    <h2 class="section-title">A four-value radius vocabulary</h2>
+    <p class="section-lead">Corners are square by default. Only four radius values exist — and three of them are the signature gesture firing on hover. Anything else dilutes it.</p>
+    <div class="radii-grid">
+      <div class="radius-demo"><div class="box"></div><div class="rlab">Default</div><div class="rval">0 · square</div></div>
+      <div class="radius-demo"><div class="box r30"></div><div class="rlab">Card hover</div><div class="rval">30px · top-right</div></div>
+      <div class="radius-demo"><div class="box r300"></div><div class="rlab">Insight hover</div><div class="rval">300px · top-right</div></div>
+      <div class="radius-demo"><div class="box pill"></div><div class="rlab">Pill</div><div class="rval">9999px · buttons only</div></div>
+    </div>
+    <div class="border-samples">
+      <div class="bsample b1"><div class="bt">Olive hairline</div><div class="bv">1px solid #627F38 — idle service cards</div></div>
+      <div class="bsample b2"><div class="bt">Ink @ 50%</div><div class="bv">1px solid rgba(17,27,18,.5) — pills, accordions</div></div>
+      <div class="bsample b3"><div class="bt">White @ 30%</div><div class="bv">1px solid rgba(255,255,255,.3) — on dark surfaces</div></div>
+    </div>
+    <div class="callout" style="border-left:2px solid var(--ov-olive);background:var(--ov-paper);padding:20px 24px;margin:28px 0 0;font-size:15px;line-height:1.6;color:var(--ov-ink);max-width:760px"><strong>No shadows, anywhere.</strong> There is no elevation system. Depth and hover are communicated entirely through colour and the rounded corner — never a drop shadow, glow, or blur.</div>
+  </div>
+</section>
+
+<!-- ── MOTION ────────────────────────────────── -->
+<section style="background:var(--ov-cream-deep)">
+  <div class="wrap">
+    <p class="eyebrow">Motion</p>
+    <h2 class="section-title">Purposeful, never decorative</h2>
+    <p class="section-lead">The brand isn't shy about motion, but every movement has a job. Almost everything runs on a single 300ms cubic ease — no bounces, no spring physics, no pop-ins.</p>
+    <div class="motion-grid">
+      <div class="mcard">
+        <div class="stage"><span class="type-demo">Building</span><span class="caret"></span></div>
+        <div class="mt">Typewriter hero</div>
+        <div class="mv">100ms / char · blink 1s</div>
+        <div class="md">Cycles “Building → Empowering → Partnerships”, with a blinking caret — the Korean cycles its own three words.</div>
+      </div>
+      <div class="mcard">
+        <div class="stage"><span class="scaler"></span></div>
+        <div class="mt">Image scale</div>
+        <div class="mv">scale 1 → 1.1 · 300ms</div>
+        <div class="md">Portfolio card backgrounds ease up in scale on hover — slow and contained, never a zoom.</div>
+      </div>
+      <div class="mcard">
+        <div class="stage"><span class="washer"></span></div>
+        <div class="mt">Leaf wash</div>
+        <div class="mv">opacity 0 → 0.5 · 300ms</div>
+        <div class="md">The only layered transparency — a leaf-pale wash fading over insight imagery on hover.</div>
+      </div>
+    </div>
+    <p class="caption" style="font-size:13px;color:var(--ov-ink-50);margin-top:18px">Also in the system: the Integrity headline's 3D letter swirl, and carousel page fades — all on cubic ease, all 300–600ms.</p>
+  </div>
+</section>
+
+<!-- ── ICONOGRAPHY ───────────────────────────── -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Iconography</p>
+    <h2 class="section-title">Six service lines, one style</h2>
+    <p class="section-lead">Custom flat line-drawings — a skyscraper for Corporate, a ledger for Accounting, and so on. Each ships in two colours and swaps on hover, mirroring the service-card gesture. Hover any icon.</p>
+    <div class="icon-grid">
+      <div class="icon-cell"><div class="ic"><img class="d" src="audits/assets/home/os-corporate.svg" alt=""><img class="w" src="audits/assets/home/os-corporate-w.svg" alt=""></div><div class="nm">Corporate</div></div>
+      <div class="icon-cell"><div class="ic"><img class="d" src="audits/assets/home/os-accounting.svg" alt=""><img class="w" src="audits/assets/home/os-accounting-w.svg" alt=""></div><div class="nm">Accounting</div></div>
+      <div class="icon-cell"><div class="ic"><img class="d" src="audits/assets/home/os-assurance.svg" alt=""><img class="w" src="audits/assets/home/os-assurance-w.svg" alt=""></div><div class="nm">Assurance</div></div>
+      <div class="icon-cell"><div class="ic"><img class="d" src="audits/assets/home/os-tax.svg" alt=""><img class="w" src="audits/assets/home/os-tax-w.svg" alt=""></div><div class="nm">Tax</div></div>
+      <div class="icon-cell"><div class="ic"><img class="d" src="audits/assets/home/os-consulting.svg" alt=""><img class="w" src="audits/assets/home/os-consulting-w.svg" alt=""></div><div class="nm">Consulting</div></div>
+      <div class="icon-cell"><div class="ic"><img class="d" src="audits/assets/home/os-hr.svg" alt=""><img class="w" src="audits/assets/home/os-hr-w.svg" alt=""></div><div class="nm">HR</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VOICE ─────────────────────────────────── -->
+<section style="background:var(--ov-cream-deep)">
+  <div class="wrap">
+    <p class="eyebrow">Voice &amp; tone</p>
+    <h2 class="section-title">Partnership, in every line</h2>
+    <p class="section-lead">Warm, principled, partnership-first — closer to a relationship statement than a sales pitch. Three nouns anchor everything.</p>
+    <div class="pillars">
+      <div class="pillar"><div class="p-num">01</div><div class="p-name">Integrity</div><div class="p-body">Trust is non-negotiable. We advise with honesty, even when it is not the easy answer.</div></div>
+      <div class="pillar"><div class="p-num">02</div><div class="p-name">Partnership</div><div class="p-body">We grow alongside our clients — “we” the firm, talking to “you” the founder, always.</div></div>
+      <div class="pillar"><div class="p-num">03</div><div class="p-name">Clarity</div><div class="p-body">Pragmatic solutions that turn compliance into actionable insight you can act on.</div></div>
+    </div>
+    <div class="voice-quotes">
+      <blockquote>“In Hong Kong's financial landscape, we're the firm that listens first, advises with integrity, and grows alongside our clients.”</blockquote>
+      <blockquote>“We do not only provide simple opinion. Instead, we target to provide you insights.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRINCIPLES ────────────────────────────── -->
+<section class="principles">
+  <div class="wrap">
+    <p class="eyebrow">The discipline</p>
+    <h2 class="section-title">What we deliberately left out</h2>
+    <p class="section-lead">A system is defined as much by its restraint as its rules. These are the lines we hold.</p>
+    <div class="prin-grid">
+      <div class="prin"><h4>No shadows</h4><p>No elevation system, no drop shadows, no glow. Hover is communicated entirely through colour and the rounded corner.</p></div>
+      <div class="prin"><h4>No second hue</h4><p>One olive green throughout. Hierarchy comes from lightness and opacity tiers — never from introducing a new colour.</p></div>
+      <div class="prin"><h4>No gradients or texture</h4><p>Surfaces are flat. Backgrounds are photographs or solid colour — never abstract gradients or decorative patterns.</p></div>
+      <div class="prin"><h4>No emoji, no glyph icons</h4><p>Every arrow, check and chevron is a drawn icon. Sentence case everywhere; the wordmark is the only exception.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSING ───────────────────────────────── -->
+<section class="closing">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--ov-leaf-pale)">Where this goes next</p>
+    <h2 class="section-title">A foundation to build on</h2>
+    <p>With the brand foundations set, every new page, document and asset can be produced quickly and consistently — and always look like Olive&nbsp;&amp;&nbsp;Vine.</p>
+    <div class="next">
+      <b>Coming next —</b> a detailed working version of this system for the production team: the full component kit, the six rebuilt service pages, and the decision and review trail behind them.
+    </div>
+    <dl class="contact">
+      <div><dt>Olive &amp; Vine</dt><dd>Accounting &amp; advisory<br>Quarry Bay, Hong Kong</dd></div>
+      <div><dt>Office</dt><dd>Room 580, Level 5, K11 Atelier<br>728 King's Road</dd></div>
+      <div><dt>Founders</dt><dd>Rebecca Park Ji Hyun<br>Kim Mi Young</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">Olive &amp; Vine — Design system progress report · Brand foundations · June 2026</div>
+</footer>
+
+<script>
+  // react-icons CgArrowTopRight, inlined as the universal "go" affordance.
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="8 7 17 7 17 16"></polyline></svg>';
+  document.querySelectorAll('[data-arrow]').forEach(function(el){ el.innerHTML = ARROW; });
+  document.querySelectorAll('[data-arrow-lg]').forEach(function(el){ el.innerHTML = ARROW; });
+  // CircumIcons CiCirclePlus / CiCircleMinus — accordion expand / collapse.
+  var PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>';
+  var MINUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>';
+  document.querySelectorAll('[data-plus]').forEach(function(el){ el.innerHTML = PLUS; });
+  document.querySelectorAll('[data-minus]').forEach(function(el){ el.innerHTML = MINUS; });
+</script>
+</body>
+</html>

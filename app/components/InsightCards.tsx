@@ -175,7 +175,7 @@ export default function InsightCards({
               href: firstCardPlaceholder && placeholderHref ? placeholderHref : "/insights/consulting/ai-business-automation",
               tag: firstCardPlaceholder ? (tagOverride ?? tag) : { en: "Consulting", ko: "컨설팅" },
               title: firstCardPlaceholder
-                ? (placeholderContent?.title ?? { en: "Coming soon", ko: "곧 공개" })
+                ? (placeholderContent?.title ?? { en: "Coming soon", ko: "준비 중입니다" })
                 : { en: "AI Business Automation", ko: "AI 비즈니스 자동화" },
               description: firstCardPlaceholder
                 ? (placeholderContent?.description ?? { en: "", ko: "" })
@@ -188,7 +188,7 @@ export default function InsightCards({
           alt: "Insight 2",
           href: secondCardAmendment ? "/insights/corporate-service/amendment" : "#",
           tag: secondCardAmendment ? { en: "Corporate Service", ko: "기업 서비스" } : (tagOverride ?? translations.title),
-          title: secondCardAmendment ? { en: "Amendment", ko: "정관 변경" } : translations.description,
+          title: secondCardAmendment ? { en: "Amendment", ko: "변경" } : translations.description,
           description: secondCardAmendment ? { en: "", ko: "" } : translations.description,
           isPlaceholder: false,
           subTags: secondCardAmendment ? AMENDMENT_CARD.subTags : undefined,
@@ -201,7 +201,7 @@ export default function InsightCards({
     alt,
     href: "#",
     tag: tagOverride ?? tag,
-    title: { en: "Coming soon", ko: "곧 공개" },
+    title: { en: "Coming soon", ko: "준비 중입니다" },
     description: { en: "", ko: "" },
     isPlaceholder: true,
   });

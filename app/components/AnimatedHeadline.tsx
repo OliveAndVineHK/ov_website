@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface AnimatedHeadlineProps {
   words: string[];
@@ -9,19 +9,30 @@ interface AnimatedHeadlineProps {
   interval?: number;
 }
 
-/* AnimatedHeadline v2 (2026-06-03) — elegant cross-fade + slide.
-   The previous letter-by-letter "swirl" animation read as gimmicky;
-   this version simply cross-fades each word with a soft 12px slide
-   on the way in, 700ms each side, paused for the rest of `interval`.
-   Honours prefers-reduced-motion (renders first word statically). */
+/* AnimatedHeadline v4 (2026-06-04) — true cross-fade via CSS Grid stack.
+
+   v3 used a single span that went opacity 1 → 0 → swap text → 0 → 1.
+   That left a visible "blank" gap in the middle of the cycle and the
+   transition felt abrupt — the user saw the change clearly.
+
+   v4 renders BOTH the previous and current word at the same time
+   during the swap (CSS Grid `grid-area: 1 / 1` stacks them). The
+   outgoing word fades + slides up + blurs (.headline-word-out
+   keyframe). The incoming word fades + slides up from below + un-
+   blurs (.headline-word-in keyframe). The two animations overlap
+   for the full 1.6s, producing a continuous "ticker" feel with no
+   blank moment. React keys (`key={cycleId-prev}`/`key={cycleId-curr}`)
+   ensure the keyframes re-run on every swap. */
 export default function AnimatedHeadline({
   words,
   className = "",
-  interval = 3800,
+  interval = 4400,
 }: AnimatedHeadlineProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const [cycleId, setCycleId] = useState(0);
   const [reduced, setReduced] = useState(false);
+  const clearPrevTimer = useRef<number | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -31,41 +42,57 @@ export default function AnimatedHeadline({
 
   useEffect(() => {
     if (words.length === 0 || reduced) return;
-    const OUT_MS = 600;
     const cycle = setInterval(() => {
-      setIsVisible(false);
-      window.setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % words.length);
-        setIsVisible(true);
-      }, OUT_MS);
+      setCurrentIndex((c) => {
+        const next = (c + 1) % words.length;
+        setPrevIndex(c);
+        setCycleId((id) => id + 1);
+        if (clearPrevTimer.current) window.clearTimeout(clearPrevTimer.current);
+        // Drop the outgoing word from the DOM once the animation has
+        // run; 1700ms slightly exceeds the 1600ms animation duration.
+        clearPrevTimer.current = window.setTimeout(() => {
+          setPrevIndex(null);
+        }, 1700);
+        return next;
+      });
     }, interval);
-    return () => clearInterval(cycle);
+    return () => {
+      clearInterval(cycle);
+      if (clearPrevTimer.current) window.clearTimeout(clearPrevTimer.current);
+    };
   }, [words.length, interval, reduced]);
 
   if (words.length === 0) return null;
-  const word = words[currentIndex] ?? words[0];
+  const currentWord = words[currentIndex] ?? words[0];
+  const prevWord = prevIndex !== null ? words[prevIndex] : null;
 
   return (
     <h2
       className={`text-[36px] sm:text-[48px] md:text-[60px] lg:text-[74px] 2xl:text-[88px] font-normal text-white text-center leading-[1.1] tracking-[-0.01em] ${className}`}
     >
-      <span
-        key={`${currentIndex}-${word}`}
-        className="inline-block"
-        style={{
-          opacity: reduced ? 1 : isVisible ? 1 : 0,
-          transform: reduced
-            ? "translateY(0)"
-            : isVisible
-            ? "translateY(0)"
-            : "translateY(-14px)",
-          transition: reduced
-            ? "none"
-            : "opacity 700ms cubic-bezier(0.4, 0, 0.2, 1), transform 700ms cubic-bezier(0.4, 0, 0.2, 1)",
-          willChange: reduced ? undefined : "opacity, transform",
-        }}
-      >
-        {word}
+      <span className="relative inline-grid">
+        {prevWord !== null && (
+          <span
+            key={`prev-${cycleId}`}
+            className={reduced ? "" : "headline-word-out"}
+            style={{
+              gridArea: "1 / 1",
+              willChange: reduced ? undefined : "opacity, transform, filter",
+            }}
+          >
+            {prevWord}
+          </span>
+        )}
+        <span
+          key={`curr-${cycleId}`}
+          className={reduced ? "" : "headline-word-in"}
+          style={{
+            gridArea: "1 / 1",
+            willChange: reduced ? undefined : "opacity, transform, filter",
+          }}
+        >
+          {currentWord}
+        </span>
       </span>
     </h2>
   );

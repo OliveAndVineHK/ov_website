@@ -57,9 +57,27 @@ export default function Home() {
       <section
         className="relative w-full max-w-[1800px] mx-auto overflow-hidden rounded-[28px] md:rounded-[40px] lg:rounded-[56px] min-h-[560px] sm:min-h-[640px] md:min-h-[720px] lg:min-h-[820px] flex"
       >
-        {/* Video bg + dark wash — clipped by the section's rounded
-            corners via overflow-hidden. */}
-        <div aria-hidden className="absolute inset-0">
+        {/* Video bg + dark wash — masked by home-bg.png's alpha so the
+            video itself inherits the asset's white corner notches
+            (top-left, top-right, bottom-right). v8 (2026-06-04): mask
+            re-applied so the notch shape stays visible during video
+            playback — previously the notches only showed during the
+            poster image flash on initial load, then disappeared once
+            the video took over. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            WebkitMaskImage: "url(/home/home-bg.png)",
+            maskImage: "url(/home/home-bg.png)",
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+          }}
+        >
           <video
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
@@ -84,11 +102,6 @@ export default function Home() {
             }}
           />
         </div>
-
-        {/* Notch overlays removed — uniform border-radius only.
-            Asymmetric L-notches turned out too tricky to render
-            correctly within the brand constraints; reverting to the
-            simpler smooth rounded-corner card. */}
 
         {/* Content — flex justify-end aligns to bottom of section. */}
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-6 pt-24 pb-12 md:pb-16 lg:pb-20 flex flex-col justify-end">
@@ -132,7 +145,7 @@ export default function Home() {
             <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.15] mb-6 md:mb-8">
               {isKo ? aboutUsTranslations.promise.ko : aboutUsTranslations.promise.en}
             </h2>
-            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-2xl mb-8">
+            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-2xl mb-8 text-justify">
               {isKo ? aboutUsTranslations.description.ko : aboutUsTranslations.description.en}
             </p>
             <Link
@@ -278,7 +291,7 @@ export default function Home() {
       {/* ─── Compliance footer strip — unchanged ─── */}
       <section className="w-full py-8 sm:py-10 md:py-12 lg:py-14 bg-[#EFEFEF] mt-12 md:mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 flex flex-col items-start">
-          <p className="w-full text-[12px] md:text-[13px] 2xl:text-[15px] text-[#282A28] leading-[1.6]">
+          <p className="w-full text-[12px] md:text-[13px] 2xl:text-[15px] text-[#282A28] leading-[1.6] text-justify">
             {isKo ? complianceTranslations.title.ko : complianceTranslations.title.en}
             <br />
             <span className="text-[12px] md:text-[13px] 2xl:text-[15px] text-[#282A28]">

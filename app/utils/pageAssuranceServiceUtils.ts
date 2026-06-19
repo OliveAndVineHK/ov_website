@@ -1,179 +1,228 @@
+/* ──────────────────────────────────────────────────────────────
+   Assurance service page copy — rebuilt 2026-06-16
+   Source of truth: Assurance.docx redesign brief (founder-authored).
+   Hero subtitle from the xlsx proofreading round (07 Assurance, R4).
+   Structure: hero → approach (intro · philosophy · value) →
+   audit methodology (4-step) → what we deliver (3 groups) → FAQ.
+   Korean drafted per i18n/Translation-Master-Prompt.md glossary;
+   new KO is first-draft and queued for the next proofreading round.
+   ────────────────────────────────────────────────────────────── */
 export const assuranceServicePageTranslations = {
   heroTag: { en: "Services", ko: "서비스" },
-  heroTitle: {
-    en: "Assurance",
-    ko: "Assurance",
-  },
+  heroTitle: { en: "Assurance", ko: "Assurance" },
   heroSubtitle: {
-    en: "Hong Kong law requires companies to maintain financial records and engage CPAs for statutory audits. We deliver independent assurance that supports compliance and stakeholder confidence.",
-    ko: "홍콩 법률에 따라 모든 홍콩 법인은 명확한 재무 기록을 유지해야 하며, 공인회계사(CPA)를 통해 법정 감사를 의무적으로 수행해야 합니다. 저희는 철저한 독립적 Assurance 서비스를 제공하여 고객사가 현지 규제 요건을 완벽히 준수하고 이해관계자들의 두터운 신뢰를 확보할 수 있도록 지원합니다."
+    en: "Hong Kong companies are required to prepare audited financial statements in accordance with statutory requirements, to be conducted by a qualified CPA. We bring professional rigour and transparency to each engagement, delivering not only an audit opinion but also practical observations and insights to support your business decisions.",
+    ko: "홍콩 기업은 관련 법규에 따라 공인회계사(CPA)에 의한 재무제표 감사를 받아야 합니다. 우리는 모든 감사 업무에 있어 높은 수준의 전문성과 투명성을 유지하며, 단순한 감사 의견을 넘어서 실질적인 개선과 판단에 도움이 되는 인사이트를 제공합니다.",
   },
-  title: {
-    en: "Assurance",
-    ko: "Assurance",
+
+  /* ── Section: Our approach (Introduction · Audit Philosophy · Value) ── */
+  approachEyebrow: { en: "Our approach", ko: "우리의 접근" },
+  approachHeading: {
+    en: "Confidence through clarity — independent assurance.",
+    ko: "명확함을 기반으로 한 신뢰, 독립적인 Assurance",
   },
-  assuranceServiceIntro: {
-    en: "Our assurance services are delivered with the highest standards of integrity, scepticism, and discipline. Beyond issuing an audit opinion, we aim to strengthen your internal control environment, enhance transparency, and support informed decision‑making. Digital communication channels and process trackers enable transparent progress monitoring and minimise disruptions during the audit cycle.",
-    ko: "저희의 Assurance 서비스는 최고 수준의 청렴성, 전문적 회의주의(Professional Scepticism), 그리고 엄격한 규율을 바탕으로 제공됩니다. 단순히 감사 의견을 발행하는 것을 넘어, 고객의 내부 통제 환경을 강화하고 투명성을 높이며 현명한 의사결정을 내릴 수 있도록 지원합니다. 또한 디지털 소통 채널과 프로세스 추적 시스템을 도입하여 전체 감사 진행 상황을 투명하게 공유하고, 감사 주기 중 발생할 수 있는 현업의 업무 중단을 최소화합니다.",
+  introduction: {
+    en: `Our assurance services are grounded in professional integrity, independence, and disciplined execution. Each engagement is delivered through a structured approach that ensures audit work is conducted clearly, efficiently, and with defined accountability.
+
+We focus not only on meeting regulatory requirements, but on maintaining a controlled audit process — allowing management to respond effectively without unnecessary disruption to ongoing operations.`,
+    ko: `저희의 Assurance 서비스는 전문가로서의 정직성, 독립성, 그리고 원칙에 입각한 실행을 바탕으로 합니다. 모든 용역은 체계적인 접근에 따라 진행되며, 감사 업무가 명확하고 효율적으로, 그리고 분명한 책임 아래 수행되도록 보장합니다.
+
+저희는 규제 요건을 충족하는 데 그치지 않고, 통제된 감사 절차를 유지하는 데 집중합니다. 이를 통해 경영진은 현업의 불필요한 차질 없이 효과적으로 대응할 수 있습니다.`,
   },
-  whatIsExternalAuditTitle: { en: "What is External Audit?", ko: "외부 감사란?" },
-  whatIsExternalAuditDescription: {
-    en: "An external audit is an independent examination of a company's financial statements conducted in accordance with recognised auditing standards. Its purpose is to determine whether the financial statements present a true and fair view of the company's financial position and performance. Through detailed testing, analytical review, and evaluation of internal controls, an external audit provides stakeholders — shareholders, management, lenders, and regulators — with confidence in the reliability and integrity of the company's reported information. For clients unfamiliar with the audit process, we ensure full transparency and guide them through each stage, making the requirements understandable and the overall process controlled and predictable.",
-    ko: "외부 감사는 공인된 회계감사 기준에 의거하여 기업의 재무제표를 독립적으로 검증하는 절차입니다. 재무제표가 회사의 재무 상태와 경영 성과를 '진실하고 공정하게 표시(True and Fair View)'하고 있는지 판단하는 것을 목적으로 합니다. 상세한 실증 검증, 분석적 검토, 내부 통제 시스템 평가를 거친 외부 감사는 주주, 경영진, 금융 기관, 규제 기관 등 모든 이해관계자에게 공시된 정보의 신뢰성과 무결성에 대한 확고한 확신을 심어줍니다. 감사 절차가 낯선 고객사라도 안심하실 수 있도록, 저희는 전 과정을 투명하게 공개하고 각 단계별로 친절히 안내하여 모든 요구 요건을 쉽게 이해하고 예측 가능하도록 통제된 서비스를 제공합니다.",
+  auditPhilosophyTitle: { en: "Audit Philosophy", ko: "감사 철학" },
+  auditPhilosophy: {
+    en: `Auditing is founded on the principle that financial information must be reliable, transparent, and capable of withstanding independent scrutiny.
+
+This requires the consistent application of professional scepticism, independent judgement, and evidence-based evaluation. The objective is not simply to complete procedures, but to form conclusions that stakeholders can rely on with confidence.
+
+This principle underpins every engagement we undertake.`,
+    ko: `회계감사는 재무 정보가 신뢰할 수 있고 투명하며, 독립적인 검증을 견뎌낼 수 있어야 한다는 원칙에서 출발합니다.
+
+이를 위해서는 전문적 회의주의(Professional Scepticism), 독립적 판단, 그리고 증거에 기반한 평가를 일관되게 적용해야 합니다. 목표는 단순히 절차를 완료하는 것이 아니라, 이해관계자가 확신을 가지고 의지할 수 있는 결론을 도출하는 데 있습니다.
+
+이 원칙은 저희가 수행하는 모든 용역의 근간입니다.`,
   },
-  whatIsOtherAssuranceTitle: { en: "What is \"Other Assurance\"?", ko: "「기타 Assurance」란?" },
-  whatIsOtherAssuranceDescription: {
-    en: "Other assurance services involve independent evaluations of specific financial or non‑financial information outside the scope of a statutory audit. These engagements may include regulatory audits, special audits, capital verification, certification work, and agreed‑upon procedures. The objective is to provide a level of assurance — often limited or specific to certain areas — regarding the accuracy, completeness, or compliance of defined information. These services are especially valuable when organisations require verification for regulatory bodies, investors, or internal governance purposes, and they provide a focused, credible assessment without requiring a full statutory audit.",
-    ko: "기타 Assurance 서비스는 법정 감사의 범위를 벗어나, 특정 재무 또는 비재무 정보에 대해 독립적인 평가를 수행하는 업무입니다. 규제 기관 제출용 감사, 특수 감사, 자본금 검증(Capital Verification), 인증서 발급 및 합의된 절차 수행 업무(AUP) 등이 이에 해당합니다. 본 서비스의 목적은 특정 영역이나 정의된 정보의 정확성, 완전성, 법규 준수 여부에 대해 신뢰할 수 있는 수준의 Assurance를 제공하는 것입니다. 전면적인 법정 감사를 진행하지 않고도 규제 기관, 투자자 또는 내부 지배구조 목적에 필요한 맞춤형 검증을 신속하고 공신력 있게 해결하고자 할 때 매우 유용한 솔루션입니다.",
+  valueBeyondTitle: { en: "Value Beyond the Audit", ko: "감사를 넘어선 가치" },
+  valueBeyond: {
+    en: `Our role is not limited to issuing an audit opinion.
+
+The value of the audit is most clearly realised at the completion stage, where findings, adjustments, and observations are discussed with management. These discussions provide clarity over the financial position and highlight areas that may require attention.
+
+Where appropriate, we also provide observations that support improvements in financial reporting, internal controls, and operational processes. This allows the audit to contribute not only to compliance, but to the ongoing strengthening of financial governance.`,
+    ko: `저희의 역할은 감사 의견을 발행하는 데 그치지 않습니다.
+
+감사의 가치는 발견사항과 수정사항, 관찰사항을 경영진과 논의하는 완료 단계에서 가장 분명하게 드러납니다. 이러한 논의는 재무 상태에 대한 명확한 이해를 제공하고, 주의가 필요한 영역을 짚어 드립니다.
+
+또한 필요한 경우 재무 보고와 내부 통제, 업무 프로세스의 개선을 뒷받침하는 관찰사항을 제시합니다. 이를 통해 감사는 단순한 규제 준수를 넘어, 재무 거버넌스를 지속적으로 강화하는 데 기여합니다.`,
   },
-  commonAuditProceduresTitle: { en: "Common Audit Procedures", ko: "일반적인 감사 절차" },
-  commonAuditProceduresDescription: {
-    en: "Audit procedures are designed to obtain sufficient and appropriate evidence to support an auditor's opinion. Although procedures may vary based on the company's nature and risk profile, the philosophy behind them remains constant: professional scepticism, independence, and evidence‑based verification.",
-    ko: "회계감사 절차는 감사인의 객관적인 의견을 뒷받침할 수 있도록 '충분하고 적합한 감사 증거'를 확보하기 위해 설계됩니다. 기업의 업종과 리스크 프로필에 따라 구체적인 접근 방식은 달라질 수 있지만, 그 기저에 깔린 핵심 철학은 변함이 없습니다. 바로 전문적 회의주의, 철저한 독립성, 그리고 철저한 데이터 기반의 검증입니다.",
+
+  /* ── Section: Audit Methodology (4-step vertical cards) ── */
+  methodologyEyebrow: { en: "Audit methodology", ko: "감사 방법론" },
+  methodologyHeading: {
+    en: "A structured, controlled process.",
+    ko: "체계적이고 통제된 절차",
   },
-  commonAuditProceduresItems: {
+  methodologyIntro: {
+    en: `Audit engagements are delivered through a structured framework designed to ensure clarity, efficiency, and predictability. The process follows clearly defined stages, allowing each phase of the engagement to be managed in a controlled and transparent manner.
+
+We begin by understanding the business and identifying key areas of audit focus. Procedures are then performed based on assessed risks, with emphasis placed on areas that have the greatest impact on the financial statements.`,
+    ko: `감사 용역은 명확성과 효율성, 예측 가능성을 보장하도록 설계된 체계적인 프레임워크에 따라 진행됩니다. 명확하게 정의된 단계를 따르므로, 각 단계를 통제되고 투명한 방식으로 관리할 수 있습니다.
+
+먼저 사업을 이해하고 감사의 핵심 영역을 식별합니다. 이후 평가된 리스크를 바탕으로 감사 절차를 수행하며, 재무제표에 가장 큰 영향을 미치는 영역에 중점을 둡니다.`,
+  },
+  methodologySteps: {
     en: [
-      { title: "Understanding the Business and Internal Controls", description: "The auditor begins by understanding how the company operates, how transactions flow, and what controls exist. This allows the auditor to identify where misstatements may occur and design audit procedures accordingly." },
-      { title: "Risk Assessment", description: "Risks of material misstatement are identified at both financial statement and assertion levels. Audit work then focuses on the areas that carry the highest risk." },
-      { title: "Substantive Testing", description: "This includes testing samples of transactions, reviewing supporting documents, verifying account balances, and confirming information with third parties. The goal is to verify that recorded amounts are accurate and valid." },
-      { title: "Analytical Review", description: "Auditors analyse trends, ratios, and relationships within financial data. Unexpected or unexplained changes may indicate issues requiring deeper investigation." },
-      { title: "Cut‑Off and Completeness Checks", description: "Key procedures ensure that revenue and expenses are recorded in the correct period and that all required transactions are captured." },
-      { title: "Evaluation of Estimates and Judgements", description: "Auditors assess the reasonableness of management's assumptions for areas such as provisions, impairments, or fair value measurements." },
-      { title: "Final Review and Reporting", description: "All findings are evaluated to determine whether the financial statements are presented fairly. This forms the basis of the audit opinion." },
+      { title: "Planning", description: "Understanding your business, identifying key risk areas, and establishing scope, timeline, and coordination approach." },
+      { title: "Fieldwork", description: "Performing audit procedures on selected transactions and balances, with focus on areas of highest impact." },
+      { title: "Ongoing Communication", description: "Audit requests are consolidated and prioritised, with continuous communication to address matters as they arise." },
+      { title: "Completion & Reporting", description: "Findings, adjustments, and observations are discussed with management prior to finalisation of the audit opinion." },
     ],
     ko: [
-      { 
-        title: "사업 이해 및 내부 통제 진단", 
-        description: "감사인은 기업의 운영 방식, 거래 흐름, 기존 내부 통제 시스템을 파악하는 것부터 시작합니다. 이를 통해 왜곡 표시가 발생할 수 있는 취약 지점을 식별하고, 이에 맞춘 최적의 감사 절차를 설계합니다." 
-      },
-      { 
-        title: "리스크 평가", 
-        description: "재무제표 전체 수준과 개별 경영진 주장(Assertion) 수준 모두에서 중요 왜곡 표시 리스크를 식별합니다. 이후 리스크가 가장 높게 평가된 핵심 영역에 감사의 역량을 집중합니다." 
-      },
-      { 
-        title: "실증 테스트 및 입증 절차", 
-        description: "표본 거래 테스트, 증빙 서류 검토, 계정 잔액 검증, 제3자 조회서 확인 등을 수행합니다. 목표는 장부에 기록된 금액이 정확하고 정당하게 발생했는지 확인하는 것입니다." 
-      },
-      { 
-        title: "분석적 검토", 
-        description: "재무 데이터 내의 추세, 비율, 상호 관계를 다각도로 분석합니다. 이 과정에서 예상치 못했거나 설명되지 않는 변동이 발견되면, 보다 심층적인 조사를 진행하는 지표로 활용합니다." 
-      },
-      { 
-        title: "기간 귀속 및 완전성 검증", 
-        description: "매출과 비용이 올바른 회계 기간에 인식되었는지, 그리고 누락된 거래 없이 모든 필수 내역이 재무제표에 반영되었는지 보장하는 핵심 절차를 수행합니다." 
-      },
-      { 
-        title: "회계 추정치 및 판단 평가", 
-        description: "충당부채, 자산손상, 공정가치 측정 등 경영진의 주관적 가정이 개입되는 영역에 대해, 그 설정 근거와 가정이 합리적인지 객관적으로 평가합니다." 
-      },
-      { 
-        title: "최종 검토 및 감사 보고서 발행", 
-        description: "수집된 모든 감사 증거를 종합적으로 평가하여 재무제표가 적정하게 표시되었는지 판단합니다. 이 최종 검토 결과가 감사 의견(Audit Opinion)의 근간이 됩니다." 
-      }
+      { title: "계획 수립", description: "사업과 핵심 리스크 영역을 파악하고 감사 범위·일정·협업 방식을 설정합니다." },
+      { title: "현장 감사", description: "선정된 거래와 계정 잔액에 감사 절차를 수행하며, 영향이 큰 영역에 집중합니다." },
+      { title: "상시 소통", description: "감사 요청 사항을 통합·우선순위화하고, 사안 발생 시 지속적으로 소통합니다." },
+      { title: "완료 및 보고", description: "발견사항·수정사항·관찰사항을 경영진과 논의한 뒤 감사 의견을 확정합니다." },
     ],
   },
-  auditTitle: { en: "Audit", ko: "감사" },
+  methodologySupporting: {
+    en: `Audit requests are typically consolidated and prioritised, allowing your team to respond efficiently. Communication is maintained throughout the engagement so that issues are addressed as they arise, rather than accumulating at the final stage.
+
+Where accounting records and supporting data are reasonably maintained on an ongoing basis, the audit process can be integrated alongside normal operations without significant disruption.
+
+In practice, delays in audit engagements are more often driven by the readiness of accounting records and administrative processes — including final document execution — rather than the audit procedures themselves.`,
+    ko: `감사 요청 사항은 통합·우선순위화되어 고객 팀이 효율적으로 대응할 수 있습니다. 용역 전반에 걸쳐 소통을 유지하여, 사안이 마지막 단계에 누적되지 않고 발생하는 시점에 바로 처리됩니다.
+
+회계 기록과 증빙 자료가 평소에 합리적으로 관리되고 있다면, 감사는 정상적인 업무와 병행하여 큰 지장 없이 진행될 수 있습니다.
+
+실무에서 감사 일정의 지연은 감사 절차 자체보다, 최종 서류 서명 등 회계 기록과 행정 절차의 준비 상태에서 비롯되는 경우가 더 많습니다.`,
+  },
+
+  /* ── Section: What We Deliver (3 groups) ── */
+  deliverEyebrow: { en: "What we deliver", ko: "제공 서비스" },
+  deliverHeading: {
+    en: "Audit, assurance, and advisory.",
+    ko: "감사, Assurance, 그리고 자문",
+  },
   externalAuditTitle: { en: "External Audit", ko: "외부 감사" },
   externalAuditItems: {
     en: [
-      "Statutory audits under IFRS & SME-FRS",
-      "Individual & consolidated financial statement audits",
-      "Group reporting package audits",
+      "Statutory audits under IFRS and SME-FRS",
+      "Individual and consolidated financial statement audits",
+      "Group reporting packages",
     ],
     ko: [
-      "국제회계기준(IFRS) 및 중소기업 회계기준(SME-FRS)에 따른 법정 감사 수행",
-      "개별 재무제표 및 연결 재무제표 감사",
-      "글로벌 그룹사 제출용 정형화된 보고 패키지 감사",
+      "IFRS 및 SME-FRS 기준 법정 감사",
+      "개별·연결 재무제표 감사",
+      "그룹 리포팅 패키지 감사",
     ],
   },
   otherAssuranceTitle: { en: "Other Assurance", ko: "기타 Assurance" },
   otherAssuranceItems: {
     en: [
-      "Special/regulatory audits & capital verification",
-      "Certification reports",
-    ],
-    ko: [
-      "특수/규제 목적의 감사 및 자본금 검증 업무",
-      "공식 인증 보고서 및 증명서 발급",
-    ],
-  },
-  whatIsCompanySecretary: {
-    en: "What is audit & assurance?",
-    ko: "감사 및 Assurance란?",
-  },
-  whatIsItems: {
-    en: [
-      "Independent verification: External audit provides an independent opinion on financial statements",
-      "Compliance and trust: Statutory audits satisfy legal requirements and give stakeholders confidence",
-    ],
-    ko: [
-      "독립적 검증: 외부감사를 통해 재무제표에 대한 철저하고 객관적인 독립적 의견을 제공합니다.",
-      "규제 준수와 신뢰 확보: 법정 감사를 수행하여 국가별 법적 의무 요건을 완벽히 충족하고, 주주와 시장 등 외부 이해관계자에게 확고한 신뢰를 제공합니다.",
-    ],
-  },
-  keyResponsibilities: {
-    en: "Key services",
-    ko: "주요 서비스",
-  },
-  keyResponsibilitiesItems: {
-    en: [
-      "Statutory audit: HK Companies Ordinance and listing rule audits",
-      "Other assurance: Agreed-upon procedures, review engagements",
-      "Advisory: Audit readiness, internal controls, and process improvement",
-    ],
-    ko: [
-      "법정 감사: 홍콩 회사법 및 상장 규칙 감사",
-      "기타 Assurance: 합의된 절차, 검토 업무",
-      "자문 서비스: 회계감사 준비, 내부 통제 및 프로세스 개선",
-    ],
-  },
-  startUp: { en: "Statutory Audit", ko: "법정 감사" },
-  startUpItems: {
-    en: [
-      "HK Companies Ordinance audits",
-      "Listing rule and regulatory audits",
-      "Group and subsidiary reporting",
-    ],
-    ko: [
-      "홍콩 회사법 감사",
-      "상장 규칙 및 규제 감사",
-      "그룹 및 자회사 보고",
-    ],
-  },
-  inBusiness: { en: "Other Assurance", ko: "기타 Assurance" },
-  inBusinessItems: {
-    en: [
       "Agreed-upon procedures",
       "Review engagements",
-      "Compliance and internal control reports",
+      "Regulatory or compliance-related assurance",
     ],
     ko: [
-      "합의된 절차 수행 업무",
+      "합의된 절차 수행 업무(AUP)",
       "재무제표 검토 업무",
-      "컴플라이언스 준수 및 내부통제 시스템 평가 보고서",
+      "규제·컴플라이언스 관련 Assurance",
     ],
   },
-  exit: { en: "Advisory", ko: "자문" },
-  exitItems: {
+  advisoryTitle: { en: "Advisory", ko: "자문" },
+  advisoryItems: {
     en: [
-      "Audit readiness and preparation",
-      "Internal controls design and review",
-      "Process and reporting improvement",
+      "Audit readiness",
+      "Internal control observations",
+      "Process and reporting improvements",
     ],
     ko: [
-      "감사 준비",
-      "내부 통제 설계 및 검토",
-      "프로세스 및 보고 개선",
+      "감사 준비(Audit Readiness)",
+      "내부 통제 점검 및 관찰사항 제시",
+      "프로세스 및 보고 체계 개선",
     ],
   },
-  auditPhilosophyDescription: {
-    en: "Auditing is rooted in the belief that financial information must be reliable, transparent, and trustworthy.<br><br>The use of structured procedures, independent judgement, and evidence-based conclusions ensures that stakeholders, including owners, regulators, lenders, and employees, can rely on the financial information to make informed decisions. This philosophy is at the core of our assurance practice.",
-    ko: "회계감사는 모든 재무 정보가 투명하고 확실하며 높은 신뢰성을 갖추어야 한다는 확고한 신념에서 출발합니다. 저희는 체계적인 감사 절차, 독립적인 회계적 판단, 그리고 객관적인 데이터 분석 결과(Evidence-based conclusions)를 바탕으로 주주, 규제 기관, 금융 기관, 임직원 등 모든 이해관계자가 안심하고 현명한 의사결정을 내릴 수 있도록 지원합니다. 이러한 철학은 저희가 제공하는 모든 회계감사 및 Assurance 서비스의 근간입니다.",
+
+  /* ── Section: FAQ (reuses FaqAccordion; answers support HTML) ── */
+  faq: {
+    title: { en: "FAQ", ko: "FAQ" },
+    subtitle: {
+      en: "Frequently asked questions",
+      ko: "자주 묻는 질문",
+    },
+    items: [
+      {
+        question: {
+          en: "What should we expect during the audit process?",
+          ko: "감사 과정에서 무엇을 예상할 수 있나요?",
+        },
+        answer: {
+          en: "The audit generally runs through planning, fieldwork, and completion.<br><br>During planning and fieldwork, we request key documents, review supporting records, and follow up on selected transactions. Communication is ongoing throughout, with requests typically grouped and prioritised.<br><br>The completion stage is where the main value of the audit is realised. Findings, observations, and any adjustments are discussed with management, together with practical insights on financial reporting and processes. The objective is to ensure a clear, actionable understanding of the outcome, rather than simply issuing a report.",
+          ko: "감사는 일반적으로 계획 수립, 현장 감사, 완료의 단계로 진행됩니다.<br><br>계획 수립과 현장 감사 단계에서는 주요 서류를 요청하고 증빙 기록을 검토하며 선정된 거래를 확인합니다. 전 과정에 걸쳐 소통이 이어지며, 요청 사항은 통합·우선순위화하여 전달됩니다.<br><br>완료 단계는 감사의 핵심 가치가 실현되는 시점입니다. 발견사항과 관찰사항, 수정사항을 경영진과 논의하고, 재무 보고와 프로세스에 대한 실질적인 인사이트를 함께 제공합니다. 단순히 보고서를 발행하는 것이 아니라, 결과를 명확하고 실행 가능하게 이해하실 수 있도록 하는 것이 목표입니다.",
+        },
+      },
+      {
+        question: {
+          en: "How much involvement is required from our team?",
+          ko: "저희 팀은 어느 정도 참여해야 하나요?",
+        },
+        answer: {
+          en: "Your team's role is primarily to provide supporting information and clarification.<br><br>If your accounting records and supporting data are maintained in a reasonably organised manner as part of your day-to-day operations, the audit will generally not require significant additional preparation beyond responding to requests.<br><br>We manage the process in a structured way, with consolidated and prioritised requests.<br><br>In practice, where accounting is maintained properly, involvement is limited and predictable. Additional workload usually arises only where records require reconstruction.",
+          ko: "고객 팀의 역할은 주로 증빙 정보와 보충 설명을 제공하는 것입니다.<br><br>회계 기록과 증빙 자료가 평소 업무 과정에서 합리적으로 정리되어 있다면, 요청 사항에 대응하는 것 외에 별도의 큰 준비는 일반적으로 필요하지 않습니다.<br><br>저희는 요청 사항을 통합하고 우선순위화하여 체계적으로 절차를 관리합니다.<br><br>실무적으로 회계가 제대로 관리되고 있는 경우 참여 부담은 제한적이고 예측 가능합니다. 추가 업무는 대개 기록을 재작성해야 하는 경우에만 발생합니다.",
+        },
+      },
+      {
+        question: {
+          en: "How long does an audit typically take?",
+          ko: "감사는 보통 얼마나 걸리나요?",
+        },
+        answer: {
+          en: "The duration depends on the size and complexity of the business, as well as the condition of the accounting records.<br><br>As a general guide:<br><br>· smaller or less complex entities: around 2–4 weeks<br>· mid-sized entities: 4–8 weeks<br>· group or cross-border structures may take longer<br><br>In practice, delays are usually not caused by the audit itself, but by:<br><br>· late or incomplete accounting<br>· missing supporting documentation<br>· unresolved or unclear transactions<br><br>A common but overlooked delay occurs at the final signing stage. In Hong Kong, authorised signatories are often outside the jurisdiction while finalisation may still require handwritten signatures.",
+          ko: "소요 기간은 사업의 규모와 복잡성, 그리고 회계 기록의 상태에 따라 달라집니다.<br><br>일반적인 기준은 다음과 같습니다.<br><br>· 규모가 작거나 단순한 기업: 약 2~4주<br>· 중견 규모 기업: 4~8주<br>· 그룹 또는 국경 간 구조: 더 길어질 수 있음<br><br>실무에서 지연은 대개 감사 자체가 아니라 다음 요인에서 비롯됩니다.<br><br>· 회계 마감 지연 또는 미완료<br>· 증빙 서류 누락<br>· 미해결·불명확 거래<br><br>흔하지만 간과되는 지연은 최종 서명 단계에서 발생합니다. 홍콩에서는 승인 서명권자가 국외에 있는 경우가 많은 반면, 마무리에는 여전히 자필 서명이 요구될 수 있습니다.",
+        },
+      },
+      {
+        question: {
+          en: "Will the audit disrupt our day-to-day operations?",
+          ko: "감사가 일상 업무에 지장을 주지는 않나요?",
+        },
+        answer: {
+          en: "If accounting records and supporting data are maintained in a reasonably organised manner, the audit should not significantly disrupt daily operations.<br><br>The process is structured to run alongside normal business activities, with requests planned and coordinated in advance.<br><br>However, where accounting has been delayed or records are not properly maintained, both accounting catch-up and audit work tend to overlap, which can place pressure on internal teams.<br><br>The audit itself is rarely the source of disruption — it highlights work that has already accumulated.",
+          ko: "회계 기록과 증빙 자료가 합리적으로 정리되어 있다면, 감사가 일상 업무에 큰 지장을 주지 않습니다.<br><br>감사 절차는 정상적인 업무와 병행할 수 있도록 설계되며, 요청 사항은 사전에 계획하고 조율합니다.<br><br>다만 회계가 지연되었거나 기록이 제대로 관리되지 않은 경우에는 회계 보완 작업과 감사 업무가 겹치면서 내부 팀에 부담이 될 수 있습니다.<br><br>감사 자체가 지장의 원인이 되는 경우는 드물며, 오히려 이미 누적되어 있던 업무를 드러내는 역할을 합니다.",
+        },
+      },
+      {
+        question: {
+          en: "We already have an auditor — when would a change be considered?",
+          ko: "이미 감사인이 있는데, 언제 교체를 고려해야 하나요?",
+        },
+        answer: {
+          en: "A change is typically considered when the audit no longer provides sufficient clarity, structure, or value.<br><br>Common indicators include:<br><br>· limited explanation of audit findings or adjustments<br>· difficulty understanding the audit report<br>· lack of transparency over progress<br><br>A lack of questions or feedback is not necessarily a positive sign. A competent audit should identify and communicate relevant matters — whether confirming strength or highlighting areas of concern.<br><br>Another practical factor is the stage of the business. Where operations are small and straightforward, a simpler audit approach may be adequate. As the business grows — or is expected to grow — it is often appropriate to engage a more structured and professional audit process that can support more complex reporting and governance requirements.",
+          ko: "감사가 더 이상 충분한 명확성이나 체계, 가치를 제공하지 못할 때 교체를 고려하게 됩니다.<br><br>대표적인 신호는 다음과 같습니다.<br><br>· 감사 발견사항이나 수정사항에 대한 설명 부족<br>· 감사 보고서를 이해하기 어려움<br>· 진행 상황에 대한 투명성 부족<br><br>질문이나 피드백이 없다는 것이 반드시 긍정적인 신호는 아닙니다. 역량 있는 감사라면 강점을 확인하든 우려 영역을 짚든, 관련 사안을 식별하고 전달해야 합니다.<br><br>또 하나의 실질적인 요소는 사업의 성장 단계입니다. 사업 규모가 작고 단순한 경우에는 간소한 감사 방식으로 충분할 수 있습니다. 그러나 사업이 성장하거나 성장이 예상된다면, 보다 복잡한 보고와 거버넌스 요건을 뒷받침할 수 있는 체계적이고 전문적인 감사 절차를 도입하는 것이 적절합니다.",
+        },
+      },
+      {
+        question: {
+          en: "How do you ensure a smooth transition from an existing auditor?",
+          ko: "기존 감사인으로부터의 인수인계는 어떻게 원활하게 진행하나요?",
+        },
+        answer: {
+          en: "The transition follows a structured process to ensure continuity.<br><br>We coordinate with the previous auditor where required, obtain prior year information, and review historical treatments in key areas. Early planning allows potential issues to be identified in advance rather than during the audit.",
+          ko: "인수인계는 연속성을 보장하기 위해 체계적인 절차에 따라 진행됩니다.<br><br>필요한 경우 전임 감사인과 협의하고, 전기(前期) 정보를 입수하며, 핵심 영역의 과거 회계 처리를 검토합니다. 사전에 계획함으로써 잠재적 쟁점을 감사 도중이 아니라 미리 파악할 수 있습니다.",
+        },
+      },
+      {
+        question: {
+          en: "Do you support group reporting or cross-border audit requirements?",
+          ko: "그룹 리포팅이나 국경 간 감사 요건도 지원하나요?",
+        },
+        answer: {
+          en: "Yes. We regularly support audit engagements involving group reporting structures and cross-border coordination.<br><br>This includes aligning local statutory audit requirements with group reporting packages, coordinating with overseas group auditors or parent entities, and ensuring consistency in timing and reporting expectations across jurisdictions.<br><br>Particular attention is given to:<br><br>· alignment with group reporting formats<br>· coordination of reporting deadlines<br>· communication between local management and group stakeholders<br><br>",
+          ko: "네. 저희는 그룹 리포팅 구조와 국경 간 협업이 포함된 감사 용역을 정기적으로 지원합니다.<br><br>여기에는 현지 법정 감사 요건을 그룹 리포팅 패키지와 정합화하고, 해외 그룹 감사인이나 모회사와 협업하며, 관할권 전반의 일정과 보고 기대치를 일관되게 맞추는 일이 포함됩니다.<br><br>특히 다음에 주의를 기울입니다.<br><br>· 그룹 리포팅 양식과의 정합성<br>· 보고 기한 조율<br>· 현지 경영진과 그룹 이해관계자 간 소통<br><br>",
+        },
+      },
+    ],
   },
+
   insightTag: { en: "Assurance", ko: "Assurance" },
-  insightPlaceholder: {
-    title: { en: "2025 Outlook", ko: "2025 전망" },
-    description: { en: "Looking to the Future", ko: "미래를 바라보며" },
-    date: { en: "January 2025", ko: "2025년 1월" },
-  },
 };

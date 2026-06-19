@@ -34,15 +34,19 @@ export default function Contact() {
       <section className="w-full py-12 md:py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-start">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-semibold text-[#495F2B]">
-            {language === "KOR" ? "문의" : "Contact"}
+            {language === "KOR" ? "문의하기" : "Contact"}
           </h2>
         </div>
       </section>
-      <section className="w-full min-h-[45vh] sm:min-h-[40vh] md:min-h-[50vh] lg:min-h-[600px] py-12 md:py-16 flex flex-col" style={contactBackgroundStyle}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-1 flex-col items-end justify-end w-full">
+      <section className="relative overflow-hidden w-full min-h-[45vh] sm:min-h-[40vh] md:min-h-[50vh] lg:min-h-[600px] py-12 md:py-16 flex flex-col" style={contactBackgroundStyle}>
+        {/* Soft cream wash over the curve motif so the dark quote text stays
+            comfortably legible where the olive curves cross it (opacity
+            layering — no blur). */}
+        <div aria-hidden className="absolute inset-0 bg-[#E9E6D5]/55 pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 flex flex-1 flex-col items-end justify-end w-full">
           <div className="max-w-3xl">
             <p className="text-base sm:text-lg md:text-xl lg:text-[32px] text-[#111B12] leading-relaxed">
-              {language === "KOR" ? "저희의 문화는 진실함 위에 세워집니다. 깊은 공감에서 우러난 공동의 약속, 그것만이 저희를 움직이는 힘입니다. 그래서 공정하면서도 고객의 성장을 북돋는 서비스를 진심으로 즐겁게 제공합니다." : "Our culture is built on integrity and only motivated by a collective commitment with strong compassion. We truly enjoy providing clients with unbiased and empowering service."}
+              {language === "KOR" ? "올리브 앤 바인은 진정성과 책임감을 바탕으로 고객을 깊이 이해하고 함께 고민하는 것을 중요하게 생각합니다. 동시에, 항상 객관성과 독립성을 유지하여 고객이 스스로 올바른 판단을 내릴 수 있도록 돕습니다." : "Our culture is built on integrity and only motivated by a collective commitment with strong compassion. We truly enjoy providing clients with unbiased and empowering service."}
             </p>
           </div>
         </div>
@@ -50,7 +54,7 @@ export default function Contact() {
       <section className="w-full py-8 sm:py-12 md:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 flex flex-col items-start">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-[#111B12]/80">
-            {language === "KOR" ? "편하게 연락 주세요" : "Connect with us"}
+            {language === "KOR" ? "문의 남기기" : "Connect with us"}
           </h2>
           <div className="w-full max-w-2xl mt-6 sm:mt-8 md:mt-10 lg:mt-12 flex flex-col gap-3 sm:gap-4">
             <p className="text-xs sm:text-sm text-[#111B12]/70 mb-1 sm:mb-2">
@@ -63,7 +67,6 @@ export default function Contact() {
               <MenuItem value="">
                 <em>{language === "KOR" ? questionsTranslations.form.title.ko : questionsTranslations.form.title.en}</em>
               </MenuItem>
-              <MenuItem value="prefer-not-to-say">{language === "KOR" ? "밝히지 않음" : "Preferred not to say"}</MenuItem>
               <MenuItem value="Mr">Mr</MenuItem>
               <MenuItem value="Ms">Ms</MenuItem>
               <MenuItem value="Mrs">Mrs</MenuItem>

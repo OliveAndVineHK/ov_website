@@ -1,32 +1,32 @@
 export const servicesPageTranslations = {
   description: {
-    en: "At Olive and vine, we focus on long term continual growth. We still involve you in every step of our way to understand your way and provide professional service to help empowering you and your business. We are here to centric approach focuses on building long-term relationships and delivering exceptional service. We leverage our deep understanding of the Hong Kong market and regulatory environment to provide innovative solutions that meet your unique needs. Our highly skilled professionals bring extensive experience and expertise to every engagement, ensuring that you receive the highest level of support and guidance.",
-    ko: "Olive & Vine은 장기적이고 꾸준한 성장에 집중합니다. 모든 과정에 고객을 함께 참여시켜 고객만의 방식을 이해하고, 비즈니스의 잠재력을 끌어올리는 전문 서비스를 제공합니다. Olive & Vine과 함께한다는 것은 고객의 성공에 전념하는 파트너를 만나는 일입니다. 저희가 추구하는 고객 중심의 접근은 오래가는 관계와 탁월한 서비스에서 시작됩니다. 홍콩 시장과 규제 환경에 대한 깊은 이해를 바탕으로, 고객마다 다른 요구에 꼭 맞는 혁신적인 해법을 제시합니다. 풍부한 경험과 전문성을 갖춘 전문가들이 모든 프로젝트에 함께하며, 최고 수준의 지원과 길잡이가 되어 드립니다.",
+    en: "At Olive & Vine, we focus on long-term, sustainable growth.\n\nWe work closely with our clients at every stage to understand their needs and deliver professional support that empowers both the business and its people. Our approach is client-centric, grounded in building long-term relationships and delivering consistently high-quality service. Leveraging our deep understanding of the Hong Kong market and regulatory environment, we provide practical, forward-looking solutions tailored to each client's unique context.\n\nOur team brings together strong technical expertise and extensive experience across engagements, ensuring that every client receives reliable, thoughtful, and high-standard guidance.",
+    ko: "Olive & Vine은 장기적이고 지속 가능한 성장을 지향합니다.\n\n우리는 모든 과정에서 고객과 함께하며, 고객의 비즈니스와 우선순위, 그리고 의사결정의 배경까지 깊이 이해하고자 합니다. 우리의 접근 방식은 단기적인 결과가 아닌, 신뢰를 기반으로 한 장기적인 관계에 중심을 둡니다. 홍콩의 시장 환경과 규제에 대한 깊이 있는 이해를 바탕으로, 각 고객의 상황에 맞는 현실적이고 실행 가능한 해결책을 제공합니다. \n\n우리의 팀은 탄탄한 전문성과 다양한 실무 경험을 바탕으로, 명확한 판단과 일관된 기준 아래 신뢰할 수 있는 자문을 제공합니다.",
   },
   services: {
     corporate: {
-      en: "Under Hong Kong Companies Ordinance, a company incorporated in Hong Kong must have a company secretary from the date of incorporation and has obligations of the timely disclosure and reporting of specified information about the company, its officers and shareholders, etc. and any changes in such information to the Registrar of Companies. Every officer of a company, including its director(s), company secretary or manager, has the responsibility to ensure that the company has complied with all the provisions of the Companies Ordinance.",
-      ko: "홍콩 회사법에 따라 홍콩에 설립된 회사는 설립일부터 회사 비서를 두어야 하며, 회사·임원·주주 등에 관한 특정 정보와 그 변경 사항을 회사등기소에 적시에 공개하고 보고할 의무가 있습니다. 이사, 회사 비서, 관리자를 포함한 회사의 모든 임원은 회사가 회사법의 모든 조항을 준수하도록 할 책임이 있습니다.",
+      en: "Under the Hong Kong Companies Ordinance, every Hong Kong‑incorporated company must appoint a company secretary from the date of incorporation and comply with ongoing statutory requirements, including the timely disclosure and reporting of specified corporate information and any changes thereto to the Registrar of Companies.\nAll officers of the company, including directors, company secretaries, and managers, are responsible for ensuring compliance with these obligations.",
+      ko: "홍콩 회사조례(Companies Ordinance)에 따라, 홍콩에 설립된 모든 회사는 설립 시점부터 회사 비서(company secretary)를 두어야 하며,\n회사, 임원 및 주주에 관한 특정 정보를 적시에 공시하고 변경사항을 회사등록처(Registrar of Companies)에 보고할 의무가 있습니다.\n이와 관련된 모든 법적 요구사항의 준수 책임은 이사, 회사 비서 및 경영진을 포함한 모든 임원에게 있습니다.",
     },
     accounting: {
-      en: "We differentiate ourselves by focusing on the fundamentals. We promise to provide user-friendly, intuitive deliverables that enable you to comply with necessary regulations and support your decision-making. We go beyond what is required and provide more valuable information.",
-      ko: "저희는 기본에 충실함으로써 차별화합니다. 규정 준수와 의사결정에 바로 쓸 수 있도록, 보기 쉽고 직관적인 결과물을 만들어 드립니다. 요구되는 수준을 넘어, 한 걸음 더 가치 있는 정보까지 담아내겠습니다.",
+      en: "We differentiate ourselves by focusing on the fundamentals of financial reporting and control.\nOur deliverables are designed to be clear, structured, and practical, enabling regulatory compliance while supporting informed decision‑making.\nBeyond standard requirements, we provide additional insights that help you better understand and manage your business.",
+      ko: "우리는 재무회계와 관리회계의 기본에 충실하는 것을 가장 중요하게 생각합니다.\n결과물은 명확하고 이해하기 쉬운 구조로 설계되어, 규제 준수를 지원함과 동시에 경영진의 의사결정을 돕습니다.\n단순한 요구사항을 넘어, 비즈니스에 대한 이해를 높일 수 있는 추가적인 인사이트를 제공합니다.",
     },
     assurance: {
-      en: "Hong Kong companies are legally required to have audited financial statements prepared by a qualified CPA. We bring professional rigour and full transparency to every step, going beyond a simple opinion to provide insights you can act on.",
-      ko: "홍콩에 등록된 기업은 공인회계사를 통한 재무제표 감사가 법적으로 요구됩니다. 저희는 전문성과 책임감을 바탕으로 모든 단계를 투명하게 진행하며, 단순한 의견 제시를 넘어 의사결정에 활용할 수 있는 통찰을 함께 전해 드립니다.",
+      en: "Hong Kong companies are required to prepare audited financial statements in accordance with statutory requirements, to be conducted by a qualified CPA.\nWe bring professional rigour and transparency to each engagement, delivering not only an audit opinion but also practical observations and insights to support your business decisions.",
+      ko: "홍콩 기업은 관련 법규에 따라 공인회계사(CPA)에 의한 재무제표 감사를 받아야 합니다.\n우리는 모든 감사 업무에 있어 높은 수준의 전문성과 투명성을 유지하며,\n단순한 감사 의견을 넘어서 실질적인 개선과 판단에 도움이 되는 인사이트를 제공합니다.",
     },
     tax: {
-      en: "Tax work is intricate and time-consuming. Grounded in honest, ethical standards, we take on the tedious processing and surface the key points you actually need to focus on. We review each issue from multiple angles to support careful decisions.",
-      ko: "세무는 복잡하고 시간이 많이 걸리는 업무입니다. 정직하고 윤리적인 기준 아래 지루한 처리는 저희가 맡고, 고객이 반드시 확인해야 할 핵심 사항만 명확히 정리해 드립니다. 다양한 각도에서 함께 검토하여 신중한 의사결정을 지원합니다.",
+      en: "Tax compliance and advisory work are often complex and time‑intensive.\nGrounded in professional integrity and ethical standards, we manage detailed processes efficiently while highlighting the key matters that require your attention.\nOur approach considers each issue from multiple perspectives to support well‑informed and balanced decisions.",
+      ko: "세무 업무는 복잡하고 많은 시간이 소요되는 영역입니다.\n우리는 정직성과 윤리적 기준을 바탕으로 세무 관련 절차를 체계적으로 관리하고,\n고객이 반드시 주목해야 하는 핵심 사항을 명확하게 전달합니다.\n각 사안은 다양한 관점에서 검토되어, 보다 신중하고 균형 잡힌 의사결정을 지원합니다.",
     },
     service5: {
-      en: "We target to bring you constructive results. We plan for the long future. We listen to your values and support you in making informed decisions. We consider the stakeholders involved in the process, and we will propose ideas that are beneficial for all.",
-      ko: "저희는 의미 있는 성과를 만들어 내는 데 목표를 둡니다. 멀리 내다보고 길게 계획합니다. 고객의 가치를 귀 기울여 듣고, 충분한 정보를 바탕으로 결정을 내릴 수 있도록 돕습니다. 관련된 모든 이해관계자를 함께 고려해, 모두에게 이로운 방안을 제안합니다.",
+      en: "We provide practical and forward‑looking advice to support long‑term business success.\nOur approach is grounded in understanding your objectives, values, and operating environment.\nWe consider the interests of all relevant stakeholders and develop solutions that are sustainable, balanced, and aligned with your broader goals.",
+      ko: "우리는 장기적인 사업 성과를 지원하는 실질적이고 미래지향적인 자문을 제공합니다.\n고객의 목표와 가치, 그리고 운영 환경에 대한 깊은 이해를 기반으로 접근합니다.\n또한 모든 이해관계자의 관점을 고려하여, 지속 가능하고 균형 잡힌 해결책을 제시합니다.",
     },
     service6: {
-      en: "Hong Kong businesses must comply with employment regulations, payroll requirements, and statutory benefits. We provide HR support to help you manage payroll, MPF, recruitment, and visa processes in accordance with local laws.",
-      ko: "홍콩 기업은 고용 관련 법규와 급여 의무, 법정 복리후생을 준수해야 합니다. 저희는 현지 법규에 맞춰 급여와 MPF, 채용, 비자 업무를 관리하도록 인사 전반을 지원해 드립니다.",
+      en: "Hong Kong businesses are required to comply with employment regulations, payroll requirements, and statutory benefit obligations.\nWe provide HR support covering payroll administration, MPF compliance, recruitment, and visa processes, ensuring alignment with applicable local regulations and best practices.",
+      ko: "홍콩 기업은 고용 관련 법규, 급여 처리, 법정 복리후생 의무를 준수해야 합니다.\n당사는 급여 관리, MPF, 채용 및 비자 절차를 포함한 인사 전반에 대한 지원을 제공하며,\n현지 법규 및 실무 기준에 부합하는 운영을 돕습니다.",
     },
   },
 };

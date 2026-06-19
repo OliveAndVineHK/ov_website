@@ -23,7 +23,7 @@ import * as Icons from "@/app/utils/icons";
 /* Cluster cross-link — within the about family, point at the other two
    pages (not at services). Decision 0529's "07 cross-link" override. */
 const CROSS_LINKS = [
-  { href: "/about", labelEn: "Our story", labelKo: "우리의 이야기" },
+  { href: "/about", labelEn: "Our story", labelKo: "Our Story" },
   { href: "/our-values", labelEn: "Our values", labelKo: "우리의 가치" },
 ];
 
@@ -96,11 +96,11 @@ export default function LeadershipPage() {
               {isKo ? "리더십" : "Leadership"}
             </span>
             <h1 className="text-[36px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-normal text-[#495F2B] leading-[1.1] tracking-[-0.01em]">
-              {isKo ? "회사를 세운 사람들" : "The people who built this firm"}
+              {isKo ? "회사를 이끄는 사람들" : "The people who built this firm"}
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl 2xl:max-w-2xl text-[15px] md:text-[17px] 2xl:text-[19px] text-[#111B12]/70 leading-[1.6]">
               {isKo
-                ? "사무소의 방향을 정하고, 모든 업무 뒤에 수십 년의 경험을 함께 더하는 두 명의 공동 창업자를 소개합니다."
+                ? "회사의 방향을 제시하고, 각 프로젝트에 깊이 있는 경험을 더하는 두 공동 창업자를 소개합니다."
                 : "Meet the two co-founders who set the firm's direction and bring decades of experience to every engagement."}
             </p>
           </div>
@@ -162,10 +162,10 @@ export default function LeadershipPage() {
         <SectionReveal>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
             <span className="block text-[14px] md:text-[15px] 2xl:text-[17px] font-semibold text-[#627F38] mb-3 tracking-wide">
-              {isKo ? "주요 리더십" : "Our Leadership"}
+              {isKo ? "Our Leadership" : "Our Leadership"}
             </span>
             <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2] mb-10 md:mb-14">
-              {isKo ? "두 사람이 함께 시작했습니다." : "Two people, one firm."}
+              {isKo ? "두 사람, 하나의 방향" : "Two people, one direction"}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
@@ -174,7 +174,6 @@ export default function LeadershipPage() {
                 const name = isKo ? f.name.ko : f.name.en;
                 const role = isKo ? f.role.ko : f.role.en;
                 const creds = isKo ? f.credentials.ko : f.credentials.en;
-                const bio = isKo ? f.bio.ko : f.bio.en;
                 return (
                   <article key={key} className="flex flex-row items-start gap-5 md:gap-6">
                     {/* 140px thumbnail with NE corner gesture — uses hover
@@ -195,17 +194,14 @@ export default function LeadershipPage() {
                       <h3 className="text-[20px] md:text-[22px] font-medium text-[#111B12] leading-[1.25] mb-1.5">
                         {name}
                       </h3>
-                      <p className="text-[12px] md:text-[13px] text-[#111B12]/55 mb-4">
+                      <p className="text-[12px] md:text-[13px] text-[#111B12]/55 mb-5">
                         {creds}
-                      </p>
-                      <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/75 leading-[1.65] mb-5">
-                        {bio}
                       </p>
                       <Link
                         href={`/leadership/${f.slug}`}
                         className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300"
                       >
-                        {isKo ? "프로필 자세히 보기" : "Full profile"}
+                        {isKo ? "자세히 보기" : "Full profile"}
                         <Icons.CgArrowTopRight className="size-4" aria-hidden />
                       </Link>
                     </div>
@@ -224,7 +220,7 @@ export default function LeadershipPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 pt-8 md:pt-10 border-t border-[#111B12]/15">
               <span className="text-[12px] tracking-[0.15em] uppercase font-medium text-[#111B12]/50">
-                {isKo ? "다른 페이지" : "Continue with"}
+                {isKo ? "더 알아보기" : "Continue with"}
               </span>
               <div className="flex flex-wrap gap-x-6 gap-y-2 sm:gap-x-10">
                 {CROSS_LINKS.map((l) => (

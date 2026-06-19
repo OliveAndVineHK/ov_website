@@ -29,7 +29,9 @@ export default function StaggeredLineReveal({ lines, className = "", delayMs = 2
           key={i}
           className="block transition-all"
           style={{
-            transitionDuration: "700ms",
+            // v2 (2026-06-16): 700ms -> 1200ms to match the site-wide
+            // slower reveal feel.
+            transitionDuration: "1200ms",
             transitionDelay: `${i * delayMs}ms`,
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(30px)",

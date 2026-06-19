@@ -76,3 +76,12 @@
 ### [x] app/leadership/page.tsx : L148 (유형: 섹션 eyebrow 라벨)
 - 변경: `{isKo ? "공동 창업자" : "Co-founders"}` → `{isKo ? "주요 리더십" : "Our Leadership"}`
 - 결정(사용자): 이 페이지 상단 초록색 라벨을 한국어 '주요 리더십' + 영문 'Our Leadership'으로 함께 변경. EN/KO 의미 일치.
+
+## [ ] 07 Assurance — 신규 재설계 KO 초안 검수 (2026-06-16)
+파일: app/utils/pageAssuranceServiceUtils.ts (Assurance.docx 기준 신규 작성)
+- 전 섹션 KO는 1차 초안. 다음 검수 라운드에서 톤·용어 다듬기 필요.
+- 확인 요청 포인트:
+  · approachHeading KO "명확함을 기반으로 한 신뢰, 독립적인 Assurance" (R62는 '독립적인 검증' — Assurance vs 검증 표기 택1)
+  · 'observations' 번역 '관찰사항' 적절성(감사 맥락) — 대안: 의견/지적사항
+  · 'engagement' = 용역/프로젝트 혼용 점검
+  · FAQ 불릿 '· ' 스타일이 HR과 시각적으로 일치하는지(렌더 확인)

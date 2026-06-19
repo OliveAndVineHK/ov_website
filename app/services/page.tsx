@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { servicesTranslations } from "@/app/utils/pageUtils";
 import { servicesPageTranslations } from "@/app/utils/pageServicesUtils";
@@ -10,6 +11,7 @@ import * as Icons from "@/app/utils/icons";
 
 export default function Services() {
   const { language } = useLanguage();
+  const router = useRouter();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const SERVICE_ROUTES: Record<string, string> = {
     corporate: "/corporate-service",
@@ -29,8 +31,11 @@ export default function Services() {
     { key: "service6", image: "/home/os-hr.svg", imageWhite: "/home/os-hr-w.svg", imageSize: 80 },
   ];
 
-  const toggleService = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  /* Whole accordion item navigates to the matching service page on click
+     (hover handles expand/collapse — see the item's mouse handlers). */
+  const goToService = (key: string) => {
+    const route = SERVICE_ROUTES[key];
+    if (route) router.push(route);
   };
 
   const accordionOpenBg = "rgba(233, 230, 213, 0.7)";
@@ -75,8 +80,21 @@ export default function Services() {
               const serviceDescription = language === "KOR" ? translation.description.ko : translation.description.en;
 
               return (
-                <div key={index} className={`w-full overflow-hidden transition-all duration-300 ${isOpen ? "border-0 rounded-tr-[30px]" : "border border-[#111B12]/50 bg-white hover:rounded-tr-[30px]"}`} style={isOpen ? { backgroundColor: accordionOpenBg } : undefined}>
-                  <button onClick={() => toggleService(index)} className="w-full p-3 sm:p-4 md:p-6 flex items-center justify-between cursor-pointer gap-3 sm:gap-4">
+                <div
+                  key={index}
+                  onMouseEnter={() => setOpenIndex(index)}
+                  onMouseLeave={() => setOpenIndex(null)}
+                  onClick={() => goToService(service.key)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") goToService(service.key);
+                  }}
+                  role="link"
+                  tabIndex={0}
+                  aria-label={serviceTitle}
+                  className={`w-full overflow-hidden transition-all duration-300 cursor-pointer ${isOpen ? "border-0 rounded-tr-[30px]" : "border border-[#111B12]/50 bg-white hover:rounded-tr-[30px]"}`}
+                  style={isOpen ? { backgroundColor: accordionOpenBg } : undefined}
+                >
+                  <div className="w-full p-3 sm:p-4 md:p-6 flex items-center justify-between gap-3 sm:gap-4">
                     <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 relative">
                         <Image src={service.image} alt={serviceTitle} fill className="object-contain" sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, 56px" />
@@ -90,7 +108,7 @@ export default function Services() {
                         <Icons.CiCirclePlus className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#888D88]" />
                       )}
                     </div>
-                  </button>
+                  </div>
                   <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}>
                     {/* Padding matches the button row (p-3 sm:p-4 md:p-6) so
                         the body's left edge aligns with the title's left edge
@@ -113,7 +131,7 @@ export default function Services() {
                           />
                           <div className="mt-3 sm:mt-4 flex justify-end w-full">
                             {SERVICE_ROUTES[service.key] ? (
-                              <Link href={SERVICE_ROUTES[service.key]} className="text-base sm:text-lg md:text-[18px] 2xl:text-[20px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
+                              <Link href={SERVICE_ROUTES[service.key]} onClick={(e) => e.stopPropagation()} className="text-base sm:text-lg md:text-[18px] 2xl:text-[20px] text-[#627F38] font-medium hover:underline hover:text-[#627F38]/60 transition-all duration-300 cursor-pointer">
                                 {language === "KOR" ? "더 알아보기" : "Learn more"}
                               </Link>
                             ) : (

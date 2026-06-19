@@ -133,3 +133,51 @@
 - 글로서리 갱신: integrity=정직성(기본)/진정성(서사)/무결성(system), assurance=Assurance 유지.
 - 최종 타입체크 tsc --noEmit exit 0(에러 0). 전 편집 구문 무결성 확인.
 - 규칙 변동: 없음(v6).
+
+## 2026-06-16 / 08 Tax 세무 탭 검수 반영 (pageTaxServiceUtils.ts · tax-service/page.tsx)
+- 출처: i18n/proofreading/Olive-and-Vine_번역검수.xlsx (신규 업로드본) 08 Tax 시트.
+- 용어 변경(KO): 이익세→법인세, 급여세→소득세 (히어로 부제·서비스 제목/설명/불렛·캘린더 카테고리 라벨 전반). 시트 검수자 결정.
+- 비-캘린더 텍스트 수정: heroSubtitle, profitsTax/salariesTax/taxAdvisory 제목·설명·불렛, 화면문구 t1(대화 시작하기→문의하기)·t3(다루는 영역→주요 업무 범위)·t4(세 가지 영역→다양한 영역, 하나의 파트너십)·t5(인트로 문단 전면 교체)·t11(함께 살펴보기→연계된 다른 서비스).
+- 삭제(노란색 To delete): taxServiceIntro 키(미렌더링), insightPlaceholder 키(미렌더링), salariesTaxItems[1] IR56 항목(배열에서 제거 → 화면 자연 삭제).
+- 캘린더 재구성(초록색 참고자료 반영): taxTimeline.items 8→13개로 재구성.
+  · 기존 항목 텍스트·월·monthIndex 수정(고용주 신고 마감 5월→4월 말, 개인신고 발급 5-6월/마감 6-7월, 11월 분할금→10-12월 '법인세 고지서 발급'으로 변경 등).
+  · 신규 포인트 추가: Employer's Returns Issued(4월), Profit Tax Return Filing Deadline(8월 중순), Notice of Assessment/Demand Note(7-10월), Second Provisional Tax Installment(4월·profits), Second Tax Installment Payment(4월·general).
+  · 분류 결정(사용자 확정): 4월 두 항목 모두 유지(#5 법인세 전용=profits, #6 전체=general), 1월 First Tax Installment=general.
+- 신규 섹션: Employer's Return(고용주 신고) 본문(R96~98) → 설명 영역 4번째 하위 항목으로 추가. 컴플라이언스 원칙 문단(complianceNote)은 설명 섹션 하단 안내로 배치(삭제된 taxServiceIntro 메시지 대체).
+- 미해결/확인 필요 메모(검수자 노트): 캘린더 4월 칸에 이벤트 6개 집중되어 시각적으로 빽빽함(기능 정상). 일부 EN 월 라벨은 검수자가 KO만 채워 추정 보완(Late April 등), R99 신규 이벤트 라벨 'Employer's Returns Issued'는 설명만 있어 추정.
+- 검증: tsc --noEmit exit 0.
+- 규칙 변동: 없음(v6). 글로서리: 이익세→법인세, 급여세→소득세 추가 권장.
+
+## 2026-06-16 (2차) / 08 Tax — 캘린더 인터랙션 개선 + 줄바꿈 복원 (사용자 피드백)
+- 그리드(4×3): ALL일 때 이벤트를 카테고리 색상 점(dot)으로 축약(4월 6개 밀집 대응), 분류 버튼 선택 시 전체 라벨 칩 표시.
+- 하단 상세 카드: 아코디언화. 기본은 설명 숨김, 헤더(번호·월·영문 라벨) 클릭 시 펼침(+/− 표시). 필터 변경 시 열림 상태 초기화. ALL(13개) 뷰가 윈도우 크기와 무관하게 간결.
+- 줄바꿈 복원: 검수자 원문 줄바꿈을 데이터에 그대로 반영(템플릿 리터럴) + 렌더 <p>에 whitespace-pre-line 적용. 대상: 캘린더 설명, 설명영역 본문(법인세·소득세·세무자문·고용주신고), complianceNote, 인트로 문단(t5).
+- HR 하이퍼링크: Employer's Return 본문의 'HR Services'를 /hr-service로 연결.
+- 검증: tsc --noEmit exit 0, eslint exit 0.
+
+## 2026-06-16 (3차) / 08 Tax — 캘린더 UX 재조정 (사용자 피드백 2차)
+- 그리드: ALL 점(dot) 방식 폐기 → 원래 전체 라벨 칩으로 복원(모든 뷰 동일).
+- 상세 카드: ALL일 때만 설명 접힘 + 상단 'Expand all/모두 펼치기' 토글 버튼 1개로 일괄 제어(카드 클릭 토글도 유지). 분류(법인세·소득세·고용주신고·일반) 선택 시 설명 기본 표시. 각 카드의 +/− 인디케이터 제거.
+- 정렬: 설명 문단 전반 text-justify 적용(설명영역 본문·complianceNote·인트로·캘린더 카드 설명).
+- 검증: tsc 0, eslint 0.
+
+## 2026-06-16 / 번역검수 xlsx 라운드 반영 (07 Assurance·08 Tax 제외)
+- 입력: 업데이트된 `Olive-and-Vine_번역검수.xlsx`. 시트 00·01·02·03·04·05·06·09·10·11·15·16 반영. **07 Assurance·08 Tax는 사용자 지시로 보류**.
+- 텍스트 교체: 약 200개 문자열(수정 EN/수정 KO) — 페이지별 pageUtils/pageAboutUtils/pageLeadershipUtils/leadership(rebecca·miyoung)/pageValuesUtils/pageServicesUtils/page<Corporate|Accounting|Consulting|Hr>ServiceUtils/pageContactUtils + 각 page.tsx 화면 문구.
+- 삭제(To delete) 처리:
+  - 죽은 데이터(미렌더) 제거: pageUtils statStrip/cta, pageAboutUtils viewProfile·stats·ctaTitle/ctaButton·rebecca/miyoung highlight·rebecca career[0-2], leadership inBrief(rebecca·miyoung), pageValues heroTitle/heroSubtitle, corporate whatIs*/keyResponsibilities*/corporateServicesIntro, 각 서비스 insightPlaceholder(corporate·accounting·consulting), consultingServiceIntro.
+  - 렌더되는 요소 제거(레이아웃 반영): leadership/page bio 단락, consulting 보조업무 제목·HR보조 1줄화, HR ir56 불릿 3→1·미렌더 tags 정리, contact 호칭 드롭다운 'Preferred not to say' 옵션.
+- 줄바꿈 방침: 본문 단락은 강제 <br> 미삽입(사용자 지시). HTML 렌더 필드의 검수자 \n은 공백 처리됨.
+- 보류/플래그: leadership [slug] 'Profile not found' 문구(평소 비노출, 유지), HR 취업비자 FAQ 서류목록 한 문단 처리, InsightCards cards[1].title='변경'(구버전 ID, 미적용/확인요청), 09 'Training/…' 4행·16 cards[0].title#2·t2(L238)는 현행 코드에 없음(stale, 작업 없음).
+- 타입체크: `tsc --noEmit` exit 0.
+
+## 2026-06-16 (4차) / 07 Assurance 페이지 전면 재설계 (Assurance.docx 기준)
+- 사용자 지시: docx를 사양서로 페이지 전면 재설계. 빨간 글씨/"Process Steps" 표기는 디자인 지시문(화면 미표시). FAQ는 HR의 FaqAccordion 에셋 재사용.
+- 구조: Hero → Our approach(Introduction·Audit Philosophy·Value Beyond the Audit) → Audit Methodology(인트로 + 4단계 세로 스택 카드 + 보충 문단) → What We Deliver(External Audit·Other Assurance·Advisory 3그룹) → FAQ(7문항, FaqAccordion) → 관련 서비스 → 인사이트. 기존 7단계 절차 타임라인·au2 다이어그램 제거.
+- Hero subtitle: 엑셀 07 Assurance R4 검수본(EN+KO) 사용(사용자 확정). approachHeading은 R62('명확함을 기반으로 한 신뢰, 독립적인 검증') 반영.
+- 삭제(노랑): assuranceServiceIntro, whatIsExternalAuditTitle 등 구 키 전부 제거(파일 재작성). 다른 파일에서 참조 없음 확인.
+- 신규 KO: docx 영문 신규 콘텐츠(Introduction·Philosophy·Value·Methodology·Deliver·FAQ 7) 전부 한국어 초안 번역. Translation-Master-Prompt 글로서리 적용(auditor=감사인, controls=내부 통제, professional scepticism=전문적 회의주의, advisory=자문, IFRS/SME-FRS 영문, agreed-upon procedures=합의된 절차/AUP, 불렛=명사형). → 1차 초안이므로 다음 검수 라운드 대상(REVIEW_QUEUE).
+- FAQ 포맷: HR과 동일하게 답변은 <br> 기반(<ul> 미사용). 리스트는 '· ' 불릿 + <br>로 변환(p 내 ul 무효 마크업 회피).
+- 디자인: design-system 규칙 준수(그림자/블러/linear-gradient 없음, radial 라이트, 올리브 단일 색계, NE 코너 제스처 rounded-tr). Methodology 세로 스택 카드.
+- 검증: tsc 0, eslint 0.
+- 후속 결정(사용자 확인): (2) HR 취업비자 FAQ 서류목록 `\n`→`<br>` 줄바꿈 적용. (3) Values 가치5 본문 오타 `업무 관게`→`업무 관계` 수정. (1) InsightCards Amendment 카드 KO 제목 홈·목록 모두 `변경`으로 통일(검수자 지시). (4) stale 행 미작업 확정. (5) 07 Assurance·08 Tax는 다른 세션에서 진행 중 → 미반영.

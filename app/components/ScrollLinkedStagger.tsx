@@ -27,7 +27,9 @@ interface Props {
   itemSelector?: string;
   range?: [number, number];
   /** Slide distance in px. Items start above their final position by
-      this amount (so they appear to fall into place). Default 24px. */
+      this amount (so they appear to fall into place).
+      v2 (2026-06-16): bumped 24 → 34 so the rise reads as movement while
+      the user scrolls (paired with the slower per-frame smoothing below). */
   distance?: number;
   className?: string;
 }
@@ -36,7 +38,7 @@ export default function ScrollLinkedStagger({
   children,
   itemSelector = "[data-scroll-item]",
   range = [0.05, 0.55],
-  distance = 24,
+  distance = 34,
   className = "",
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,7 +63,7 @@ export default function ScrollLinkedStagger({
     // Initialise hidden + ready to transition smoothly per-frame.
     items.forEach((el) => {
       el.style.willChange = "opacity, transform";
-      el.style.transition = "opacity 200ms ease-out, transform 200ms ease-out";
+      el.style.transition = "opacity 340ms ease-out, transform 340ms ease-out";
       el.style.opacity = "0";
       el.style.transform = `translateY(-${distance}px)`;
     });
@@ -69,26 +71,20 @@ export default function ScrollLinkedStagger({
     let frame = 0;
     const update = () => {
       frame = 0;
-      const rect = container.getBoundingClientRect();
       const viewH = window.innerHeight || document.documentElement.clientHeight;
-      const sectionH = rect.height;
 
-      // travelled = how far the section has scrolled through the viewport.
-      // 0 when section top hits viewport bottom (just entering).
-      // 1 when section bottom hits viewport top (just leaving).
-      const travelled = (viewH - rect.top) / (viewH + sectionH);
-      const clamped = Math.max(0, Math.min(1, travelled));
-
-      const [rs, re] = range;
-      const itemProgress = Math.max(0, Math.min(1, (clamped - rs) / (re - rs)));
-
-      const n = items.length;
-      items.forEach((el, i) => {
-        const start = i / n;
-        const end = (i + 1) / n;
-        const local = Math.max(0, Math.min(1, (itemProgress - start) / (end - start)));
-        el.style.opacity = String(local);
-        el.style.transform = `translateY(${(-distance * (1 - local)).toFixed(2)}px)`;
+      // v3 (2026-06-16): reveal is now decided PER ITEM by its own position
+      // in the viewport, not by the section's scroll progress. The old
+      // progress mapping meant that on a tall display the items below the
+      // section heading were still tied to scroll=0 and stayed hidden on
+      // first paint — content looked half-built. Now any item already on
+      // screen at load shows immediately, while items further down still
+      // rise in (and reverse on scroll-up) as they cross the trigger line.
+      const trigger = viewH - 60;
+      items.forEach((el) => {
+        const revealed = el.getBoundingClientRect().top < trigger;
+        el.style.opacity = revealed ? "1" : "0";
+        el.style.transform = revealed ? "translateY(0)" : `translateY(-${distance}px)`;
       });
     };
 

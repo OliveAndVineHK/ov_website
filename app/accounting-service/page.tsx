@@ -148,7 +148,7 @@ export default function AccountingServicePage() {
                     href="/contact"
                     className="inline-flex items-center gap-2 text-[15px] text-white border border-white/50 rounded-full px-5 py-2 hover:bg-white hover:text-[#495F2B] hover:border-white transition-colors duration-300"
                   >
-                    {isKo ? "대화 시작하기" : "Start a conversation"}
+                    {isKo ? "문의하기" : "Start a conversation"}
                     <Icons.CgArrowTopRight className="size-4" aria-hidden />
                   </Link>
                 </div>
@@ -224,18 +224,18 @@ export default function AccountingServicePage() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 mb-12 md:mb-16">
                   <div className="md:col-span-5">
                     <span className="block text-[16px] md:text-[18px] 2xl:text-[20px] font-semibold text-[#627F38] mb-4">
-                      {isKo ? "다루는 영역" : "What we handle"}
+                      {isKo ? "주요 업무 범위" : "What we handle"}
                     </span>
                     <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[32px] 2xl:text-[36px] font-normal text-[#111B12] leading-[1.25]">
                       {isKo
-                        ? "세 단계, 한 권의 장부."
-                        : "Three layers, one ledger."}
+                        ? "세 가지 단계, 하나의 데이터"
+                        : "Three layers, One Ledger"}
                     </h2>
                   </div>
                   <div className="md:col-span-7 flex items-start">
-                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65]">
+                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65] text-justify">
                       {isKo
-                        ? "부기로 기록을 정리하고, 회계로 의사결정에 필요한 정보를 만들며, 전담 회계로 외부 회계팀 역할까지 담당해 드립니다. 같은 장부 위에서 세 단계가 매끄럽게 이어집니다."
+                        ? "기장은 기초 데이터를 축적하고, 회계는 이를 분석하여 의사결정에 활용 가능한 정보로 전환하며, 내부 회계는 해당 기능을 직접 책임지고 운영합니다.\n\n서로 다른 세 가지 단계이지만, 그 기반은 하나의 동일한 장부입니다."
                         : "Bookkeeping records the base, accounting turns it into decisions, and private accounting takes ownership of the function. Three layers, but one ledger underneath."}
                     </p>
                   </div>
@@ -257,7 +257,7 @@ export default function AccountingServicePage() {
                       <h3 className="text-[18px] md:text-[20px] 2xl:text-[22px] font-semibold text-[#495F2B] mb-3">
                         {area.label}
                       </h3>
-                      <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.6] mb-4">
+                      <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.6] mb-4 text-justify">
                         {area.detail}
                       </p>
                       <ul className="flex flex-col gap-2.5 list-none pl-0">
@@ -293,7 +293,7 @@ export default function AccountingServicePage() {
                 {isKo ? "관련 서비스" : "Related services"}
               </span>
               <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.15] mb-10 md:mb-12">
-                {isKo ? "함께 살펴보기" : "Explore alongside Accounting"}
+                {isKo ? "연계된 다른 서비스" : "Explore alongside Accounting"}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -338,6 +338,16 @@ export default function AccountingServicePage() {
                     </Link>
                   );
                 })}
+              </div>
+
+              <div className="flex justify-end mt-10 md:mt-12">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed rounded-full border border-[#111B12]/50 px-5 py-1.5 hover:bg-[#436A1F] hover:border-[#436A1F] hover:text-white active:bg-[#648E3E] active:border-[#648E3E] transition-all duration-300 cursor-pointer shrink-0"
+                >
+                  {isKo ? servicesTranslations.button.ko : servicesTranslations.button.en}
+                  <Icons.CgArrowTopRight className="size-4" aria-hidden />
+                </Link>
               </div>
             </div>
           </section>

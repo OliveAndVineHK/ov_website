@@ -17,7 +17,7 @@ import ScrollLinkedStagger from "@/app/components/ScrollLinkedStagger";
 import * as Icons from "@/app/utils/icons";
 
 const CROSS_LINKS = [
-  { href: "/leadership", labelEn: "Our leadership", labelKo: "우리의 리더십" },
+  { href: "/leadership", labelEn: "Our leadership", labelKo: "리더십" },
   { href: "/our-values", labelEn: "Our values", labelKo: "우리의 가치" },
 ];
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <h1 className="text-[36px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-normal text-[#495F2B] leading-[1.1] mb-5 tracking-[-0.01em]">
               {isKo ? t.heroTitle.ko : t.heroTitle.en}
             </h1>
-            <p className="max-w-xl text-[15px] md:text-[17px] text-[#111B12]/70 leading-[1.6]">
+            <p className="max-w-xl text-[15px] md:text-[17px] text-[#111B12]/70 leading-[1.6] text-justify">
               {isKo ? t.heroSubtitle.ko : t.heroSubtitle.en}
             </p>
           </div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <div className="md:col-span-7 flex items-start">
-                <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7]">
+                <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] text-justify">
                   {isKo ? t.storyBody.ko : t.storyBody.en}
                 </p>
               </div>
@@ -197,12 +197,12 @@ export default function AboutPage() {
                 href="/leadership"
                 className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300 shrink-0"
               >
-                {isKo ? "전체 리더십 보기" : "Meet the team"}
+                {isKo ? "더 알아보기" : "Meet the team"}
                 <Icons.CgArrowTopRight className="size-4" aria-hidden />
               </Link>
             </div>
 
-            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl mb-10">
+            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl mb-10 text-justify">
               {isKo ? t.leadershipCulture.ko : t.leadershipCulture.en}
             </p>
 
@@ -251,11 +251,11 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-14 gap-4">
               <div>
                 <span className="block text-[14px] md:text-[15px] 2xl:text-[17px] font-semibold text-[#627F38] tracking-wide mb-3">
-                  {isKo ? "우리의 가치" : "What we believe"}
+                  {isKo ? "What we believe" : "What we believe"}
                 </span>
                 <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2]">
                   {isKo
-                    ? "선언이 아닌, 매일 실천하는 방식입니다."
+                    ? "표현이 아닌, 우리의 방식입니다"
                     : "Not statements on a wall — how we work."}
                 </h2>
               </div>
@@ -263,7 +263,7 @@ export default function AboutPage() {
                 href="/our-values"
                 className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#495F2B] font-medium hover:text-[#436A1F] transition-colors duration-300 shrink-0"
               >
-                {isKo ? "전체 가치 보기" : "All values"}
+                {isKo ? "더 알아보기" : "All values"}
                 <Icons.CgArrowTopRight className="size-4" aria-hidden />
               </Link>
             </div>
@@ -302,7 +302,7 @@ export default function AboutPage() {
                   >
                     &ldquo;{p.title}&rdquo;
                   </p>
-                  <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/75 leading-[1.7]">
+                  <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/75 leading-[1.7] text-justify">
                     {p.body}
                   </p>
                 </div>
@@ -320,7 +320,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 pt-8 md:pt-10 border-t border-[#111B12]/15">
               <span className="text-[12px] tracking-[0.15em] uppercase font-medium text-[#111B12]/50">
-                {isKo ? "다른 페이지" : "Continue with"}
+                {isKo ? "더 알아보기" : "Continue with"}
               </span>
               <div className="flex flex-wrap gap-x-6 gap-y-2 sm:gap-x-10">
                 {CROSS_LINKS.map((l) => (

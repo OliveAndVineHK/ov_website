@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olive &amp; Vine — Working System &amp; Build Process</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--ov-cream); color: var(--ov-ink); font-family: var(--font-sans); }
+  img { display: block; max-width: 100%; }
+  a { color: var(--ov-olive); text-decoration: none; }
+  code, .mono { font-family: var(--font-mono); }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .mono-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--ov-ink-50); }
+
+  /* layout: sticky side nav + content */
+  .shell { display: grid; grid-template-columns: 230px 1fr; gap: 48px; align-items: start; }
+  nav.toc { position: sticky; top: 0; padding: 40px 0; align-self: start; }
+  nav.toc .navwordmark { font-weight: 700; color: var(--ov-olive-deep); font-size: 16px; margin-bottom: 4px; }
+  nav.toc .navsub { font-size: 12px; color: var(--ov-ink-50); margin-bottom: 24px; line-height: 1.4; }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+  nav.toc li { counter-increment: s; margin: 0 0 2px; }
+  nav.toc a { display: block; font-size: 13px; color: var(--ov-ink-70); padding: 6px 10px 6px 0; border-left: 2px solid transparent; padding-left: 12px; line-height: 1.35; transition: all 200ms; }
+  nav.toc a::before { content: counter(s, decimal-leading-zero) "  "; font-family: var(--font-mono); font-size: 11px; color: var(--ov-ink-30); }
+  nav.toc a:hover { color: var(--ov-olive-deep); border-left-color: var(--ov-olive); }
+
+  main { padding: 0 0 120px; min-width: 0; }
+  section { padding: 56px 0; border-top: 1px solid var(--ov-ink-30); }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--ov-olive); letter-spacing: 0.08em; margin: 0 0 14px; }
+  h2.sec { font-size: 34px; font-weight: 400; line-height: 1.12; margin: 0 0 16px; letter-spacing: -0.01em; }
+  h3.sub { font-size: 19px; font-weight: 500; margin: 40px 0 14px; color: var(--ov-ink); }
+  p.lead { font-size: 17px; line-height: 1.6; color: var(--ov-ink-70); max-width: 720px; margin: 0 0 28px; }
+  p.body { font-size: 15px; line-height: 1.65; color: var(--ov-ink-70); max-width: 720px; }
+  p.body strong { color: var(--ov-ink); font-weight: 500; }
+  em { font-style: normal; color: var(--ov-olive-deep); }
+
+  /* cover */
+  .cover { background: var(--ov-olive-deep); color: #fff; padding: 88px 0 72px; }
+  .cover .wrap { max-width: 1180px; }
+  .cover .kick { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ov-leaf-pale); margin: 0 0 22px; }
+  .cover h1 { font-size: clamp(38px, 6vw, 66px); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 22px; max-width: 900px; }
+  .cover h1 b { font-weight: 500; }
+  .cover .csub { font-size: 18px; line-height: 1.6; color: var(--ov-on-dark-80); max-width: 620px; font-weight: 300; margin: 0 0 40px; }
+  .cover-meta { display: flex; flex-wrap: wrap; gap: 36px; border-top: 1px solid var(--ov-on-dark-30); padding-top: 24px; }
+  .cover-meta dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ov-leaf-pale); margin-bottom: 6px; }
+  .cover-meta dd { margin: 0; font-size: 15px; }
+  .companion { margin-top: 28px; font-size: 13px; color: var(--ov-on-dark-70); border: 1px solid var(--ov-on-dark-30); padding: 14px 18px; display: inline-block; }
+  .companion b { color: #fff; font-weight: 500; }
+
+  /* generic chips */
+  .chip { display: inline-block; font-family: var(--font-mono); font-size: 11px; padding: 3px 9px; border-radius: 9999px; letter-spacing: 0.03em; }
+  .chip.blocker { background: #495F2B; color: #fff; }
+  .chip.drift { background: var(--ov-leaf-pale); color: var(--ov-olive-deep); }
+  .chip.voice { background: var(--ov-tag-bg); color: var(--ov-ink-70); }
+  .chip.improvised { background: var(--ov-cream-deep); color: var(--ov-ink-70); border: 1px solid var(--ov-ink-30); }
+  .chip.req { background: var(--ov-olive); color: #fff; }
+  .chip.opt { background: #fff; color: var(--ov-ink-70); border: 1px solid var(--ov-ink-30); }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0; }
+  th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ov-ink-50); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--ov-ink-50); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--ov-ink-30); vertical-align: top; color: var(--ov-ink-70); line-height: 1.45; }
+  td b { color: var(--ov-ink); font-weight: 500; }
+  td .mono { font-size: 12.5px; color: var(--ov-olive-deep); }
+  tr:hover td { background: rgba(255,255,255,0.5); }
+
+  /* file tree */
+  .tree { background: var(--ov-paper); border: 1px solid var(--ov-ink-30); padding: 24px 26px; font-family: var(--font-mono); font-size: 13px; line-height: 1.95; color: var(--ov-ink-70); overflow-x: auto; }
+  .tree .dir { color: var(--ov-olive-deep); font-weight: 700; }
+  .tree .note { color: var(--ov-ink-50); }
+  .tree .new { color: var(--ov-olive); }
+
+  /* governance loop */
+  .loop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0 8px; }
+  .loop .node { background: var(--ov-paper); border: 1px solid var(--ov-ink-30); padding: 20px; position: relative; transition: border-top-right-radius 300ms var(--ease-default), border-color 300ms; }
+  .loop .node:hover { border-top-right-radius: 24px; border-color: var(--ov-olive); }
+  .loop .node .n { font-family: var(--font-mono); font-size: 11px; color: var(--ov-olive); margin-bottom: 8px; }
+  .loop .node h4 { margin: 0 0 6px; font-size: 16px; font-weight: 500; color: var(--ov-ink); }
+  .loop .node p { margin: 0; font-size: 13px; line-height: 1.5; color: var(--ov-ink-70); }
+  .loop .node .file { font-family: var(--font-mono); font-size: 11px; color: var(--ov-ink-50); margin-top: 10px; display: block; }
+  .loop-foot { font-size: 13px; color: var(--ov-ink-50); font-style: normal; margin-top: 14px; }
+
+  /* sitemap */
+  .sitemap { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 24px 0; }
+  .smcol { background: var(--ov-paper); border: 1px solid var(--ov-ink-30); padding: 18px 20px; }
+  .smcol h4 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--ov-olive-deep); }
+  .smcol .smnote { font-size: 12px; color: var(--ov-ink-50); margin: 0 0 12px; }
+  .smcol ul { list-style: none; margin: 0; padding: 0; }
+  .smcol li { font-family: var(--font-mono); font-size: 12.5px; color: var(--ov-ink-70); padding: 4px 0; border-top: 1px dashed var(--ov-ink-30); }
+  .smcol li:first-child { border-top: none; }
+
+  /* service spine */
+  .spine { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 28px; }
+  .spine span { font-size: 14px; padding: 8px 16px; background: var(--ov-cream-card); border: 1px solid var(--ov-olive); color: var(--ov-olive-deep); transition: all 300ms var(--ease-default); }
+  .spine span:hover { background: var(--ov-olive); color: #fff; border-top-right-radius: 16px; }
+
+  /* composition strip */
+  .compose { display: flex; flex-direction: column; gap: 8px; margin: 22px 0; max-width: 560px; }
+  .compose .row { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border: 1px solid var(--ov-ink-30); background: var(--ov-paper); font-size: 14px; }
+  .compose .row .pno { font-family: var(--font-mono); font-size: 12px; color: var(--ov-olive); width: 56px; flex: none; }
+  .compose .row .pname { color: var(--ov-ink); flex: 1; }
+  .compose .row.fixed { background: var(--ov-cream-deep); }
+
+  /* callout */
+  .callout { border-left: 2px solid var(--ov-olive); background: var(--ov-paper); padding: 20px 24px; margin: 24px 0; font-size: 15px; line-height: 1.6; color: var(--ov-ink); max-width: 760px; }
+  .callout .ct { font-family: var(--font-mono); font-size: 11px; color: var(--ov-olive); letter-spacing: 0.06em; margin-bottom: 8px; }
+
+  /* code block */
+  pre.cmd { background: var(--ov-charcoal); color: #E7E9DF; padding: 22px 24px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; margin: 20px 0; }
+  pre.cmd .c { color: #9DB07F; }
+  pre.cmd .k { color: #E5E5BD; }
+
+  /* split two-col */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0; }
+  .panel { background: var(--ov-paper); border: 1px solid var(--ov-ink-30); padding: 22px; }
+  .panel h4 { margin: 0 0 10px; font-size: 15px; font-weight: 600; }
+  .panel.win h4 { color: var(--ov-olive-deep); }
+  .panel.lose h4 { color: var(--ov-ink-70); }
+  .panel ul { margin: 0; padding-left: 18px; }
+  .panel li { font-size: 13.5px; line-height: 1.6; color: var(--ov-ink-70); margin-bottom: 6px; }
+
+  /* status grid */
+  .status-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 18px 0; font-size: 13px; color: var(--ov-ink-70); }
+
+  footer.foot { background: var(--ov-charcoal); color: var(--ov-on-dark-50); padding: 40px 0; font-size: 13px; font-family: var(--font-mono); }
+
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; }
+    nav.toc { position: static; padding: 24px 0 0; }
+    nav.toc ol { display: flex; flex-wrap: wrap; gap: 4px; }
+    nav.toc a { border-left: none; padding-left: 8px; }
+    .loop, .two, .compose { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── COVER ─────────────────────────────── -->
+<header class="cover">
+  <div class="wrap">
+    <p class="kick">Working system · Practitioner edition</p>
+    <h1>The <b>Olive&nbsp;&amp;&nbsp;Vine</b> website, the system that produces it, and how it stays consistent.</h1>
+    <p class="csub">How the marketing site is structured, how the design-system repo is organised, and the governance loop that keeps every page on-brand when the work is done with Claude.</p>
+    <dl class="cover-meta">
+      <div><dt>Audience</dt><dd>Design &amp; production reviewers</dd></div>
+      <div><dt>Scope</dt><dd>Site IA · repo · process</dd></div>
+      <div><dt>Source</dt><dd>Next.js 16 · React 19 · Tailwind v4</dd></div>
+      <div><dt>Date</dt><dd>June 2026</dd></div>
+    </dl>
+    <div class="companion"><b>Companion document —</b> this is the detailed counterpart to the client-facing <b>Design System Portfolio</b>. That one shows the brand; this one shows the machinery.</div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="shell">
+
+  <!-- ── TOC ── -->
+  <nav class="toc">
+    <div class="navwordmark">Olive &amp; Vine</div>
+    <div class="navsub">Working system &amp; process</div>
+    <ol>
+      <li><a href="#site">The website</a></li>
+      <li><a href="#grammar">Page grammar</a></li>
+      <li><a href="#folder">Folder structure</a></li>
+      <li><a href="#loop">Consistency in Claude</a></li>
+      <li><a href="#truth">Source of truth</a></li>
+      <li><a href="#rules">The lint</a></li>
+      <li><a href="#drift">The drift story</a></li>
+      <li><a href="#status">Build status</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+  <!-- ── 1 · THE WEBSITE ─────────────────── -->
+  <section id="site" style="border-top:none">
+    <p class="eyebrow">01 · The website</p>
+    <h2 class="sec">One product: the bilingual marketing site</h2>
+    <p class="lead">The codebase is a single product — the public marketing website for the firm, built in Next.js 16 / React 19 / Tailwind v4 with react-icons. Every user-facing string exists as an <code>{ en, ko }</code> pair; a one-click header toggle swaps the body font from Roboto to Noto Sans KR.</p>
+
+    <h3 class="sub">The six service lines are the spine</h3>
+    <p class="body">Every page navigates back to these six. They are the backbone of the information architecture, and the brand deliberately maps all six to the <em>same</em> olive — it never fragments by service.</p>
+    <div class="spine">
+      <span>Corporate</span><span>Accounting</span><span>Assurance</span><span>Tax</span><span>Consulting</span><span>HR</span>
+    </div>
+
+    <h3 class="sub">Routes &amp; page types</h3>
+    <div class="sitemap">
+      <div class="smcol">
+        <h4>Home</h4>
+        <p class="smnote">The front door</p>
+        <ul>
+          <li>/</li>
+        </ul>
+      </div>
+      <div class="smcol">
+        <h4>About cluster</h4>
+        <p class="smnote">Firm &amp; people</p>
+        <ul>
+          <li>/about</li>
+          <li>/our-values</li>
+          <li>/leadership</li>
+        </ul>
+      </div>
+      <div class="smcol">
+        <h4>Services</h4>
+        <p class="smnote">Overview + six deep pages</p>
+        <ul>
+          <li>/services</li>
+          <li>/accounting-service</li>
+          <li>/tax-service</li>
+          <li>/corporate-service</li>
+          <li>/consulting-service</li>
+          <li>/hr-service</li>
+          <li>/assurance-service</li>
+        </ul>
+      </div>
+      <div class="smcol">
+        <h4>Insights</h4>
+        <p class="smnote">Article grid + tags</p>
+        <ul>
+          <li>/insights</li>
+          <li>/insights/[tag]</li>
+        </ul>
+      </div>
+      <div class="smcol">
+        <h4>Convert</h4>
+        <p class="smnote">Contact &amp; subscribe</p>
+        <ul>
+          <li>/contact</li>
+          <li>/subscribe</li>
+        </ul>
+      </div>
+    </div>
+    <p class="body">The home page itself is a composition: typewriter hero, About, Services grid, Portfolio cards, an Integrity headline, Featured Insights, and a compliance strip. The shared <b>Header</b>, <b>questions form</b>, and <b>Footer</b> appear on every route and are never edited per-page — changing a shared component to suit one page is how drift starts.</p>
+  </section>
+
+  <!-- ── 2 · PAGE GRAMMAR ────────────────── -->
+  <section id="grammar">
+    <p class="eyebrow">02 · Page grammar</p>
+    <h2 class="sec">Pages are composed, not authored</h2>
+    <p class="lead">A page is not a blank canvas — it is a composition of named section patterns. A service page is built only from the catalog below, in a fixed order, with four to six body sections.</p>
+
+    <div class="compose">
+      <div class="row fixed"><span class="pno">Header</span><span class="pname">Shared · never edited</span></div>
+      <div class="row"><span class="pno">01</span><span class="pname">Hero · split with motion object</span><span class="chip req">required · first</span></div>
+      <div class="row"><span class="pno">02 / 03</span><span class="pname">Explainer</span><span class="chip opt">choose one</span></div>
+      <div class="row"><span class="pno">03 / 04 / 05</span><span class="pname">Detail — image&amp;text · lifecycle · calendar</span><span class="chip opt">choose one</span></div>
+      <div class="row"><span class="pno">06</span><span class="pname">Quote / principle moment</span><span class="chip opt">optional</span></div>
+      <div class="row"><span class="pno">07</span><span class="pname">Related services</span><span class="chip req">required</span></div>
+      <div class="row fixed"><span class="pno">08</span><span class="pname">Universal closing — insights · contact · footer</span><span class="chip req">required · last · byte-identical</span></div>
+    </div>
+
+    <h3 class="sub">The explainer is a variant family, not one shape</h3>
+    <p class="body">Pattern 02 is deliberately not a single layout. Each service picks the variant that fits its <em>actual content</em> — parallel domains get a list; related domains get a diagram. This is the texture that keeps six pages from becoming monotonous.</p>
+    <table>
+      <thead><tr><th>Variant</th><th>Shape</th><th>Used by</th><th>Chosen because</th></tr></thead>
+      <tbody>
+        <tr><td><b>A</b></td><td>Two-column text list</td><td class="mono">tax</td><td>Sub-areas are parallel domains — no hierarchy or sequence</td></tr>
+        <tr><td><b>B</b></td><td>Diagram-led + 3-col details</td><td class="mono">accounting</td><td>Sub-areas have a visual relationship — a diagram earns its place</td></tr>
+        <tr><td><b>C</b></td><td>Numbered methodology timeline</td><td class="mono">consulting · assurance</td><td>Work is a sequence of phases / procedures</td></tr>
+        <tr><td><b>D</b></td><td>Image-led card grid + FAQ</td><td class="mono">hr</td><td>Open-clause imagery fits; FAQ answers real questions</td></tr>
+        <tr><td><b>E</b></td><td>Lifecycle 3-stage + callout</td><td class="mono">corporate</td><td>The service maps to a business lifecycle (start-up → exit)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="ct">The rule that governs the whole grammar</div>
+      If a page needs a section type that is not in the catalog, it does <em>not</em> become a page first and a playbook entry later. It becomes a playbook entry first, gets reviewed, then becomes a page.
+    </div>
+
+    <h3 class="sub">Ranges, not fixed values</h3>
+    <p class="body">Several patterns define a <strong>permitted range</strong> rather than a single fixed value — the explainer motif, the image corner radius, the lifecycle stage count, the values count. A fixed value makes every page identical; an unbounded value lets drift back in. A bounded range is the resolution — <em>generative enough to feel designed, constrained enough that it can't leave the brand.</em></p>
+  </section>
+
+  <!-- ── 3 · FOLDER STRUCTURE ────────────── -->
+  <section id="folder">
+    <p class="eyebrow">03 · Folder structure</p>
+    <h2 class="sec">The repo is the system</h2>
+    <p class="lead">The design system is not a static PDF — it is a working repository. Brand foundations sit alongside process folders that each play a role in keeping pages on-brand. Newer process folders (marked <span class="new">●</span>) were added under Direction B.</p>
+
+    <div class="tree">
+<span class="dir">Olive &amp; Vine Design System/</span>
+├─ README.md            <span class="note"># brand bible — voice, colour, type, motion, icons</span>
+├─ SKILL.md             <span class="note"># machine-readable entry point — the read order</span>
+├─ colors_and_type.css  <span class="note"># every token as a CSS custom property</span>
+├─ fonts/               <span class="note"># local Roboto + Noto Sans KR TTFs (no Google Fonts)</span>
+├─ <span class="dir">assets/</span>              <span class="note"># logos, service icons, hero photography, portraits</span>
+├─ <span class="dir">ui_kits/website/</span>     <span class="note"># pixel-faithful React recreation + clickable index.html</span>
+├─ <span class="dir">preview/</span>             <span class="note"># 25 specimen cards (swatches, type ramps, components)</span>
+│
+├─ <span class="dir">decisions/</span>           <span class="new">●</span> <span class="note"># append-only decision log — newest wins</span>
+├─ <span class="dir">playbooks/</span>           <span class="new">●</span> <span class="note"># the section-pattern grammar (service/ + about/)</span>
+├─ <span class="dir">briefs/</span>              <span class="new">●</span> <span class="note"># per-page build specs</span>
+├─ <span class="dir">rules/</span>               <span class="new">●</span> <span class="note"># forbidden.json — machine-readable lint</span>
+└─ <span class="dir">audits/</span>              <span class="new">●</span> <span class="note"># HTML scorecards + the audit format</span>
+    </div>
+
+    <table>
+      <thead><tr><th>Folder</th><th>Role in the loop</th><th>Discipline</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">README.md</td><td>The brand bible. Source of truth for everything visual and for voice.</td><td>Read first, always</td></tr>
+        <tr><td class="mono">SKILL.md</td><td>The machine entry point — tells Claude what to read, in what order, before touching a page.</td><td>The on-ramp</td></tr>
+        <tr><td class="mono">decisions/</td><td>Why the system looks the way it does. Each in-flight direction (e.g. Direction B) is captured here.</td><td><b>Append-only</b> — never edit, newest supersedes</td></tr>
+        <tr><td class="mono">playbooks/</td><td>The composition grammar — which sections exist and how they combine, per page type.</td><td>Promote a pattern before placing it</td></tr>
+        <tr><td class="mono">briefs/</td><td>The spec for a specific page build — section by section, with acceptance criteria.</td><td>One brief = one page</td></tr>
+        <tr><td class="mono">rules/</td><td>The "no X" rules encoded for a lint to consume — with rationale on every rule.</td><td>Machine-checkable</td></tr>
+        <tr><td class="mono">audits/</td><td>Structured scorecards comparing pages to the system. The taste gate consumes these.</td><td>Every page gets one</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── 4 · CONSISTENCY IN CLAUDE ───────── -->
+  <section id="loop">
+    <p class="eyebrow">04 · How consistency is maintained in Claude</p>
+    <h2 class="sec">A governance loop, not a single prompt</h2>
+    <p class="lead">Consistency does not come from asking Claude nicely. It comes from a closed loop where every page is specified before it is built, linted as it is built, and audited after — and where the rules and patterns are written down, append-only, so context never has to be reconstructed from memory.</p>
+
+    <div class="loop">
+      <div class="node"><div class="n">→ READ</div><h4>1 · Decisions &amp; rules</h4><p>Start by reading the three most recent decisions and the foundational direction. They hold in-flight context that may not be reflected elsewhere yet.</p><span class="file">decisions/ · SKILL.md</span></div>
+      <div class="node"><div class="n">→ SPEC</div><h4>2 · Playbook &amp; brief</h4><p>Pick the section patterns from the grammar. If a brief exists for the page, it is the spec — follow it section by section.</p><span class="file">playbooks/ · briefs/</span></div>
+      <div class="node"><div class="n">→ BUILD</div><h4>3 · Generate</h4><p>Build the page from real bilingual copy and brand tokens. Choose the explainer variant from the content, not by default.</p><span class="file">colors_and_type.css · ui_kits/</span></div>
+      <div class="node"><div class="n">→ LINT</div><h4>4 · Run the gate</h4><p>Grep the new page against the forbidden patterns and the hex allowlist. Blockers must return nothing.</p><span class="file">rules/forbidden.json</span></div>
+      <div class="node"><div class="n">→ AUDIT</div><h4>5 · Score it</h4><p>Produce an HTML audit showing how the page lands against the system — heroes, architecture, tokens, voice, findings.</p><span class="file">audits/</span></div>
+      <div class="node"><div class="n">↺ REVIEW</div><h4>6 · Taste gate</h4><p>The founder reviews the audit in five minutes, approves or redirects. A redirect becomes a new append-only decision — and the loop closes.</p><span class="file">decisions/ (next)</span></div>
+    </div>
+    <p class="loop-foot">The loop is what makes the work resumable: a new session reads the same decisions, playbooks and rules and arrives at the same place — no drift between sessions, because nothing lives only in a conversation.</p>
+
+    <div class="callout">
+      <div class="ct">Why append-only matters</div>
+      Decisions are never edited — a superseding decision links forward instead. This means the <em>reasoning</em> survives, not just the outcome. "Drift starts when the 'why' gets lost," so every rule carries its rationale and every decision carries what was rejected and why.
+    </div>
+  </section>
+
+  <!-- ── 5 · SOURCE OF TRUTH ─────────────── -->
+  <section id="truth">
+    <p class="eyebrow">05 · Source of truth</p>
+    <h2 class="sec">The system wins on brand; the codebase wins on copy</h2>
+    <p class="lead">When the design system and the live codebase are mounted together, they each own different questions — and one critical rule prevents the most common mistake.</p>
+    <div class="two">
+      <div class="panel win">
+        <h4>The system is truth for…</h4>
+        <ul>
+          <li>Colour, type, spacing, motion</li>
+          <li>Hover &amp; press behaviour</li>
+          <li>The section grammar</li>
+          <li>Voice &amp; tone</li>
+          <li>The no-shadow / no-blur / single-hue discipline</li>
+        </ul>
+      </div>
+      <div class="panel lose">
+        <h4>The codebase is truth for…</h4>
+        <ul>
+          <li>Real bilingual strings (<span class="mono">pageUtils.ts</span>)</li>
+          <li>Page structure &amp; routes</li>
+          <li>Service → accent mapping</li>
+          <li>Icon exports (<span class="mono">icons.ts</span>)</li>
+          <li>Anything factual about content</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="ct">The rule that prevents drift</div>
+      <strong>The codebase has drifted from the system</strong> — it contains shadows, blurs and other patterns the system prohibits. When the two disagree on anything visual, <em>the system wins</em>. Never infer a brand pattern from the codebase — read it from the system. Copy is pulled, never reinvented; brand is read, never inferred.
+    </div>
+  </section>
+
+  <!-- ── 6 · THE LINT ────────────────────── -->
+  <section id="rules">
+    <p class="eyebrow">06 · The lint</p>
+    <h2 class="sec">The discipline, encoded</h2>
+    <p class="lead">Every "no X" rule lives in <code>rules/forbidden.json</code> — 17 rules, each with a regex or AST check, a target glob, a severity, and a rationale. A lint hook walks them against any new page. These are a representative subset.</p>
+
+    <div class="status-legend">
+      <span><span class="chip blocker">blocker</span> remove urgently</span>
+      <span><span class="chip drift">drift</span> fix when touching the page</span>
+      <span><span class="chip voice">voice</span> copy violates the documented tone</span>
+    </div>
+
+    <table>
+      <thead><tr><th>Rule</th><th>Severity</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>No box / text shadow</b></td><td><span class="chip blocker">blocker</span></td><td>Depth is colour-swap and the NE corner, never shadow. The most common path back into generic SaaS.</td></tr>
+        <tr><td><b>No backdrop-filter / blur</b></td><td><span class="chip blocker">blocker</span></td><td>No frosted glass. Opacity tiers (30/50/70/80), never a blur.</td></tr>
+        <tr><td><b>No mix-blend-mode</b></td><td><span class="chip blocker">blocker</span></td><td>Hover is colour-swap, not blend-mode darkening — the exact failure Direction B fixed.</td></tr>
+        <tr><td><b>No multi-hue gradient</b></td><td><span class="chip blocker">blocker</span></td><td>The only permitted gradient is the single-hue radial hero vignette.</td></tr>
+        <tr><td><b>No non-token hex</b></td><td><span class="chip drift">drift</span></td><td>One olive hue plus ink/cream/charcoal. Kills the historical purple &amp; yellow timeline colours.</td></tr>
+        <tr><td><b>No unicode glyph icons</b></td><td><span class="chip drift">drift</span></td><td>Arrows, checks, bullets are react-icons SVGs — never <span class="mono">→ ✓ •</span> as text.</td></tr>
+        <tr><td><b>No placeholder text shipped</b></td><td><span class="chip blocker">blocker</span></td><td>Lorem ipsum under the Tax timeline (F01) was the one unacceptable outcome.</td></tr>
+        <tr><td><b>No radius outside vocabulary</b></td><td><span class="chip drift">drift</span></td><td>Only 0 · 30px · 300px · pill. Arbitrary <span class="mono">rounded-lg</span> dilutes the signature gesture.</td></tr>
+        <tr><td><b>No invented content</b></td><td><span class="chip voice">voice</span></td><td>No fictional client names or <span class="mono">[ 00 ]</span> editorial labels — a voice violation.</td></tr>
+        <tr><td><b>Bilingual strings paired</b></td><td><span class="chip drift">drift</span></td><td>Every rendered string needs both <span class="mono">en</span> and <span class="mono">ko</span>. Drift starts with an English-only string.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">The gate, in practice</h3>
+    <pre class="cmd"><span class="c"># forbidden patterns in the new page — must return nothing</span>
+grep -nE <span class="k">"box-shadow|text-shadow|backdrop-filter|mix-blend-mode|linear-gradient\(|shadow-(sm|md|lg|xl|2xl)"</span> \
+  app/&lt;service&gt;-service/page.tsx
+
+<span class="c"># off-token hex — anything outside the olive + ink + cream allowlist is a finding</span>
+grep -nEo <span class="k">'#[0-9A-Fa-f]{6}'</span> app/&lt;service&gt;-service/page.tsx | grep -vE <span class="k">"$ALLOW"</span>
+
+<span class="c"># unicode glyphs used as icons</span>
+grep -nE <span class="k">'&gt;[^&lt;]*[→✓●•★][^&lt;]*&lt;'</span> app/&lt;service&gt;-service/page.tsx</pre>
+  </section>
+
+  <!-- ── 7 · DRIFT STORY ─────────────────── -->
+  <section id="drift">
+    <p class="eyebrow">07 · The drift story</p>
+    <h2 class="sec">Direction B — how the gate earned its place</h2>
+    <p class="lead">The clearest proof of why the loop exists: while iterating, a parallel example homepage was built to "demonstrate the system." During audit it was found to violate the system's own README — predictable drift from generating without a strict gate. <em>"Looks cool" beat "matches the system."</em></p>
+
+    <div class="two">
+      <div class="panel lose">
+        <h4>What the example drifted into</h4>
+        <ul>
+          <li><span class="mono">text-shadow</span> on the hero headline</li>
+          <li><span class="mono">backdrop-filter: blur(8px)</span> sticky header</li>
+          <li><span class="mono">mix-blend-mode</span> + gradient scrims on a video hero</li>
+          <li>SVG noise-grain texture overlay</li>
+          <li>Italic as a recurring emphasis device</li>
+          <li>Editorial-agency tone — <span class="mono">[ 00 ]</span> labels, invented client names, ticker copy</li>
+        </ul>
+      </div>
+      <div class="panel win">
+        <h4>What Direction B chose</h4>
+        <ul>
+          <li>Bring the page <em>back</em> to the system — same copy &amp; ambition, violating treatments removed</li>
+          <li>Photographic hero in place of video</li>
+          <li>Colour-swap hovers in place of blend filters</li>
+          <li>Partnership copy in place of agency tickers</li>
+          <li>No italic as a pattern</li>
+          <li>And: encode the rules, write the playbooks, run audits — so it can't recur</li>
+        </ul>
+      </div>
+    </div>
+    <p class="body">The alternative — <strong>updating the system to match the cool new direction</strong> — was rejected: an editorial-agency look suits a creative studio, not a Hong Kong accounting and advisory firm. The system's restraint matches the actual business; the example was visual ambition outrunning that match. That single decision is why <span class="mono">rules/</span>, <span class="mono">playbooks/</span>, <span class="mono">audits/</span> and <span class="mono">decisions/</span> exist at all.</p>
+  </section>
+
+  <!-- ── 8 · STATUS ──────────────────────── -->
+  <section id="status">
+    <p class="eyebrow">08 · Build status</p>
+    <h2 class="sec">Six of six service pages rebuilt</h2>
+    <p class="lead">All six service pages now sit inside the system, each on a deliberately chosen explainer variant, on a shared infrastructure of hooks and components so the six never drift apart.</p>
+
+    <table>
+      <thead><tr><th>Page</th><th>Status</th><th>Variant</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">/tax-service</td><td><b>Rebuilt</b></td><td>A — 2-col list</td><td>The reference page; carries the calendar pattern</td></tr>
+        <tr><td class="mono">/accounting-service</td><td><b>Rebuilt</b></td><td>B — diagram-led</td><td>Voice fixed at the data layer</td></tr>
+        <tr><td class="mono">/consulting-service</td><td><b>Rebuilt</b></td><td>C — 5-phase timeline</td><td>Methodology as a numbered sequence</td></tr>
+        <tr><td class="mono">/hr-service</td><td><b>Rebuilt</b></td><td>D — card grid + FAQ</td><td>Open-clause imagery; FAQ reused</td></tr>
+        <tr><td class="mono">/assurance-service</td><td><b>Rebuilt</b></td><td>C — 7 procedures</td><td>Narrow vertical hero wash</td></tr>
+        <tr><td class="mono">/corporate-service</td><td><b>Rebuilt</b></td><td>E — lifecycle + callout</td><td>Lifecycle promoted to a playbook pattern</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">Shared infrastructure — built once, owns all six</h3>
+    <table>
+      <thead><tr><th>Module</th><th>What it owns</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">useHeroLight.ts</td><td>The cursor-follow radial vignette — the easing loop and gradient string, so heroes can't fork</td></tr>
+        <tr><td class="mono">ServiceIconMotion.tsx</td><td>All six motion icons in one component — stroke widths and durations can't drift apart</td></tr>
+        <tr><td class="mono">CurveMotif.tsx</td><td>The six service curves — refined for elegance, not motion-graphic echo</td></tr>
+        <tr><td class="mono">ExplainerDiagram.tsx</td><td>The diagram for variant B — returns null gracefully for services without one</td></tr>
+        <tr><td class="mono">ServiceAccentContext.tsx</td><td>The per-service hero-base tint mapping (Decision G) — all within the olive family</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="ct">The meta-lesson, kept on the record</div>
+      "Make it the same so we don't drift" and "make each one its own thing so the family has texture" are <em>both</em> design imperatives. After Tax and Accounting the system had texture — so the instruction became: don't now systematise the texture itself into a new monotony. Each remaining page picks its variant from its actual content.
+    </div>
+  </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">olive &amp; vine — working system &amp; build process · practitioner edition · june 2026 · companion to the design system portfolio</div>
+</footer>
+
+</body>
+</html>

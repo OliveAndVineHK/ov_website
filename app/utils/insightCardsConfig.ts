@@ -158,7 +158,7 @@ export const AMENDMENT_CARD: InsightCardDefinition = {
   alt: "Amendment",
   href: "/insights/corporate-service/amendment",
   tag: { en: "Corporate Service", ko: "기업 서비스" },
-  title: { en: "Amendment", ko: "수정" },
+  title: { en: "Amendment", ko: "변경" },
   description: { en: "", ko: "" },
   subTags: subTagsByInsight.amendment,
 };
@@ -338,7 +338,7 @@ export const PLACEHOLDER_CARD: InsightCardDefinition = {
   alt: "Coming soon",
   href: "#",
   tag: { en: "Coming soon", ko: "곧 공개" },
-  title: { en: "Coming soon", ko: "곧 공개" },
+  title: { en: "Coming soon", ko: "준비 중입니다" },
   description: { en: "", ko: "" },
 };
 

@@ -72,7 +72,7 @@ function ValueRow({
         <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2] mb-4">
           {title}
         </h2>
-        <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl 2xl:max-w-4xl">
+        <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl 2xl:max-w-4xl text-justify">
           {body}
         </p>
       </div>
@@ -89,8 +89,8 @@ function ValueRow({
 }
 
 const CROSS_LINKS = [
-  { href: "/about", labelEn: "Our story", labelKo: "우리의 이야기" },
-  { href: "/leadership", labelEn: "Our leadership", labelKo: "우리의 리더십" },
+  { href: "/about", labelEn: "Our Story", labelKo: "Our Story" },
+  { href: "/leadership", labelEn: "Our Leadership", labelKo: "Our Leadership" },
 ];
 
 export default function OurValuesPage() {
@@ -151,7 +151,7 @@ export default function OurValuesPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-6 py-16 md:py-20 lg:py-24 min-h-[460px] md:min-h-[560px] lg:min-h-[640px] flex flex-col justify-center">
           <div className="flex flex-col max-w-3xl 2xl:max-w-5xl">
             <span className="text-[11px] md:text-[12px] 2xl:text-[14px] tracking-[0.22em] uppercase font-medium text-[#495F2B]/85 mb-6">
-              {isKo ? "우리의 가치" : "Our Values"}
+              {isKo ? "Our Values" : "Our Values"}
             </span>
             <h1 className="text-[36px] sm:text-[44px] md:text-[56px] lg:text-[64px] 2xl:text-[80px] font-normal text-[#495F2B] leading-[1.1] tracking-[-0.01em] md:whitespace-nowrap">
               {isKo
@@ -160,7 +160,7 @@ export default function OurValuesPage() {
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl 2xl:max-w-2xl text-[15px] md:text-[17px] 2xl:text-[19px] text-[#111B12]/70 leading-[1.6]">
               {isKo
-                ? "고객을 대하는 방식, 일을 마무리하는 방식, 동료와 협업하는 방식 — 매일같이 우리가 돌아오는 다섯 가지 원칙입니다."
+                ? "고객을 대하는 방식부터 업무를 완성하는 기준, 그리고 서로를 대하는 태도까지 — 우리가 매일 돌아보는 다섯 가지 원칙입니다."
                 : "How we serve clients, how we finish work, how we treat each other — five principles we come back to every day."}
             </p>
           </div>

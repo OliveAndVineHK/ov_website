@@ -11,7 +11,7 @@
    the shared <Footer/> in app/layout.tsx and the InsightCards section below.
    ────────────────────────────────────────────────────────────── */
 
-import { useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/app/contexts/LanguageContext";
@@ -125,8 +125,26 @@ export default function TaxServicePage() {
   const heroTitle = isKo ? t.heroTitle.ko : t.heroTitle.en;
   const heroSubtitle = isKo ? t.heroSubtitle.ko : t.heroSubtitle.en;
 
-  /* Explainer copy */
-  const subAreas = [
+  /* Explainer copy. The Employer's Return sub-area hyperlinks the phrase
+     "HR Services" to the HR service page. */
+  const employerDetailRaw = isKo
+    ? t.employerReturnDescription.ko
+    : t.employerReturnDescription.en;
+  const [erBefore, erAfter = ""] = employerDetailRaw.split("HR Services");
+  const employerDetail: ReactNode = (
+    <>
+      {erBefore}
+      <Link
+        href="/hr-service"
+        className="text-[#495F2B] underline underline-offset-2 hover:text-[#648E3E] transition-colors"
+      >
+        HR Services
+      </Link>
+      {erAfter}
+    </>
+  );
+
+  const subAreas: { label: string; detail: ReactNode; items: string[] }[] = [
     {
       label: isKo ? t.profitsTaxTitle.ko : t.profitsTaxTitle.en,
       detail: isKo ? t.profitsTaxDescription.ko : t.profitsTaxDescription.en,
@@ -142,7 +160,120 @@ export default function TaxServicePage() {
       detail: isKo ? t.taxAdvisoryDescription.ko : t.taxAdvisoryDescription.en,
       items: isKo ? t.taxAdvisoryItems.ko : t.taxAdvisoryItems.en,
     },
+    {
+      label: isKo ? t.employerReturnTitle.ko : t.employerReturnTitle.en,
+      detail: employerDetail,
+      items: [] as string[],
+    },
   ];
+
+  /* Firm-wide compliance commitment — rendered as a closing note under the
+     explainer sub-areas (replaces the retired taxServiceIntro message). */
+  const complianceNote = isKo ? t.complianceNote.ko : t.complianceNote.en;
+
+  /* Calendar detail cards. In the "All" view (13 events) descriptions stay
+     collapsed and are revealed together via the "Expand all" control; when a
+     single category is selected the descriptions are shown by default (few
+     enough cards to read at once). Open state resets when the filter changes. */
+  const isAll = activeCategory === "all";
+  const [openCards, setOpenCards] = useState<Set<string>>(new Set());
+  const toggleCard = (id: string) => {
+    setFocusedCardId(null);
+    setOpenCards((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+  const allCardIds = filteredEvents.map(
+    (it, i) => `card-${it.category}-${it.monthIndex}-${i}`,
+  );
+  const allOpen =
+    allCardIds.length > 0 && allCardIds.every((id) => openCards.has(id));
+  const toggleAll = () => setOpenCards(allOpen ? new Set() : new Set(allCardIds));
+
+  /* Pill → card focus. Clicking a calendar-grid pill scrolls to its detail
+     card, expands it, and dims the other cards until the focus is cleared
+     (click the same pill again, toggle a card, or change the filter). */
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const calendarRef = useRef<HTMLDivElement | null>(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const [focusedCardId, setFocusedCardId] = useState<string | null>(null);
+  const [showBackToCalendar, setShowBackToCalendar] = useState(false);
+
+  /* Per-cell pill overflow. A month cell shows at most 3 pills; cells with
+     more (e.g. April in the "All" view) reveal the rest only when expanded. */
+  const [expandedMonths, setExpandedMonths] = useState<Set<number>>(new Set());
+  const toggleMonth = (idx: number) =>
+    setExpandedMonths((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else next.add(idx);
+      return next;
+    });
+
+  const focusEventCard = (ev: TaxEvent) => {
+    const index = filteredEvents.indexOf(ev);
+    if (index < 0) return;
+    const cardId = `card-${ev.category}-${ev.monthIndex}-${index}`;
+    if (focusedCardId === cardId) {
+      setFocusedCardId(null);
+      return;
+    }
+    setFocusedCardId(cardId);
+    // Only the focused card stays open — clicking another pill collapses the
+    // previous one so the list never piles up multiple open cards.
+    setOpenCards(new Set([cardId]));
+    requestAnimationFrame(() =>
+      cardRefs.current[cardId]?.scrollIntoView({ behavior: "smooth", block: "center" }),
+    );
+  };
+
+  /* "Back to calendar" — scrolls the calendar grid back into view and clears
+     the focus. Collapses the cards only when a card was focused (so it doesn't
+     undo a manual "Expand all"). */
+  const scrollToCalendar = () => {
+    if (focusedCardId) setOpenCards(new Set());
+    setFocusedCardId(null);
+    calendarRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  /* In the "All" view, show the back-to-calendar arrow once the grid is no
+     longer fully visible (the user has scrolled down past it), and keep it
+     until the calendar section itself scrolls out of view. The grid is
+     desktop-only (display:none below md), so its rect is empty on mobile and
+     the arrow stays off there. */
+  useEffect(() => {
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      if (!isAll) {
+        setShowBackToCalendar(false);
+        return;
+      }
+      const grid = gridRef.current;
+      const section = calendarRef.current;
+      if (!grid || !section) return;
+      const gridRect = grid.getBoundingClientRect();
+      const sectionRect = section.getBoundingClientRect();
+      const gridNotFullyVisible = gridRect.height > 0 && gridRect.top < 0;
+      const stillInSection = sectionRect.bottom > 80;
+      setShowBackToCalendar(gridNotFullyVisible && stillInSection);
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(check);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [isAll]);
 
   return (
     <ServiceAccentProvider serviceType="tax">
@@ -212,7 +343,7 @@ export default function TaxServicePage() {
                     href="/contact"
                     className="inline-flex items-center gap-2 text-[15px] text-white border border-white/50 rounded-full px-5 py-2 hover:bg-white hover:text-[#495F2B] hover:border-white transition-colors duration-300"
                   >
-                    {isKo ? "대화 시작하기" : "Start a conversation"}
+                    {isKo ? "문의하기" : "Start a conversation"}
                     <Icons.CgArrowTopRight className="size-4" aria-hidden />
                   </Link>
                 </div>
@@ -296,20 +427,30 @@ export default function TaxServicePage() {
                   {/* Left — eyebrow + heading */}
                   <div className="md:col-span-5">
                     <span className="block text-[16px] md:text-[18px] 2xl:text-[20px] font-semibold text-[#627F38] mb-4">
-                      {isKo ? "다루는 영역" : "What we handle"}
+                      {isKo ? "주요 업무 범위" : "What we handle"}
                     </span>
                     <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[32px] 2xl:text-[36px] font-normal text-[#111B12] leading-[1.25]">
                       {isKo
-                        ? "세 가지 영역, 하나의 관계."
-                        : "Three areas, one relationship."}
+                        ? "다양한 영역, 하나의 파트너십"
+                        : "Multiple areas, One Relationship"}
                     </h2>
                   </div>
                   {/* Right — short intro paragraph (matches consulting). */}
                   <div className="md:col-span-7 flex items-start">
-                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65]">
+                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65] whitespace-pre-line text-justify">
                       {isKo
-                        ? "홍콩 세무는 법인, 개인, 그리고 양쪽에 걸친 부동산까지 세 갈래로 동시에 흐릅니다. 신고와 절세, IRD 대응까지 같은 팀에서 같은 관점으로 처리해 드립니다."
-                        : "Hong Kong tax cuts across companies, individuals, and the property layer that touches both. We file returns, optimise positions, and represent you to the IRD — keeping all three views aligned to one client relationship."}
+                        ? `홍콩의 세무는 법인, 개인, 그리고 부동산까지 여러 영역에 걸쳐 있으며, 이들은 서로 맞물려 작용합니다.
+각 영역은 서로 다른 규정과 위험요소, 그리고 계획상의 고려사항을 가지지만, 실제로는 독립적으로 운영되기 어렵습니다.
+하나의 영역에서의 의사결정은 다른 영역에 직접적인 영향을 미칠 수 있어, 전체적인 정렬이 중요합니다.
+효과적인 세무 관리는 단순히 세금 부담을 줄이는 데에 그치지 않습니다.
+구조 전반과 시간의 흐름에 따른 영향을 함께 고려하는 종합적이고 미래지향적인 접근이 필요합니다.
+신고 업무를 수행하고, 세무 구조를 검토·최적화하며, 국세청(IRD) 대응까지 포함하여 이러한 세 가지 관점을 하나로 통합해 관리합니다.
+단순한 규제 준수를 넘어, 구조 전반에 대한 명확성을 제공함으로써 일관되고 충분한 정보에 기반한 의사결정을 하나의 고객 관계 안에서 지원합니다.`
+                        : `Hong Kong tax spans multiple dimensions — companies, individuals, and property. These dimensions often intersect.
+Each area carries its own rules, risks, and planning considerations, yet they rarely operate in isolation. Decisions in one area can have direct implications for another, making alignment essential.
+Effective tax management is not limited to reducing liabilities. It requires a holistic and forward‑looking approach, assessing implications across structures and over time.
+We handle filings, optimise positions, and represent you before the Inland Revenue Department, ensuring that all three perspectives are considered together.
+Our role is not only to manage compliance, but to bring clarity across structures, supporting consistent and well‑informed decision‑making within a single client relationship.`}
                     </p>
                   </div>
                 </div>
@@ -331,7 +472,7 @@ export default function TaxServicePage() {
                       <h3 className="text-[18px] md:text-[20px] 2xl:text-[22px] font-semibold text-[#495F2B] mb-3">
                         {area.label}
                       </h3>
-                      <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.6] mb-4">
+                      <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.6] mb-4 whitespace-pre-line text-justify">
                         {area.detail}
                       </p>
                       <ul className="flex flex-col gap-2.5 list-none pl-0">
@@ -349,6 +490,17 @@ export default function TaxServicePage() {
                     </div>
                   ))}
                 </ScrollLinkedStagger>
+              </div>
+
+              {/* Firm-wide compliance commitment — closing note aligned to
+                  the right reading column, mirroring the sub-area indent. */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 mt-12 md:mt-16">
+                <div className="hidden md:block md:col-span-5" aria-hidden />
+                <div className="md:col-span-7 border-t border-[#627F38]/30 pt-6">
+                  <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.7] whitespace-pre-line text-justify">
+                    {complianceNote}
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -371,7 +523,7 @@ export default function TaxServicePage() {
             ──────────────────────────────────────────────────────── */}
         <SectionReveal>
           <section className="w-full py-16 md:py-24 lg:py-28" style={{ backgroundColor: "#F0EEE2" }}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
+            <div ref={calendarRef} className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6 scroll-mt-24">
               <span className="block text-[16px] md:text-[18px] 2xl:text-[20px] font-semibold text-[#627F38] mb-3">
                 {isKo ? "연간 일정" : "Annual rhythm"}
               </span>
@@ -390,7 +542,12 @@ export default function TaxServicePage() {
                     <button
                       key={cat.key}
                       type="button"
-                      onClick={() => setActiveCategory(cat.key)}
+                      onClick={() => {
+                        setActiveCategory(cat.key);
+                        setOpenCards(new Set());
+                        setFocusedCardId(null);
+                        setExpandedMonths(new Set());
+                      }}
                       aria-pressed={isActive}
                       className="inline-flex items-center gap-1.5 text-[14px] sm:text-[15px] leading-none rounded-full border px-4 py-2 transition-colors duration-300 cursor-pointer"
                       style={
@@ -411,12 +568,16 @@ export default function TaxServicePage() {
                   each cell carries left + bottom — together they paint a
                   clean inner grid with no doubled lines. */}
               <div
+                ref={gridRef}
                 className="hidden md:block"
                 style={{ borderTop: "1px solid rgba(17,27,18,0.15)", borderRight: "1px solid rgba(17,27,18,0.15)" }}
               >
                 <div className="grid grid-cols-4 grid-rows-3">
                   {MONTHS.map((m, idx) => {
                     const monthEvents = eventsByMonth[idx] ?? [];
+                    const expanded = expandedMonths.has(idx);
+                    const shownEvents = expanded ? monthEvents : monthEvents.slice(0, 3);
+                    const hiddenCount = monthEvents.length - shownEvents.length;
                     return (
                       <div
                         key={idx}
@@ -436,19 +597,34 @@ export default function TaxServicePage() {
                           </span>
                         </span>
                         <div className="flex flex-col gap-2">
-                          {monthEvents.map((ev, i) => {
+                          {shownEvents.map((ev, i) => {
                             const cat = categoryByKey[ev.category];
                             const event = isKo ? ev.event.ko : ev.event.en;
                             return (
-                              <span
+                              <button
                                 key={i}
-                                className="inline-flex items-center justify-center text-center px-3 py-2 rounded-full text-[12px] leading-[1.3] font-medium"
+                                type="button"
+                                onClick={() => focusEventCard(ev)}
+                                className="inline-flex items-center justify-center text-center px-3 py-2 rounded-full text-[12px] leading-[1.3] font-medium cursor-pointer hover:opacity-90 transition-opacity"
                                 style={{ backgroundColor: cat?.color ?? "#627F38", color: cat?.fg ?? "#FFFFFF" }}
+                                aria-label={isKo ? `${event} 상세 보기` : `View ${event} details`}
                               >
                                 {event}
-                              </span>
+                              </button>
                             );
                           })}
+                          {/* Overflow control — a cell holds at most 3 pills; the
+                              rest reveal on click (e.g. April in the All view). */}
+                          {monthEvents.length > 3 && (
+                            <button
+                              type="button"
+                              onClick={() => toggleMonth(idx)}
+                              aria-expanded={expanded}
+                              className="inline-flex items-center justify-center gap-1 text-[11px] font-medium text-[#495F2B]/70 hover:text-[#495F2B] transition-colors cursor-pointer py-0.5"
+                            >
+                              {expanded ? (isKo ? "접기" : "Show less") : `+${hiddenCount} ···`}
+                            </button>
+                          )}
                         </div>
                       </div>
                     );
@@ -456,17 +632,43 @@ export default function TaxServicePage() {
                 </div>
               </div>
 
-              {/* Detail cards — always visible (this is the only way mobile
-                  visitors see the timeline). Numbered within the filter
-                  result; numbers reset when the filter changes. */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-10 md:mt-14">
+              {/* Expand-all control — only shown in the "All" view, where the
+                  descriptions are collapsed by default. */}
+              {isAll && filteredEvents.length > 0 && (
+                <div className="flex justify-end mt-10 md:mt-14">
+                  <button
+                    type="button"
+                    onClick={toggleAll}
+                    aria-expanded={allOpen}
+                    className="inline-flex items-center gap-1.5 text-[14px] sm:text-[15px] leading-none rounded-full border border-[#627F38] text-[#495F2B] px-4 py-2 hover:bg-[#627F38] hover:text-white transition-colors duration-300 cursor-pointer"
+                  >
+                    {allOpen
+                      ? isKo ? "모두 접기" : "Collapse all"
+                      : isKo ? "모두 펼치기" : "Expand all"}
+                  </button>
+                </div>
+              )}
+
+              {/* Detail cards. In the "All" view each description is collapsed
+                  and revealed via the control above (or by clicking a card);
+                  when a single category is selected the descriptions are shown
+                  by default. Numbered within the filter result. */}
+              <div
+                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-start ${
+                  isAll ? "mt-6 md:mt-8" : "mt-10 md:mt-14"
+                }`}
+              >
                 {filteredEvents.map((item, index) => {
                   const cat = categoryByKey[item.category];
                   const month = isKo ? item.month.ko : item.month.en;
                   const event = isKo ? item.event.ko : item.event.en;
                   const description = isKo ? item.description.ko : item.description.en;
-                  return (
-                    <div key={`card-${item.category}-${item.monthIndex}-${index}`} className="flex flex-col gap-3">
+                  const cardId = `card-${item.category}-${item.monthIndex}-${index}`;
+                  const showDesc = !isAll || openCards.has(cardId);
+                  const isFocused = focusedCardId === cardId;
+                  const isDimmed = focusedCardId !== null && !isFocused;
+                  const headerInner = (
+                    <>
                       <div className="flex items-center gap-3">
                         <span
                           aria-hidden
@@ -482,9 +684,39 @@ export default function TaxServicePage() {
                       <h3 className="text-[18px] md:text-[20px] 2xl:text-[22px] font-semibold text-[#111B12] leading-[1.3]">
                         {event}
                       </h3>
-                      <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.55]">
-                        {description}
-                      </p>
+                    </>
+                  );
+                  return (
+                    <div
+                      key={cardId}
+                      ref={(el) => {
+                        cardRefs.current[cardId] = el;
+                      }}
+                      className={`flex flex-col transition-all duration-500 ${
+                        isDimmed ? "opacity-[0.12]" : "opacity-100"
+                      } ${
+                        isFocused
+                          ? "outline outline-1 outline-[#627F38]/25 outline-offset-8 rounded-sm"
+                          : ""
+                      }`}
+                    >
+                      {isAll ? (
+                        <button
+                          type="button"
+                          onClick={() => toggleCard(cardId)}
+                          aria-expanded={showDesc}
+                          className="w-full flex flex-col gap-3 text-left cursor-pointer"
+                        >
+                          {headerInner}
+                        </button>
+                      ) : (
+                        <div className="flex flex-col gap-3">{headerInner}</div>
+                      )}
+                      {showDesc && (
+                        <p className="mt-3 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.55] whitespace-pre-line text-justify">
+                          {description}
+                        </p>
+                      )}
                     </div>
                   );
                 })}
@@ -523,7 +755,7 @@ export default function TaxServicePage() {
                 {isKo ? "관련 서비스" : "Related services"}
               </span>
               <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.15] mb-10 md:mb-12">
-                {isKo ? "함께 살펴보기" : "Explore alongside Tax"}
+                {isKo ? "연계된 다른 서비스" : "Explore alongside Tax"}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -567,6 +799,16 @@ export default function TaxServicePage() {
                   );
                 })}
               </div>
+
+              <div className="flex justify-end mt-10 md:mt-12">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed rounded-full border border-[#111B12]/50 px-5 py-1.5 hover:bg-[#436A1F] hover:border-[#436A1F] hover:text-white active:bg-[#648E3E] active:border-[#648E3E] transition-all duration-300 cursor-pointer shrink-0"
+                >
+                  {isKo ? servicesTranslations.button.ko : servicesTranslations.button.en}
+                  <Icons.CgArrowTopRight className="size-4" aria-hidden />
+                </Link>
+              </div>
             </div>
           </section>
         </SectionReveal>
@@ -598,6 +840,21 @@ export default function TaxServicePage() {
             />
           </div>
         </section>
+
+        {/* Back-to-calendar button — appears when a pill has focused a card,
+            OR (in the All view) once the grid has scrolled out of full view
+            and until the calendar section is left. Sits above the global
+            scroll-to-top FAB. No shadow (brand rule). */}
+        {(focusedCardId || showBackToCalendar) && (
+          <button
+            type="button"
+            onClick={scrollToCalendar}
+            aria-label={isKo ? "캘린더로 돌아가기" : "Back to calendar"}
+            className="fixed right-6 bottom-24 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#495F2B] text-white flex items-center justify-center hover:bg-[#627F38] transition-colors duration-300 cursor-pointer"
+          >
+            <Icons.BiSolidChevronUp className="size-6 md:size-7" aria-hidden />
+          </button>
+        )}
       </main>
     </ServiceAccentProvider>
   );

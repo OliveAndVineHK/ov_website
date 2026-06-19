@@ -126,7 +126,7 @@ export default function HrServicePage() {
                     href="/contact"
                     className="inline-flex items-center gap-2 text-[15px] text-white border border-white/50 rounded-full px-5 py-2 hover:bg-white hover:text-[#495F2B] hover:border-white transition-colors duration-300"
                   >
-                    {isKo ? "대화 시작하기" : "Start a conversation"}
+                    {isKo ? "문의하기" : "Start a conversation"}
                     <Icons.CgArrowTopRight className="size-4" aria-hidden />
                   </Link>
                 </div>
@@ -168,19 +168,19 @@ export default function HrServicePage() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 mb-10 md:mb-14">
                   <div className="md:col-span-5">
                     <span className="block text-[16px] md:text-[18px] 2xl:text-[20px] font-semibold text-[#627F38] mb-4">
-                      {isKo ? "다루는 영역" : "What we handle"}
+                      {isKo ? "주요 업무 범위" : "What we handle"}
                     </span>
                     <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[32px] 2xl:text-[36px] font-normal text-[#111B12] leading-[1.25]">
                       {isKo
-                        ? "급여, MPF, 비자까지 매월 반복되는 업무를 함께 처리합니다."
-                        : "Payroll, MPF, visas — the work that recurs each month."}
+                        ? "급여, MPF, 비자 — 매월 반복되는 핵심 노사 업무"
+                        : "Payroll, MPF, visas — the work that Recurs each Month"}
                     </h2>
                   </div>
                   <div className="md:col-span-7 flex items-start">
-                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65]">
+                    <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65] text-justify">
                       {isKo
-                        ? "홍콩에서 사람을 고용한다는 것은 노동법, 세무, 출입국 규정을 동시에 다룬다는 의미입니다. 어느 한 부분이 어긋나면 나머지도 흔들리기 때문에, 다섯 영역을 한 팀에서 일관되게 관리해 드립니다."
-                        : "Hiring in Hong Kong means handling labour law, tax, and immigration at the same time. Because one slip in any of them ripples into the others, we run all five areas from a single team."}
+                        ? "홍콩에서의 채용은 기업의 성장과 확장을 의미하는 중요한 이정표이자 의미 있는 변화의 시점입니다. 다만, 동시에 노동법, 세무, 이민 규제를 함께 고려해야 하는 복합적인 과정이기도 합니다. 이러한 영역들은 서로 긴밀하게 연결되어 있어, 하나의 오류가 다른 영역으로 영향을 미칠 수 있기 때문에 함께 체계적으로 관리하는것이 중요합니다."
+                        : "Hiring in Hong Kong is often an exciting milestone, reflecting a company's growth and expansion. At the same time, it involves managing labour law, tax, and immigration requirements concurrently. As each area is closely interconnected, we bring them together under one service to ensure consistency and control."}
                     </p>
                   </div>
                 </div>
@@ -262,7 +262,7 @@ export default function HrServicePage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
                 <div className="md:col-span-5">
-                  <div className="lg:sticky lg:top-24">
+                  <div>
                     <span className="block text-[16px] md:text-[18px] 2xl:text-[20px] font-semibold text-[#627F38] mb-3">
                       {isKo ? t.faq.title.ko : t.faq.title.en}
                     </span>
@@ -317,6 +317,16 @@ export default function HrServicePage() {
                     </Link>
                   );
                 })}
+              </div>
+
+              <div className="flex justify-end mt-10 md:mt-12">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-1.5 text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed rounded-full border border-[#111B12]/50 px-5 py-1.5 hover:bg-[#436A1F] hover:border-[#436A1F] hover:text-white active:bg-[#648E3E] active:border-[#648E3E] transition-all duration-300 cursor-pointer shrink-0"
+                >
+                  {isKo ? servicesTranslations.button.ko : servicesTranslations.button.en}
+                  <Icons.CgArrowTopRight className="size-4" aria-hidden />
+                </Link>
               </div>
             </div>
           </section>

@@ -7,6 +7,7 @@ import { useLanguage } from "@/app/contexts/LanguageContext";
 import { learnMoreTranslations, servicesTranslations } from "@/app/utils/pageUtils";
 import * as Icons from "@/app/utils/icons";
 import InsightsPagination from "@/app/components/InsightsPagination";
+import SectionReveal from "@/app/components/SectionReveal";
 import { InsightCardSubTags } from "@/app/components/InsightCards";
 import { INSIGHT_LIST_CARDS, type InsightCardDefinition } from "@/app/utils/insightCardsConfig";
 
@@ -40,14 +41,16 @@ export default function Insights() {
     return "";
   };
 
+  /* v2 (2026-06-04): "전체"/"All" renamed to "Latest"/"최신". When the
+     Latest tab is active (selectedFilter null) we show articles in
+     publish order — the source-of-truth array INSIGHT_LIST_CARDS is
+     assumed to be authored in publish order (newest first). The
+     previous alphabetical sort was removed per user. */
   const filteredCards = useMemo(() => {
     return INSIGHT_LIST_CARDS.filter((card) => {
       if (selectedFilter === null) return true;
       const expectedTagEn = getServiceTitleEn(selectedFilter);
       return expectedTagEn && card.tag.en === expectedTagEn;
-    }).sort((a, b) => {
-      if (selectedFilter !== null) return 0;
-      return (a.tag.en || "").localeCompare(b.tag.en || "", "en");
     });
   }, [selectedFilter]);
 
@@ -120,7 +123,7 @@ export default function Insights() {
               <div className={`w-full overflow-hidden transition-all duration-300 ${isFilterOpen ? "bg-white border border-[#111B12]/50 rounded-tr-[30px]" : "bg-white border border-[#111B12]/50 hover:rounded-tr-[30px]"}`}>
                 <button onClick={() => setIsFilterOpen(!isFilterOpen)} className="w-full p-3 sm:p-4 md:p-6 flex items-center justify-between cursor-pointer">
                   <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[20px] font-medium text-[#111B12]">
-                    {selectedFilter ? getServiceTitle(selectedFilter) : (language === "KOR" ? "전체" : "All")}
+                    {selectedFilter ? getServiceTitle(selectedFilter) : (language === "KOR" ? "최신" : "Latest")}
                   </span>
                   <div className="flex items-center justify-center shrink-0 w-[42px] h-[42px] rounded-full border border-[#888D88]">
                     <Icons.BiSolidChevronDown className={`w-5 h-5 text-[#888D88] transition-transform duration-200 ${isFilterOpen ? "rotate-180" : ""}`} />
@@ -131,7 +134,7 @@ export default function Insights() {
                     <>
                       <div className="border-t border-[#111B12]/30 w-full"></div>
                       <div className="p-3 sm:p-4 md:p-6 pt-3 sm:pt-4 md:pt-6 flex flex-col gap-2 sm:gap-3">
-                        <button onClick={() => { setSelectedFilter(null); setIsFilterOpen(false); }} className="text-left text-sm sm:text-base md:text-lg text-[#111B12] hover:text-[#495F2B] hover:underline transition-all duration-300 cursor-pointer">{language === "KOR" ? "전체" : "All"}</button>
+                        <button onClick={() => { setSelectedFilter(null); setIsFilterOpen(false); }} className="text-left text-sm sm:text-base md:text-lg text-[#111B12] hover:text-[#495F2B] hover:underline transition-all duration-300 cursor-pointer">{language === "KOR" ? "최신" : "Latest"}</button>
                         {filterItems.map((item) => (
                           <button key={item.key} onClick={() => { setSelectedFilter(item.translationKey); setIsFilterOpen(false); }} className="text-left text-sm sm:text-base md:text-lg text-[#111B12] hover:text-[#495F2B] hover:underline transition-all duration-300 cursor-pointer">{getServiceTitle(item.translationKey)}</button>
                         ))}
@@ -142,8 +145,20 @@ export default function Insights() {
               </div>
             </div>
             <div className="w-full md:w-2/3">
-              <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-                {pageCards.map((card, index) => renderCard(card, index))}
+              {/* Cards grid — key changes on filter/page so each set
+                  remounts. Each card is wrapped in SectionReveal so the
+                  rise/fade plays as it enters the viewport and reverses on
+                  scroll-up (bidirectional), consistent with the rest of the
+                  site. The two columns in a row get a small stagger. */}
+              <div
+                key={`${selectedFilter ?? "latest"}-${currentPage}`}
+                className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
+                {pageCards.map((card, index) => (
+                  <SectionReveal key={`${card.href}-${index}`} delay={(index % 2) * 80}>
+                    {renderCard(card, index)}
+                  </SectionReveal>
+                ))}
               </div>
               <InsightsPagination count={pageCount} page={currentPage} onPageChange={setCurrentPage} />
             </div>

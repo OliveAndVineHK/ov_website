@@ -22,6 +22,12 @@ interface SectionRevealProps {
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
+/* v6 (2026-06-16): global reveal-speed knob. Every reveal duration
+   (default or explicitly passed) is multiplied by REVEAL_SPEED so the
+   rise/fade is slow enough to be perceived while the user is still
+   scrolling. Tune this single number to retune the whole site. */
+const REVEAL_SPEED = 1.8;
+
 /* SectionReveal v5 (S4 — default visible) — 2026-06-04
    ─────────────────────────────────────────────────────────────────
 
@@ -88,42 +94,75 @@ export default function SectionReveal({
     }
   }, []);
 
-  /* When hidden, listen for scroll/resize/pageshow and reveal once
-     the element enters the viewport. */
+  /* v7 (2026-06-16): bidirectional reveal. The scroll listener stays
+     active for the component's whole life (not just while hidden) and
+     toggles `revealed` BOTH ways: revealed when the element is within /
+     above the trigger line, hidden again when it drops back below the
+     viewport. Scrolling down plays the reveal; scrolling back up reverses
+     it; scrolling down again replays it.
+
+     Fail-open is preserved: the trigger still flips to revealed whenever
+     the element is in view (so content never stays stuck hidden), and
+     reduced-motion users skip the listener entirely and stay visible. */
   useEffect(() => {
-    if (revealed) return;
     const el = ref.current;
     if (!el) return;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return; // reduced motion — always visible, no toggling
+    }
 
     let frame = 0;
     const check = () => {
       frame = 0;
       const rect = el.getBoundingClientRect();
       const viewH = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < viewH - 50) {
-        setRevealed(true);
-      }
+      // In view / scrolled past the top → revealed; still below → hidden.
+      setRevealed(rect.top < viewH - 50);
     };
     const onScroll = () => {
       if (frame) return;
       frame = requestAnimationFrame(check);
     };
 
+    /* Browser back/forward (and bfcache) restore the scroll position
+       AFTER this effect mounts, often without firing a scroll event. A
+       single mount-time check would read a stale position and leave the
+       reveal frozen. So we re-check across the first several animation
+       frames — the same restoration poll ScrollLinkedStagger uses — and
+       re-run that poll on pageshow (bfcache restore). */
+    let pollFrame = 0;
+    let restoreFrames = 0;
+    const restorePoll = () => {
+      check();
+      restoreFrames++;
+      if (restoreFrames < 8) pollFrame = requestAnimationFrame(restorePoll);
+      else pollFrame = 0;
+    };
+    const kickRestorePoll = () => {
+      restoreFrames = 0;
+      if (pollFrame) cancelAnimationFrame(pollFrame);
+      pollFrame = requestAnimationFrame(restorePoll);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    window.addEventListener("pageshow", onScroll);
+    window.addEventListener("pageshow", kickRestorePoll);
 
-    // Initial check in case the element became visible between
-    // useLayoutEffect and now (e.g., scroll restoration landing).
-    onScroll();
+    // Initial check + restoration poll (catches back/forward navigation).
+    check();
+    kickRestorePoll();
 
     return () => {
       if (frame) cancelAnimationFrame(frame);
+      if (pollFrame) cancelAnimationFrame(pollFrame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      window.removeEventListener("pageshow", onScroll);
+      window.removeEventListener("pageshow", kickRestorePoll);
     };
-  }, [revealed]);
+  }, []);
 
   /* Stagger children on transition to revealed. */
   useEffect(() => {
@@ -135,7 +174,7 @@ export default function SectionReveal({
       element.style.transition = "none";
       requestAnimationFrame(() => {
         const staggerDelay = delay + index * staggerStep;
-        const itemDuration = Math.max(300, duration);
+        const itemDuration = Math.round(Math.max(300, duration) * REVEAL_SPEED);
         element.style.transition = `opacity ${itemDuration}ms ease-out ${staggerDelay}ms, transform ${itemDuration}ms ease-out ${staggerDelay}ms`;
         element.style.opacity = "1";
         element.style.transform = "translateY(0)";
@@ -150,10 +189,11 @@ export default function SectionReveal({
       style={{
         opacity: revealed ? 1 : 0,
         transform: revealed ? "translateY(0)" : `translateY(${restY}px)`,
-        transition: revealed
-          ? `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`
-          : "none",
-        willChange: revealed ? undefined : "opacity, transform",
+        // Transition is applied in BOTH states so the reverse (revealed →
+        // hidden, on scroll-up) animates as smoothly as the reveal. The
+        // pre-paint mount hide (useLayoutEffect) avoids a first-frame flash.
+        transition: `opacity ${Math.round(duration * REVEAL_SPEED)}ms ease-out ${delay}ms, transform ${Math.round(duration * REVEAL_SPEED)}ms ease-out ${delay}ms`,
+        willChange: "opacity, transform",
       }}
     >
       {children}
