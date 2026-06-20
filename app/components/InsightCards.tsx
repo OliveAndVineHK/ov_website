@@ -27,6 +27,7 @@ import {
   MANDATORY_PROVIDENT_FUND_CARD,
   IR56_CARD,
   PLACEHOLDER_CARD,
+  INSIGHT_LIST_CARDS,
 } from "@/app/utils/insightCardsConfig";
 
 export type { InsightSubTag } from "@/app/utils/insightCardsConfig";
