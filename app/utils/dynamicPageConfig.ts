@@ -264,6 +264,26 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
       ko: ["인사이트", "Assurance", "홍콩의 법정감사"],
     },
   },
+  "insights/assurance/assurance-engagement-types": {
+    documentTitle: {
+      en: "Audit, Review, or Agreed-Upon Procedures?",
+      ko: "감사, 검토, 합의된 절차 — 어떤 보증을 선택할까요?",
+    },
+    pathSegments: {
+      en: ["Insights", "Assurance", "Choosing the Right Assurance Engagement"],
+      ko: ["인사이트", "Assurance", "적합한 보증 업무 선택하기"],
+    },
+  },
+  "insights/assurance/audit-readiness-checklist": {
+    documentTitle: {
+      en: "Preparing for Your First Audit",
+      ko: "첫 감사 준비하기",
+    },
+    pathSegments: {
+      en: ["Insights", "Assurance", "Audit-Readiness Checklist"],
+      ko: ["인사이트", "Assurance", "감사 대비 체크리스트"],
+    },
+  },
 };
 
 export function getDynamicPageKey(pathname: string): string {
