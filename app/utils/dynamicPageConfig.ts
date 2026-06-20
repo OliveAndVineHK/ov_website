@@ -284,6 +284,16 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
       ko: ["인사이트", "Assurance", "감사 대비 체크리스트"],
     },
   },
+  "insights/accounting/financial-statements-sme-hk": {
+    documentTitle: {
+      en: "Financial Statements for Hong Kong SMEs",
+      ko: "홍콩 중소기업의 재무제표",
+    },
+    pathSegments: {
+      en: ["Insights", "Accounting", "Financial Statements for Hong Kong SMEs"],
+      ko: ["인사이트", "회계", "홍콩 중소기업의 재무제표"],
+    },
+  },
 };
 
 export function getDynamicPageKey(pathname: string): string {
