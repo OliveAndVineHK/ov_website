@@ -131,6 +131,11 @@ export const subTagsByInsight = {
     { en: "Companies Ordinance", ko: "회사법" },
     { en: "Compliance", ko: "규정 준수" },
   ] as InsightSubTag[],
+  assuranceEngagementTypes: [
+    { en: "Audit", ko: "감사" },
+    { en: "Review", ko: "검토" },
+    { en: "AUP", ko: "AUP" },
+  ] as InsightSubTag[],
 };
 
 export const FIVE_STEPS_CARD: InsightCardDefinition = {
@@ -403,6 +408,16 @@ export const STATUTORY_AUDIT_HONG_KONG_CARD: InsightCardDefinition = {
   subTags: subTagsByInsight.statutoryAuditHongKong,
 };
 
+export const ASSURANCE_ENGAGEMENT_TYPES_CARD: InsightCardDefinition = {
+  image: "/insights/assurance-engagement-types.jpg",
+  alt: "Audit, review, or agreed-upon procedures — choosing the right assurance",
+  href: "/insights/assurance/assurance-engagement-types",
+  tag: { en: "Assurance", ko: "Assurance" },
+  title: { en: "Audit, Review, or Agreed-Upon Procedures?", ko: "감사, 검토, 합의된 절차 — 어떤 보증을 선택할까요?" },
+  description: { en: "", ko: "" },
+  subTags: subTagsByInsight.assuranceEngagementTypes,
+};
+
 export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
@@ -430,4 +445,5 @@ export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   ANNUAL_RETURN_COMPANIES_REGISTRY_CARD,
   PROPERTY_TAX_HONG_KONG_CARD,
   STATUTORY_AUDIT_HONG_KONG_CARD,
+  ASSURANCE_ENGAGEMENT_TYPES_CARD,
 ];
