@@ -72,6 +72,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
   const isHrEmployersReturnBir56a = normalizedTag === "hr" && slug === "employers-return-bir56a";
   const isCorporateServiceAnnualReturn = normalizedTag === "corporate-service" && slug === "annual-return-companies-registry";
   const isTaxPropertyTaxHongKong = normalizedTag === "tax" && slug === "property-tax-hong-kong";
+  const isAssuranceStatutoryAudit = normalizedTag === "assurance" && slug === "statutory-audit-hong-kong";
   const isAmendmentLayout = isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrMandatoryProvidentFund;
   const sectionLabel = (index: number) => (isAmendmentLayout || isTaxVat || isHrHybridWorkPerformance || isHrLeavePolicyExplanation ? "" : `${index + 1}. `);
   const translations = getInsightTranslations(tag, slug);
@@ -87,9 +88,9 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
         <>
           <section className="w-full relative overflow-hidden h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[480px]">
             <div className="absolute inset-0 w-full h-full z-0">
-              <Image src={isAmendment ? "/insights/amendment.jpg" : isIncorporation ? "/insights/incorporation.jpg" : isCorporateSecretary ? "/insights/corporate-secretary.jpg" : isHrTerminationRegulation ? "/insights/termination.jpg" : isHrHybridWorkPerformance ? "/insights/hybrid-work.jpg" : isHrLeavePolicyExplanation ? "/insights/leave-policy.jpg" : isHrMandatoryProvidentFund ? "/insights/mpf.jpg" : isHrIr56 ? "/insights/ir.jpg" : isHrTaxClearanceDeparting ? "/insights/tax-clearance.jpg" : isHrWithholdingObligationsDeparting ? "/insights/withholding-obligations.jpg" : isTaxTwoTieredSalariesTax ? "/insights/two-tiered-salaries-tax.jpg" : isHrEmployersReturnBir56a ? "/insights/employers-return-bir56a.jpg" : isCorporateServiceAnnualReturn ? "/insights/annual-return-companies-registry.jpg" : isTaxPropertyTaxHongKong ? "/insights/property-tax-hong-kong.jpg" : isIntroductionXero ? "/insights/introduction-xero.png" : isAccountingKnowledge ? "/insights/accounting-knowledge.jpg" : isTaxDividendLegalConsiderations ? "/insights/dividend.jpg" : isTaxVat ? "/insights/vat.jpg" : isTaxCorporateTax ? "/insights/corporate-tax.jpg" : isConsultingLegalConsiderationsMA ? "/insights/legal.jpg" : isConsultingDigitalTransformation ? "/insights/digital-transformation.jpg" : isConsultingDigitalTransformationUX ? "/insights/digital-ux.jpg" : isConsultingBigDataDriven ? "/insights/big-data.jpg" : isConsultingDigitalTransformationTVP ? "/insights/digital-trans.jpg" : "/insights/ai-automation.jpg"} alt="" fill className="object-cover object-center" priority />
+              <Image src={isAmendment ? "/insights/amendment.jpg" : isIncorporation ? "/insights/incorporation.jpg" : isCorporateSecretary ? "/insights/corporate-secretary.jpg" : isHrTerminationRegulation ? "/insights/termination.jpg" : isHrHybridWorkPerformance ? "/insights/hybrid-work.jpg" : isHrLeavePolicyExplanation ? "/insights/leave-policy.jpg" : isHrMandatoryProvidentFund ? "/insights/mpf.jpg" : isHrIr56 ? "/insights/ir.jpg" : isHrTaxClearanceDeparting ? "/insights/tax-clearance.jpg" : isHrWithholdingObligationsDeparting ? "/insights/withholding-obligations.jpg" : isTaxTwoTieredSalariesTax ? "/insights/two-tiered-salaries-tax.jpg" : isHrEmployersReturnBir56a ? "/insights/employers-return-bir56a.jpg" : isCorporateServiceAnnualReturn ? "/insights/annual-return-companies-registry.jpg" : isTaxPropertyTaxHongKong ? "/insights/property-tax-hong-kong.jpg" : isAssuranceStatutoryAudit ? "/insights/statutory-audit-hong-kong.jpg" : isIntroductionXero ? "/insights/introduction-xero.png" : isAccountingKnowledge ? "/insights/accounting-knowledge.jpg" : isTaxDividendLegalConsiderations ? "/insights/dividend.jpg" : isTaxVat ? "/insights/vat.jpg" : isTaxCorporateTax ? "/insights/corporate-tax.jpg" : isConsultingLegalConsiderationsMA ? "/insights/legal.jpg" : isConsultingDigitalTransformation ? "/insights/digital-transformation.jpg" : isConsultingDigitalTransformationUX ? "/insights/digital-ux.jpg" : isConsultingBigDataDriven ? "/insights/big-data.jpg" : isConsultingDigitalTransformationTVP ? "/insights/digital-trans.jpg" : "/insights/ai-automation.jpg"} alt="" fill className="object-cover object-center" priority />
             </div>
-            {(isIntroductionXero || isAccountingKnowledge || isAiBusinessAutomation || isTaxDividendLegalConsiderations || isTaxVat || isTaxCorporateTax || isConsultingLegalConsiderationsMA || isConsultingDigitalTransformation || isConsultingDigitalTransformationUX || isConsultingBigDataDriven || isConsultingDigitalTransformationTVP || isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrHybridWorkPerformance || isHrLeavePolicyExplanation || isHrMandatoryProvidentFund || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong) && <div className="absolute inset-0 w-full h-full z-[1] bg-black/50" aria-hidden />}
+            {(isIntroductionXero || isAccountingKnowledge || isAiBusinessAutomation || isTaxDividendLegalConsiderations || isTaxVat || isTaxCorporateTax || isConsultingLegalConsiderationsMA || isConsultingDigitalTransformation || isConsultingDigitalTransformationUX || isConsultingBigDataDriven || isConsultingDigitalTransformationTVP || isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrHybridWorkPerformance || isHrLeavePolicyExplanation || isHrMandatoryProvidentFund || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong || isAssuranceStatutoryAudit) && <div className="absolute inset-0 w-full h-full z-[1] bg-black/50" aria-hidden />}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 flex flex-col items-start justify-center h-full pt-6 sm:pt-8 md:pt-12 lg:pt-16 pb-6 sm:pb-8">
               <span className="text-sm sm:text-base md:text-lg lg:text-[20px] text-white/80 mb-1.5 sm:mb-2 md:mb-3 lg:mb-4">{heroTag}</span>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px] font-base text-white mb-1.5 sm:mb-2 md:mb-2.5 lg:mb-3 leading-tight sm:leading-tight md:leading-tight [&_br]:block [&_br]:-mt-0.5 sm:[&_br]:-mt-1 md:[&_br]:-mt-1.5 lg:[&_br]:-mt-2" dangerouslySetInnerHTML={{ __html: pageTitle }} />
@@ -247,6 +248,10 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                   ) : isTaxPropertyTaxHongKong ? (
                     <div className="w-full relative h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] mb-4 sm:mb-5 md:mb-6">
                       <Image src="/insights/property-tax-hk-bg.jpg" alt={language === "KOR" ? translations.aiTaskAutomation.ko : translations.aiTaskAutomation.en} fill className="object-cover" />
+                    </div>
+                  ) : isAssuranceStatutoryAudit ? (
+                    <div className="w-full relative h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] mb-4 sm:mb-5 md:mb-6">
+                      <Image src="/insights/statutory-audit-hk-bg.jpg" alt={language === "KOR" ? translations.aiTaskAutomation.ko : translations.aiTaskAutomation.en} fill className="object-cover" />
                     </div>
                   ) : (
                   <div className="w-full relative h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] mb-4 sm:mb-5 md:mb-6">
@@ -781,6 +786,68 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                       {"section5RestorationNote" in translations && (
                         <div className="border-l-4 border-[#627F38] pl-4 py-2 mb-5 sm:mb-6">
                           <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed text-justify">{language === "KOR" ? (translations as { section5RestorationNote: { en: string; ko: string } }).section5RestorationNote.ko : (translations as { section5RestorationNote: { en: string; ko: string } }).section5RestorationNote.en}</p>
+                        </div>
+                      )}
+                    </>
+                  )}
+                  {/* Shared Assurance block (Pattern B, generic s1–s5 schema). Any assurance-tagged
+                      article using the s1Title schema renders here — A/B/C reuse it, no per-article edits. */}
+                  {normalizedTag === "assurance" && "s1Title" in translations && (
+                    <>
+                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { s1Title: { en: string; ko: string } }).s1Title.ko : (translations as { s1Title: { en: string; ko: string } }).s1Title.en}</h3>
+
+                      {([["s2Title","s2Intro",["s2a","s2b","s2c","s2d"]],["s3Title","s3IntroDescription",["s3a","s3b","s3c","s3d"]],["s4Title","s4Intro",["s4a","s4b","s4c","s4d"]],["s5Title","s5IntroDescription",["s5a","s5b","s5c","s5d"]]] as [string,string,string[]][]).map(([titleKey, introKey, subs], si) => (
+                        titleKey in translations ? (
+                          <div key={si}>
+                            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as unknown as Record<string, { en: string; ko: string }>)[titleKey].ko : (translations as unknown as Record<string, { en: string; ko: string }>)[titleKey].en}</h3>
+                            {introKey in translations && <p className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed text-justify mb-3">{language === "KOR" ? (translations as unknown as Record<string, { en: string; ko: string }>)[introKey].ko : (translations as unknown as Record<string, { en: string; ko: string }>)[introKey].en}</p>}
+                            {(() => { const itemsKey = titleKey.replace("Title", "Items"); return itemsKey in translations && Array.isArray((translations as unknown as Record<string, { en: string; ko: string }[]>)[itemsKey]) ? (
+                              <div className="pl-8 sm:pl-10 md:pl-12 space-y-2 mb-4">
+                                {((translations as unknown as Record<string, { en: string; ko: string }[]>)[itemsKey]).map((item, i) => (
+                                  <p key={i} className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed"><span className="inline-block mr-2">•</span>{language === "KOR" ? item.ko : item.en}</p>
+                                ))}
+                              </div>
+                            ) : null; })()}
+                            {subs.map((sub) => (
+                              `${sub}Title` in translations ? (
+                                <div key={sub}>
+                                  <h4 className="text-sm sm:text-base md:text-lg lg:text-[18px] xl:text-[16px] font-semibold text-[#333333] pl-4 sm:pl-5 md:pl-6 mb-2">{language === "KOR" ? (translations as unknown as Record<string, { en: string; ko: string }>)[`${sub}Title`].ko : (translations as unknown as Record<string, { en: string; ko: string }>)[`${sub}Title`].en}</h4>
+                                  {`${sub}Description` in translations && <p className="text-sm sm:text-base md:text-lg lg:text-[18px] text-[#111B12] leading-relaxed text-justify pl-8 sm:pl-10 md:pl-12 mb-4 sm:mb-5 md:mb-6">{language === "KOR" ? (translations as unknown as Record<string, { en: string; ko: string }>)[`${sub}Description`].ko : (translations as unknown as Record<string, { en: string; ko: string }>)[`${sub}Description`].en}</p>}
+                                </div>
+                              ) : null
+                            ))}
+                          </div>
+                        ) : null
+                      ))}
+
+                      {"tableTitle" in translations && (
+                        <h4 className="text-sm sm:text-base md:text-lg lg:text-[18px] xl:text-[16px] font-semibold text-[#333333] pl-4 sm:pl-5 md:pl-6 mb-2">{language === "KOR" ? (translations as { tableTitle: { en: string; ko: string } }).tableTitle.ko : (translations as { tableTitle: { en: string; ko: string } }).tableTitle.en}</h4>
+                      )}
+                      {"tableHeaders" in translations && Array.isArray((translations as { tableHeaders?: { en: string; ko: string }[] }).tableHeaders) && Array.isArray((translations as { tableRows?: { en: string; ko: string }[][] }).tableRows) && (
+                        <div className="pl-8 sm:pl-10 md:pl-12 mb-5 sm:mb-6 overflow-x-auto">
+                          <table className="w-full text-sm sm:text-base border-collapse">
+                            <thead>
+                              <tr className="border-b border-gray-300">
+                                {((translations as unknown as { tableHeaders: { en: string; ko: string }[] }).tableHeaders).map((h, i) => (
+                                  <th key={i} className="text-left py-2 pr-4 font-semibold text-[#333333] align-top">{language === "KOR" ? h.ko : h.en}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {((translations as unknown as { tableRows: { en: string; ko: string }[][] }).tableRows).map((row, ri) => (
+                                <tr key={ri} className="border-b border-gray-200">
+                                  {row.map((cell, ci) => (
+                                    <td key={ci} className="py-2 pr-4 text-[#111B12] align-top">{language === "KOR" ? cell.ko : cell.en}</td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                      {"s5Note" in translations && (
+                        <div className="border-l-4 border-[#627F38] pl-4 py-2 mb-5 sm:mb-6">
+                          <p className="text-sm sm:text-base md:text-lg text-[#111B12] leading-relaxed">{language === "KOR" ? (translations as { s5Note: { en: string; ko: string } }).s5Note.ko : (translations as { s5Note: { en: string; ko: string } }).s5Note.en}</p>
                         </div>
                       )}
                     </>
@@ -1984,7 +2051,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                   )}
                   </>
                   )}
-                  {"conclusionTitle" in translations && !isHrIr56 && !isHrTaxClearanceDeparting && !isHrWithholdingObligationsDeparting && !isTaxTwoTieredSalariesTax && !isHrEmployersReturnBir56a && !isCorporateServiceAnnualReturn && !isTaxPropertyTaxHongKong && (
+                  {"conclusionTitle" in translations && !isHrIr56 && !isHrTaxClearanceDeparting && !isHrWithholdingObligationsDeparting && !isTaxTwoTieredSalariesTax && !isHrEmployersReturnBir56a && !isCorporateServiceAnnualReturn && !isTaxPropertyTaxHongKong && !isAssuranceStatutoryAudit && (
                     <>
                       <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.ko : (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.en}</h3>
                       {"conclusionDescription" in translations && (
@@ -2624,7 +2691,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                     )}
                   </>
                 )}
-                {(isAmendmentLayout || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong) && "conclusionTitle" in translations && (
+                {(isAmendmentLayout || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong || isAssuranceStatutoryAudit) && "conclusionTitle" in translations && (
                   <>
                     <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.ko : (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.en}</h3>
                     {"conclusionDescription" in translations && (

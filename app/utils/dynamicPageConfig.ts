@@ -254,6 +254,16 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
       ko: ["인사이트", "세무", "홍콩의 재산세"],
     },
   },
+  "insights/assurance/statutory-audit-hong-kong": {
+    documentTitle: {
+      en: "Statutory Audit in Hong Kong",
+      ko: "홍콩의 법정감사",
+    },
+    pathSegments: {
+      en: ["Insights", "Assurance", "Statutory Audit in Hong Kong"],
+      ko: ["인사이트", "Assurance", "홍콩의 법정감사"],
+    },
+  },
 };
 
 export function getDynamicPageKey(pathname: string): string {
