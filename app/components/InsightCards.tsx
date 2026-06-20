@@ -9,21 +9,13 @@ import {
   type InsightCardDefinition,
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
-  ACCOUNTING_KNOWLEDGE_CARD,
   AMENDMENT_CARD,
   INCORPORATION_CARD,
   CORPORATE_SECRETARY_CARD,
   DIVIDEND_LEGAL_CONSIDERATIONS_CARD,
-  VAT_CARD,
-  CORPORATE_TAX_CARD,
-  DIGITAL_TRANSFORMATION_EFFICIENCY_CARD,
-  DIGITAL_TRANSFORMATION_UX_CARD,
   BIG_DATA_DRIVEN_CARD,
   DIGITAL_TRANSFORMATION_TVP_CARD,
   LEGAL_CONSIDERATIONS_MA_CARD,
-  TERMINATION_REGULATION_CARD,
-  HYBRID_WORK_PERFORMANCE_CARD,
-  LEAVE_POLICY_EXPLANATION_CARD,
   MANDATORY_PROVIDENT_FUND_CARD,
   IR56_CARD,
   PLACEHOLDER_CARD,
@@ -133,16 +125,11 @@ export default function InsightCards({
     isPlaceholder: false,
   });
 
-  /** All service insight cards — used for tag-based filtering */
-  const ALL_CARD_DEFS = [
-    FIVE_STEPS_CARD, INTRODUCTION_XERO_CARD, ACCOUNTING_KNOWLEDGE_CARD, AMENDMENT_CARD,
-    INCORPORATION_CARD, CORPORATE_SECRETARY_CARD, DIVIDEND_LEGAL_CONSIDERATIONS_CARD,
-    VAT_CARD, CORPORATE_TAX_CARD, DIGITAL_TRANSFORMATION_EFFICIENCY_CARD,
-    DIGITAL_TRANSFORMATION_UX_CARD, BIG_DATA_DRIVEN_CARD, DIGITAL_TRANSFORMATION_TVP_CARD,
-    LEGAL_CONSIDERATIONS_MA_CARD, TERMINATION_REGULATION_CARD, HYBRID_WORK_PERFORMANCE_CARD,
-    LEAVE_POLICY_EXPLANATION_CARD, MANDATORY_PROVIDENT_FUND_CARD, IR56_CARD,
-  ] as const;
-  const allServiceCards: InsightCardData[] = ALL_CARD_DEFS.map(toCard);
+  /** All published insight cards, NEWEST-FIRST. INSIGHT_LIST_CARDS is the single source of truth
+      (appended oldest → newest as articles are published), so reversing it gives latest-first.
+      The service "Learn more" section filters this by tag, so each service automatically shows its
+      three most recent articles and updates the moment a new one is added — no edits here needed. */
+  const allServiceCards: InsightCardData[] = [...INSIGHT_LIST_CARDS].reverse().map(toCard);
   const servicePlaceholder = (): InsightCardData => ({
     ...PLACEHOLDER_CARD,
     tag: tagOverride ?? tag,
@@ -153,9 +140,9 @@ export default function InsightCards({
   const cardsFilteredByTag =
     tagOverride != null
       ? (() => {
+          // newest-first matches for this service; show up to 3, pad with "Coming soon" if fewer
           const matched = allServiceCards.filter((c) => c.tag.en === tagOverride.en);
-          if (matched.length === 0) return [servicePlaceholder(), servicePlaceholder(), servicePlaceholder()];
-          const pad = 3 - matched.length;
+          const pad = Math.max(0, 3 - matched.length);
           return [...matched.slice(0, 3), ...Array.from({ length: pad }, servicePlaceholder)];
         })()
       : null;
