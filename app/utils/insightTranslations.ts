@@ -22,6 +22,7 @@ import { hrWithholdingObligationsDepartingEmployeesTranslations } from "./insigh
 import { taxTwoTieredSalariesTaxTranslations } from "./insights/tax-two-tiered-salaries-tax";
 import { hrEmployersReturnBir56aTranslations } from "./insights/hr-employers-return-bir56a";
 import { corporateServiceAnnualReturnCompaniesRegistryTranslations } from "./insights/corporate-service-annual-return-companies-registry";
+import { taxPropertyTaxHongKongTranslations } from "./insights/tax-property-tax-hong-kong";
 /**
  * Template for insight/news detail pages. Any (tag, slug) with a registered translation
  * module gets the full layout (hero, share buttons, Back to insights, content sections, FAQ, contact).
@@ -53,6 +54,7 @@ const INSIGHT_KEY_HR_WITHHOLDING_OBLIGATIONS_DEPARTING = "hr/withholding-obligat
 const INSIGHT_KEY_TAX_TWO_TIERED_SALARIES_TAX = "tax/two-tiered-salaries-tax";
 const INSIGHT_KEY_HR_EMPLOYERS_RETURN_BIR56A = "hr/employers-return-bir56a";
 const INSIGHT_KEY_CORPORATE_SERVICE_ANNUAL_RETURN = "corporate-service/annual-return-companies-registry";
+const INSIGHT_KEY_TAX_PROPERTY_TAX_HONG_KONG = "tax/property-tax-hong-kong";
 
 export function getInsightTranslations(tag: string, slug: string) {
   const key = `${tag.toLowerCase()}/${slug}`;
@@ -128,6 +130,9 @@ export function getInsightTranslations(tag: string, slug: string) {
   if (key === INSIGHT_KEY_CORPORATE_SERVICE_ANNUAL_RETURN) {
     return corporateServiceAnnualReturnCompaniesRegistryTranslations;
   }
+  if (key === INSIGHT_KEY_TAX_PROPERTY_TAX_HONG_KONG) {
+    return taxPropertyTaxHongKongTranslations;
+  }
   return null;
 }
 
@@ -155,3 +160,4 @@ export { hrWithholdingObligationsDepartingEmployeesTranslations } from "./insigh
 export { taxTwoTieredSalariesTaxTranslations } from "./insights/tax-two-tiered-salaries-tax";
 export { hrEmployersReturnBir56aTranslations } from "./insights/hr-employers-return-bir56a";
 export { corporateServiceAnnualReturnCompaniesRegistryTranslations } from "./insights/corporate-service-annual-return-companies-registry";
+export { taxPropertyTaxHongKongTranslations } from "./insights/tax-property-tax-hong-kong";
