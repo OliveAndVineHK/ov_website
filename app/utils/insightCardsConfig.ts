@@ -136,6 +136,11 @@ export const subTagsByInsight = {
     { en: "Review", ko: "검토" },
     { en: "AUP", ko: "AUP" },
   ] as InsightSubTag[],
+  auditReadinessChecklist: [
+    { en: "Audit", ko: "감사" },
+    { en: "Readiness", ko: "준비" },
+    { en: "Bookkeeping", ko: "부기" },
+  ] as InsightSubTag[],
 };
 
 export const FIVE_STEPS_CARD: InsightCardDefinition = {
@@ -418,6 +423,16 @@ export const ASSURANCE_ENGAGEMENT_TYPES_CARD: InsightCardDefinition = {
   subTags: subTagsByInsight.assuranceEngagementTypes,
 };
 
+export const AUDIT_READINESS_CHECKLIST_CARD: InsightCardDefinition = {
+  image: "/insights/audit-readiness-checklist.jpg",
+  alt: "Preparing for your first audit — an audit-readiness checklist",
+  href: "/insights/assurance/audit-readiness-checklist",
+  tag: { en: "Assurance", ko: "Assurance" },
+  title: { en: "Preparing for Your First Audit", ko: "첫 감사 준비하기" },
+  description: { en: "", ko: "" },
+  subTags: subTagsByInsight.auditReadinessChecklist,
+};
+
 export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
@@ -446,4 +461,5 @@ export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   PROPERTY_TAX_HONG_KONG_CARD,
   STATUTORY_AUDIT_HONG_KONG_CARD,
   ASSURANCE_ENGAGEMENT_TYPES_CARD,
+  AUDIT_READINESS_CHECKLIST_CARD,
 ];

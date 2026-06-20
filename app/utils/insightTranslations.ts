@@ -25,6 +25,7 @@ import { corporateServiceAnnualReturnCompaniesRegistryTranslations } from "./ins
 import { taxPropertyTaxHongKongTranslations } from "./insights/tax-property-tax-hong-kong";
 import { assuranceStatutoryAuditHongKongTranslations } from "./insights/assurance-statutory-audit-hong-kong";
 import { assuranceEngagementTypesTranslations } from "./insights/assurance-engagement-types";
+import { assuranceAuditReadinessChecklistTranslations } from "./insights/assurance-audit-readiness-checklist";
 /**
  * Template for insight/news detail pages. Any (tag, slug) with a registered translation
  * module gets the full layout (hero, share buttons, Back to insights, content sections, FAQ, contact).
@@ -59,6 +60,7 @@ const INSIGHT_KEY_CORPORATE_SERVICE_ANNUAL_RETURN = "corporate-service/annual-re
 const INSIGHT_KEY_TAX_PROPERTY_TAX_HONG_KONG = "tax/property-tax-hong-kong";
 const INSIGHT_KEY_ASSURANCE_STATUTORY_AUDIT = "assurance/statutory-audit-hong-kong";
 const INSIGHT_KEY_ASSURANCE_ENGAGEMENT_TYPES = "assurance/assurance-engagement-types";
+const INSIGHT_KEY_ASSURANCE_AUDIT_READINESS = "assurance/audit-readiness-checklist";
 
 export function getInsightTranslations(tag: string, slug: string) {
   const key = `${tag.toLowerCase()}/${slug}`;
@@ -143,6 +145,9 @@ export function getInsightTranslations(tag: string, slug: string) {
   if (key === INSIGHT_KEY_ASSURANCE_ENGAGEMENT_TYPES) {
     return assuranceEngagementTypesTranslations;
   }
+  if (key === INSIGHT_KEY_ASSURANCE_AUDIT_READINESS) {
+    return assuranceAuditReadinessChecklistTranslations;
+  }
   return null;
 }
 
@@ -173,3 +178,4 @@ export { corporateServiceAnnualReturnCompaniesRegistryTranslations } from "./ins
 export { taxPropertyTaxHongKongTranslations } from "./insights/tax-property-tax-hong-kong";
 export { assuranceStatutoryAuditHongKongTranslations } from "./insights/assurance-statutory-audit-hong-kong";
 export { assuranceEngagementTypesTranslations } from "./insights/assurance-engagement-types";
+export { assuranceAuditReadinessChecklistTranslations } from "./insights/assurance-audit-readiness-checklist";
