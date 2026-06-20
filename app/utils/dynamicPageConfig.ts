@@ -244,6 +244,16 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
       ko: ["인사이트", "기업 서비스", "연간 보고서 제출(NAR1)"],
     },
   },
+  "insights/tax/property-tax-hong-kong": {
+    documentTitle: {
+      en: "Property Tax in Hong Kong",
+      ko: "홍콩의 재산세",
+    },
+    pathSegments: {
+      en: ["Insights", "Tax", "Property Tax in Hong Kong"],
+      ko: ["인사이트", "세무", "홍콩의 재산세"],
+    },
+  },
 };
 
 export function getDynamicPageKey(pathname: string): string {
