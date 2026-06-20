@@ -126,6 +126,11 @@ export const subTagsByInsight = {
     { en: "Rental Income", ko: "임대 소득" },
     { en: "Profits Tax", ko: "이익세" },
   ] as InsightSubTag[],
+  statutoryAuditHongKong: [
+    { en: "Audit", ko: "감사" },
+    { en: "Companies Ordinance", ko: "회사법" },
+    { en: "Compliance", ko: "규정 준수" },
+  ] as InsightSubTag[],
 };
 
 export const FIVE_STEPS_CARD: InsightCardDefinition = {
@@ -388,6 +393,16 @@ export const PROPERTY_TAX_HONG_KONG_CARD: InsightCardDefinition = {
   subTags: subTagsByInsight.propertyTaxHongKong,
 };
 
+export const STATUTORY_AUDIT_HONG_KONG_CARD: InsightCardDefinition = {
+  image: "/insights/statutory-audit-hong-kong.jpg",
+  alt: "Statutory Audit in Hong Kong",
+  href: "/insights/assurance/statutory-audit-hong-kong",
+  tag: { en: "Assurance", ko: "Assurance" },
+  title: { en: "Statutory Audit in Hong Kong", ko: "홍콩의 법정감사" },
+  description: { en: "", ko: "" },
+  subTags: subTagsByInsight.statutoryAuditHongKong,
+};
+
 export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
@@ -414,4 +429,5 @@ export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   EMPLOYERS_RETURN_BIR56A_CARD,
   ANNUAL_RETURN_COMPANIES_REGISTRY_CARD,
   PROPERTY_TAX_HONG_KONG_CARD,
+  STATUTORY_AUDIT_HONG_KONG_CARD,
 ];
