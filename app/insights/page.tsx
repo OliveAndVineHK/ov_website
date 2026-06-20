@@ -41,21 +41,27 @@ export default function Insights() {
     return "";
   };
 
-  /* v2 (2026-06-04): "전체"/"All" renamed to "Latest"/"최신". When the
-     Latest tab is active (selectedFilter null) we show articles in
-     publish order — the source-of-truth array INSIGHT_LIST_CARDS is
-     assumed to be authored in publish order (newest first). The
-     previous alphabetical sort was removed per user. */
+  /* v3 (2026-06-20): "전체"/"All" renamed to "Latest"/"최신". INSIGHT_LIST_CARDS
+     is authored in publish order (oldest → newest; the pipeline appends each new
+     article at the END of the array). We reverse for display so the NEWEST
+     article always appears first — in the Latest tab and in every category
+     filter. Future appends therefore show up in the first block automatically.
+     (The previous alphabetical sort was removed per user; do not re-add it.) */
   const filteredCards = useMemo(() => {
-    return INSIGHT_LIST_CARDS.filter((card) => {
+    const matched = INSIGHT_LIST_CARDS.filter((card) => {
       if (selectedFilter === null) return true;
       const expectedTagEn = getServiceTitleEn(selectedFilter);
       return expectedTagEn && card.tag.en === expectedTagEn;
     });
+    return matched.reverse(); // newest first (array is oldest → newest)
   }, [selectedFilter]);
 
   const CARDS_PER_PAGE = 4;
-  const pageCount = Math.max(1, Math.ceil(filteredCards.length / CARDS_PER_PAGE));
+  /* Pagination is hard-capped at 6 pages: the page numbers never exceed 6 even
+     as more articles are added. With newest-first ordering, the 6 most-recent
+     pages are reachable; older articles beyond that are not listed. */
+  const MAX_PAGES = 6;
+  const pageCount = Math.min(MAX_PAGES, Math.max(1, Math.ceil(filteredCards.length / CARDS_PER_PAGE)));
   const [currentPage, setCurrentPage] = useState(1);
   const pageCards = useMemo(() => {
     const start = (currentPage - 1) * CARDS_PER_PAGE;
