@@ -216,7 +216,21 @@ export default function InsightCards({
     placeholderPageCard("/home/sa-2.png", "Coming soon 5"),
     placeholderPageCard("/home/sa-3.png", "Coming soon 6"),
   ];
-  const allPages = [cards, page1Cards, page2Cards];
+  // Service "Learn more" carousel: fill ALL three pages (up to 9 article links) from this
+  // service's own articles, newest-first, padding with "Coming soon" only where there aren't
+  // enough yet. New articles shift in from the front automatically; past 9, users continue via
+  // the "All insights" button. Non-service usages (home, etc.) keep the manual pages below.
+  const servicePages =
+    tagOverride != null
+      ? (() => {
+          const matched = allServiceCards.filter((c) => c.tag.en === tagOverride.en);
+          const TOTAL = 9;
+          const slots = matched.slice(0, TOTAL);
+          const padded = [...slots, ...Array.from({ length: Math.max(0, TOTAL - slots.length) }, servicePlaceholder)];
+          return [padded.slice(0, 3), padded.slice(3, 6), padded.slice(6, 9)];
+        })()
+      : null;
+  const allPages = servicePages ?? [cards, page1Cards, page2Cards];
 
   return (
     <Carousel
