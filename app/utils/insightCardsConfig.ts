@@ -141,6 +141,11 @@ export const subTagsByInsight = {
     { en: "Readiness", ko: "준비" },
     { en: "Bookkeeping", ko: "부기" },
   ] as InsightSubTag[],
+  financialStatementsSmeHk: [
+    { en: "Financial Statements", ko: "재무제표" },
+    { en: "HKFRS / SME-FRS", ko: "HKFRS / SME-FRS" },
+    { en: "SME", ko: "중소기업" },
+  ] as InsightSubTag[],
 };
 
 export const FIVE_STEPS_CARD: InsightCardDefinition = {
@@ -433,6 +438,16 @@ export const AUDIT_READINESS_CHECKLIST_CARD: InsightCardDefinition = {
   subTags: subTagsByInsight.auditReadinessChecklist,
 };
 
+export const FINANCIAL_STATEMENTS_SME_HK_CARD: InsightCardDefinition = {
+  image: "/insights/financial-statements-sme-hk.jpg",
+  alt: "Financial statements for Hong Kong SMEs",
+  href: "/insights/accounting/financial-statements-sme-hk",
+  tag: { en: "Accounting", ko: "회계" },
+  title: { en: "Financial Statements for Hong Kong SMEs", ko: "홍콩 중소기업의 재무제표" },
+  description: { en: "", ko: "" },
+  subTags: subTagsByInsight.financialStatementsSmeHk,
+};
+
 export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
@@ -462,4 +477,5 @@ export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   STATUTORY_AUDIT_HONG_KONG_CARD,
   ASSURANCE_ENGAGEMENT_TYPES_CARD,
   AUDIT_READINESS_CHECKLIST_CARD,
+  FINANCIAL_STATEMENTS_SME_HK_CARD,
 ];

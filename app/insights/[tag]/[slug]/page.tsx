@@ -73,6 +73,10 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
   const isCorporateServiceAnnualReturn = normalizedTag === "corporate-service" && slug === "annual-return-companies-registry";
   const isTaxPropertyTaxHongKong = normalizedTag === "tax" && slug === "property-tax-hong-kong";
   const isAssurance = normalizedTag === "assurance"; // all assurance articles share one render path; images = /insights/<slug>.jpg and <slug>-bg.jpg
+  // Articles that render via the shared generic Pattern B block (s1Title…s5 schema) with
+  // slug-based images (/insights/<slug>.jpg + <slug>-bg.jpg). All assurance articles qualify;
+  // individual articles in other categories opt in by slug.
+  const isSharedPatternB = isAssurance || (normalizedTag === "accounting" && slug === "financial-statements-sme-hk");
   const isAmendmentLayout = isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrMandatoryProvidentFund;
   const sectionLabel = (index: number) => (isAmendmentLayout || isTaxVat || isHrHybridWorkPerformance || isHrLeavePolicyExplanation ? "" : `${index + 1}. `);
   const translations = getInsightTranslations(tag, slug);
@@ -88,9 +92,9 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
         <>
           <section className="w-full relative overflow-hidden h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[480px]">
             <div className="absolute inset-0 w-full h-full z-0">
-              <Image src={isAmendment ? "/insights/amendment.jpg" : isIncorporation ? "/insights/incorporation.jpg" : isCorporateSecretary ? "/insights/corporate-secretary.jpg" : isHrTerminationRegulation ? "/insights/termination.jpg" : isHrHybridWorkPerformance ? "/insights/hybrid-work.jpg" : isHrLeavePolicyExplanation ? "/insights/leave-policy.jpg" : isHrMandatoryProvidentFund ? "/insights/mpf.jpg" : isHrIr56 ? "/insights/ir.jpg" : isHrTaxClearanceDeparting ? "/insights/tax-clearance.jpg" : isHrWithholdingObligationsDeparting ? "/insights/withholding-obligations.jpg" : isTaxTwoTieredSalariesTax ? "/insights/two-tiered-salaries-tax.jpg" : isHrEmployersReturnBir56a ? "/insights/employers-return-bir56a.jpg" : isCorporateServiceAnnualReturn ? "/insights/annual-return-companies-registry.jpg" : isTaxPropertyTaxHongKong ? "/insights/property-tax-hong-kong.jpg" : isAssurance ? `/insights/${slug}.jpg` : isIntroductionXero ? "/insights/introduction-xero.png" : isAccountingKnowledge ? "/insights/accounting-knowledge.jpg" : isTaxDividendLegalConsiderations ? "/insights/dividend.jpg" : isTaxVat ? "/insights/vat.jpg" : isTaxCorporateTax ? "/insights/corporate-tax.jpg" : isConsultingLegalConsiderationsMA ? "/insights/legal.jpg" : isConsultingDigitalTransformation ? "/insights/digital-transformation.jpg" : isConsultingDigitalTransformationUX ? "/insights/digital-ux.jpg" : isConsultingBigDataDriven ? "/insights/big-data.jpg" : isConsultingDigitalTransformationTVP ? "/insights/digital-trans.jpg" : "/insights/ai-automation.jpg"} alt="" fill className="object-cover object-center" priority />
+              <Image src={isAmendment ? "/insights/amendment.jpg" : isIncorporation ? "/insights/incorporation.jpg" : isCorporateSecretary ? "/insights/corporate-secretary.jpg" : isHrTerminationRegulation ? "/insights/termination.jpg" : isHrHybridWorkPerformance ? "/insights/hybrid-work.jpg" : isHrLeavePolicyExplanation ? "/insights/leave-policy.jpg" : isHrMandatoryProvidentFund ? "/insights/mpf.jpg" : isHrIr56 ? "/insights/ir.jpg" : isHrTaxClearanceDeparting ? "/insights/tax-clearance.jpg" : isHrWithholdingObligationsDeparting ? "/insights/withholding-obligations.jpg" : isTaxTwoTieredSalariesTax ? "/insights/two-tiered-salaries-tax.jpg" : isHrEmployersReturnBir56a ? "/insights/employers-return-bir56a.jpg" : isCorporateServiceAnnualReturn ? "/insights/annual-return-companies-registry.jpg" : isTaxPropertyTaxHongKong ? "/insights/property-tax-hong-kong.jpg" : isSharedPatternB ? `/insights/${slug}.jpg` : isIntroductionXero ? "/insights/introduction-xero.png" : isAccountingKnowledge ? "/insights/accounting-knowledge.jpg" : isTaxDividendLegalConsiderations ? "/insights/dividend.jpg" : isTaxVat ? "/insights/vat.jpg" : isTaxCorporateTax ? "/insights/corporate-tax.jpg" : isConsultingLegalConsiderationsMA ? "/insights/legal.jpg" : isConsultingDigitalTransformation ? "/insights/digital-transformation.jpg" : isConsultingDigitalTransformationUX ? "/insights/digital-ux.jpg" : isConsultingBigDataDriven ? "/insights/big-data.jpg" : isConsultingDigitalTransformationTVP ? "/insights/digital-trans.jpg" : "/insights/ai-automation.jpg"} alt="" fill className="object-cover object-center" priority />
             </div>
-            {(isIntroductionXero || isAccountingKnowledge || isAiBusinessAutomation || isTaxDividendLegalConsiderations || isTaxVat || isTaxCorporateTax || isConsultingLegalConsiderationsMA || isConsultingDigitalTransformation || isConsultingDigitalTransformationUX || isConsultingBigDataDriven || isConsultingDigitalTransformationTVP || isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrHybridWorkPerformance || isHrLeavePolicyExplanation || isHrMandatoryProvidentFund || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong || isAssurance) && <div className="absolute inset-0 w-full h-full z-[1] bg-black/50" aria-hidden />}
+            {(isIntroductionXero || isAccountingKnowledge || isAiBusinessAutomation || isTaxDividendLegalConsiderations || isTaxVat || isTaxCorporateTax || isConsultingLegalConsiderationsMA || isConsultingDigitalTransformation || isConsultingDigitalTransformationUX || isConsultingBigDataDriven || isConsultingDigitalTransformationTVP || isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrHybridWorkPerformance || isHrLeavePolicyExplanation || isHrMandatoryProvidentFund || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong || isSharedPatternB) && <div className="absolute inset-0 w-full h-full z-[1] bg-black/50" aria-hidden />}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 flex flex-col items-start justify-center h-full pt-6 sm:pt-8 md:pt-12 lg:pt-16 pb-6 sm:pb-8">
               <span className="text-sm sm:text-base md:text-lg lg:text-[20px] text-white/80 mb-1.5 sm:mb-2 md:mb-3 lg:mb-4">{heroTag}</span>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px] font-base text-white mb-1.5 sm:mb-2 md:mb-2.5 lg:mb-3 leading-tight sm:leading-tight md:leading-tight [&_br]:block [&_br]:-mt-0.5 sm:[&_br]:-mt-1 md:[&_br]:-mt-1.5 lg:[&_br]:-mt-2" dangerouslySetInnerHTML={{ __html: pageTitle }} />
@@ -249,7 +253,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                     <div className="w-full relative h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] mb-4 sm:mb-5 md:mb-6">
                       <Image src="/insights/property-tax-hk-bg.jpg" alt={language === "KOR" ? translations.aiTaskAutomation.ko : translations.aiTaskAutomation.en} fill className="object-cover" />
                     </div>
-                  ) : isAssurance ? (
+                  ) : isSharedPatternB ? (
                     <div className="w-full relative h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] mb-4 sm:mb-5 md:mb-6">
                       <Image src={`/insights/${slug}-bg.jpg`} alt={language === "KOR" ? translations.aiTaskAutomation.ko : translations.aiTaskAutomation.en} fill className="object-cover" />
                     </div>
@@ -792,7 +796,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                   )}
                   {/* Shared Assurance block (Pattern B, generic s1–s5 schema). Any assurance-tagged
                       article using the s1Title schema renders here — A/B/C reuse it, no per-article edits. */}
-                  {normalizedTag === "assurance" && "s1Title" in translations && (
+                  {"s1Title" in translations && (
                     <>
                       <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { s1Title: { en: string; ko: string } }).s1Title.ko : (translations as { s1Title: { en: string; ko: string } }).s1Title.en}</h3>
 
@@ -2051,7 +2055,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                   )}
                   </>
                   )}
-                  {"conclusionTitle" in translations && !isHrIr56 && !isHrTaxClearanceDeparting && !isHrWithholdingObligationsDeparting && !isTaxTwoTieredSalariesTax && !isHrEmployersReturnBir56a && !isCorporateServiceAnnualReturn && !isTaxPropertyTaxHongKong && !isAssurance && (
+                  {"conclusionTitle" in translations && !isHrIr56 && !isHrTaxClearanceDeparting && !isHrWithholdingObligationsDeparting && !isTaxTwoTieredSalariesTax && !isHrEmployersReturnBir56a && !isCorporateServiceAnnualReturn && !isTaxPropertyTaxHongKong && !isSharedPatternB && (
                     <>
                       <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.ko : (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.en}</h3>
                       {"conclusionDescription" in translations && (
@@ -2691,7 +2695,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
                     )}
                   </>
                 )}
-                {(isAmendmentLayout || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong || isAssurance) && "conclusionTitle" in translations && (
+                {(isAmendmentLayout || isHrIr56 || isHrTaxClearanceDeparting || isHrWithholdingObligationsDeparting || isTaxTwoTieredSalariesTax || isHrEmployersReturnBir56a || isCorporateServiceAnnualReturn || isTaxPropertyTaxHongKong || isSharedPatternB) && "conclusionTitle" in translations && (
                   <>
                     <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-semibold text-[#627F38] mb-3 sm:mb-3.5 md:mb-4">{language === "KOR" ? (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.ko : (translations as { conclusionTitle: { en: string; ko: string } }).conclusionTitle.en}</h3>
                     {"conclusionDescription" in translations && (
