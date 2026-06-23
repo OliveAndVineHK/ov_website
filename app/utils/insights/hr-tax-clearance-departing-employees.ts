@@ -15,7 +15,7 @@ export const hrTaxClearanceDepartingEmployeesTranslations = {
   },
   importanceOfAIDescription: {
     en: "Employees intending to leave Hong Kong permanently or for an extended period are required to settle all outstanding salaries tax before departure. Employers play a critical role in this process under Section 52 of the Inland Revenue Ordinance (Cap. 112). Below is the chronological workflow, clearly identifying the responsible party at each stage.",
-    ko: "홍콩을 영구적으로 또는 장기간 떠날 예정인 직원은 출국 전에 미납된 급여세를 모두 정산해야 합니다. 고용주는 세무조례(Cap. 112) 제52조에 따라 이 과정에서 중요한 역할을 담당합니다. 아래는 각 단계에서 책임 당사자를 명확히 식별한 시간순 워크플로우입니다.",
+    ko: "홍콩을 영구적으로 또는 장기간 떠날 예정인 직원은 출국 전에 미납된 소득세를 모두 정산해야 합니다. 고용주는 세무조례(Cap. 112) 제52조에 따라 이 과정에서 중요한 역할을 담당합니다. 아래는 각 단계에서 책임 당사자를 명확히 식별한 시간순 워크플로우입니다.",
   },
 
   workflowTitle: {
@@ -80,7 +80,7 @@ export const hrTaxClearanceDepartingEmployeesTranslations = {
   step5ResponsibleParty: { en: "Responsible party: Employee", ko: "책임 당사자: 직원" },
   step5Description: {
     en: "The employee must fully settle final salaries tax up to cessation, adjusted provisional tax, and any other outstanding liabilities. Tax clearance cannot be issued until payment is made.",
-    ko: "직원은 고용 종료 시까지의 최종 급여세, 조정된 예정 세금 및 기타 미납 채무를 완전히 정산해야 합니다. 납부가 완료될 때까지 세금 정산 증명서가 발급되지 않습니다.",
+    ko: "직원은 고용 종료 시까지의 최종 소득세, 조정된 예정 세금 및 기타 미납 채무를 완전히 정산해야 합니다. 납부가 완료될 때까지 세금 정산 증명서가 발급되지 않습니다.",
   },
 
   // Step 6
@@ -176,7 +176,7 @@ export const hrTaxClearanceDepartingEmployeesTranslations = {
   faqItems: [
     {
       question: { en: "Q1: What happens if the employer does not file IR56G at least one month before the employee's departure?", ko: "Q1: 고용주가 직원 출국 최소 한 달 전에 IR56G를 제출하지 않으면 어떻게 됩니까?" },
-      answer: { en: "Under Section 52(6) of the Inland Revenue Ordinance, the employer becomes personally liable for any salaries tax owed by the departing employee. Filing on time is essential to avoid this exposure.", ko: "세무조례 제52조 제6항에 따라, 고용주는 출국 직원이 납부해야 할 급여세에 대해 개인적으로 책임을 지게 됩니다. 이 위험을 피하기 위해 제때 제출하는 것이 필수적입니다." },
+      answer: { en: "Under Section 52(6) of the Inland Revenue Ordinance, the employer becomes personally liable for any salaries tax owed by the departing employee. Filing on time is essential to avoid this exposure.", ko: "세무조례 제52조 제6항에 따라, 고용주는 출국 직원이 납부해야 할 소득세에 대해 개인적으로 책임을 지게 됩니다. 이 위험을 피하기 위해 제때 제출하는 것이 필수적입니다." },
     },
     {
       question: { en: "Q2: Is IR56F always required when an employee departs Hong Kong?", ko: "Q2: 직원이 홍콩을 떠날 때 항상 IR56F가 필요합니까?" },
@@ -197,7 +197,7 @@ export const hrTaxClearanceDepartingEmployeesTranslations = {
   ],
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   conclusionTitle: {
     en: "Conclusion",

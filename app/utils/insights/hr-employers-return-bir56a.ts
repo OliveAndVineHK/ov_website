@@ -105,7 +105,7 @@ export const hrEmployersReturnBir56aTranslations = {
     },
     {
       form: { en: "IR56E", ko: "IR56E" },
-      purpose: { en: "New employee likely to be chargeable to Salaries Tax", ko: "급여세 과세 대상이 될 가능성이 있는 신규 직원" },
+      purpose: { en: "New employee likely to be chargeable to Salaries Tax", ko: "소득세 과세 대상이 될 가능성이 있는 신규 직원" },
       deadline: { en: "Within 3 months of employment start date", ko: "고용 시작일로부터 3개월 이내" },
     },
     {

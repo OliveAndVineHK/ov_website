@@ -1,5 +1,33 @@
 # TRANSLATION_LOG — 작업 로그
 
+## 2026-06-23 (2차) / 인사이트 30개 문체·용어 일관화 + 인사이트 검수 파이프라인 신설
+- **목표(사용자):** 사이트 본문 문체를 인사이트에도 동일 적용 + 전 인사이트 적용 + 인사이트 검수 엑셀 자동 생성.
+- **분석:** 사이트 본문(corporate 등)과 인사이트 본문은 이미 동일 레지스터(병기·~합니다·전문체) 사용 확인 → 대규모 산문 재작성 불필요, **용어·조사 일관성이 핵심 갭**으로 판단.
+- **결정적 교체(전 30개, Python UTF-8, 사이트 버전 마스터):**
+  · 이익세→법인세(39) · 급여세→소득세(13) · 부기→기장(1) · 통찰→인사이트(1) · `Vine는`→`Vine은`(35, 조사). 변경 25/30 파일.
+  · `tax-corporate-tax`: 원본이 법인세(제목)+이익세(기술어)를 다른 줄에 혼용 → 충돌 없이 법인세로 통일.
+  · 노출면 동반 통일: `dynamicPageConfig`('이중 급여세'→'이중 소득세' 2건), `insightCardsConfig`(이익세/급여세 카드·subTag 4건). `tax-two-tiered-salaries-tax`는 글 주제상 '이중 소득세'로 바뀜(사용자 '무조건 사이트 버전' 지시).
+  · **저희 미변경:** 인사이트의 '저희'는 전부 FAQ 고객 voice / 문의 CTA → v7상 유지가 정답.
+- **검증:** `npx tsc --noEmit` exit 0. 본문 왕복 회귀 `_roundtrip_test.py` PASS(바이트 동일). 백업 `/tmp/insight-backup/`.
+- **Phase 4 — 인사이트 검수 파이프라인 신설:** 공유 walker 확장(INSIGHT_FILES·PAGE_OF_INSIGHT). 신규 스크립트 `extract-insights.mjs`·`build-insights-xlsx.py` → `Olive-and-Vine_인사이트검수.xlsx`(안내 1 + 아티클 30시트, 1686슬롯). `xlsx_to_edits.py`·`apply.mjs`는 id 기반이라 재사용. **인사이트 왕복 --dry 실증**(id 해석 OK, missing 0).
+- 다음 라운드: 검수자가 인사이트 엑셀의 '수정 KO' 채워 보내면 → xlsx_to_edits → apply → tsc → diff 분석으로 RULES 추가 고도화.
+
+## 2026-06-23 / 검수 라운드(280건) 패턴 분석 → 규칙 고도화 (RULES v7)
+- 입력: `Olive-and-Vine_번역검수.xlsx`의 사람 수정 280건(수정KO) + 59건(수정EN) + 메모 96건. **이미 코드에 반영 완료된 상태**(보류였던 07/08 포함 — 코드 직접 확인: Tax 법인세/소득세, HKICPA Practising, 통계 영문, 올리브 앤 바인 음차, 가치어 병기 모두 라이브). → 본 작업은 코드 변경 없이 **문서를 코드 현실에 동기화 + 일반 원칙 추출**.
+- 분석 방법: 372행(KO 280·EN·메모)을 `현재KO ⇒ 수정KO` diff로 전수 정독, 패턴 군집화.
+- 도출 패턴(→ RULES v7 반영):
+  1. **이중 표기(병기)**: 가치어=한국어+영문(정직성 Integrity 등), 약어·법령=한국어(영문)(세무국(IRD), IFRS 등). → RULES '이중 표기 규칙' 신설.
+  2. **영문 유지 면**: 섹션 eyebrow(Our X)·통계 라벨 전부·직함 약어(HKICPA Practising, Co-Founder)·고객 세그먼트(SMEs). → '영문 유지 면' 신설. [v5 '주요 리더십/실무/공동창업자' 역전]
+  3. **인칭 우리로 통일**: 저희→우리 광범위 교체. → 인칭 규칙 v7 개정. [v6 역전]
+  4. **CTA 표준어**: 대화 시작하기→문의하기, 함께 살펴보기→연계된 다른 서비스 등. → CTA 표준어 표 신설.
+  5. **인명 표기**: 박지현 Rebecca / 김미영, bio는 '박지현회계사'. → 인명 표기 규칙 신설.
+  6. **용어 컨텍스트 분리**: 서비스=법인세·소득세·기장 / 인사이트=이익세·급여세·부기. compliance=컴플라이언스 추세, insight=인사이트. → GLOSSARY 갱신 + RULES 컨텍스트 분리.
+  7. **사실 정확성**: Tax 캘린더 마감월 오류 교정(5월→4월 말 등). → '사실 정확성 검수' 신설.
+- GLOSSARY 갱신: Profits/Salaries Tax·bookkeeping·compliance·HKICPA·integrity·Olive & Vine 행 수정 + 신규 12행(인명·insight·IFRS·IRD약어군·Methodology/Philosophy·Apostille·통계·eyebrow 등).
+- REVIEW_QUEUE 신규 미결 4건: ⭐세무용어 통일(이익세/법인세, 인사이트 29개 영향)·⭐브랜드 음차(올리브 앤 바인)·회사법/회사조례·통계 영문 라벨 의도.
+- 규칙 변동: **RULES v7**(다수 v5/v6 결정 역전 명시). 코드 미변경.
+- 다음: Phase 3(인사이트 핵심 소수 KO 다듬기) — 세무용어 통일안 확정 후 착수. Phase 4(인사이트 검수 엑셀 = walker 확장).
+
 ## 2026-06-03 / app/utils/pageAboutUtils.ts
 - 페이지 구조: 회사소개(About). 히어로 → 브랜드 스토리 → 공동창업자 2인 소개(경력 타임라인 포함) → 3대 가치 기둥 → 통계 → CTA.
 - 다듬은 문자열: 3개 (본문 3). 나머지 ~37개 한국어 value는 이미 품질 양호 → §2.2 과도한 손질 금지로 보존.

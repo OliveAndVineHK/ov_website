@@ -2,12 +2,12 @@ export const taxPropertyTaxHongKongTranslations = {
   heroTag: { en: "Tax", ko: "세무" },
   heroTitle: {
     en: "Property Tax in Hong Kong: How It Is Calculated and How It Interacts with Profits Tax",
-    ko: "홍콩의 재산세: 산정 방식과 이익세와의 관계",
+    ko: "홍콩의 재산세: 산정 방식과 법인세와의 관계",
   },
   inBrief: { en: "In brief", ko: "요약" },
   inBriefDescription: {
     en: "Property tax is a tax on rental income from land and buildings in Hong Kong. This guide explains who is liable, how the net assessable value and the 15% charge are worked out, how to report and pay, and how property tax interacts with profits tax for companies and with personal assessment for individuals under the Inland Revenue Ordinance (Cap. 112).",
-    ko: "재산세는 홍콩 내 토지 및 건물의 임대 소득에 부과되는 세금입니다. 이 안내서는 과세 대상자, 과세 순가치(NAV)와 15% 세율의 산정 방법, 신고 및 납부 절차, 그리고 세무조례(Cap. 112)에 따라 법인의 경우 이익세와, 개인의 경우 개인 과세(Personal Assessment)와 재산세가 어떻게 연계되는지에 대해 설명합니다.",
+    ko: "재산세는 홍콩 내 토지 및 건물의 임대 소득에 부과되는 세금입니다. 이 안내서는 과세 대상자, 과세 순가치(NAV)와 15% 세율의 산정 방법, 신고 및 납부 절차, 그리고 세무조례(Cap. 112)에 따라 법인의 경우 법인세와, 개인의 경우 개인 과세(Personal Assessment)와 재산세가 어떻게 연계되는지에 대해 설명합니다.",
   },
   aiTaskAutomation: {
     en: "Property Tax in Hong Kong",
@@ -15,7 +15,7 @@ export const taxPropertyTaxHongKongTranslations = {
   },
   importanceOfAIDescription: {
     en: "Property tax is one of Hong Kong's three direct taxes, alongside salaries tax and profits tax. It is charged under section 5(1) of the Inland Revenue Ordinance (Cap. 112) on the owners of land or buildings in Hong Kong who let their property out for rent or other consideration. The tax is assessed for each year of assessment, which runs from 1 April to 31 March, at the standard rate — currently 15%. Importantly, property tax is charged not on the gross rent received but on the net assessable value, a smaller figure arrived at after specific statutory deductions.",
-    ko: "재산세는 급여세 및 이익세와 함께 홍콩의 3대 직접세 중 하나입니다. 이 세금은 세무조례(Cap. 112) 제5조 제1항에 따라, 홍콩 내 토지 또는 건물의 소유자가 해당 부동산을 임대하거나 기타 대가를 받고 사용하게 하는 경우 부과됩니다. 이 세금은 매년 4월 1일부터 다음 해 3월 31일까지의 과세 연도별로 표준 세율(현재 15%)을 적용하여 산정됩니다. 중요한 점은, 재산세가 수취한 총 임대료가 아니라 특정 법정 공제를 적용하여 산출된 더 낮은 금액인 과세 순가치(NAV)를 기준으로 부과된다는 것입니다.",
+    ko: "재산세는 소득세 및 법인세와 함께 홍콩의 3대 직접세 중 하나입니다. 이 세금은 세무조례(Cap. 112) 제5조 제1항에 따라, 홍콩 내 토지 또는 건물의 소유자가 해당 부동산을 임대하거나 기타 대가를 받고 사용하게 하는 경우 부과됩니다. 이 세금은 매년 4월 1일부터 다음 해 3월 31일까지의 과세 연도별로 표준 세율(현재 15%)을 적용하여 산정됩니다. 중요한 점은, 재산세가 수취한 총 임대료가 아니라 특정 법정 공제를 적용하여 산출된 더 낮은 금액인 과세 순가치(NAV)를 기준으로 부과된다는 것입니다.",
   },
 
   // Section 1 — What Is Property Tax? (intro gated by this heading)
@@ -169,11 +169,11 @@ export const taxPropertyTaxHongKongTranslations = {
   // Section 5 — Property Tax, Profits Tax, and Personal Assessment
   section5Title: {
     en: "Property Tax, Profits Tax, and Personal Assessment",
-    ko: "재산세, 이익세 및 개인 과세(Personal Assessment)",
+    ko: "재산세, 법인세 및 개인 과세(Personal Assessment)",
   },
   section5IntroDescription: {
     en: "The same rental income can fall within both property tax and profits tax, but Hong Kong's system ensures it is not taxed twice. How the overlap is resolved depends on whether the owner is a company carrying on business or an individual.",
-    ko: "동일한 임대 소득이 재산세와 이익세의 과세 대상이 될 수 있지만, 홍콩의 제도에서는 이중 과세가 발생하지 않도록 보장됩니다. 이러한 중복 과세 문제가 어떻게 해결되는지는 소유주가 사업을 영위하는 법인인지, 아니면 개인인지에 따라 달라집니다.",
+    ko: "동일한 임대 소득이 재산세와 법인세의 과세 대상이 될 수 있지만, 홍콩의 제도에서는 이중 과세가 발생하지 않도록 보장됩니다. 이러한 중복 과세 문제가 어떻게 해결되는지는 소유주가 사업을 영위하는 법인인지, 아니면 개인인지에 따라 달라집니다.",
   },
   section5SetOffTitle: {
     en: "Set-Off and Exemption for Businesses",
@@ -181,7 +181,7 @@ export const taxPropertyTaxHongKongTranslations = {
   },
   section5SetOffDescription: {
     en: "If rental income is included in the profits assessed to profits tax, or the property is occupied by the owner for business purposes, the property tax already paid can be set off against the profits tax assessed. More practically, a corporation carrying on a trade, profession or business in Hong Kong can apply in writing for exemption from property tax under section 5(2)(a) of the Ordinance, so it need not pay property tax up front and then reclaim it. For companies letting property as part of their business, claiming this exemption is usually the cleaner route.",
-    ko: "임대 소득이 이익세 과세 대상 이익에 포함되거나, 해당 부동산을 소유주가 사업 목적으로 직접 사용하는 경우, 이미 납부한 재산세를 과세된 이익세에서 공제(상계)받을 수 있습니다. 보다 실질적으로, 홍콩에서 무역·전문직 또는 사업을 영위하는 법인은 세무조례 제5조 제2항 (a)호에 따라 재산세 면제를 서면으로 신청할 수 있으므로, 재산세를 먼저 납부한 후 환급을 청구할 필요가 없습니다. 사업의 일환으로 부동산을 임대하는 회사의 경우, 이 면제를 신청하는 것이 일반적으로 더 간편한 방법입니다.",
+    ko: "임대 소득이 법인세 과세 대상 이익에 포함되거나, 해당 부동산을 소유주가 사업 목적으로 직접 사용하는 경우, 이미 납부한 재산세를 과세된 법인세에서 공제(상계)받을 수 있습니다. 보다 실질적으로, 홍콩에서 무역·전문직 또는 사업을 영위하는 법인은 세무조례 제5조 제2항 (a)호에 따라 재산세 면제를 서면으로 신청할 수 있으므로, 재산세를 먼저 납부한 후 환급을 청구할 필요가 없습니다. 사업의 일환으로 부동산을 임대하는 회사의 경우, 이 면제를 신청하는 것이 일반적으로 더 간편한 방법입니다.",
   },
   section5PersonalAssessmentTitle: {
     en: "Personal Assessment for Individuals",
@@ -233,11 +233,11 @@ export const taxPropertyTaxHongKongTranslations = {
     {
       question: {
         en: "My company owns and lets a property. Do we pay both property tax and profits tax on the rent?",
-        ko: "저희 회사는 부동산을 소유하고 임대하고 있습니다. 임대료에 대해 재산세와 이익세를 모두 납부해야 하나요?",
+        ko: "저희 회사는 부동산을 소유하고 임대하고 있습니다. 임대료에 대해 재산세와 법인세를 모두 납부해야 하나요?",
       },
       answer: {
         en: "The same income is not taxed twice. If the rental income forms part of profits chargeable to profits tax, the property tax paid can be set off against the profits tax assessed. A company carrying on business in Hong Kong can also apply in writing for exemption from property tax under section 5(2)(a), so the rent is dealt with under profits tax only. Claiming the exemption is usually cleaner than paying and reclaiming.",
-        ko: "동일한 소득에 대해 이중 과세되지 않습니다. 임대 소득이 이익세 과세 대상 이익의 일부를 구성하는 경우, 납부한 재산세를 부과된 이익세에서 공제받을 수 있습니다. 홍콩에서 사업을 영위하는 법인은 세무조례 제5조 제2항 (a)호에 따라 재산세 면제를 서면으로 신청할 수도 있으며, 이 경우 임대료는 이익세 대상으로만 처리됩니다. 면제를 신청하는 것이 세금을 납부한 후 환급받는 것보다 일반적으로 더 간편합니다.",
+        ko: "동일한 소득에 대해 이중 과세되지 않습니다. 임대 소득이 법인세 과세 대상 이익의 일부를 구성하는 경우, 납부한 재산세를 부과된 법인세에서 공제받을 수 있습니다. 홍콩에서 사업을 영위하는 법인은 세무조례 제5조 제2항 (a)호에 따라 재산세 면제를 서면으로 신청할 수도 있으며, 이 경우 임대료는 법인세 대상으로만 처리됩니다. 면제를 신청하는 것이 세금을 납부한 후 환급받는 것보다 일반적으로 더 간편합니다.",
       },
     },
     {
@@ -266,7 +266,7 @@ export const taxPropertyTaxHongKongTranslations = {
   conclusionTitle: { en: "Conclusion", ko: "결론" },
   conclusionDescription: {
     en: "Property tax in Hong Kong is straightforward to compute once the net assessable value is understood: gross rent and charges, less irrecoverable rent, less rates paid by the owner, less the automatic 20% allowance, taxed at 15%. The complexity — and the savings — lie in how it dovetails with profits tax for companies, through set-off or the section 5(2)(a) exemption, and with personal assessment for individuals, which unlocks progressive rates and, importantly, mortgage-interest relief. Owners letting property through a company, or individuals carrying a mortgage on a let property, should review which route leaves them better off rather than simply paying the flat charge.",
-    ko: "홍콩의 재산세는 과세 순가치(NAV)를 이해하기만 하면 계산이 간단합니다. 총 임대료와 부대비용에서 회수 불가능한 임대료를 차감하고, 소유주가 납부한 지방세를 차감하며, 자동으로 적용되는 20% 공제액을 차감한 후 15%의 세율을 적용합니다. 이 제도의 복잡성과 절세 효과는 기업의 경우 상계 또는 세무조례 제5조 제2항 (a)호에 따른 면제를 통한 이익세와의 연계 방식에, 그리고 개인의 경우 누진세율이 적용되고 무엇보다 중요한 주택담보대출 이자 공제를 받을 수 있는 개인 과세와의 연계 방식에 있습니다. 회사를 통해 부동산을 임대하는 소유주나 임대 부동산에 대한 주택담보대출을 부담하고 있는 개인은, 단순히 정액 세금을 납부하는 대신 어떤 방식이 더 유리한지 검토해야 합니다.",
+    ko: "홍콩의 재산세는 과세 순가치(NAV)를 이해하기만 하면 계산이 간단합니다. 총 임대료와 부대비용에서 회수 불가능한 임대료를 차감하고, 소유주가 납부한 지방세를 차감하며, 자동으로 적용되는 20% 공제액을 차감한 후 15%의 세율을 적용합니다. 이 제도의 복잡성과 절세 효과는 기업의 경우 상계 또는 세무조례 제5조 제2항 (a)호에 따른 면제를 통한 법인세와의 연계 방식에, 그리고 개인의 경우 누진세율이 적용되고 무엇보다 중요한 주택담보대출 이자 공제를 받을 수 있는 개인 과세와의 연계 방식에 있습니다. 회사를 통해 부동산을 임대하는 소유주나 임대 부동산에 대한 주택담보대출을 부담하고 있는 개인은, 단순히 정액 세금을 납부하는 대신 어떤 방식이 더 유리한지 검토해야 합니다.",
   },
 
   // Disclaimer

@@ -30,6 +30,25 @@ node i18n/scripts/apply.mjs         # 실제 반영
 npx tsc --noEmit                    # 구문 검증
 ```
 
+## 인사이트(아티클) 검수 — 별도 워크북 (2026-06-23 신설)
+본문 페이지와 **분리된** 인사이트 전용 검수 파일. 같은 무손실 왕복 엔진(walker)을 재사용한다.
+탭 하나 = 아티클 하나(`app/utils/insights/*.ts` 29개).
+
+```bash
+# 1) 인사이트 검수 파일 만들기 (코드 → Excel)
+node i18n/scripts/extract-insights.mjs        # → extracted-insights.json
+python3 i18n/scripts/build-insights-xlsx.py   # → Olive-and-Vine_인사이트검수.xlsx
+
+# 2) 검수본 반영 (Excel → 코드) — 본문과 동일 스크립트 재사용
+python3 i18n/scripts/xlsx_to_edits.py i18n/proofreading/Olive-and-Vine_인사이트검수.xlsx
+node i18n/scripts/apply.mjs --dry   # 미리보기
+node i18n/scripts/apply.mjs         # 반영
+npx tsc --noEmit
+```
+- `apply.mjs`/`xlsx_to_edits.py`는 **ID 기반**이라 본문/인사이트 구분 없이 그대로 동작(스크립트 수정 불필요).
+- walker에 `INSIGHT_FILES`·`PAGE_OF_INSIGHT` 추가됨. 본문용 `FILES`/`PAGE_OF`는 무변경(본문 파이프라인 영향 없음 — `_roundtrip_test.py` PASS).
+- 인사이트 문체·용어 기준은 본문과 **동일**: `i18n/RULES.md`(v7)·`GLOSSARY.md`. (세무=법인세/소득세, 인칭=우리, 병기 규칙 등)
+
 ## 규칙/주의
 - 교정자가 행을 추가·삭제하거나 ID를 바꾸면 매핑이 깨진다(안내 시트에 명시).
 - `apply` 후 반드시 `tsc --noEmit`으로 깨진 따옴표/이스케이프가 없는지 확인.

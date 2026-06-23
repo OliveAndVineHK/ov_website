@@ -40,7 +40,7 @@ export const corporateServiceIncorporationTranslations = {
   contactInformation: { en: "Additional Information", ko: "추가 정보" },
   additionalInformationDescription: {
     en: "The Companies Registry accepts incorporation applications through both offline and online methods. Olive & Vine primarily assists with electronic incorporation procedures via e-Registry (except in special cases, such as when shareholders include corporations), and since online submission requires e-Registry accounts for founding members (shareholders) and appointed directors, we also assist with e-Registry account setup if not already established.",
-    ko: "회사 등록처는 오프라인 및 온라인 방식으로 설립 신청을 접수합니다. Olive & Vine는 e-Registry를 통한 전자 설립 절차 지원을 주로 제공해 드리며(주주에 법인이 포함되는 등 특수한 경우 제외), 온라인 제출에는 설립 구성원(주주) 및 선임 이사의 e-Registry 계정이 필요하므로, 아직 계정이 없는 경우 e-Registry 계정 설정도 지원해 드립니다.",
+    ko: "회사 등록처는 오프라인 및 온라인 방식으로 설립 신청을 접수합니다. Olive & Vine은 e-Registry를 통한 전자 설립 절차 지원을 주로 제공해 드리며(주주에 법인이 포함되는 등 특수한 경우 제외), 온라인 제출에는 설립 구성원(주주) 및 선임 이사의 e-Registry 계정이 필요하므로, 아직 계정이 없는 경우 e-Registry 계정 설정도 지원해 드립니다.",
   },
   inConclusionParagraph1: {
     en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -48,7 +48,7 @@ export const corporateServiceIncorporationTranslations = {
   },
   inConclusionParagraph2: {
     en: "Lorem ipsum dolor sit amet. Olive & Vine offers incorporation services. Contact us at contact@oliveandvinehk.com.",
-    ko: "로렘 입숨 돌로르 시트 아멧. Olive & Vine는 법인 설립 서비스를 제공합니다.",
+    ko: "로렘 입숨 돌로르 시트 아멧. Olive & Vine은 법인 설립 서비스를 제공합니다.",
   },
   inConclusionParagraph3: {
     en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Generally, Sample A is chosen.",
@@ -56,7 +56,7 @@ export const corporateServiceIncorporationTranslations = {
   },
   contactInformationDisclaimer: {
     en: "The above material covers general information and does not provide solutions to specific issues for any company or individual. Furthermore, some parts have been translated into Korean for ease of understanding, so there may be differences from the exact legal terminology. Olive & Vine makes no legal representations or warranties regarding the accuracy, completeness, or usefulness of this information. The above material is not a substitute for legal or consulting advice. Please consult with a professional as needed.",
-    ko: "위에 제공된 정보는 일반적인 참고용으로만 제공됩니다. 로렘 입숨. 자격을 갖춘 전문가와 상담하시기 바랍니다. 위 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 또한, 일부 부분은 이해를 돕기 위해 한국어로 번역되었으므로 정확한 법률 용어와 다를 수 있습니다. Olive & Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 위 자료는 법적 또는 상담 조언의 대체품이 아닙니다. 필요에 따라 전문가와 상담하십시오.",
+    ko: "위에 제공된 정보는 일반적인 참고용으로만 제공됩니다. 로렘 입숨. 자격을 갖춘 전문가와 상담하시기 바랍니다. 위 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 또한, 일부 부분은 이해를 돕기 위해 한국어로 번역되었으므로 정확한 법률 용어와 다를 수 있습니다. Olive & Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 위 자료는 법적 또는 상담 조언의 대체품이 아닙니다. 필요에 따라 전문가와 상담하십시오.",
   },
   aiTaskAutomation: {
     en: "Procedures for Company Incorporation",

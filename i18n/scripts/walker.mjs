@@ -46,6 +46,24 @@ export const PAGE_OF = (f) => {
   return "99 기타";
 };
 
+// ---- Insight article scope (separate proofreading workbook) ----
+// 인사이트 본문 TS 파일 = 별도 검수 엑셀. walkFile은 동일하게 재사용하고,
+// extract-insights.mjs 가 page를 PAGE_OF_INSIGHT 로 덮어쓴다. apply.mjs 는 id 기반이라 수정 불필요.
+export const INSIGHT_FILES = fs.existsSync(path.join(ROOT, "app/utils/insights"))
+  ? fs.readdirSync(path.join(ROOT, "app/utils/insights"))
+      .filter((f) => f.endsWith(".ts"))
+      .sort()
+      .map((f) => `app/utils/insights/${f}`)
+  : [];
+
+const insightSlug = (rel) => path.basename(rel).replace(/\.ts$/, "");
+// 시트명: "NN slug" (Excel 31자 제한·중복 방지). 전체 경로는 ID/위치 열에 보존.
+export const PAGE_OF_INSIGHT = (rel) => {
+  const i = INSIGHT_FILES.indexOf(rel);
+  const nn = String(i + 1).padStart(2, "0");
+  return `${nn} ${insightSlug(rel)}`.slice(0, 31);
+};
+
 const isStr = (n) => n && (ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n));
 const isTpl = (n) => n && ts.isTemplateExpression(n);
 const isLangCode = (s) => /^(en|eng|ko|kor|kr|us|en-us|ko-kr)$/i.test(s.trim());

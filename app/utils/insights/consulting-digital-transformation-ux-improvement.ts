@@ -118,11 +118,11 @@ export const consultingDigitalTransformationUXImprovementTranslations = {
   },
   contactInformationDescription: {
     en: "By improving customer experience through digital transformation, companies can strengthen their competitiveness and increase customer satisfaction and loyalty. For more detailed information on digital transformation, please refer to our previous posts. Olive & Vine offers a wide range of consulting services related to digital transformation. If you require further assistance, please contact us at contact@oliveandvinehk.com .",
-    ko: "디지털 전환을 통해 고객 경험을 개선하면 경쟁력을 강화하고 고객 만족도와 만족도를 높일 수 있습니다. 디지털 전환에 대한 자세한 정보는 이전 게시물을 참조해 주세요. Olive & Vine는 디지털 전환과 관련된 다양한 컨설팅 서비스를 제공합니다. 추가 지원이 필요한 경우 contact@oliveandvinehk.com으로 연락해 주세요.",
+    ko: "디지털 전환을 통해 고객 경험을 개선하면 경쟁력을 강화하고 고객 만족도와 만족도를 높일 수 있습니다. 디지털 전환에 대한 자세한 정보는 이전 게시물을 참조해 주세요. Olive & Vine은 디지털 전환과 관련된 다양한 컨설팅 서비스를 제공합니다. 추가 지원이 필요한 경우 contact@oliveandvinehk.com으로 연락해 주세요.",
   },
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "본 자료는 일반적인 정보를 다루며, 특정 회사 또는 개인이 직면한 구체적인 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대해 어떠한 법적 책임이나 보증도 부인합니다. 본 자료는 법률 또는 컨설팅 자문을 대체할 수 없으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "본 자료는 일반적인 정보를 다루며, 특정 회사 또는 개인이 직면한 구체적인 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대해 어떠한 법적 책임이나 보증도 부인합니다. 본 자료는 법률 또는 컨설팅 자문을 대체할 수 없으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   faqItems: [
     {

@@ -98,7 +98,7 @@ export const taxVatTranslations = {
   },
   laborCostSavings: {
     en: "The absence of VAT does not necessarily confer advantages in every respect. VAT typically serves as a major government revenue source, funding social safety nets and infrastructure improvements. However, Hong Kong has sustained its robust economic foundation without VAT revenue. Instead, it relies on profits tax, salaries tax, and property tax for revenue. Additionally, without VAT, businesses may face challenges in claiming tax credits or refunds in transactions with foreign countries. For instance, companies operating in the European Union can benefit from VAT refunds, but such advantages are harder to access from Hong Kong.",
-    ko: "VAT가 없는 것이 모든 측면에서 이점을 제공하지는 않습니다. VAT는 일반적으로 주요 정부 수익 원천으로, 사회 안전망과 인프라 개선을 지원합니다. 그러나, 홍콩은 VAT 수익 없이 견고한 경제 기반을 유지하고 있습니다. 대신, 이익세, 월급세, 부동산세를 주요 수익 원천으로 의존합니다. 또한, VAT가 없는 것은 외국 국가와의 거래에서 세금 혜택이나 환불 혜택을 청구하는 데 어려움을 겪을 수 있습니다. 예를 들어, 유럽 연합에서 운영하는 기업은 VAT 환불을 혜택을 받을 수 있지만, 이러한 이점은 홍콩에서 접근하기가 어렵습니다.",
+    ko: "VAT가 없는 것이 모든 측면에서 이점을 제공하지는 않습니다. VAT는 일반적으로 주요 정부 수익 원천으로, 사회 안전망과 인프라 개선을 지원합니다. 그러나, 홍콩은 VAT 수익 없이 견고한 경제 기반을 유지하고 있습니다. 대신, 법인세, 월급세, 부동산세를 주요 수익 원천으로 의존합니다. 또한, VAT가 없는 것은 외국 국가와의 거래에서 세금 혜택이나 환불 혜택을 청구하는 데 어려움을 겪을 수 있습니다. 예를 들어, 유럽 연합에서 운영하는 기업은 VAT 환불을 혜택을 받을 수 있지만, 이러한 이점은 홍콩에서 접근하기가 어렵습니다.",
   },
   conclusionTitle: {
     en: "Conclusion",
@@ -110,7 +110,7 @@ export const taxVatTranslations = {
   },
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   frequentlyAskedQuestions: {
     en: "Frequently Asked Questions (Q&A)",
@@ -123,7 +123,7 @@ export const taxVatTranslations = {
     },
     {
       question: { en: "How does the Hong Kong government secure revenue without VAT?", ko: "홍콩 정부는 어떻게 VAT가 없는 상태에서 수익을 보장할 수 있나요?" },
-      answer: { en: "Hong Kong sustains its robust economic structure without VAT, primarily relying on profits tax, salaries tax, and property tax as main revenue sources. Additionally, its efficient tax system and low rates play a crucial role in stimulating foreign investment and trade.", ko: "홍콩은 VAT가 없는 상태에서 견고한 경제 구조를 유지하며, 주요 수익 원천으로 이익세, 월급세, 부동산세를 주로 의존합니다. 또한, 효율적인 세금 시스템과 저렴한 세율이 외국 투자와 무역을 자극하는 데 중요한 역할을 합니다." },
+      answer: { en: "Hong Kong sustains its robust economic structure without VAT, primarily relying on profits tax, salaries tax, and property tax as main revenue sources. Additionally, its efficient tax system and low rates play a crucial role in stimulating foreign investment and trade.", ko: "홍콩은 VAT가 없는 상태에서 견고한 경제 구조를 유지하며, 주요 수익 원천으로 법인세, 월급세, 부동산세를 주로 의존합니다. 또한, 효율적인 세금 시스템과 저렴한 세율이 외국 투자와 무역을 자극하는 데 중요한 역할을 합니다." },
     },
     {
       question: { en: "Is the absence of VAT advantageous for all companies?", ko: "홍콩에서 사업을 운영하는 기업에게 VAT가 없는 것의 영향은 무엇인가요?" },
