@@ -97,7 +97,7 @@ export const accountingFinancialStatementsSmeHkTranslations = {
     { en: "Using the wrong framework, for example claiming the SME-FRS when the company is not eligible for the reporting exemption.", ko: "잘못된 프레임워크 적용 — 예: 보고 면제 대상이 아닌데도 SME-FRS를 적용한다고 하는 경우." },
     { en: "Omitting required note disclosures, such as directors' emoluments and material related-party transactions under section 383.", ko: "제383조에 따른 이사 보수 및 중대한 특수관계자 거래 등 필수 주석 공시 누락." },
     { en: "Failing to state which accounting standards were applied, as Schedule 4 requires.", ko: "부칙 4가 요구하는, 어떤 회계기준을 적용했는지에 대한 명시 누락." },
-    { en: "Treating bookkeeping as a year-end scramble, which leads to incomplete records and a slow, costly audit.", ko: "부기를 연말에 몰아서 처리하려는 태도 — 기록이 불완전해지고 감사가 느려지며 비용이 늘어남." },
+    { en: "Treating bookkeeping as a year-end scramble, which leads to incomplete records and a slow, costly audit.", ko: "기장를 연말에 몰아서 처리하려는 태도 — 기록이 불완전해지고 감사가 느려지며 비용이 늘어남." },
     { en: "Mixing personal and business transactions, which distorts the figures and raises questions from the auditor and the Inland Revenue Department.", ko: "개인 거래와 사업 거래를 섞는 것 — 수치가 왜곡되고 감사인과 세무국의 의문을 부름." },
   ],
   s5Note: {

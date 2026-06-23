@@ -118,6 +118,6 @@ export const consultingDigitalTransformationTVPTranslations = {
   },
   contactInformationDisclaimer: {
     en: "The above materials address general information and do not provide solutions to specific issues faced by any company or individual. Note that certain sections translated into Korean for better understanding may differ from precise legal terminology. Olive & Vine assumes no legal liability or warranty regarding the accuracy, completeness, or usefulness of this information. These materials do not substitute for legal or consulting advice; please consult a professional when necessary.",
-    ko: "위 자료는 일반적인 정보를 다루며, 특정 회사 또는 개인이 직면한 구체적인 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive & Vine는 이 정보의 정확성, 완전성 또는 유용성에 대해 어떠한 법적 책임이나 보증도 부인합니다. 이 자료는 법률 또는 컨설팅 자문을 대체할 수 없으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "위 자료는 일반적인 정보를 다루며, 특정 회사 또는 개인이 직면한 구체적인 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive & Vine은 이 정보의 정확성, 완전성 또는 유용성에 대해 어떠한 법적 책임이나 보증도 부인합니다. 이 자료는 법률 또는 컨설팅 자문을 대체할 수 없으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
 };

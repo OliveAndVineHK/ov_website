@@ -41,7 +41,7 @@ export const corporateServiceAmendmentTranslations = {
   },
   inConclusionParagraph2: {
     en: "Olive & Vine offers amendment services and various corporate services. If you have any questions about the content or other corporate management in Hong Kong, please contact us at contact@oliveandvinehk.com or through the customer support section on our website.",
-    ko: "Olive & Vine는 수정 서비스 및 다양한 기업 서비스를 제공해 드립니다. 본 내용 또는 홍콩의 기타 기업 관리에 대해 문의 사항이 있으시면 contact@oliveandvinehk.com 또는 당사 웹사이트의 고객 지원 섹션을 통해 연락해 주시기 바랍니다.",
+    ko: "Olive & Vine은 수정 서비스 및 다양한 기업 서비스를 제공해 드립니다. 본 내용 또는 홍콩의 기타 기업 관리에 대해 문의 사항이 있으시면 contact@oliveandvinehk.com 또는 당사 웹사이트의 고객 지원 섹션을 통해 연락해 주시기 바랍니다.",
   },
   inConclusionParagraph3: {
     en: "Generally, Sample A: Simplified Articles for a Private Company is chosen. Here are the contents included in the articles:",
@@ -49,7 +49,7 @@ export const corporateServiceAmendmentTranslations = {
   },
   contactInformationDisclaimer: {
     en: "The information provided above is intended for general reference only and does not address specific circumstances for any company or individual. Olive & Vine does not make any legal representations or warranties regarding the accuracy, completeness, or reliability of this content. This material should not be considered a substitute for professional legal or consulting advice. For guidance tailored to your situation, please consult a qualified professional.",
-    ko: "위에 제공된 정보는 일반적인 참고용으로만 제공되며, 특정 회사 또는 개인의 구체적인 상황을 다루지 않습니다. Olive & Vine는 본 내용의 정확성, 완전성 또는 신뢰성에 대해 어떠한 법적 진술이나 보증도 하지 않습니다. 본 자료는 전문 법률 또는 컨설팅 자문을 대체하는 것으로 간주되어서는 안 됩니다. 귀하의 상황에 맞는 안내를 받으시려면 자격을 갖춘 전문가와 상담하시기 바랍니다.",
+    ko: "위에 제공된 정보는 일반적인 참고용으로만 제공되며, 특정 회사 또는 개인의 구체적인 상황을 다루지 않습니다. Olive & Vine은 본 내용의 정확성, 완전성 또는 신뢰성에 대해 어떠한 법적 진술이나 보증도 하지 않습니다. 본 자료는 전문 법률 또는 컨설팅 자문을 대체하는 것으로 간주되어서는 안 됩니다. 귀하의 상황에 맞는 안내를 받으시려면 자격을 갖춘 전문가와 상담하시기 바랍니다.",
   },
   aiTaskAutomation: {
     en: "Company Articles of Association and Amendment Procedures",

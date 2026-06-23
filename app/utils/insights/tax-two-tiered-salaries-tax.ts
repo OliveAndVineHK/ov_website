@@ -2,26 +2,26 @@ export const taxTwoTieredSalariesTaxTranslations = {
   heroTag: { en: "Tax", ko: "세무" },
   heroTitle: {
     en: "Two-Tiered Salaries Tax in Hong Kong (2024/25)",
-    ko: "홍콩 이중 급여세 (2024/25)",
+    ko: "홍콩 이중 소득세 (2024/25)",
   },
   inBrief: { en: "In brief", ko: "요약" },
   inBriefDescription: {
     en: "Starting from the 2024/25 year of assessment (April 1, 2024), Hong Kong introduced a two-tiered standard rate system for Salaries Tax. High-income earners whose net income exceeds HKD 5 million now face a higher standard rate of 16%, while the first HKD 5 million continues to be taxed at 15%. This change affects approximately 12,000 taxpayers and reflects a targeted adjustment to Hong Kong's otherwise simple and flat tax system.",
-    ko: "2024/25 과세연도(2024년 4월 1일)부터 홍콩은 급여세에 대한 이중 표준세율 제도를 도입했습니다. 순소득이 500만 홍콩달러를 초과하는 고소득자는 16%의 높은 표준세율을 적용받으며, 첫 500만 홍콩달러에 대해서는 기존과 같이 15%가 적용됩니다. 이 변경은 약 12,000명의 납세자에게 영향을 미치며, 홍콩의 단순하고 낮은 세제에 대한 표적 조정을 반영합니다.",
+    ko: "2024/25 과세연도(2024년 4월 1일)부터 홍콩은 소득세에 대한 이중 표준세율 제도를 도입했습니다. 순소득이 500만 홍콩달러를 초과하는 고소득자는 16%의 높은 표준세율을 적용받으며, 첫 500만 홍콩달러에 대해서는 기존과 같이 15%가 적용됩니다. 이 변경은 약 12,000명의 납세자에게 영향을 미치며, 홍콩의 단순하고 낮은 세제에 대한 표적 조정을 반영합니다.",
   },
   aiTaskAutomation: {
     en: "Two-Tiered Salaries Tax in Hong Kong (2024/25)",
-    ko: "홍콩 이중 급여세 (2024/25)",
+    ko: "홍콩 이중 소득세 (2024/25)",
   },
   importanceOfAIDescription: {
     en: "Salaries Tax is levied under the Inland Revenue Ordinance (Cap. 112) on income arising from any office, employment, or pension in Hong Kong. Hong Kong operates on a territorial basis — only income sourced from Hong Kong is taxable, regardless of where it is paid or where the employer is incorporated. Taxable income includes salaries, wages, directors' fees, commissions, bonuses, non-cash benefits, share awards and options upon vesting or exercise, and pension income. Exempt income includes severance payments and long-service payments under the Employment Ordinance (Cap. 57).",
-    ko: "급여세는 세무조례(Cap. 112)에 따라 홍콩에서 발생한 모든 직위, 고용 또는 연금 소득에 부과됩니다. 홍콩은 속지주의 원칙을 채택하고 있어, 지급 장소나 고용주의 설립지와 관계없이 홍콩에서 발생한 소득만 과세 대상입니다. 과세 소득에는 급여, 임금, 이사 보수, 수수료, 보너스, 비현금 혜택, 귀속 또는 행사 시 주식 보상 및 옵션, 연금 소득이 포함됩니다. 고용조례(Cap. 57)에 따른 해고 수당과 장기근속 수당은 면세 소득에 해당합니다.",
+    ko: "소득세는 세무조례(Cap. 112)에 따라 홍콩에서 발생한 모든 직위, 고용 또는 연금 소득에 부과됩니다. 홍콩은 속지주의 원칙을 채택하고 있어, 지급 장소나 고용주의 설립지와 관계없이 홍콩에서 발생한 소득만 과세 대상입니다. 과세 소득에는 급여, 임금, 이사 보수, 수수료, 보너스, 비현금 혜택, 귀속 또는 행사 시 주식 보상 및 옵션, 연금 소득이 포함됩니다. 고용조례(Cap. 57)에 따른 해고 수당과 장기근속 수당은 면세 소득에 해당합니다.",
   },
 
   // Section 1 — How Salaries Tax is Calculated
   section1Title: {
     en: "How Salaries Tax is Calculated",
-    ko: "급여세 계산 방법",
+    ko: "소득세 계산 방법",
   },
   section1Description: {
     en: "Hong Kong uses a \"lower of two methods\" approach. The IRD calculates your tax under both methods and charges the lower amount.",
@@ -137,7 +137,7 @@ export const taxTwoTieredSalariesTaxTranslations = {
   },
   section4Description: {
     en: "Employers play a central role in the salaries tax system. Key obligations under IRO Cap. 112, s.52:",
-    ko: "고용주는 급여세 제도에서 중심적인 역할을 담당합니다. 세무조례 Cap. 112, 제52조에 따른 주요 의무:",
+    ko: "고용주는 소득세 제도에서 중심적인 역할을 담당합니다. 세무조례 Cap. 112, 제52조에 따른 주요 의무:",
   },
   section4Items: [
     { en: "BIR56A + IR56B — Annual Employer's Return, issued by IRD on April 1 each year; must be filed within 1 month", ko: "BIR56A + IR56B — 연간 고용주 신고서, 매년 4월 1일 세무국 발급; 1개월 이내 제출 필요" },
@@ -177,14 +177,14 @@ export const taxTwoTieredSalariesTaxTranslations = {
       answer: { en: "Your core reporting obligations remain unchanged — you still file BIR56A and IR56B annually. However, for employees whose total remuneration (including share awards, bonuses, and non-cash benefits) may approach or exceed HKD 5 million, ensure all such items are reported accurately and completely. Incomplete reporting can lead to penalties under IRO s.80.", ko: "핵심 신고 의무는 변경되지 않았습니다 — 여전히 BIR56A와 IR56B를 연간 제출합니다. 그러나 주식 보상, 보너스, 비현금 혜택을 포함한 총 보수가 500만 홍콩달러에 근접하거나 초과할 수 있는 직원의 경우, 모든 항목이 정확하고 완전하게 신고되도록 해야 합니다. 불완전한 신고는 세무조례 제80조에 따른 벌금으로 이어질 수 있습니다." },
     },
     {
-      question: { en: "Q5: What is provisional salaries tax, and how is it affected?", ko: "Q5: 예정 급여세란 무엇이며, 어떻게 영향을 받습니까?" },
-      answer: { en: "Provisional salaries tax is an advance payment estimated by IRD based on the prior year's assessment. For affected employees, the new 16% rate will flow through to future provisional tax calculations. Employees may apply to reduce provisional tax if their income for the year is expected to be lower — but this requires timely application and supporting documentation.", ko: "예정 급여세는 전년도 과세 평가를 기반으로 세무국이 추정하는 선납금입니다. 영향을 받는 직원의 경우, 새로운 16% 세율이 향후 예정세 계산에 반영됩니다. 해당 연도 소득이 낮을 것으로 예상되는 경우 예정세 감액을 신청할 수 있지만, 이는 적시 신청과 지원 서류가 필요합니다." },
+      question: { en: "Q5: What is provisional salaries tax, and how is it affected?", ko: "Q5: 예정 소득세란 무엇이며, 어떻게 영향을 받습니까?" },
+      answer: { en: "Provisional salaries tax is an advance payment estimated by IRD based on the prior year's assessment. For affected employees, the new 16% rate will flow through to future provisional tax calculations. Employees may apply to reduce provisional tax if their income for the year is expected to be lower — but this requires timely application and supporting documentation.", ko: "예정 소득세는 전년도 과세 평가를 기반으로 세무국이 추정하는 선납금입니다. 영향을 받는 직원의 경우, 새로운 16% 세율이 향후 예정세 계산에 반영됩니다. 해당 연도 소득이 낮을 것으로 예상되는 경우 예정세 감액을 신청할 수 있지만, 이는 적시 신청과 지원 서류가 필요합니다." },
     },
   ],
 
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   conclusionTitle: {
     en: "Conclusion",

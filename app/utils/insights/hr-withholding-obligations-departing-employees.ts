@@ -136,7 +136,7 @@ export const hrWithholdingObligationsDepartingEmployeesTranslations = {
     },
     {
       question: { en: "Q3: What is the employer's liability if payment is released too early?", ko: "Q3: 지급금을 너무 일찍 지급하면 고용주의 책임은 무엇입니까?" },
-      answer: { en: "Under Section 52(6) of the IRO, the employer becomes personally liable for the employee's unpaid salaries tax. This liability attaches regardless of whether the employer was aware of the outstanding tax amount.", ko: "세무조례 제52조 제6항에 따라, 고용주는 직원의 미납 급여세에 대해 개인적으로 책임을 지게 됩니다. 이 책임은 고용주가 미납 세액을 알고 있었는지 여부와 관계없이 발생합니다." },
+      answer: { en: "Under Section 52(6) of the IRO, the employer becomes personally liable for the employee's unpaid salaries tax. This liability attaches regardless of whether the employer was aware of the outstanding tax amount.", ko: "세무조례 제52조 제6항에 따라, 고용주는 직원의 미납 소득세에 대해 개인적으로 책임을 지게 됩니다. 이 책임은 고용주가 미납 세액을 알고 있었는지 여부와 관계없이 발생합니다." },
     },
     {
       question: { en: "Q4: If the IRD issues clearance after the employer already released payment on Day 30, is the employer still protected?", ko: "Q4: 고용주가 이미 30일째에 지급금을 지급한 후 세무국이 정산을 발급하면 고용주는 여전히 보호받습니까?" },
@@ -149,7 +149,7 @@ export const hrWithholdingObligationsDepartingEmployeesTranslations = {
   ],
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   conclusionTitle: {
     en: "Conclusion",

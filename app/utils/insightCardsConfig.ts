@@ -50,7 +50,7 @@ export const subTagsByInsight = {
     { en: "Impact on International Business", ko: "국제 비즈니스 영향" },
   ] as InsightSubTag[],
   corporateTax: [
-    { en: "HK Profits Tax Filing", ko: "홍콩 이익세 신고" },
+    { en: "HK Profits Tax Filing", ko: "홍콩 법인세 신고" },
     { en: "Procedures and Deadlines", ko: "절차 및 기한" },
   ] as InsightSubTag[],
   digitalTransformationEfficiency: [
@@ -107,7 +107,7 @@ export const subTagsByInsight = {
     { en: "Employer Risk", ko: "고용주 위험" },
   ] as InsightSubTag[],
   twoTieredSalariesTax: [
-    { en: "Salaries Tax", ko: "급여세" },
+    { en: "Salaries Tax", ko: "소득세" },
     { en: "Tax Rates", ko: "세율" },
     { en: "Employer Obligations", ko: "고용주 의무" },
   ] as InsightSubTag[],
@@ -124,7 +124,7 @@ export const subTagsByInsight = {
   propertyTaxHongKong: [
     { en: "Property Tax", ko: "재산세" },
     { en: "Rental Income", ko: "임대 소득" },
-    { en: "Profits Tax", ko: "이익세" },
+    { en: "Profits Tax", ko: "법인세" },
   ] as InsightSubTag[],
   statutoryAuditHongKong: [
     { en: "Audit", ko: "감사" },
@@ -378,7 +378,7 @@ export const TWO_TIERED_SALARIES_TAX_CARD: InsightCardDefinition = {
   alt: "Two-Tiered Salaries Tax in Hong Kong (2024/25)",
   href: "/insights/tax/two-tiered-salaries-tax",
   tag: { en: "Tax", ko: "세무" },
-  title: { en: "Two-Tiered Salaries Tax in Hong Kong (2024/25)", ko: "홍콩 이중 급여세 (2024/25)" },
+  title: { en: "Two-Tiered Salaries Tax in Hong Kong (2024/25)", ko: "홍콩 이중 소득세 (2024/25)" },
   description: { en: "", ko: "" },
   subTags: subTagsByInsight.twoTieredSalariesTax,
 };

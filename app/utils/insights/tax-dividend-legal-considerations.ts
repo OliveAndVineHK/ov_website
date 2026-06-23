@@ -38,11 +38,11 @@ export const taxDividendLegalConsiderationsTranslations = {
   },
   efficiencyEnhancement: {
     en: "Profits Tax Payment",
-    ko: "이익세 납부",
+    ko: "법인세 납부",
   },
   repetitiveTaskAutomation: {
     en: "Before distributing dividends, it is essential to confirm whether the company has already paid profits tax on the relevant earnings. Distributing dividends while profits tax remains unpaid may lead to subsequent tax issues.",
-    ko: "배당을 분배하기 전에 기업이 관련 수익에 대해 이익세를 이미 납부했는지 확인하는 것이 필수적입니다. 이익세가 미납된 상태에서 배당을 분배하면 후속 세무 문제가 발생할 수 있습니다.",
+    ko: "배당을 분배하기 전에 기업이 관련 수익에 대해 법인세를 이미 납부했는지 확인하는 것이 필수적입니다. 법인세가 미납된 상태에서 배당을 분배하면 후속 세무 문제가 발생할 수 있습니다.",
   },
   improvedAccuracy: {
     en: "Overseas Dividend Income",
@@ -94,7 +94,7 @@ export const taxDividendLegalConsiderationsTranslations = {
   },
   conclusionDescription: {
     en: "Distributing retained profits serves as a key management strategy for providing returns to shareholders. Hong Kong's exemption of dividend income from tax presents a significant advantage, but companies must consider various tax and financial factors during the process. In particular, comprehensively review issues such as overseas income-related taxes, profits tax payment status, and cash flow when formulating dividend plans. An appropriate dividend strategy can positively impact not only shareholder satisfaction but also the company's long-term growth.",
-    ko: "이익잉여금을 분배하는 것은 주주에게 수익을 제공하는 핵심 경영 전략입니다. 홍콩의 배당 소득 세금 면제는 중요한 이점을 제공하지만, 기업은 해당 과정에서 다양한 세무 및 재무 요인을 고려하여야 합니다. 특히 배당 계획을 수립할 때 해외 소득 관련 세금, 이익세 납부 현황, 현금 흐름 등의 사항을 종합적으로 검토하여야 합니다. 적절한 배당 전략은 주주 만족뿐만 아니라 기업의 장기 성장에도 긍정적인 영향을 미칠 수 있습니다.",
+    ko: "이익잉여금을 분배하는 것은 주주에게 수익을 제공하는 핵심 경영 전략입니다. 홍콩의 배당 소득 세금 면제는 중요한 이점을 제공하지만, 기업은 해당 과정에서 다양한 세무 및 재무 요인을 고려하여야 합니다. 특히 배당 계획을 수립할 때 해외 소득 관련 세금, 법인세 납부 현황, 현금 흐름 등의 사항을 종합적으로 검토하여야 합니다. 적절한 배당 전략은 주주 만족뿐만 아니라 기업의 장기 성장에도 긍정적인 영향을 미칠 수 있습니다.",
   },
   frequentlyAskedQuestions: {
     en: "Frequently Asked Questions (Q&A)",
@@ -102,7 +102,7 @@ export const taxDividendLegalConsiderationsTranslations = {
   },
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   faqItems: [
     {

@@ -217,11 +217,11 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
   "insights/tax/two-tiered-salaries-tax": {
     documentTitle: {
       en: "Two-Tiered Salaries Tax in Hong Kong (2024/25)",
-      ko: "홍콩 이중 급여세 (2024/25)",
+      ko: "홍콩 이중 소득세 (2024/25)",
     },
     pathSegments: {
       en: ["Insights", "Tax", "Two-Tiered Salaries Tax in Hong Kong (2024/25)"],
-      ko: ["인사이트", "세무", "홍콩 이중 급여세 (2024/25)"],
+      ko: ["인사이트", "세무", "홍콩 이중 소득세 (2024/25)"],
     },
   },
   "insights/hr/employers-return-bir56a": {

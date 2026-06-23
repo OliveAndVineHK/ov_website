@@ -15,7 +15,7 @@ export const assuranceStatutoryAuditHongKongTranslations = {
   },
   importanceOfAIDescription: {
     en: "A statutory audit is an independent examination of a company's financial statements, carried out so the auditor can express an opinion on whether they give a true and fair view of the company's financial position and performance. In Hong Kong it is not optional: under section 405 of the Companies Ordinance (Cap. 622), the financial statements of every company incorporated in Hong Kong must be audited every year. Unlike many jurisdictions, Hong Kong grants no exemption based on company size — a small family business and a large corporation are equally required to be audited. The audit must be performed by a practising certified public accountant, and the resulting audited accounts underpin the company's profits tax filing, its banking relationships, and the confidence of investors and regulators.",
-    ko: "법정감사는 회사의 재무제표가 회사의 재무 상태와 경영 성과를 진실하고 공정한 관점(true and fair view)에서 표시하고 있는지에 대해 감사인이 의견을 표명할 수 있도록 수행되는 독립적인 검토 절차입니다. 홍콩에서 법정감사는 선택 사항이 아닙니다. 회사법(Cap. 622) 제405조에 따라, 홍콩에 설립된 모든 회사의 재무제표는 매년 감사를 받아야 합니다. 많은 국가와 달리 홍콩은 기업 규모에 따른 면제를 두지 않으며, 소규모 가족 기업과 대기업 모두 동등하게 감사를 받아야 합니다. 감사는 실무 공인회계사(practising CPA)가 수행해야 하며, 그 결과 산출된 감사받은 재무제표는 회사의 이익세 신고, 은행 거래 관계, 그리고 투자자·규제 당국의 신뢰를 뒷받침하는 기초가 됩니다.",
+    ko: "법정감사는 회사의 재무제표가 회사의 재무 상태와 경영 성과를 진실하고 공정한 관점(true and fair view)에서 표시하고 있는지에 대해 감사인이 의견을 표명할 수 있도록 수행되는 독립적인 검토 절차입니다. 홍콩에서 법정감사는 선택 사항이 아닙니다. 회사법(Cap. 622) 제405조에 따라, 홍콩에 설립된 모든 회사의 재무제표는 매년 감사를 받아야 합니다. 많은 국가와 달리 홍콩은 기업 규모에 따른 면제를 두지 않으며, 소규모 가족 기업과 대기업 모두 동등하게 감사를 받아야 합니다. 감사는 실무 공인회계사(practising CPA)가 수행해야 하며, 그 결과 산출된 감사받은 재무제표는 회사의 법인세 신고, 은행 거래 관계, 그리고 투자자·규제 당국의 신뢰를 뒷받침하는 기초가 됩니다.",
   },
 
   // Section 1 — intro gate
@@ -80,7 +80,7 @@ export const assuranceStatutoryAuditHongKongTranslations = {
   s4dTitle: { en: "4. Laying Before Members and Filing", ko: "4. 주주 제출 및 신고" },
   s4dDescription: {
     en: "The audited financial statements, together with the directors' report and the auditor's report, are laid before the members at the annual general meeting (section 388). The audited accounts also support the company's annual Profits Tax Return to the Inland Revenue Department, as Hong Kong companies are generally required to submit audited financial statements with the return.",
-    ko: "감사받은 재무제표는 이사 보고서 및 감사보고서와 함께 정기주주총회에서 주주들에게 제출됩니다(제388조). 또한 홍콩 기업은 일반적으로 신고서와 함께 감사받은 재무제표를 제출해야 하므로, 감사받은 재무제표는 세무국에 제출하는 회사의 연간 이익세 신고서를 뒷받침하는 근거가 됩니다.",
+    ko: "감사받은 재무제표는 이사 보고서 및 감사보고서와 함께 정기주주총회에서 주주들에게 제출됩니다(제388조). 또한 홍콩 기업은 일반적으로 신고서와 함께 감사받은 재무제표를 제출해야 하므로, 감사받은 재무제표는 세무국에 제출하는 회사의 연간 법인세 신고서를 뒷받침하는 근거가 됩니다.",
   },
 
   // Section 5 — Consequences
@@ -97,7 +97,7 @@ export const assuranceStatutoryAuditHongKongTranslations = {
   s5bTitle: { en: "Problems with the Inland Revenue Department", ko: "세무국과의 문제" },
   s5bDescription: {
     en: "Hong Kong companies are generally required to file audited financial statements with their Profits Tax Return. Without an audit, the company cannot file properly; the Inland Revenue Department may raise estimated assessments, impose penalties, and scrutinise the company more closely.",
-    ko: "홍콩 기업은 일반적으로 이익세 신고서와 함께 감사받은 재무제표를 제출해야 합니다. 감사를 받지 않으면 회사는 제대로 신고할 수 없으며, 세무국은 추정 과세를 부과하거나 과태료를 부과할 수 있고, 해당 회사를 더 면밀히 조사할 수 있습니다.",
+    ko: "홍콩 기업은 일반적으로 법인세 신고서와 함께 감사받은 재무제표를 제출해야 합니다. 감사를 받지 않으면 회사는 제대로 신고할 수 없으며, 세무국은 추정 과세를 부과하거나 과태료를 부과할 수 있고, 해당 회사를 더 면밀히 조사할 수 있습니다.",
   },
   s5cTitle: { en: "Banking, Funding, and Trust", ko: "은행 거래, 자금 조달, 그리고 신뢰" },
   s5cDescription: {
@@ -151,11 +151,11 @@ export const assuranceStatutoryAuditHongKongTranslations = {
     {
       question: {
         en: "Is the audit the same thing as filing our profits tax return?",
-        ko: "감사는 이익세 신고서를 제출하는 것과 같은 건가요?",
+        ko: "감사는 법인세 신고서를 제출하는 것과 같은 건가요?",
       },
       answer: {
         en: "No, they are separate but connected. The audit produces audited financial statements under the Companies Ordinance; the Profits Tax Return is filed with the Inland Revenue Department under the Inland Revenue Ordinance. In Hong Kong the two are linked: companies generally must submit their audited financial statements together with the Profits Tax Return, so the audit normally comes first.",
-        ko: "아닙니다. 둘은 별개이지만 서로 연결되어 있습니다. 감사는 회사법에 따라 감사받은 재무제표를 작성하는 과정이고, 이익세 신고서는 세무조례에 따라 세무국에 제출합니다. 홍콩에서는 이 둘이 연계되어 있어, 기업은 일반적으로 감사받은 재무제표를 이익세 신고서와 함께 제출해야 하므로 통상 감사가 먼저 이루어집니다.",
+        ko: "아닙니다. 둘은 별개이지만 서로 연결되어 있습니다. 감사는 회사법에 따라 감사받은 재무제표를 작성하는 과정이고, 법인세 신고서는 세무조례에 따라 세무국에 제출합니다. 홍콩에서는 이 둘이 연계되어 있어, 기업은 일반적으로 감사받은 재무제표를 법인세 신고서와 함께 제출해야 하므로 통상 감사가 먼저 이루어집니다.",
       },
     },
   ],

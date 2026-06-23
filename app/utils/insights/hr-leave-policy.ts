@@ -30,11 +30,11 @@ export const hrLeavePolicyTranslations = {
   },
   contactInformationDescription: {
     en: "Leave policies in Hong Kong play a vital role in enhancing employee welfare and satisfaction. Proper leave management boosts morale and prevents legal issues. Olive & Vine offers comprehensive consulting services on Hong Kong leave management—contact contact@oliveandvinehk.com for assistance.",
-    ko: "홍콩의 휴가 정책은 직원 복리후생 및 만족도를 향상시키는 데 중요한 역할을 합니다. 적절한 휴가 관리는 모토비비를 증가시키고 법적 문제를 방지합니다. Olive & Vine는 홍콩 휴가 관리에 대한 포괄적인 컨설팅 서비스를 제공합니다—도움이 필요하시면 contact@oliveandvinehk.com에 연락해 주세요.",
+    ko: "홍콩의 휴가 정책은 직원 복리후생 및 만족도를 향상시키는 데 중요한 역할을 합니다. 적절한 휴가 관리는 모토비비를 증가시키고 법적 문제를 방지합니다. Olive & Vine은 홍콩 휴가 관리에 대한 포괄적인 컨설팅 서비스를 제공합니다—도움이 필요하시면 contact@oliveandvinehk.com에 연락해 주세요.",
   },
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive and Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   leaveEntitlementsRegulationsTitle: {
     en: "Hong Kong Leave Entitlements Regulations",

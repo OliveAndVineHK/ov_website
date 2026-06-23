@@ -124,7 +124,7 @@ export const corporateServiceCorporateSecretaryTranslations = {
   },
   benefitsAndLimitationsParagraph1: {
     en: "An outsourced company secretary provides numerous benefits to businesses, particularly those without the resources to maintain an in-house secretary. One key advantage is cost-effectiveness, as companies can access expert services without the expense of a full-time employee. outsourced secretaries bring diverse experience from working with various clients, offering valuable insights into best practices and regulatory compliance. They also provide flexible services, scaling their support to meet the changing needs of the business. Additionally, their independence ensures unbiased advice, enhancing the company's governance structure.",
-    ko: "아웃소싱 회사 비서는 인하우스 비서를 유지할 자원이 없는 기업을 포함해 기업에 다양한 이점을 제공합니다. 주요 장점 중 하나는 정규직 비용 없이 전문 서비스를 이용할 수 있는 비용 효율성입니다. 아웃소싱 비서는 다양한 고객과의 협업 경험을 바탕으로 모범 사례와 규제 준수에 대한 유용한 통찰을 제공합니다. 또한 유연한 서비스를 제공하여 사업의 변화하는 요구에 맞춰 지원 규모를 조정합니다. 그들의 독립성은 편견 없는 조언을 보장하여 회사의 지배구조를 강화합니다.",
+    ko: "아웃소싱 회사 비서는 인하우스 비서를 유지할 자원이 없는 기업을 포함해 기업에 다양한 이점을 제공합니다. 주요 장점 중 하나는 정규직 비용 없이 전문 서비스를 이용할 수 있는 비용 효율성입니다. 아웃소싱 비서는 다양한 고객과의 협업 경험을 바탕으로 모범 사례와 규제 준수에 대한 유용한 인사이트을 제공합니다. 또한 유연한 서비스를 제공하여 사업의 변화하는 요구에 맞춰 지원 규모를 조정합니다. 그들의 독립성은 편견 없는 조언을 보장하여 회사의 지배구조를 강화합니다.",
   },
   benefitsAndLimitationsParagraph2: {
     en: "At the same time, there are key points to take note. As an outsourced secretary is not involved in day-to-day operations, prompt and in-depth communication from the company is the only way that the outsourced secretary can give tailored and appropriate service. We rely on the client to provide necessary information to ensure effective compliance and governance support.",
@@ -200,14 +200,14 @@ export const corporateServiceCorporateSecretaryTranslations = {
   },
   inConclusionParagraph2: {
     en: "At Olive and Vine, we offer comprehensive company secretary services tailored to your specific needs. Our team of experts is dedicated to ensuring your business complies with all regulatory requirements, making complex corporate governance easy to understand and manage.",
-    ko: "Olive & Vine는 귀사에 맞는 회사 비서 서비스를 제공해 드립니다. 전문가 팀이 모든 규제 요건 준수를 위해 최선을 다하며, 복잡한 기업 지배구조를 이해하고 관리하시기 쉽도록 지원해 드립니다.",
+    ko: "Olive & Vine은 귀사에 맞는 회사 비서 서비스를 제공해 드립니다. 전문가 팀이 모든 규제 요건 준수를 위해 최선을 다하며, 복잡한 기업 지배구조를 이해하고 관리하시기 쉽도록 지원해 드립니다.",
   },
   inConclusionParagraph3: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist as it is written for informative purpose but not legal purpose. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice. Please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive & Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive & Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
   contactInformationDisclaimer: {
     en: "This material covers general information and does not provide solutions for any specific issues of any company or individual. Differences in legal terms may exist due to the translation into Korean to aid understanding. Olive and Vine does not assume any legal responsibility or guarantee the accuracy, completeness, or usefulness of this information. This material cannot replace legal or consulting advice; please consult with a professional if necessary.",
-    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive & Vine는 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
+    ko: "이 자료는 일반적인 정보로서 특정 회사 또는 개인의 문제에 대한 해결책을 제공하지 않습니다. 이해를 돕기 위해 한국어로 번역된 일부 내용은 정확한 법률 용어와 다를 수 있습니다. Olive & Vine은 이 정보의 정확성, 완전성 또는 유용성에 대한 법적 보장을 제공하지 않습니다. 본 자료는 법률 또는 컨설팅 자문을 대체하지 않으며, 필요시 전문가와 상담하시기 바랍니다.",
   },
 };

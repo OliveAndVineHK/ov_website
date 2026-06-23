@@ -22,7 +22,7 @@ export const consultingLegalConsiderationsMATranslations = {
   },
   contactInformationDisclaimer: {
     en: "The information provided above is intended for general reference only and does not address specific circumstances for any company or individual. Olive & Vine does not make any legal representations or warranties regarding the accuracy, completeness, or reliability of this content. This material should not be considered a substitute for professional legal or consulting advice. For guidance tailored to your situation, please consult a qualified professional.",
-    ko: "위에 제공된 정보는 일반적인 참고용으로만 제공되며, 특정 회사 또는 개인의 구체적인 상환을 다루지 않습니다. Olive & Vine는 본 내용의 정확성, 완전성 또는 신뢰성에 대해 어떠한 법적 진술이나 보증도 하지 않습니다. 본 자료는 전문 법률 또는 컨설팅 자문을 대체하는 것으로 간주되어서는 안 됩니다. 귀하의 상황에 맞는 안내를 받으시려면 자격을 갖춘 전문가와 상담하시기 바랍니다.",
+    ko: "위에 제공된 정보는 일반적인 참고용으로만 제공되며, 특정 회사 또는 개인의 구체적인 상환을 다루지 않습니다. Olive & Vine은 본 내용의 정확성, 완전성 또는 신뢰성에 대해 어떠한 법적 진술이나 보증도 하지 않습니다. 본 자료는 전문 법률 또는 컨설팅 자문을 대체하는 것으로 간주되어서는 안 됩니다. 귀하의 상황에 맞는 안내를 받으시려면 자격을 갖춘 전문가와 상담하시기 바랍니다.",
   },
   aiTaskAutomation: {
     en: "M&A (Mergers and Acquisitions) Procedures and Legal Considerations",
