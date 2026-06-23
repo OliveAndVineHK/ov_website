@@ -146,6 +146,11 @@ export const subTagsByInsight = {
     { en: "HKFRS / SME-FRS", ko: "HKFRS / SME-FRS" },
     { en: "SME", ko: "중소기업" },
   ] as InsightSubTag[],
+  statutoryHolidaysHk: [
+    { en: "Statutory Holidays", ko: "법정휴일" },
+    { en: "General Holidays", ko: "일반 공휴일" },
+    { en: "Employment Ordinance", ko: "고용조례" },
+  ] as InsightSubTag[],
 };
 
 export const FIVE_STEPS_CARD: InsightCardDefinition = {
@@ -448,6 +453,16 @@ export const FINANCIAL_STATEMENTS_SME_HK_CARD: InsightCardDefinition = {
   subTags: subTagsByInsight.financialStatementsSmeHk,
 };
 
+export const STATUTORY_HOLIDAYS_HK_CARD: InsightCardDefinition = {
+  image: "/insights/statutory-holidays-hk.jpg",
+  alt: "Statutory holidays vs general holidays in Hong Kong",
+  href: "/insights/hr/statutory-holidays-hk",
+  tag: { en: "HR", ko: "인사" },
+  title: { en: "Statutory Holidays vs General Holidays in Hong Kong", ko: "홍콩 법정휴일과 일반 공휴일" },
+  description: { en: "", ko: "" },
+  subTags: subTagsByInsight.statutoryHolidaysHk,
+};
+
 export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   FIVE_STEPS_CARD,
   INTRODUCTION_XERO_CARD,
@@ -478,4 +493,5 @@ export const INSIGHT_LIST_CARDS: InsightCardDefinition[] = [
   ASSURANCE_ENGAGEMENT_TYPES_CARD,
   AUDIT_READINESS_CHECKLIST_CARD,
   FINANCIAL_STATEMENTS_SME_HK_CARD,
+  STATUTORY_HOLIDAYS_HK_CARD,
 ];

@@ -294,6 +294,16 @@ const INSIGHT_PAGES: Record<string, DynamicPageEntry> = {
       ko: ["인사이트", "회계", "홍콩 중소기업의 재무제표"],
     },
   },
+  "insights/hr/statutory-holidays-hk": {
+    documentTitle: {
+      en: "Statutory Holidays vs General Holidays in Hong Kong",
+      ko: "홍콩 법정휴일과 일반 공휴일",
+    },
+    pathSegments: {
+      en: ["Insights", "HR", "Statutory Holidays vs General Holidays in Hong Kong"],
+      ko: ["인사이트", "인사", "홍콩 법정휴일과 일반 공휴일"],
+    },
+  },
 };
 
 export function getDynamicPageKey(pathname: string): string {
