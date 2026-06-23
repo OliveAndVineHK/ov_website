@@ -27,6 +27,7 @@ import { assuranceStatutoryAuditHongKongTranslations } from "./insights/assuranc
 import { assuranceEngagementTypesTranslations } from "./insights/assurance-engagement-types";
 import { assuranceAuditReadinessChecklistTranslations } from "./insights/assurance-audit-readiness-checklist";
 import { accountingFinancialStatementsSmeHkTranslations } from "./insights/accounting-financial-statements-sme-hk";
+import { hrStatutoryHolidaysHkTranslations } from "./insights/hr-statutory-holidays-hk";
 /**
  * Template for insight/news detail pages. Any (tag, slug) with a registered translation
  * module gets the full layout (hero, share buttons, Back to insights, content sections, FAQ, contact).
@@ -63,6 +64,7 @@ const INSIGHT_KEY_ASSURANCE_STATUTORY_AUDIT = "assurance/statutory-audit-hong-ko
 const INSIGHT_KEY_ASSURANCE_ENGAGEMENT_TYPES = "assurance/assurance-engagement-types";
 const INSIGHT_KEY_ASSURANCE_AUDIT_READINESS = "assurance/audit-readiness-checklist";
 const INSIGHT_KEY_ACCOUNTING_FINANCIAL_STATEMENTS_SME = "accounting/financial-statements-sme-hk";
+const INSIGHT_KEY_HR_STATUTORY_HOLIDAYS_HK = "hr/statutory-holidays-hk";
 
 export function getInsightTranslations(tag: string, slug: string) {
   const key = `${tag.toLowerCase()}/${slug}`;
@@ -153,6 +155,9 @@ export function getInsightTranslations(tag: string, slug: string) {
   if (key === INSIGHT_KEY_ACCOUNTING_FINANCIAL_STATEMENTS_SME) {
     return accountingFinancialStatementsSmeHkTranslations;
   }
+  if (key === INSIGHT_KEY_HR_STATUTORY_HOLIDAYS_HK) {
+    return hrStatutoryHolidaysHkTranslations;
+  }
   return null;
 }
 
@@ -185,3 +190,4 @@ export { assuranceStatutoryAuditHongKongTranslations } from "./insights/assuranc
 export { assuranceEngagementTypesTranslations } from "./insights/assurance-engagement-types";
 export { assuranceAuditReadinessChecklistTranslations } from "./insights/assurance-audit-readiness-checklist";
 export { accountingFinancialStatementsSmeHkTranslations } from "./insights/accounting-financial-statements-sme-hk";
+export { hrStatutoryHolidaysHkTranslations } from "./insights/hr-statutory-holidays-hk";

@@ -76,7 +76,7 @@ function InsightPageClient({ tag, slug }: { tag: string; slug: string }) {
   // Articles that render via the shared generic Pattern B block (s1Title…s5 schema) with
   // slug-based images (/insights/<slug>.jpg + <slug>-bg.jpg). All assurance articles qualify;
   // individual articles in other categories opt in by slug.
-  const isSharedPatternB = isAssurance || (normalizedTag === "accounting" && slug === "financial-statements-sme-hk");
+  const isSharedPatternB = isAssurance || (normalizedTag === "accounting" && slug === "financial-statements-sme-hk") || (normalizedTag === "hr" && slug === "statutory-holidays-hk");
   const isAmendmentLayout = isAmendment || isIncorporation || isCorporateSecretary || isHrTerminationRegulation || isHrMandatoryProvidentFund;
   const sectionLabel = (index: number) => (isAmendmentLayout || isTaxVat || isHrHybridWorkPerformance || isHrLeavePolicyExplanation ? "" : `${index + 1}. `);
   const translations = getInsightTranslations(tag, slug);
