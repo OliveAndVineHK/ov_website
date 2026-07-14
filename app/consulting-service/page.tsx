@@ -124,7 +124,7 @@ export default function ConsultingServicePage() {
                   {heroTitle}
                 </h1>
 
-                <p className="mt-6 md:mt-8 max-w-xl text-[16px] sm:text-[18px] md:text-[20px] 2xl:text-[22px] text-white/85 leading-[1.55]">
+                <p className="mt-6 md:mt-8 max-w-xl text-[16px] sm:text-[18px] md:text-[20px] 2xl:text-[22px] text-white/85 leading-[1.55] whitespace-pre-line">
                   {heroSubtitle}
                 </p>
 
@@ -240,7 +240,7 @@ export default function ConsultingServicePage() {
                         {phase.title}
                       </h3>
                     </div>
-                    <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.65] text-justify">
+                    <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.65] text-justify whitespace-pre-line">
                       {phase.description}
                     </p>
                   </article>

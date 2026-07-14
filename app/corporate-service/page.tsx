@@ -230,7 +230,7 @@ export default function CorporateServicePage() {
                             <h3 className="text-[20px] md:text-[22px] 2xl:text-[24px] font-semibold text-[#111B12] leading-[1.25] mb-2 md:mb-3">
                               {stage.label}
                             </h3>
-                            <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.6] mb-5 text-justify">
+                            <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-[1.6] mb-5 text-justify whitespace-pre-line">
                               {stage.description}
                             </p>
                             <ul className="flex flex-col gap-2 list-none pl-0">

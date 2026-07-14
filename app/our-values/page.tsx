@@ -72,7 +72,7 @@ function ValueRow({
         <h2 className="text-[28px] sm:text-[32px] md:text-[36px] 2xl:text-[42px] font-normal text-[#111B12] leading-[1.2] mb-4">
           {title}
         </h2>
-        <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl 2xl:max-w-4xl text-justify">
+        <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl 2xl:max-w-4xl text-justify whitespace-pre-line">
           {body}
         </p>
       </div>
@@ -155,12 +155,12 @@ export default function OurValuesPage() {
             </span>
             <h1 className="text-[36px] sm:text-[44px] md:text-[56px] lg:text-[64px] 2xl:text-[80px] font-normal text-[#495F2B] leading-[1.1] tracking-[-0.01em] md:whitespace-nowrap">
               {isKo
-                ? "우리가 고수하는 다섯 가지 원칙"
+                ? "올리브 앤 바인을 움직이는 다섯 다지 원칙"
                 : "Five things we return to every day"}
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl 2xl:max-w-2xl text-[15px] md:text-[17px] 2xl:text-[19px] text-[#111B12]/70 leading-[1.6]">
               {isKo
-                ? "고객을 대하는 방식부터 업무를 완성하는 기준, 그리고 서로를 대하는 태도까지 — 우리가 매일 돌아보는 다섯 가지 원칙입니다."
+                ? "고객을 대하는 방식부터 업무를 완성하는 기준, 그리고 동료를 대하는 태도까지 - 우리가 매 순간 끊임없이 돌아보고 실천하는 다섯 가지 원칙입니다."
                 : "How we serve clients, how we finish work, how we treat each other — five principles we come back to every day."}
             </p>
           </div>
@@ -239,7 +239,7 @@ export default function OurValuesPage() {
             <h2 className="text-[32px] sm:text-[40px] md:text-[48px] 2xl:text-[56px] font-normal text-white leading-[1.2] mb-6">
               {isKo ? t.promiseTitle.ko : t.promiseTitle.en}
             </h2>
-            <p className="text-[16px] md:text-[18px] 2xl:text-[20px] text-white/85 leading-[1.7] max-w-3xl 2xl:max-w-4xl mx-auto">
+            <p className="text-[16px] md:text-[18px] 2xl:text-[20px] text-white/85 leading-[1.7] max-w-3xl 2xl:max-w-4xl mx-auto whitespace-pre-line">
               {isKo ? t.promiseBody.ko : t.promiseBody.en}
             </p>
             <div className="mt-10">

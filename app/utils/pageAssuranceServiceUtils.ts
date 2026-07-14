@@ -12,7 +12,7 @@ export const assuranceServicePageTranslations = {
   heroTitle: { en: "Assurance", ko: "Assurance" },
   heroSubtitle: {
     en: "Hong Kong companies are required to prepare audited financial statements in accordance with statutory requirements, to be conducted by a qualified CPA. We bring professional rigour and transparency to each engagement, delivering not only an audit opinion but also practical observations and insights to support your business decisions.",
-    ko: "홍콩 기업은 관련 법규에 따라 공인회계사(CPA)에 의한 재무제표 감사를 받아야 합니다. 우리는 모든 감사 업무에 있어 높은 수준의 전문성과 투명성을 유지하며, 단순한 감사 의견을 넘어서 실질적인 개선과 판단에 도움이 되는 인사이트를 제공합니다.",
+    ko: "홍콩의 모든 기업은 관련 법규에 따라 공인회계사(CPA)를 통한 제무제표 감사를 필수적으로 받아야 합니다. 우리는 모든 감사 업무에 있어 높은 수준의 전문성과 투명성을 유지하며, 단순한 감사 의견을 넘어서 실질적인 개선과 판단에 도움이 되는 인사이트를 제공합니다.",
   },
 
   /* ── Section: Our approach (Introduction · Audit Philosophy · Value) ── */
@@ -25,9 +25,9 @@ export const assuranceServicePageTranslations = {
     en: `Our assurance services are grounded in professional integrity, independence, and disciplined execution. Each engagement is delivered through a structured approach that ensures audit work is conducted clearly, efficiently, and with defined accountability.
 
 We focus not only on meeting regulatory requirements, but on maintaining a controlled audit process — allowing management to respond effectively without unnecessary disruption to ongoing operations.`,
-    ko: `저희의 Assurance 서비스는 전문가로서의 정직성, 독립성, 그리고 원칙에 입각한 실행을 바탕으로 합니다. 모든 용역은 체계적인 접근에 따라 진행되며, 감사 업무가 명확하고 효율적으로, 그리고 분명한 책임 아래 수행되도록 보장합니다.
+    ko: `Assurance 서비스는 전문가로서의 정직성, 독립성, 그리고 원칙에 입각한 실행을 바탕으로 합니다. 모든 용역은 체계적인 접근에 따라 진행되며, 감사 업무가 명확하고 효율적으로, 그리고 분명한 책임 아래 수행되도록 보장합니다.
 
-저희는 규제 요건을 충족하는 데 그치지 않고, 통제된 감사 절차를 유지하는 데 집중합니다. 이를 통해 경영진은 현업의 불필요한 차질 없이 효과적으로 대응할 수 있습니다.`,
+단순히 법적 규제 요건을 충족하는 데 그치지 않고, 체계적으로 잘 관리된 감사 절차를 유지 하는 데 집중합니다. 이를 통해 경영진과 실무진은 협엽에 불필요한 차질을 겪지 않고, 일상 업무에 집중하면서도 가장 효율적으로 대응할 수 있습니다.`,
   },
   auditPhilosophyTitle: { en: "Audit Philosophy", ko: "감사 철학" },
   auditPhilosophy: {
@@ -38,9 +38,9 @@ This requires the consistent application of professional scepticism, independent
 This principle underpins every engagement we undertake.`,
     ko: `회계감사는 재무 정보가 신뢰할 수 있고 투명하며, 독립적인 검증을 견뎌낼 수 있어야 한다는 원칙에서 출발합니다.
 
-이를 위해서는 전문적 회의주의(Professional Scepticism), 독립적 판단, 그리고 증거에 기반한 평가를 일관되게 적용해야 합니다. 목표는 단순히 절차를 완료하는 것이 아니라, 이해관계자가 확신을 가지고 의지할 수 있는 결론을 도출하는 데 있습니다.
+이를 위해서는 전문가적 의구심(Professional Scepticism), 독립적 판단, 그리고 증거에 기반한 평가를 일관되게 적용해야 합니다. 목표는 단순히 절차를 완료하는 것이 아니라, 이해관계자가 확신을 가지고 의지할 수 있는 결론을 도출하는 데 있습니다.
 
-이 원칙은 저희가 수행하는 모든 용역의 근간입니다.`,
+이 원칙은 올리브 앤 바인이 수행하는 모든 용역의 근간입니다.`,
   },
   valueBeyondTitle: { en: "Value Beyond the Audit", ko: "감사를 넘어선 가치" },
   valueBeyond: {
@@ -49,11 +49,11 @@ This principle underpins every engagement we undertake.`,
 The value of the audit is most clearly realised at the completion stage, where findings, adjustments, and observations are discussed with management. These discussions provide clarity over the financial position and highlight areas that may require attention.
 
 Where appropriate, we also provide observations that support improvements in financial reporting, internal controls, and operational processes. This allows the audit to contribute not only to compliance, but to the ongoing strengthening of financial governance.`,
-    ko: `저희의 역할은 감사 의견을 발행하는 데 그치지 않습니다.
+    ko: `최종 감사 의견서를 발행하는 데 그치지 않습니다.
 
-감사의 가치는 발견사항과 수정사항, 관찰사항을 경영진과 논의하는 완료 단계에서 가장 분명하게 드러납니다. 이러한 논의는 재무 상태에 대한 명확한 이해를 제공하고, 주의가 필요한 영역을 짚어 드립니다.
+감사의 진정한 가치는 모든 검토를 마치고, 발견한 내용과 수정 보완할 점, 드리고 핵심 관찰 사항들을 경영진과 함께 논의하는 완료 단계에서 가장 분명하게 드러납니다. 이러한 긴밀한 소통은 회사의 현재 재무 상태를 명확하게 이해하도록 돕고, 앞으로 특별히 주의하거나 관리해야 할 영역을 함께 검토합니다.
 
-또한 필요한 경우 재무 보고와 내부 통제, 업무 프로세스의 개선을 뒷받침하는 관찰사항을 제시합니다. 이를 통해 감사는 단순한 규제 준수를 넘어, 재무 거버넌스를 지속적으로 강화하는 데 기여합니다.`,
+나아가 필요에 따라 재무 보고 시스템과 내부 통제, 드리고 전반적인 업무 프로세스를 한 단계 발전 시킬 수 있는 실질적인 개선 방향을 제안합니다. 이를 통해 우리의 감사는 단순한 법적 규제 준수를 넘어, 기업의 투명한 재무경영체계를 지속적으로 강화하는 밑거름이 됩니다.`,
   },
 
   /* ── Section: Audit Methodology (4-step vertical cards) ── */
@@ -66,9 +66,9 @@ Where appropriate, we also provide observations that support improvements in fin
     en: `Audit engagements are delivered through a structured framework designed to ensure clarity, efficiency, and predictability. The process follows clearly defined stages, allowing each phase of the engagement to be managed in a controlled and transparent manner.
 
 We begin by understanding the business and identifying key areas of audit focus. Procedures are then performed based on assessed risks, with emphasis placed on areas that have the greatest impact on the financial statements.`,
-    ko: `감사 용역은 명확성과 효율성, 예측 가능성을 보장하도록 설계된 체계적인 프레임워크에 따라 진행됩니다. 명확하게 정의된 단계를 따르므로, 각 단계를 통제되고 투명한 방식으로 관리할 수 있습니다.
+    ko: `감사 서비스는 명확성과 효율성, 그리고 예측 가능성을 유지할 수 있도록 설계된 체계적인 시스템에 따라 진행됩니다. 모든 과정이 명확하게 정의된 단계를 거쳐 이루어지므로, 투명한 방식으로 관리할 수 있습니다.
 
-먼저 사업을 이해하고 감사의 핵심 영역을 식별합니다. 이후 평가된 리스크를 바탕으로 감사 절차를 수행하며, 재무제표에 가장 큰 영향을 미치는 영역에 중점을 둡니다.`,
+먼저 고객사의 비즈니스를 이해하고 감사의 핵심 영역을 식별합니다. 이후 파악된 리스크를 바탕으로 감사 절차를 수행하며, 재무제표에 가장 큰 영향을 미치는 핵심 영역에 집중하여 업무를 처리합니다.`,
   },
   methodologySteps: {
     en: [
@@ -90,7 +90,7 @@ We begin by understanding the business and identifying key areas of audit focus.
 Where accounting records and supporting data are reasonably maintained on an ongoing basis, the audit process can be integrated alongside normal operations without significant disruption.
 
 In practice, delays in audit engagements are more often driven by the readiness of accounting records and administrative processes — including final document execution — rather than the audit procedures themselves.`,
-    ko: `감사 요청 사항은 통합·우선순위화되어 고객 팀이 효율적으로 대응할 수 있습니다. 용역 전반에 걸쳐 소통을 유지하여, 사안이 마지막 단계에 누적되지 않고 발생하는 시점에 바로 처리됩니다.
+    ko: `감사 요청 사항들은 중요도에 따라 우선순위를 나누어 제공하므로, 회사의 실무 팀이 혼선 없이 효울적으로 대응할수 있습니다. 감사 진행 전 과정에 걸쳐 긴밀하게 소통 하므로 검토해야 할 사인들이 마지막 단계에서 한꺼번에 몰리 않고 발생할 때마다 즉시 처리 됩니다.
 
 회계 기록과 증빙 자료가 평소에 합리적으로 관리되고 있다면, 감사는 정상적인 업무와 병행하여 큰 지장 없이 진행될 수 있습니다.
 
@@ -158,7 +158,7 @@ In practice, delays in audit engagements are more often driven by the readiness 
         },
         answer: {
           en: "The audit generally runs through planning, fieldwork, and completion.<br><br>During planning and fieldwork, we request key documents, review supporting records, and follow up on selected transactions. Communication is ongoing throughout, with requests typically grouped and prioritised.<br><br>The completion stage is where the main value of the audit is realised. Findings, observations, and any adjustments are discussed with management, together with practical insights on financial reporting and processes. The objective is to ensure a clear, actionable understanding of the outcome, rather than simply issuing a report.",
-          ko: "감사는 일반적으로 계획 수립, 현장 감사, 완료의 단계로 진행됩니다.<br><br>계획 수립과 현장 감사 단계에서는 주요 서류를 요청하고 증빙 기록을 검토하며 선정된 거래를 확인합니다. 전 과정에 걸쳐 소통이 이어지며, 요청 사항은 통합·우선순위화하여 전달됩니다.<br><br>완료 단계는 감사의 핵심 가치가 실현되는 시점입니다. 발견사항과 관찰사항, 수정사항을 경영진과 논의하고, 재무 보고와 프로세스에 대한 실질적인 인사이트를 함께 제공합니다. 단순히 보고서를 발행하는 것이 아니라, 결과를 명확하고 실행 가능하게 이해하실 수 있도록 하는 것이 목표입니다.",
+          ko: "감사는 계획 수립, 현장 감사, 완료의 세 가지 단계로 투명하고 체계적으로 진행됩니다.<br><br>계획 수립과 현장 감사 단계에서는 주요 서류를 요청하고 증빙 기록을 검토하며 선정된 거래를 확인합니다. 전 과정에 걸쳐 소통이 이어지며, 요청 사항은 통합·우선순위화하여 전달됩니다.<br><br>완료 단계는 감사의 핵심 가치가 실현되는 시점입니다. 발견사항과 관찰사항, 수정사항을 경영진과 논의하고, 재무 보고와 프로세스에 대한 실질적인 인사이트를 함께 제공합니다. 단순히 보고서를 발행하는 것이 아니라, 결과를 명확하고 실행 가능하게 이해할 수 있도록 하는 것이 목표입니다.",
         },
       },
       {
@@ -168,7 +168,7 @@ In practice, delays in audit engagements are more often driven by the readiness 
         },
         answer: {
           en: "Your team's role is primarily to provide supporting information and clarification.<br><br>If your accounting records and supporting data are maintained in a reasonably organised manner as part of your day-to-day operations, the audit will generally not require significant additional preparation beyond responding to requests.<br><br>We manage the process in a structured way, with consolidated and prioritised requests.<br><br>In practice, where accounting is maintained properly, involvement is limited and predictable. Additional workload usually arises only where records require reconstruction.",
-          ko: "고객 팀의 역할은 주로 증빙 정보와 보충 설명을 제공하는 것입니다.<br><br>회계 기록과 증빙 자료가 평소 업무 과정에서 합리적으로 정리되어 있다면, 요청 사항에 대응하는 것 외에 별도의 큰 준비는 일반적으로 필요하지 않습니다.<br><br>저희는 요청 사항을 통합하고 우선순위화하여 체계적으로 절차를 관리합니다.<br><br>실무적으로 회계가 제대로 관리되고 있는 경우 참여 부담은 제한적이고 예측 가능합니다. 추가 업무는 대개 기록을 재작성해야 하는 경우에만 발생합니다.",
+          ko: "감사 과정에서 고객사 실무 팀의 역할은 증빙 자료를 공유하고, 필요한 부분에 대해 보충 설명을 제공하는 것입니다.<br><br>회계 기록과 증빙 자료가 평소 업무 과정에서 합리적으로 정리되어 있다면, 요청 사항에 대응하는 것 외에 별도의 큰 준비는 일반적으로 필요하지 않습니다.<br><br>요청 사항을 통합하고 우선순위화하여 체계적으로 관리합니다.<br><br>실무적으로 회계가 제대로 관리되고 있는 경우 실무팀의 부담은 제한적이고 예측 가능합니다. 추가 업무는 대개 기록이 미흡하거나 잘못되어 재작성해야 하는 경우에 발생합니다.",
         },
       },
       {
@@ -218,7 +218,7 @@ In practice, delays in audit engagements are more often driven by the readiness 
         },
         answer: {
           en: "Yes. We regularly support audit engagements involving group reporting structures and cross-border coordination.<br><br>This includes aligning local statutory audit requirements with group reporting packages, coordinating with overseas group auditors or parent entities, and ensuring consistency in timing and reporting expectations across jurisdictions.<br><br>Particular attention is given to:<br><br>· alignment with group reporting formats<br>· coordination of reporting deadlines<br>· communication between local management and group stakeholders<br><br>",
-          ko: "네. 저희는 그룹 리포팅 구조와 국경 간 협업이 포함된 감사 용역을 정기적으로 지원합니다.<br><br>여기에는 현지 법정 감사 요건을 그룹 리포팅 패키지와 정합화하고, 해외 그룹 감사인이나 모회사와 협업하며, 관할권 전반의 일정과 보고 기대치를 일관되게 맞추는 일이 포함됩니다.<br><br>특히 다음에 주의를 기울입니다.<br><br>· 그룹 리포팅 양식과의 정합성<br>· 보고 기한 조율<br>· 현지 경영진과 그룹 이해관계자 간 소통<br><br>",
+          ko: "네. 그룹 리포팅 구조와 국경 간 협업이 포함된 감사 용역을 정기적으로 지원합니다.<br><br>여기에는 현지 법정 감사 요건을 그룹 리포팅 패키지와 정합화하고, 해외 그룹 감사인이나 모회사와 협업하며, 관할권 전반의 일정과 보고 기대치를 일관되게 맞추는 일이 포함됩니다.<br><br>특히 다음에 주의를 기울입니다.<br><br>· 그룹 리포팅 양식과의 정합성<br>· 보고 기한 조율<br>· 현지 경영진과 그룹 이해관계자 간 소통<br><br>",
         },
       },
     ],

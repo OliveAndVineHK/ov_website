@@ -1,7 +1,7 @@
 export const servicesPageTranslations = {
   description: {
     en: "At Olive & Vine, we focus on long-term, sustainable growth.\n\nWe work closely with our clients at every stage to understand their needs and deliver professional support that empowers both the business and its people. Our approach is client-centric, grounded in building long-term relationships and delivering consistently high-quality service. Leveraging our deep understanding of the Hong Kong market and regulatory environment, we provide practical, forward-looking solutions tailored to each client's unique context.\n\nOur team brings together strong technical expertise and extensive experience across engagements, ensuring that every client receives reliable, thoughtful, and high-standard guidance.",
-    ko: "Olive & Vine은 장기적이고 지속 가능한 성장을 지향합니다.\n\n우리는 모든 과정에서 고객과 함께하며, 고객의 비즈니스와 우선순위, 그리고 의사결정의 배경까지 깊이 이해하고자 합니다. 우리의 접근 방식은 단기적인 결과가 아닌, 신뢰를 기반으로 한 장기적인 관계에 중심을 둡니다. 홍콩의 시장 환경과 규제에 대한 깊이 있는 이해를 바탕으로, 각 고객의 상황에 맞는 현실적이고 실행 가능한 해결책을 제공합니다. \n\n우리의 팀은 탄탄한 전문성과 다양한 실무 경험을 바탕으로, 명확한 판단과 일관된 기준 아래 신뢰할 수 있는 자문을 제공합니다.",
+    ko: "Olive & Vine은 장기적이고 지속 가능한 성장을 지향합니다.\n\n우리는 모든 과정에서 고객과 함께하며, 고객의 비즈니스와 우선순위, 그리고 의사결정의 배경까지 깊이 이해하고자 노력합니다. 우리의 접근 방식은 단기적인 성과가 아닌, 깊은 신뢰를 기반으로 한 장기적인 관계 구축에 중심을 둡니다. \n\n홍콩의 시장 환경과 규제에 대한 깊이 있는 이해를 바탕으로, 각 고객의 상황에 맞는 현실적이고 실행 가능한 해결책을 제공합니다. \n\n 탄탄한 전문성과 다양한 실무 경험을 갖추어, 명확한 판단과 일관된 기준 아래 언제나 신뢰할 수 있는 자문을 제공합니다.",
   },
   services: {
     corporate: {

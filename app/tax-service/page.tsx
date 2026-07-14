@@ -440,12 +440,11 @@ export default function TaxServicePage() {
                     <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/70 leading-[1.65] whitespace-pre-line text-justify">
                       {isKo
                         ? `홍콩의 세무는 법인, 개인, 그리고 부동산까지 여러 영역에 걸쳐 있으며, 이들은 서로 맞물려 작용합니다.
-각 영역은 서로 다른 규정과 위험요소, 그리고 계획상의 고려사항을 가지지만, 실제로는 독립적으로 운영되기 어렵습니다.
-하나의 영역에서의 의사결정은 다른 영역에 직접적인 영향을 미칠 수 있어, 전체적인 정렬이 중요합니다.
+각 영역은 서로 다른 규정과 위험요소, 그리고 계획 수립 시 고려사항을 가지고 있지만, 절대적으로 독립적이지는 않습니다. 한 영역에서의 결정이 다른 영역에 직접적인 영향을 미칠 수 있으므로, 전체적인 정렬과 조화가 필수적 입니다.
 효과적인 세무 관리는 단순히 세금 부담을 줄이는 데에 그치지 않습니다.
 구조 전반과 시간의 흐름에 따른 영향을 함께 고려하는 종합적이고 미래지향적인 접근이 필요합니다.
 신고 업무를 수행하고, 세무 구조를 검토·최적화하며, 국세청(IRD) 대응까지 포함하여 이러한 세 가지 관점을 하나로 통합해 관리합니다.
-단순한 규제 준수를 넘어, 구조 전반에 대한 명확성을 제공함으로써 일관되고 충분한 정보에 기반한 의사결정을 하나의 고객 관계 안에서 지원합니다.`
+단순한 규제 준수를 넘어, 복잡한 구조 전반에 대한 명확성을 제공함으로써 일관되고 정보에 기반한 올바른 의사결정이 이루어 지도록 지원합니다.`
                         : `Hong Kong tax spans multiple dimensions — companies, individuals, and property. These dimensions often intersect.
 Each area carries its own rules, risks, and planning considerations, yet they rarely operate in isolation. Decisions in one area can have direct implications for another, making alignment essential.
 Effective tax management is not limited to reducing liabilities. It requires a holistic and forward‑looking approach, assessing implications across structures and over time.

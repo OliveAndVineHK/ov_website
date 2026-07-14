@@ -24,7 +24,7 @@ export const corporateServicePageTranslations = {
   inBusiness: { en: "In Business", ko: "사업 운영" },
   inBusinessDescription: {
     en: "We manage statutory filings, annual and board meetings, share transfers, policy documentation, and administrative workflows with precision and accountability. System‑generated documents and structured process, while digital record‑keeping ensures a clear and organised corporate history.",
-    ko: "법정 보고, 주주총회 및 이사회 운영, 지분 이전, 정책 문서 관리와 행정 절차를 정확하게 수행합니다.\n체계적인 프로세스와 자동화된 문서 관리를 통해 업무의 일관성을 유지하고, 디지털 기록을 기반으로 기업 이력을 관리합니다.",
+    ko: "법정 보고, 주주총회 및 이사회 운영, 지분 양수도, 정책 문서 관리와 행정 절차를 정확하게 수행합니다.\n체계적인 프로세스와 자동화된 문서 관리를 통해 업무의 일관성을 유지하며, 디지털 기록을 기반으로 기업 이력을 투명하고 안전하게 관리합니다.",
   },
   inBusinessItems: {
     en: [
@@ -47,7 +47,7 @@ export const corporateServicePageTranslations = {
   exit: { en: "Exit", ko: "마무리" },
   exitDescription: {
     en: "For deregistration, liquidation, and capital reduction, we apply a methodical, step‑by‑step digital workflow that enhances transparency across all stakeholders and ensures adherence to regulatory requirements.",
-    ko: "말소, 청산 및 자본금 조정에 있어 단계별 디지털 절차를 통해 업무를 수행합니다.\n이를 통해 모든 이해관계자가 명확하게 과정을 확인할 수 있도록 하고, 규제 준수를 충실히 이행합니다.",
+    ko: "말소, 청산 및 자본금 조정에 있어 단계별 디지털 절차를 통해 업무를 수행합니다.\n이를 통해 모든 이해관계자가 진행 과정을  명확하게 과정을 확인할 수 있도록 지원하며, 관련 규제 준수 의무를 충실히 이행합니다.",
   },
   exitItems: {
     en: ["Deregistration or liquidation", "Reduction in share capital"],

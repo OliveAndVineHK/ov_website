@@ -87,7 +87,7 @@ For full details on employer reporting and HR-related workflows, please refer to
 We do not engage in or advise on any arrangements that compromise regulatory integrity, ethical standards or long‑term compliance.
 We believe this approach serves the best interests of our clients, supporting sustainable outcomes and long‑term certainty.`,
     ko: `올리브 앤 바인은 관련 법규 및 전문 기준에 부합하는 세무 서비스를 제공합니다.
-법규를 우회 또는 악용하거나, 윤리 기준 또는 장기적인 준수를 저해하는 구조나 방안에 관여하거나 자문하지 않습니다.
+당장의 이익을 위해 법규를 우회 또는 악용하거나, 윤리 기준을 저해하고 장기적인 안정성을 위협하는 비정상적인 세무 구조에는 절대 관여하거나 자문하지 않습니다.
 이러한 원칙을 바탕으로, 고객에게 보다 안정적이고 지속 가능한 결과를 제공하는 방향으로 서비스를 제공합니다.`,
   },
   taxTimeline: {
