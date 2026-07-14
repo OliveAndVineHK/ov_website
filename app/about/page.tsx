@@ -144,7 +144,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <div className="md:col-span-7 flex items-start">
-                <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] text-justify">
+                <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] text-justify whitespace-pre-line">
                   {isKo ? t.storyBody.ko : t.storyBody.en}
                 </p>
               </div>
@@ -202,7 +202,7 @@ export default function AboutPage() {
               </Link>
             </div>
 
-            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl mb-10 text-justify">
+            <p className="text-[15px] md:text-[16px] 2xl:text-[18px] text-[#111B12]/75 leading-[1.7] max-w-3xl mb-10 text-justify whitespace-pre-line">
               {isKo ? t.leadershipCulture.ko : t.leadershipCulture.en}
             </p>
 
@@ -302,7 +302,7 @@ export default function AboutPage() {
                   >
                     &ldquo;{p.title}&rdquo;
                   </p>
-                  <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/75 leading-[1.7] text-justify">
+                  <p className="text-[14px] md:text-[15px] 2xl:text-[17px] text-[#111B12]/75 leading-[1.7] text-justify whitespace-pre-line">
                     {p.body}
                   </p>
                 </div>

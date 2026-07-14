@@ -209,3 +209,4 @@
 - 디자인: design-system 규칙 준수(그림자/블러/linear-gradient 없음, radial 라이트, 올리브 단일 색계, NE 코너 제스처 rounded-tr). Methodology 세로 스택 카드.
 - 검증: tsc 0, eslint 0.
 - 후속 결정(사용자 확인): (2) HR 취업비자 FAQ 서류목록 `\n`→`<br>` 줄바꿈 적용. (3) Values 가치5 본문 오타 `업무 관게`→`업무 관계` 수정. (1) InsightCards Amendment 카드 KO 제목 홈·목록 모두 `변경`으로 통일(검수자 지시). (4) stale 행 미작업 확정. (5) 07 Assurance·08 Tax는 다른 세션에서 진행 중 → 미반영.
+- 2026-07-14 · 01 About 시트 (신규 라운드) 적용: heroSubtitle, storyBody, leadershipCulture, pillar1~3Body 한국어 6건 수정 (pageAboutUtils.ts)
