@@ -14,7 +14,7 @@ export const accountingServicePageTranslations = {
   },
   accountingServiceIntro: {
     en: "Our accounting function is built on a robust cloud‑based architecture and related applications. Automated bank feeds, digital document intake, and system‑based reconciliation processes enhance accuracy, timeliness, and auditability. Clients interact with us through digital channels, eliminating risks associated with traditional document exchange.<br><br>We periodically assess your accounting processes, recommending enhancements that strengthen internal control, shorten closing cycles, and improve reporting reliability.",
-    ko: "회계 기능은 견고한 클라우드 기반 아키텍처와 관련 시스템을 바탕으로 운영됩니다.\n자동화된 은행 연계, 디지털 문서 수집, 그리고 시스템 기반 대사 프로세스를 통해 정확성, 적시성 및 감사 가능성을 강화합니다.\n또한 고객은 디지털 채널을 통해 업무를 처리함으로써, 기존의 문서 전달 과정에서 발생할 수 있는 리스크를 최소화할 수 있습니다.\n회계 프로세스는 정기적으로 점검되며, 내부통제를 강화하고 결산 주기를 단축하며, 보고의 신뢰도를 높이기 위한 개선 방향이 함께 제시됩니다.",
+    ko: "회계 기능은 견고한 클라우드 기반 아키텍처와 관련 시스템을 바탕으로 운영됩니다.\n자동화된 은행 연계, 디지털 문서 수집, 그리고 시스템 기반 프로세스를 통해 정확성, 적시성 및 감사 가능성을 강화합니다.\n또한 고객은 디지털 채널을 통해 업무를 처리함으로써, 기존의 문서 전달 과정에서 발생할 수 있는 리스크를 최소화할 수 있습니다.\n회계 프로세스는 정기적으로 점검되며, 내부통제를 강화하고 결산 주기를 단축하며, 보고의 신뢰도를 높이기 위한 개선 방향이 함께 제시됩니다.",
   },
   bookkeepingTitle: { en: "Bookkeeping", ko: "기장" },
   bookkeepingDescription: {

@@ -69,7 +69,7 @@ export default function Services() {
               </span>
             ))}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-[20px] 2xl:text-[22px] text-[#111B12] leading-relaxed w-full text-justify mt-6 md:mt-8">
+          <p className="text-base sm:text-lg md:text-xl lg:text-[20px] 2xl:text-[22px] text-[#111B12] leading-relaxed w-full text-justify mt-6 md:mt-8 whitespace-pre-line">
             {language === "KOR" ? servicesPageTranslations.description.ko : servicesPageTranslations.description.en}
           </p>
           <div className="w-full flex flex-col gap-4 mt-12 md:mt-16">
