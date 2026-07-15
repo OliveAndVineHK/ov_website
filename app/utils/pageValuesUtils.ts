@@ -31,7 +31,7 @@ export const valuesPageTranslations = {
       },
       body: {
         en: "Excellence means bringing high standards to every engagement, regardless of client size. We obsess over details because details matter. We stay current with evolving regulations and best practices because our clients depend on our expertise. Excellence isn't about being perfect—it's about caring deeply. Every recommendation is tested, every solution is tailored, and every deliverable reflects our commitment to quality. Your success deserves nothing less than our best.",
-        ko: "고객의 규모와 관계없이 모든 업무에 동일한 기준으로 집중하며, 동일한 수준의 전문성을 제공합니다. 디테일이 결과를 좌우하기에 모든 세부 사항을 철저히 검토하고, 변화하는 규정과 업계 기준을 지속적으로 반영하여 신뢰할 수 있는 전문성을 유지합니다. 우리가 생각하는 탁원함은 단순한 완벽함이 아니라, 깊이 있게 고민하고 책임있게 접근하는 태도 입니다. 모든 자문은 충분히 검증되고, 모든 솔류선은 고객에 맞게 설계되며, 모든 결과물에는 Olive & Vine 만의 엄격한 기준이 반영됩니다. 고객의 성과를 최고로 이끄는 것, 그것이 우리가 양보하지 않는 높은 기준입니다.",
+        ko: "고객의 규모와 관계없이 모든 업무에 동일한 기준으로 집중하며, 동일한 수준의 전문성을 제공합니다. 디테일이 결과를 좌우하기에 모든 세부 사항을 철저히 검토하고, 변화하는 규정과 업계 기준을 지속적으로 반영하여 신뢰할 수 있는 전문성을 유지합니다. 우리가 생각하는 탁월함은 단순한 완벽함이 아니라, 깊이 있게 고민하고 책임있게 접근하는 태도 입니다. 모든 자문은 충분히 검증되고, 모든 솔류선은 고객에 맞게 설계되며, 모든 결과물에는 Olive & Vine 만의 엄격한 기준이 반영됩니다. 고객의 성과를 최고로 이끄는 것, 그것이 우리가 양보하지 않는 높은 기준입니다.",
       },
     },
     {
