@@ -9,31 +9,20 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Language is intentionally NOT persisted: every visit starts in English
+// regardless of what the visitor chose last time. The toggle only lasts for
+// the current session (in-memory state). localStorage read/write was removed
+// on 2026-07-15 at the owner's request — do not re-add persistence without
+// checking with the owner.
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState("ENG");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const savedLanguage = localStorage.getItem("language");
-    if (savedLanguage === "ENG" || savedLanguage === "KOR") {
-      setLanguage(savedLanguage);
-    }
-  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-lang", language);
   }, [language]);
 
-  const handleSetLanguage = (lang: string) => {
-    setLanguage(lang);
-    if (mounted) {
-      localStorage.setItem("language", lang);
-    }
-  };
-
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
