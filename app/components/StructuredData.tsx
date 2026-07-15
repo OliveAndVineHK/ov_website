@@ -1,5 +1,5 @@
 const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://test.oliveandvinehk.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.oliveandvinehk.com";
 
 const siteUrl = baseUrl.replace(/\/$/, "");
 

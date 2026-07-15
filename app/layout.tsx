@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 const CANONICAL_ORIGIN = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://test.oliveandvinehk.com"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.oliveandvinehk.com"
 ).replace(/\/$/, "");
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://test.oliveandvinehk.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.oliveandvinehk.com";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;

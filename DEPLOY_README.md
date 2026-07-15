@@ -30,7 +30,7 @@ npm run build
 npm start       # run the build locally in production mode
 ```
 
-> **No secret keys are required** to build or run. `npm run dev` / `npm run build` work with no environment variables (the variables below all have fallbacks). However, **for production set `NEXT_PUBLIC_SITE_URL` to the real domain** — otherwise the sitemap, canonical URLs, and SEO metadata point to staging (`test.oliveandvinehk.com`).
+> **No secret keys are required** to build or run. `npm run dev` / `npm run build` work with no environment variables (the variables below all have fallbacks). The sitemap, canonical URLs, and SEO metadata default to production (`https://www.oliveandvinehk.com`); set `NEXT_PUBLIC_SITE_URL` only to override (e.g. on staging).
 
 ---
 

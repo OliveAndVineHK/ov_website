@@ -1,7 +1,7 @@
 import { INSIGHT_PAGES } from "@/app/utils/dynamicPageConfig";
 
 // Use canonical production URL for sitemap so Search Console accepts it (never use Vercel deployment URL)
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://test.oliveandvinehk.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.oliveandvinehk.com";
 
 const root = baseUrl.replace(/\/$/, "");
 
