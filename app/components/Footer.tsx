@@ -17,13 +17,26 @@ export default function Footer() {
   const showQuestionsSection = !isContactPage && !isSubscribePage;
 
   const [formData, setFormData] = useState({ name: "", contactNumber: "", email: "", title: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const updateField = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setFormData((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const handleFooterSubmit = () => {
+  const handleFooterSubmit = async () => {
     if (!formData.name.trim() || !formData.email.trim()) return;
-    // TODO: API 연동 — POST /api/questions
-    console.info("[Footer] Form submitted:", formData);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/questions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      setStatus("sent");
+      setFormData({ name: "", contactNumber: "", email: "", title: "", message: "" });
+    } catch (err) {
+      console.error("[Footer] Submit failed:", err);
+      setStatus("error");
+    }
   };
 
   const toggleLanguage = () => setLanguage(language === "KOR" ? "ENG" : "KOR");
@@ -66,10 +79,22 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row justify-start mt-4">
               <div className="w-full sm:w-auto">
-                <button type="button" onClick={handleFooterSubmit} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed bg-white px-5 py-1.5 hover:bg-[#495F2B] hover:border-[#627F38] hover:text-white transition-all duration-300 cursor-pointer shrink-0">
-                  {language === "KOR" ? questionsTranslations.button.ko : questionsTranslations.button.en}
+                <button type="button" onClick={handleFooterSubmit} disabled={status === "sending"} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] 2xl:text-[17px] text-[#111B12]/70 leading-relaxed bg-white px-5 py-1.5 hover:bg-[#495F2B] hover:border-[#627F38] hover:text-white transition-all duration-300 cursor-pointer shrink-0 disabled:opacity-60 disabled:cursor-not-allowed">
+                  {status === "sending"
+                    ? language === "KOR" ? "전송 중..." : "Sending..."
+                    : language === "KOR" ? questionsTranslations.button.ko : questionsTranslations.button.en}
                   <Icons.CgArrowTopRight className="size-4" aria-hidden />
                 </button>
+                {status === "sent" && (
+                  <p className="mt-3 text-sm text-white">
+                    {language === "KOR" ? "문의가 성공적으로 전송되었습니다. 감사합니다." : "Your message has been sent. Thank you."}
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="mt-3 text-sm text-white/90">
+                    {language === "KOR" ? "전송에 실패했습니다. 잠시 후 다시 시도해 주세요." : "Something went wrong. Please try again later."}
+                  </p>
+                )}
               </div>
             </div>
           </div> 

@@ -18,13 +18,31 @@ export default function Contact() {
   const [titleValue, setTitleValue] = useState("");
   const [message, setMessage] = useState("");
   const [showValidationErrors, setShowValidationErrors] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const hasEmpty = !name.trim() || !email.trim();
     setShowValidationErrors(hasEmpty);
     if (hasEmpty) return;
-    // TODO: API 연동 — POST /api/contact { name, email, contactNumber, title: titleValue, message }
-    console.info("[Contact] Form submitted:", { name, email, contactNumber, title: titleValue, message });
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, contactNumber, title: titleValue, message }),
+      });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setContactNumber("");
+      setTitleValue("");
+      setMessage("");
+    } catch (err) {
+      console.error("[Contact] Submit failed:", err);
+      setStatus("error");
+    }
   };
 
   const contactBackgroundStyle = createBgStyle("/contact/contact-bg.svg");
@@ -73,10 +91,22 @@ export default function Contact() {
             </StyledTextField>
             <StyledTextField id="contact-message" label={language === "KOR" ? questionsTranslations.form.message.ko : questionsTranslations.form.message.en} multiline rows={2} value={message} onChange={(e) => setMessage(e.target.value)} sx={subscribeNoRadiusSx} />
             <div className="mt-3 sm:mt-4">
-              <button type="button" onClick={handleSubmit} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] text-white leading-relaxed border border-[#495F2B] bg-[#495F2B] px-4 sm:px-5 py-1.5 hover:bg-[#627F38] hover:border-[#627F38] transition-all duration-300 cursor-pointer">
-                {language === "KOR" ? questionsTranslations.button.ko : questionsTranslations.button.en}
+              <button type="button" onClick={handleSubmit} disabled={status === "sending"} className="inline-flex items-center gap-1.5 text-sm sm:text-base md:text-[15px] text-white leading-relaxed border border-[#495F2B] bg-[#495F2B] px-4 sm:px-5 py-1.5 hover:bg-[#627F38] hover:border-[#627F38] transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+                {status === "sending"
+                  ? language === "KOR" ? "전송 중..." : "Sending..."
+                  : language === "KOR" ? questionsTranslations.button.ko : questionsTranslations.button.en}
                 <Icons.CgArrowTopRight className="size-4" aria-hidden />
               </button>
+              {status === "sent" && (
+                <p className="mt-3 text-sm text-[#495F2B]">
+                  {language === "KOR" ? "문의가 성공적으로 전송되었습니다. 감사합니다." : "Your message has been sent. Thank you."}
+                </p>
+              )}
+              {status === "error" && (
+                <p className="mt-3 text-sm text-[#8A2B2B]">
+                  {language === "KOR" ? "전송에 실패했습니다. 잠시 후 다시 시도해 주세요." : "Something went wrong. Please try again later."}
+                </p>
+              )}
             </div>
           </div>
         </div>
