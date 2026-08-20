@@ -29,7 +29,17 @@
 
 ### 1. Contact form email integration (Brevo)
 
-**Owner decision:** Brevo is the chosen transactional email provider (the team already uses Brevo for other workflows).
+> **RESOLVED 2026-07-20 — implemented with Microsoft Graph instead of Brevo.**
+> Both forms now POST to `/api/contact` and `/api/questions`, which send via the
+> Microsoft Graph `sendMail` API using an Entra app registration. Chosen because the
+> firm already runs Microsoft 365, so no third-party provider, domain re-verification,
+> or new dependency was needed. See **`docs/contact-form-email.md`** for the full
+> implementation report and remaining operational tasks (secret rotation, Vercel env vars).
+>
+> The Brevo plan below is retained as historical context — it remains the reference if
+> a transactional provider is ever preferred, and for the deferred `/subscribe` work.
+
+**Owner decision (superseded):** Brevo is the chosen transactional email provider (the team already uses Brevo for other workflows).
 
 **Scope:**
 - `/contact` form submit → email to `contact@oliveandvinehk.com`
